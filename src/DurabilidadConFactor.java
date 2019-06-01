@@ -8,7 +8,7 @@ public class DurabilidadConFactor extends Durabilidad {
     }
 
     public void desgastar(int fuerza){
-        this.durabilidad -= fuerza * this.factor;
+        this.durabilidad -= fuerza / this.factor;
     }
 
 }

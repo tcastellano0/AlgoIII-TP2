@@ -1,18 +1,20 @@
 public class Hacha extends Herramienta {
 
-    public Hacha(double durabilidad, int fuerza){
+    public Hacha(Durabilidad durabilidad, int fuerza){
         this.durabilidad = durabilidad;
         this.fuerza = fuerza;
     }
 
     public static Hacha crearHachaDeMadera(){
-        return new Hacha(100,2);
+        return new Hacha(new DurabilidadConFactor(100, 1), 2);
     }
 
-    public static Hacha crearHachaDePiedra(){ return new Hacha(200,5); }
+    public static Hacha crearHachaDePiedra(){
+        return new Hacha(new DurabilidadConFactor(200, 1), 5);
+    }
 
     public static Hacha crearHachaDeMetal(){
-        return new Hacha(400,10);
+        return new Hacha(new DurabilidadConFactor(400, 2), 10);
     }
 
     public void desgastar(){
