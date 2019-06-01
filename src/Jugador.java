@@ -10,6 +10,7 @@ public class Jugador {
 	public Jugador() {
 		this.herramientaEquipada = Hacha.crearHachaDeMadera();
 		this.herramientas = new ArrayList();
+		this.herramientas.add(this.herramientaEquipada);
 		this.materiales = new ArrayList();
 	}
 	
