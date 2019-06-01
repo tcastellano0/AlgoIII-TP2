@@ -1,18 +1,10 @@
-public class PicoMadera {
-    private int durabilidad;
-    private int fuerza;
-
-
-    public PicoMadera() {
-        this.durabilidad = 100;
-        this.fuerza = 2;
-    }
+public class PicoMadera extends Herramienta{
 
     public int getDurabilidad() {
-        return durabilidad;
+        return 100;
     }
 
     public int getFuerza() {
-        return fuerza;
+        return 2;
     }
 }

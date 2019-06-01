@@ -1,18 +1,10 @@
-public class HachaMadera {
-
-    private int durabilidad;
-    private int fuerza;
-
-    public HachaMadera() {
-        this.durabilidad = 100;
-        this.fuerza = 2;
-    }
+public class HachaMadera extends Herramienta{
 
     public int getDurabilidad() {
-        return durabilidad;
+        return 100;
     }
 
     public int getFuerza() {
-        return fuerza;
+        return 2;
     }
 }
