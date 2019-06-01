@@ -1,4 +1,5 @@
 public abstract class Herramienta implements Desgastable{
+
 	protected int fuerza;
 	protected Durabilidad durabilidad;
 
@@ -13,6 +14,5 @@ public abstract class Herramienta implements Desgastable{
     public void desgastar(){
         this.durabilidad.desgastar(this.fuerza);
     }
-
 
 }
