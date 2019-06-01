@@ -1,7 +1,7 @@
 public class PicoMetal extends Herramienta {
-    @Override
-    public int getDurabilidad() {
-        return 400;
+
+    public PicoMetal() {
+        this.durabilidad = 400;
     }
 
     @Override

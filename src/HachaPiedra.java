@@ -1,7 +1,7 @@
 public class HachaPiedra extends Herramienta {
-    @Override
-    public int getDurabilidad() {
-        return 200;
+
+    public HachaPiedra() {
+        this.durabilidad = 200;
     }
 
     @Override

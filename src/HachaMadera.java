@@ -1,7 +1,7 @@
 public class HachaMadera extends Herramienta{
 
-    public int getDurabilidad() {
-        return 100;
+    public HachaMadera() {
+        this.durabilidad = 100;
     }
 
     public int getFuerza() {

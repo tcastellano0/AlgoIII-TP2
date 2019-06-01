@@ -1,7 +1,7 @@
 public class PicoPiedra extends Herramienta {
-    @Override
-    public int getDurabilidad() {
-        return 200;
+
+    public PicoPiedra() {
+        this.durabilidad = 200;
     }
 
     @Override

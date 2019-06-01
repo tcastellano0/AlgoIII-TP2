@@ -1,9 +1,11 @@
 public class PicoMadera extends Herramienta{
 
-    public int getDurabilidad() {
-        return 100;
+    public PicoMadera() {
+        this.durabilidad = 100;
     }
 
+
+    @Override
     public int getFuerza() {
         return 2;
     }

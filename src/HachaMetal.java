@@ -1,7 +1,7 @@
 public class HachaMetal extends Herramienta {
-    @Override
-    public int getDurabilidad() {
-        return 400;
+
+    public HachaMetal() {
+        this.durabilidad = 400;
     }
 
     @Override
