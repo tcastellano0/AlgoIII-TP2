@@ -9,5 +9,10 @@ public abstract class Herramienta implements Desgastable{
     public int getFuerza() {
         return this.fuerza;
     }
-    
+
+    public void desgastar(){
+        this.durabilidad.desgastar(this.fuerza);
+    }
+
+
 }

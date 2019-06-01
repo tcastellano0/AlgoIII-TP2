@@ -5,11 +5,6 @@ public class Pico extends Herramienta {
 		this.durabilidad = durabilidad;
 	}
 	
-	@Override
-	public void desgastar() {
-		// TODO Auto-generated method stub
-	}
-	
 	public static Pico crearPicoDeMadera() {
 		return new Pico(2, 100);	
 	}

@@ -43,7 +43,6 @@ public class PicoTest {
         assertEquals(pico.getFuerza(), 12);
     }
 
-    /*
     @Test
     void test07PicoDeMaderaSeDesgastaIgualASuFuerza(){
         Pico pico = Pico.crearPicoDeMadera(); //fuerza 2, durabilidad 100
@@ -59,7 +58,7 @@ public class PicoTest {
         pico.desgastar();
         assertEquals(pico.getDurabilidad(), 200  - pico.getFuerza()/1.5);
     }
-
+    /*
     @Test
     void test09PicoDeMetalSeRompeALos10Usos(){
         Pico pico = Pico.crearPicoDeMetal();
