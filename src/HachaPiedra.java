@@ -8,4 +8,8 @@ public class HachaPiedra extends Herramienta {
     public int getFuerza() {
         return 5;
     }
+
+    public void desgastar() {
+        this.durabilidad -= this.getFuerza();
+    }
 }
