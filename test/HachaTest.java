@@ -11,6 +11,9 @@ public class HachaTest {
     }
     @Test
     public void test02HachaDeMaderaSeInicializaConFuerza2(){
+        HachaMadera hacha = new HachaMadera();
+
+        assertEquals(hacha.getFuerza(), 2);
 
     }
 
