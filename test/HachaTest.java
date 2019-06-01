@@ -62,7 +62,6 @@ public class HachaTest {
         assertEquals(hacha.getDurabilidad(), 200 - hacha.getFuerza());
     }
 
-    /*
     @Test
     void test08HachaDeMetalSeDesgastaConLaMitadDeSuFuerza(){
         Hacha hacha = Hacha.crearHachaDeMetal(); //tiene fuerza 10, durabilidad 400
@@ -70,5 +69,5 @@ public class HachaTest {
         hacha.desgastar();
         assertEquals(hacha.getDurabilidad(), 400 - hacha.getFuerza()/2);
     }
-    */
+
 }
