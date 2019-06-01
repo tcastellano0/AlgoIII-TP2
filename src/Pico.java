@@ -14,7 +14,7 @@ public class Pico extends Herramienta {
 	}
 	
 	public static Pico crearPicoDeMetal() {
-		return new Pico(12, new DurabilidadConFactor(400, 1));
+		return new Pico(12, new DurabilidadConUsos(400, 10));
 	}
 }
 

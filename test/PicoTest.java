@@ -11,31 +11,35 @@ public class PicoTest {
 
         assertEquals(pico.getDurabilidad(), 100);
     }
+    
     @Test
     public void test02PicoDeMaderaSeInicializaConFuerza2(){
         Pico pico = Pico.crearPicoDeMadera();
 
         assertEquals(pico.getFuerza(), 2);
-
     }
+    
     @Test
     void test03PicoDePiedraSeInicializaConDurabilidad200(){
         Pico pico = Pico.crearPicoDePiedra();
 
         assertEquals(pico.getDurabilidad(), 200);
     }
+    
     @Test
     void test04PicoDePiedraSeInicializaConFuerza4(){
         Pico pico = Pico.crearPicoDePiedra();
 
         assertEquals(pico.getFuerza(), 4);
     }
+    
     @Test
     void test05PicoDeMetalSeInicializaConDurabilidad400(){
         Pico pico = Pico.crearPicoDeMetal();
 
         assertEquals(pico.getDurabilidad(), 400);
     }
+    
     @Test
     void test06PicoDeMetalSeInicializaConFuerza12(){
         Pico pico = Pico.crearPicoDeMetal();
@@ -58,17 +62,16 @@ public class PicoTest {
         pico.desgastar();
         assertEquals(pico.getDurabilidad(), 200  - pico.getFuerza()/1.5);
     }
-    /*
+    
     @Test
     void test09PicoDeMetalSeRompeALos10Usos(){
         Pico pico = Pico.crearPicoDeMetal();
 
-        IntStream.range(0, 9).parallel().forEach($ ->{
+        IntStream.range(0, 10).parallel().forEach($ ->{
             pico.desgastar();
         });
 
         assertEquals(pico.getDurabilidad(), 0);
     }
-    */
 
 }
