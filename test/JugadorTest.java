@@ -12,10 +12,10 @@ public class JugadorTest {
     }
 	
 	@Test
-    void test02JugadorSeInicializaConCeroHerramientas() {
+    void test02JugadorSeInicializaConUnaHerramienta() {
 		Jugador jugador = new Jugador();
 		
-		assertEquals(jugador.cantidadDeHerramientas(), 0);
+		assertEquals(jugador.cantidadDeHerramientas(), 1);
     }
 	
 
