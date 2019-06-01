@@ -4,14 +4,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class HachaTest {
     @Test
-    public void test01HachaDeMaderaSeInicializaConDurabilidad100() {
+    void test01HachaDeMaderaSeInicializaConDurabilidad100() {
         HachaMadera hacha = new HachaMadera();
 
         assertEquals(hacha.getDurabilidad(), 100);
     }
 
     @Test
-    public void test02HachaDeMaderaSeInicializaConFuerza2() {
+    void test02HachaDeMaderaSeInicializaConFuerza2() {
         HachaMadera hacha = new HachaMadera();
 
         assertEquals(hacha.getFuerza(), 2);
@@ -19,17 +19,30 @@ public class HachaTest {
     }
 
     @Test
-    public void test03HachaDePiedraSeInicializaConDurabilidad200() {
+    void test03HachaDePiedraSeInicializaConDurabilidad200() {
         HachaPiedra hacha = new HachaPiedra();
 
         assertEquals(hacha.getDurabilidad(), 200);
     }
 
     @Test
-    public void test03HachaDePiedraSeInicializaConFuerza5() {
+    void test03HachaDePiedraSeInicializaConFuerza5() {
         HachaPiedra hacha = new HachaPiedra();
 
         assertEquals(hacha.getFuerza(), 5);
     }
 
+    @Test
+    void test04HachaDeMetalSeInicializaConDurabilidad400() {
+        HachaMetal hacha = new HachaMetal();
+
+        assertEquals(hacha.getDurabilidad(), 400);
+    }
+
+    @Test
+    void test05HachaDeMetalSeInicializaConFuerza10() {
+        HachaMetal hacha = new HachaMetal();
+
+        assertEquals(hacha.getFuerza(), 10);
+    }
 }
