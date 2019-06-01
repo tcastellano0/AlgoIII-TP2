@@ -1,17 +1,28 @@
 import java.util.ArrayList;
-import java.util.List;
 
 public class Jugador {
 	
 	Herramienta herramientaEquipada;
-	List herramientas;
-	List materiales;
+	ArrayList<Herramienta> herramientas;
+	ArrayList<Material> materiales;
 	
 	public Jugador() {
 		this.herramientaEquipada = Hacha.crearHachaDeMadera();
-		this.herramientas = new ArrayList();
+		this.herramientas = new ArrayList<Herramienta>();
 		this.herramientas.add(this.herramientaEquipada);
-		this.materiales = new ArrayList();
+		this.materiales = new ArrayList<Material>();
+	}
+	
+	public int cantidadDeHerramientas() {
+		return (herramientas.size());
+	}
+	
+	public int cantidadDeMateriales() {
+		return (materiales.size());
+	}
+	
+	public Herramienta herramientaEquipada() {
+		return (herramientaEquipada);
 	}
 	
 }
