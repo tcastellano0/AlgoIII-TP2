@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class Jugador {
 	
 	protected Herramienta herramientaEquipada;
-	protected List herramientas;
-	protected List materiales;
+	protected ArrayList<Herramienta> herramientas;
+	protected ArrayList<Material> materiales;
 	
 	public Jugador() {
 		this.herramientaEquipada = Hacha.crearHachaDeMadera();
