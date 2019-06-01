@@ -1,7 +1,7 @@
 public abstract class Herramienta {
-    protected int durabilidad;
+    protected double durabilidad;
 
-    public int getDurabilidad(){
+    public double getDurabilidad(){
         return this.durabilidad;
     }
 

@@ -9,4 +9,8 @@ public class PicoMadera extends Herramienta{
     public int getFuerza() {
         return 2;
     }
+
+    public void desgastar(){
+        this.durabilidad -= this.getFuerza();
+    }
 }
