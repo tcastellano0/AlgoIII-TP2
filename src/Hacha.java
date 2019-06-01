@@ -9,9 +9,7 @@ public class Hacha extends Herramienta {
         return new Hacha(100,2);
     }
 
-    public static Hacha crearHachaDePiedra(){
-        return new Hacha(200,5);
-    }
+    public static Hacha crearHachaDePiedra(){ return new Hacha(200,5); }
 
     public static Hacha crearHachaDeMetal(){
         return new Hacha(400,10);

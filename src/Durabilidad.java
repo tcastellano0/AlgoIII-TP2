@@ -2,6 +2,6 @@ public abstract class Durabilidad {
 
     protected double durabilidad;
 
-    public abstract double desgastar(int fuerza);
+    public abstract void desgastar(int fuerza);
 
 }
