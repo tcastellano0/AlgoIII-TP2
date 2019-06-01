@@ -17,14 +17,6 @@ public class Hacha extends Herramienta {
         return new Hacha(400,10);
     }
 
-    public double getFuerzaa() {
-        return this.durabilidad;
-    }
-
-    public int getFuerza() {
-        return this.fuerza;
-    }
-
     public void desgastar(){
         this.durabilidad -= this.getFuerza();
     }

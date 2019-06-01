@@ -1,10 +1,13 @@
 public abstract class Herramienta implements Desgastable{
-    protected double durabilidad;
-    protected int fuerza;
+	protected int fuerza;
+	protected double durabilidad;
 
-    public double getDurabilidad(){
+    public double getDurabilidad() {
         return this.durabilidad;
     }
 
-    public abstract int getFuerza();
+    public int getFuerza() {
+        return this.fuerza;
+    }
+    
 }
