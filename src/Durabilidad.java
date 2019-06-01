@@ -5,7 +5,7 @@ public abstract class Durabilidad {
     public abstract void desgastar(int fuerza);
     
     public double getDurabilidad() {
-    	return durabilidad;
+    	return this.durabilidad;
     } 
 
 }
