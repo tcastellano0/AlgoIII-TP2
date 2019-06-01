@@ -67,9 +67,9 @@ public class PicoTest {
     void test09PicoDeMetalSeRompeALos10Usos(){
         Pico pico = Pico.crearPicoDeMetal();
 
-        IntStream.range(0, 10).parallel().forEach($ ->{
-            pico.desgastar();
-        });
+        for(int i = 0; i < 10; i++) {
+        	pico.desgastar();
+        }
 
         assertEquals(pico.getDurabilidad(), 0);
     }
