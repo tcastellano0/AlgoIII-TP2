@@ -8,7 +8,7 @@ public class DurabilidadConFactorTest {
     public void test01DurabilidadConFactorUnoReduceDurabilidadDeAcuerdoALaFuerza(){
         double durabilidadInicial = 100;
         int fuerza = 5;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, 1);
+        Durabilidad durabilidad = new DurabilidadConFactor(1, durabilidadInicial);
 
         durabilidad.desgastar(fuerza);
 
@@ -22,7 +22,7 @@ public class DurabilidadConFactorTest {
         int fuerza = 5;
         int otraFuerza = 6;
         int otraFuerzaMas = 10;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, 1);
+        Durabilidad durabilidad = new DurabilidadConFactor(1, durabilidadInicial);
 
         durabilidad.desgastar(fuerza);
 
@@ -42,7 +42,7 @@ public class DurabilidadConFactorTest {
         double durabilidadInicial = 100;
         int fuerza = 5;
         double factor = 2;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
+        Durabilidad durabilidad = new DurabilidadConFactor(factor, durabilidadInicial);
 
         durabilidad.desgastar(fuerza);
 
@@ -55,7 +55,7 @@ public class DurabilidadConFactorTest {
     	int fuerza = 1;
     	double factor = 1;
     	
-    	Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
+    	Durabilidad durabilidad = new DurabilidadConFactor(factor, durabilidadInicial);
     	
     	for(int i=0; i < durabilidadInicial; i++) {
     		durabilidad.desgastar(fuerza);
