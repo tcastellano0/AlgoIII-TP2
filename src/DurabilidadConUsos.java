@@ -4,9 +4,9 @@ public class DurabilidadConUsos extends Durabilidad {
 	private int usosMax;
 	private int usosActual;
 
-    public DurabilidadConUsos(double durabilidad, int usoMax){
+    public DurabilidadConUsos(int usoMax, double durabilidad){
+    	this.usosMax = usoMax;
     	this.durabilidad = durabilidad;
-        this.usosMax = usoMax;
     }
     
 	@Override

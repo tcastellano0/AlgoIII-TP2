@@ -73,5 +73,16 @@ public class PicoTest {
 
         assertEquals(pico.getDurabilidad(), 0);
     }
+    
+    @Test
+    void test10PicoDeMetalSeRompeNoSeDeberiaRomperAntesDeLosDiezUsos(){
+        Pico pico = Pico.crearPicoDeMetal();
+
+        for(int i = 0; i < 5; i++) {
+        	pico.desgastar();
+        }
+
+        assertEquals(pico.getDurabilidad(), 400);
+    }
 
 }
