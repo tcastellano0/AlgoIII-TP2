@@ -1,7 +1,7 @@
 public class Madera extends Material{
 
     public Madera() {
-        super();
+        this.durabilidad = new DurabilidadConFactor(1, 10);
     }
 
     public void golpeadoPor(Hacha hacha) {

@@ -2,10 +2,6 @@ public abstract class Material implements Desgastable, Golpeable{
 
 	protected DurabilidadConFactor durabilidad;
 
-	public Material() {
-		this.durabilidad = new DurabilidadConFactor(1, 10);
-	}
-
 	public double getDurabilidad() {
 		return this.durabilidad.getDurabilidad();
 	}
