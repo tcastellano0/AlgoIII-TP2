@@ -73,5 +73,37 @@ public class PicoTest {
 
         assertEquals(pico.getDurabilidad(), 0);
     }
+    @Test
+    void test10PicoDeMaderaSeDesgastaAlGolpearMadera(){
+        Pico pico = Pico.crearPicoDeMadera();
+        Madera madera = new Madera();
+
+        pico.golpear(madera);
+
+        assertEquals(pico.getDurabilidad(), 100 - pico.getFuerza());
+    }
+
+    @Test
+    void test11PicoDePiedraSeDesgastaAlGolpearMadera(){
+        Pico pico = Pico.crearPicoDePiedra();
+        Madera madera = new Madera();
+
+        pico.golpear(madera);
+
+        assertEquals(pico.getDurabilidad(), 200 - pico.getFuerza()/1.5 );
+    }
+
+    @Test
+    void test12PicoDeMetalSeDesgastaAlGolpearMadera(){
+        Pico pico = Pico.crearPicoDeMetal();
+        Madera madera = new Madera();
+
+        for (int i = 0; i < 9; i++){
+            pico.golpear(madera);
+        }
+        assertEquals(pico.getDurabilidad(), 400); //golpea 9 veces y no se modifica su durabilidad
+        pico.golpear(madera);
+        assertEquals(pico.getDurabilidad(), 0); //al decimo golpe se rompe
+    }
 
 }

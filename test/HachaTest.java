@@ -70,4 +70,34 @@ public class HachaTest {
         assertEquals(hacha.getDurabilidad(), 400 - hacha.getFuerza()/2);
     }
 
+    @Test
+    void test09HachaDeMaderaSeDesgastaAlGolpearMadera(){
+        Hacha hacha = Hacha.crearHachaDeMadera(); //100, 2
+        Madera madera = new Madera();
+
+        hacha.golpear(madera);
+
+        assertEquals(hacha.getDurabilidad(), 100 - hacha.getFuerza());
+    }
+
+    @Test
+    void test10HachaDePiedraSeDesgastaAlGolpearMadera(){
+        Hacha hacha = Hacha.crearHachaDePiedra(); //200, 5
+        Madera madera = new Madera();
+
+        hacha.golpear(madera);
+
+        assertEquals(hacha.getDurabilidad(), 200 - hacha.getFuerza());
+    }
+
+    @Test
+    void test11HachaDeMetalSeDesgastaAlGolpearMadera(){
+        Hacha hacha = Hacha.crearHachaDeMetal(); //400,10
+        Madera madera = new Madera();
+
+        hacha.golpear(madera);
+
+        assertEquals(hacha.getDurabilidad(), 400 - hacha.getFuerza()/2);
+    }
+
 }
