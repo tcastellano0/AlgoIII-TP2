@@ -1,4 +1,5 @@
 import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -18,5 +19,13 @@ public class JugadorTest {
 		assertEquals(jugador.cantidadDeHerramientas(), 1);
     }
 	
+	@Test
+    void test03JugadorSeInicializaConUnHacha() {
+		Jugador jugador = new Jugador();
+		
+		assertTrue((jugador.herramientaEquipada()) instanceof Hacha);
+    }
+	
+	/* falta verificar que sea de madera */
 
 }

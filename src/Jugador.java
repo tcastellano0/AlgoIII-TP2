@@ -14,15 +14,15 @@ public class Jugador {
 	}
 	
 	public int cantidadDeHerramientas() {
-		return (herramientas.size());
+		return (this.herramientas.size());
 	}
 	
 	public int cantidadDeMateriales() {
-		return (materiales.size());
+		return (this.materiales.size());
 	}
 	
 	public Herramienta herramientaEquipada() {
-		return (herramientaEquipada);
+		return (this.herramientaEquipada);
 	}
 	
 }
