@@ -41,28 +41,30 @@ public class DurabilidadConFactorTest {
     public void test03DurabilidadConFactorReduceDurabilidadDeAcuerdoALaFuerzaYAlFactor(){
         double durabilidadInicial = 100;
         int fuerza = 5;
-        double factor;
-        factor = 2;
+        double factor = 2;
         Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
 
         durabilidad.desgastar(fuerza);
 
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza/factor);
-
     }
-
+    
     @Test
-    public void test04DurabilidadConFactorReduceDurabilidadDeAcuerdoALaFuerzaYAlFactor(){
-        double durabilidadInicial = 100;
-        int fuerza = 5;
-        double factor;
-        factor = 2;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
-
-        durabilidad.desgastar(fuerza);
-
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza/factor);
-
+    public void test04DurabilidadConFactorUnoDecreceLinealmenteConLaFuerza() {
+    	double durabilidadInicial = 5;
+    	int fuerza = 1;
+    	double factor = 1;
+    	
+    	Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
+    	
+    	for(int i=0; i < durabilidadInicial; i++) {
+    		durabilidad.desgastar(fuerza);
+    	}
+    	
+    	assertEquals(durabilidad.getDurabilidad(), 0);
     }
+
+    
+    
 
 }
