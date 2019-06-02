@@ -6,8 +6,8 @@ public class Pico extends Herramienta {
 	}
 
 	@Override
-	public void golpear(Madera madera) {
-		//el pico no afecta a la madera
+	public void golpear(Material material) {
+		material.golpeadoPor(this);
 		this.desgastar(this.fuerza);
 	}
 

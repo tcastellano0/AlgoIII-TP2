@@ -9,7 +9,7 @@ public class MaderaTest {
         Hacha hachaMadera = Hacha.crearHachaDeMadera(); //fuerza 2
         Madera madera = new Madera(); //durabilidad 10
 
-        madera.golpear(hachaMadera);
+        madera.golpeadoPor(hachaMadera);
 
         assertEquals(madera.getDurabilidad(), 8);
     }
@@ -19,7 +19,7 @@ public class MaderaTest {
         Hacha hachaPiedra = Hacha.crearHachaDePiedra(); //fuerza 5
         Madera madera = new Madera(); //durabilidad 10
 
-        madera.golpear(hachaPiedra);
+        madera.golpeadoPor(hachaPiedra);
 
         assertEquals(madera.getDurabilidad(), 5);
     }
@@ -29,7 +29,7 @@ public class MaderaTest {
         Hacha hachaMetal = Hacha.crearHachaDeMetal(); //fuerza 10
         Madera madera = new Madera(); //durabilidad 10
 
-        madera.golpear(hachaMetal);
+        madera.golpeadoPor(hachaMetal);
 
         assertEquals(madera.getDurabilidad(), 0);
     }
@@ -39,7 +39,7 @@ public class MaderaTest {
         Madera madera = new Madera(); //durabilidad 10
         Pico picoMadera = Pico.crearPicoDeMadera(); //fuerza 2
 
-        madera.golpear(picoMadera);
+        madera.golpeadoPor(picoMadera);
 
         assertEquals(madera.getDurabilidad(), 10);
     }
@@ -48,7 +48,7 @@ public class MaderaTest {
         Madera madera = new Madera(); //durabilidad 10
         Pico picoPiedra = Pico.crearPicoDePiedra(); //fuerza 5
 
-        madera.golpear(picoPiedra);
+        madera.golpeadoPor(picoPiedra);
 
         assertEquals(madera.getDurabilidad(), 10);
     }
@@ -57,7 +57,7 @@ public class MaderaTest {
         Madera madera = new Madera(); //durabilidad 10
         Pico picoMetal = Pico.crearPicoDeMetal(); //fuerza 10
 
-        madera.golpear(picoMetal);
+        madera.golpeadoPor(picoMetal);
 
         assertEquals(madera.getDurabilidad(), 10);
     }

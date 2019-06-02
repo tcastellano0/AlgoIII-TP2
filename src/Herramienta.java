@@ -15,5 +15,5 @@ public abstract class Herramienta implements Desgastable{
         this.durabilidad.desgastar(fuerzaDesgaste);
     }
 
-    public abstract void golpear(Madera madera);
+    public abstract void golpear(Material material);
 }
