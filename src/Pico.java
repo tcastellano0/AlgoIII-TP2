@@ -4,7 +4,13 @@ public class Pico extends Herramienta {
 		this.fuerza = fuerza;
 		this.durabilidad = unaDurabilidad;
 	}
-	
+
+	@Override
+	public void golpear(Madera madera) {
+		//el pico no afecta a la madera
+		this.desgastar();
+	}
+
 	public static Pico crearPicoDeMadera() {
 		return new Pico(2, new DurabilidadConFactor(100, 1));	
 	}

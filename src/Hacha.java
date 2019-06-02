@@ -5,6 +5,12 @@ public class Hacha extends Herramienta {
         this.durabilidad = durabilidad;
     }
 
+    @Override
+    public void golpear(Madera madera) {
+        madera.golpearConHacha(this);
+        this.desgastar();
+    }
+
     public static Hacha crearHachaDeMadera(){
         return new Hacha(2, new DurabilidadConFactor(100, 1));
     }
