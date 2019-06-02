@@ -81,5 +81,18 @@ public class DurabilidadConUsosTest {
         assertEquals(durabilidad.getDurabilidad(), 0);
 
     }
+    
+    @Test
+    public void test06DurabilidadConUsosConUsosDeMasSigueSiendoCero() {
+    	double durabilidadInicial = 400;
+        Durabilidad durabilidad = new DurabilidadConUsos(durabilidadInicial, 1);
+        
+        durabilidad.desgastar(100);
+        durabilidad.desgastar(100);
+        assertEquals(durabilidad.getDurabilidad(), 0);
+        
+        durabilidad.desgastar(100);
+        assertEquals(durabilidad.getDurabilidad(), 0);
+    }
 
 }
