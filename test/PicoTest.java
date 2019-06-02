@@ -1,7 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.stream.IntStream;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PicoTest {
@@ -50,25 +48,28 @@ public class PicoTest {
     @Test
     void test07PicoDeMaderaSeDesgastaIgualASuFuerza(){
         Pico pico = Pico.crearPicoDeMadera(); //fuerza 2, durabilidad 100
+        int fuerzaDesgaste = pico.getFuerza();
 
-        pico.desgastar();
-        assertEquals(pico.getDurabilidad(), 100 - pico.getFuerza());
+        pico.desgastar(fuerzaDesgaste);
+        assertEquals(pico.getDurabilidad(), 100 - fuerzaDesgaste);
     }
 
     @Test
     void test08PicoDePiedraSeDesgastaConSuFuerzaDivididoTresMedios(){
         Pico pico = Pico.crearPicoDePiedra(); //fuerza 4, durabilidad 200
+        int fuerzaDesgaste = pico.getFuerza();
 
-        pico.desgastar();
-        assertEquals(pico.getDurabilidad(), 200  - pico.getFuerza()/1.5);
+        pico.desgastar(fuerzaDesgaste);
+        assertEquals(pico.getDurabilidad(), 200  - fuerzaDesgaste/1.5);
     }
     
     @Test
     void test09PicoDeMetalSeRompeALos10Usos(){
         Pico pico = Pico.crearPicoDeMetal();
+        int fuerzaDesgaste = pico.getFuerza();
 
         for(int i = 0; i < 10; i++) {
-        	pico.desgastar();
+        	pico.desgastar(fuerzaDesgaste);
         }
 
         assertEquals(pico.getDurabilidad(), 0);
@@ -77,9 +78,10 @@ public class PicoTest {
     @Test
     void test10PicoDeMetalSeRompeNoSeDeberiaRomperAntesDeLosDiezUsos(){
         Pico pico = Pico.crearPicoDeMetal();
+        int fuerzaDesgaste = pico.getFuerza();
 
-        for(int i = 0; i < 5; i++) {
-        	pico.desgastar();
+        for(int i = 0; i < 9; i++) {
+        	pico.desgastar(fuerzaDesgaste);
         }
 
         assertEquals(pico.getDurabilidad(), 400);
@@ -102,20 +104,22 @@ public class PicoTest {
     @Test
     void test13PicoDePiedraSeDesgastaConElDiezProcientoDeSuFuerza(){
         Pico pico = Pico.crearPicoFino();
+        int fuerzaDesgaste = pico.getFuerza();
 
-        pico.desgastar();
-        assertEquals(pico.getDurabilidad(), 1000 - pico.getFuerza() / 10);
+        pico.desgastar(fuerzaDesgaste);
+        assertEquals(pico.getDurabilidad(), 1000 - fuerzaDesgaste / 10);
     }
 
     @Test
     void test14PicoFinoSeDesgastaLinealementeConElDiezProcientoDeSuFuerza(){
         Pico pico = Pico.crearPicoFino();
         double valorDesgaste = pico.getFuerza() / 10;
+        int fuerzaDesgaste = pico.getFuerza();
 
         for(int i = 0; i < 25; i++) {
         	assertEquals(pico.getDurabilidad(), 1000 - (valorDesgaste * i));
 
-        	pico.desgastar();
+        	pico.desgastar(fuerzaDesgaste);
         }
     }
 

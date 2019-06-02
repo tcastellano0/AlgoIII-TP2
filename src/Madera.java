@@ -1,4 +1,4 @@
-public class Madera {
+public class Madera implements Desgastable {
 
     private DurabilidadConFactor durabilidad;
 
@@ -14,7 +14,14 @@ public class Madera {
         herramienta.golpear(this);
     }
 
-    public void golpearConHacha(Hacha hacha) {
-        this.durabilidad.desgastar(hacha.getFuerza());
+    @Override
+    public void desgastar(int fuerzaDesgaste) {
+        this.durabilidad.desgastar(fuerzaDesgaste);
     }
+
+    public void golpearConHacha(Hacha hacha) {
+        this.desgastar(hacha.getFuerza());
+    }
+
+
 }

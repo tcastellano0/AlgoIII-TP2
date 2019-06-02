@@ -11,8 +11,8 @@ public abstract class Herramienta implements Desgastable{
         return this.fuerza;
     }
 
-    public void desgastar(){
-        this.durabilidad.desgastar(this.fuerza);
+    public void desgastar(int fuerzaDesgaste){
+        this.durabilidad.desgastar(fuerzaDesgaste);
     }
 
     public abstract void golpear(Madera madera);

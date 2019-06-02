@@ -1,5 +1,5 @@
 public interface Desgastable {
 	
-    public void desgastar();
+    public void desgastar(int fuerzaDesgaste);
     
 }

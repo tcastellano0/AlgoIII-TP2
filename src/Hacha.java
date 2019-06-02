@@ -8,7 +8,7 @@ public class Hacha extends Herramienta {
     @Override
     public void golpear(Madera madera) {
         madera.golpearConHacha(this);
-        this.desgastar();
+        this.desgastar(this.fuerza);
     }
 
     public static Hacha crearHachaDeMadera(){

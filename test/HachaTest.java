@@ -49,25 +49,28 @@ public class HachaTest {
     @Test
     void test06HachaDeMaderaSeDesgastaIgualASuFuerza(){
         Hacha hacha = Hacha.crearHachaDeMadera(); //tiene fuerza 2, durabilidad 100
+        int fuerzaDesgaste = hacha.getFuerza();
 
-        hacha.desgastar();
-        assertEquals(hacha.getDurabilidad(), 100 - hacha.getFuerza());
+        hacha.desgastar(fuerzaDesgaste);
+        assertEquals(hacha.getDurabilidad(), 100 - fuerzaDesgaste);
     }
 
     @Test
     void test07HachaDePiedraSeDesgastaIgualASuFuerza(){
         Hacha hacha = Hacha.crearHachaDePiedra(); //tiene fuerza 5, durabilidad 200
+        int fuerzaDesgaste = hacha.getFuerza();
 
-        hacha.desgastar();
-        assertEquals(hacha.getDurabilidad(), 200 - hacha.getFuerza());
+        hacha.desgastar(fuerzaDesgaste);
+        assertEquals(hacha.getDurabilidad(), 200 - fuerzaDesgaste);
     }
 
     @Test
     void test08HachaDeMetalSeDesgastaConLaMitadDeSuFuerza(){
         Hacha hacha = Hacha.crearHachaDeMetal(); //tiene fuerza 10, durabilidad 400
+        int fuerzaDesgaste = hacha.getFuerza();
 
-        hacha.desgastar();
-        assertEquals(hacha.getDurabilidad(), 400 - hacha.getFuerza()/2);
+        hacha.desgastar(fuerzaDesgaste);
+        assertEquals(hacha.getDurabilidad(), 400 - fuerzaDesgaste/2);
     }
 
     @Test
