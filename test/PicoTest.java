@@ -73,8 +73,54 @@ public class PicoTest {
 
         assertEquals(pico.getDurabilidad(), 0);
     }
+
     @Test
-    void test10PicoDeMaderaSeDesgastaAlGolpearMadera(){
+    void test10PicoDeMetalSeRompeNoSeDeberiaRomperAntesDeLosDiezUsos(){
+        Pico pico = Pico.crearPicoDeMetal();
+
+        for(int i = 0; i < 5; i++) {
+        	pico.desgastar();
+        }
+
+        assertEquals(pico.getDurabilidad(), 400);
+    }
+
+    @Test
+    void test11PicoFinoSeInicializaConDurabilidadMil(){
+        Pico pico = Pico.crearPicoFino();
+
+        assertEquals(pico.getDurabilidad(), 1000);
+    }
+
+    @Test
+    void test12PicoFinoSeInicializaConFuerza20(){
+        Pico pico = Pico.crearPicoFino();
+
+        assertEquals(pico.getFuerza(), 20);
+    }
+
+    @Test
+    void test13PicoDePiedraSeDesgastaConElDiezProcientoDeSuFuerza(){
+        Pico pico = Pico.crearPicoFino();
+
+        pico.desgastar();
+        assertEquals(pico.getDurabilidad(), 1000 - pico.getFuerza() / 10);
+    }
+
+    @Test
+    void test14PicoFinoSeDesgastaLinealementeConElDiezProcientoDeSuFuerza(){
+        Pico pico = Pico.crearPicoFino();
+        double valorDesgaste = pico.getFuerza() / 10;
+
+        for(int i = 0; i < 25; i++) {
+        	assertEquals(pico.getDurabilidad(), 1000 - (valorDesgaste * i));
+
+        	pico.desgastar();
+        }
+    }
+
+    @Test
+    void test15PicoDeMaderaSeDesgastaAlGolpearMadera(){
         Pico pico = Pico.crearPicoDeMadera();
         Madera madera = new Madera();
 
@@ -84,7 +130,7 @@ public class PicoTest {
     }
 
     @Test
-    void test11PicoDePiedraSeDesgastaAlGolpearMadera(){
+    void test16PicoDePiedraSeDesgastaAlGolpearMadera(){
         Pico pico = Pico.crearPicoDePiedra();
         Madera madera = new Madera();
 
@@ -94,7 +140,7 @@ public class PicoTest {
     }
 
     @Test
-    void test12PicoDeMetalSeDesgastaAlGolpearMadera(){
+    void test17PicoDeMetalSeDesgastaAlGolpearMadera(){
         Pico pico = Pico.crearPicoDeMetal();
         Madera madera = new Madera();
 

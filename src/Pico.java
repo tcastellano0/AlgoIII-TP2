@@ -12,15 +12,19 @@ public class Pico extends Herramienta {
 	}
 
 	public static Pico crearPicoDeMadera() {
-		return new Pico(2, new DurabilidadConFactor(100, 1));	
+		return new Pico(2, new DurabilidadConFactor(1, 100));	
 	}
 	
 	public static Pico crearPicoDePiedra() {
-		return new Pico(4, new DurabilidadConFactor(200, 1.5));
+		return new Pico(4, new DurabilidadConFactor(1.5, 200));
 	}
 	
 	public static Pico crearPicoDeMetal() {
-		return new Pico(12, new DurabilidadConUsos(400, 10));
+		return new Pico(12, new DurabilidadConUsos(10, 400));
+	}
+	
+	public static Pico crearPicoFino() {
+		return new Pico(20, new DurabilidadConFactor(10, 1000));
 	}
 }
 

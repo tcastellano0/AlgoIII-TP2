@@ -8,7 +8,7 @@ public class DurabilidadConFactorTest {
     public void test01DurabilidadConFactorUnoReduceDurabilidadDeAcuerdoALaFuerza(){
         double durabilidadInicial = 100;
         int fuerza = 5;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, 1);
+        Durabilidad durabilidad = new DurabilidadConFactor(1, durabilidadInicial);
 
         durabilidad.desgastar(fuerza);
 
@@ -22,7 +22,7 @@ public class DurabilidadConFactorTest {
         int fuerza = 5;
         int otraFuerza = 6;
         int otraFuerzaMas = 10;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, 1);
+        Durabilidad durabilidad = new DurabilidadConFactor(1, durabilidadInicial);
 
         durabilidad.desgastar(fuerza);
 
@@ -41,28 +41,30 @@ public class DurabilidadConFactorTest {
     public void test03DurabilidadConFactorReduceDurabilidadDeAcuerdoALaFuerzaYAlFactor(){
         double durabilidadInicial = 100;
         int fuerza = 5;
-        double factor;
-        factor = 2;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
+        double factor = 2;
+        Durabilidad durabilidad = new DurabilidadConFactor(factor, durabilidadInicial);
 
         durabilidad.desgastar(fuerza);
 
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza/factor);
-
     }
-
+    
     @Test
-    public void test04DurabilidadConFactorReduceDurabilidadDeAcuerdoALaFuerzaYAlFactor(){
-        double durabilidadInicial = 100;
-        int fuerza = 5;
-        double factor;
-        factor = 2;
-        Durabilidad durabilidad = new DurabilidadConFactor(durabilidadInicial, factor);
-
-        durabilidad.desgastar(fuerza);
-
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza/factor);
-
+    public void test04DurabilidadConFactorUnoDecreceLinealmenteConLaFuerza() {
+    	double durabilidadInicial = 5;
+    	int fuerza = 1;
+    	double factor = 1;
+    	
+    	Durabilidad durabilidad = new DurabilidadConFactor(factor, durabilidadInicial);
+    	
+    	for(int i=0; i < durabilidadInicial; i++) {
+    		durabilidad.desgastar(fuerza);
+    	}
+    	
+    	assertEquals(durabilidad.getDurabilidad(), 0);
     }
+
+    
+    
 
 }
