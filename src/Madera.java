@@ -3,7 +3,7 @@ public class Madera {
     private DurabilidadConFactor durabilidad;
 
     public Madera() {
-        this.durabilidad = new DurabilidadConFactor(10, 1);
+        this.durabilidad = new DurabilidadConFactor(1, 10);
     }
 
     public double getDurabilidad() {
