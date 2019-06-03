@@ -12,13 +12,28 @@ public abstract class Material implements Desgastable, Golpeable{
 	}
 
 	@Override
-	public void golpeadoPor(Herramienta herramienta) {
-		herramienta.golpear(this);
+	public void golpeadoPor(Golpeador golpeador) {
+		golpeador.golpear(this);
 	}
 
 	@Override
-	public abstract void golpeadoPor(Hacha hacha);
-
+	public abstract void golpeadoPor(GolpeadorHachaDeMadera golpeador);
+	
 	@Override
-	public abstract void golpeadoPor(Pico pico);
+    public abstract void golpeadoPor(GolpeadorHachaDePiedra golpeador);
+    
+	@Override
+	public abstract void golpeadoPor(GolpeadorHachaDeMetal golpeador);
+    
+	@Override
+    public abstract void golpeadoPor(GolpeadorPicoDeMadera golpeador);
+    
+	@Override
+    public abstract void golpeadoPor(GolpeadorPicoDePiedra golpeador);
+	
+	@Override
+    public abstract void golpeadoPor(GolpeadorPicoDeMetal golpeador);
+	
+	@Override
+    public abstract void golpeadoPor(GolpeadorPicoFino golpeador);
 }
