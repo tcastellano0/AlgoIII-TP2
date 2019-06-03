@@ -1,28 +1,30 @@
-import java.util.ArrayList;
-
 public class Jugador {
 	
 	private Herramienta herramientaEquipada;
-	private ArrayList<Herramienta> inventarioDeHerramientas;
-	private ArrayList<Material> inventarioDeMateriales;
+	private Inventario inventarioDeHerramientas;
+	private Inventario inventarioDeMateriales;
 	
 	public Jugador() {
 		this.herramientaEquipada = Hacha.crearHachaDeMadera();
-		this.inventarioDeHerramientas = new ArrayList<Herramienta>();
-		this.inventarioDeHerramientas.add(this.herramientaEquipada);
-		this.inventarioDeMateriales = new ArrayList<Material>();
+		this.inventarioDeHerramientas = new Inventario();
+		this.inventarioDeHerramientas.agregar(this.herramientaEquipada);
+		this.inventarioDeMateriales = new Inventario();
 	}
 	
 	public int cantidadDeHerramientas() {
-		return (this.inventarioDeHerramientas.size());
+		return (this.inventarioDeHerramientas.cantidad());
 	}
 	
 	public int cantidadDeMateriales() {
-		return (this.inventarioDeMateriales.size());
+		return (this.inventarioDeMateriales.cantidad());
 	}
 	
 	public Herramienta herramientaEquipada() {
 		return (this.herramientaEquipada);
+	}
+	
+	public Desgastable getUltimaHerramienta() {
+		return this.inventarioDeHerramientas.getUltimoItem();
 	}
 	
 }
