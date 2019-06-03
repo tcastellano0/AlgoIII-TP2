@@ -1,14 +1,14 @@
 public abstract class Herramienta implements Desgastable{
 
-	protected int fuerza;
 	protected Durabilidad durabilidad;
+	protected Golpeador golpeador;
 
     public double getDurabilidad() {
         return this.durabilidad.getDurabilidad();
     }
 
     public int getFuerza() {
-        return this.fuerza;
+        return this.golpeador.getFuerza();
     }
 
     public void desgastar(int fuerzaDesgaste){

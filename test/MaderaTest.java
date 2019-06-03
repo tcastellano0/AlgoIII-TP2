@@ -9,7 +9,8 @@ public class MaderaTest {
         Hacha hachaMadera = Hacha.crearHachaDeMadera(); //fuerza 2
         Madera madera = new Madera(); //durabilidad 10
 
-        madera.golpeadoPor(hachaMadera);
+        hachaMadera.golpear(madera);
+        //madera.golpeadoPor(hachaMadera);
 
         assertEquals(madera.getDurabilidad(), 8);
     }
@@ -19,7 +20,8 @@ public class MaderaTest {
         Hacha hachaPiedra = Hacha.crearHachaDePiedra(); //fuerza 5
         Madera madera = new Madera(); //durabilidad 10
 
-        madera.golpeadoPor(hachaPiedra);
+        hachaPiedra.golpear(madera);
+        //madera.golpeadoPor(hachaPiedra);
 
         assertEquals(madera.getDurabilidad(), 5);
     }
@@ -29,7 +31,8 @@ public class MaderaTest {
         Hacha hachaMetal = Hacha.crearHachaDeMetal(); //fuerza 10
         Madera madera = new Madera(); //durabilidad 10
 
-        madera.golpeadoPor(hachaMetal);
+        hachaMetal.golpear(madera);
+        //madera.golpeadoPor(hachaMetal);
 
         assertEquals(madera.getDurabilidad(), 0);
     }
@@ -39,7 +42,8 @@ public class MaderaTest {
         Madera madera = new Madera(); //durabilidad 10
         Pico picoMadera = Pico.crearPicoDeMadera(); //fuerza 2
 
-        madera.golpeadoPor(picoMadera);
+        picoMadera.golpear(madera);
+        //madera.golpeadoPor(picoMadera);
 
         assertEquals(madera.getDurabilidad(), 10);
     }
@@ -48,7 +52,8 @@ public class MaderaTest {
         Madera madera = new Madera(); //durabilidad 10
         Pico picoPiedra = Pico.crearPicoDePiedra(); //fuerza 5
 
-        madera.golpeadoPor(picoPiedra);
+        picoPiedra.golpear(madera);
+        //madera.golpeadoPor(picoPiedra);
 
         assertEquals(madera.getDurabilidad(), 10);
     }
@@ -57,7 +62,8 @@ public class MaderaTest {
         Madera madera = new Madera(); //durabilidad 10
         Pico picoMetal = Pico.crearPicoDeMetal(); //fuerza 10
 
-        madera.golpeadoPor(picoMetal);
+        picoMetal.golpear(madera);
+        //madera.golpeadoPor(picoMetal);
 
         assertEquals(madera.getDurabilidad(), 10);
     }

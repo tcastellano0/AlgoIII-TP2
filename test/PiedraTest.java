@@ -10,7 +10,8 @@ class PiedraTest {
         Pico pico = Pico.crearPicoDeMadera();
         double durabilidadInicial = piedra.getDurabilidad();
 
-        piedra.golpeadoPor(pico);
+    	pico.golpear(piedra);
+        //piedra.golpeadoPor(pico);
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial - pico.getFuerza() );
     }
@@ -21,7 +22,8 @@ class PiedraTest {
         Pico pico = Pico.crearPicoDePiedra();
         double durabilidadInicial = piedra.getDurabilidad();
 
-        piedra.golpeadoPor(pico);
+    	pico.golpear(piedra);
+        //piedra.golpeadoPor(pico);
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial - pico.getFuerza() );
     }
@@ -31,7 +33,8 @@ class PiedraTest {
         Pico pico = Pico.crearPicoDeMetal();
         double durabilidadInicial = piedra.getDurabilidad();
 
-        piedra.golpeadoPor(pico);
+        pico.golpear(piedra);
+        //piedra.golpeadoPor(pico);
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial - pico.getFuerza() );
     }
@@ -42,7 +45,8 @@ class PiedraTest {
         Hacha hacha = Hacha.crearHachaDeMadera();
         double durabilidadInicial = piedra.getDurabilidad();
 
-        piedra.golpeadoPor(hacha);
+        hacha.golpear(piedra);
+        //piedra.golpeadoPor(hacha);
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial );
     }
@@ -52,7 +56,8 @@ class PiedraTest {
         Hacha hacha = Hacha.crearHachaDePiedra();
         double durabilidadInicial = piedra.getDurabilidad();
 
-        piedra.golpeadoPor(hacha);
+        hacha.golpear(piedra);
+        //piedra.golpeadoPor(hacha);
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial );
     }
@@ -62,7 +67,8 @@ class PiedraTest {
         Hacha hacha = Hacha.crearHachaDeMetal();
         double durabilidadInicial = piedra.getDurabilidad();
 
-        piedra.golpeadoPor(hacha);
+        hacha.golpear(piedra);
+        //piedra.golpeadoPor(hacha);
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial );
     }
