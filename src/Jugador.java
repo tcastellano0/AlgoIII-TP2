@@ -23,8 +23,8 @@ public class Jugador {
 		return (this.herramientaEquipada);
 	}
 	
-	public Desgastable getUltimaHerramienta() {
-		return this.inventarioDeHerramientas.getUltimoItem();
+	public Desgastable ultimaHerramienta() {
+		return this.inventarioDeHerramientas.ultimoItem();
 	}
 	
 }

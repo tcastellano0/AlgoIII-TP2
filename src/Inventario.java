@@ -16,7 +16,7 @@ public class Inventario {
 		return this.listaDeItems.size();
 	}
 	
-	public Desgastable getUltimoItem() {
+	public Desgastable ultimoItem() {
 		return this.listaDeItems.get(listaDeItems.size() - 1);
 	}
 

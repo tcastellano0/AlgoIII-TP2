@@ -39,7 +39,7 @@ public class JugadorTest {
     void test05JugadorSeInicializaConLaMismaHachaDeMaderaEquipadaYEnInventario() {
 		Jugador jugador = new Jugador();
 
-        assertSame(jugador.herramientaEquipada(), jugador.getUltimaHerramienta());
+        assertSame(jugador.herramientaEquipada(), jugador.ultimaHerramienta());
     }
-
+	
 }
