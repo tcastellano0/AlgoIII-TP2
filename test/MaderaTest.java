@@ -47,6 +47,7 @@ public class MaderaTest {
 
         assertEquals(madera.getDurabilidad(), 10);
     }
+    
     @Test
     void test05MaderaEsGolpeadaPorPicoDePiedraYNoSeReduceSuDurabilidad(){
         Madera madera = new Madera(); //durabilidad 10
@@ -57,8 +58,9 @@ public class MaderaTest {
 
         assertEquals(madera.getDurabilidad(), 10);
     }
+    
     @Test
-    void test06MaderaEsGolpeadaPorPicoDeMaderaYNoSeReduceSuDurabilidad(){
+    void test06MaderaEsGolpeadaPorPicoDeMetalYNoSeReduceSuDurabilidad(){
         Madera madera = new Madera(); //durabilidad 10
         Pico picoMetal = Pico.crearPicoDeMetal(); //fuerza 10
 
