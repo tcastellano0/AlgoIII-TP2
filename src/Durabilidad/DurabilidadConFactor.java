@@ -1,3 +1,5 @@
+package Durabilidad;
+
 public class DurabilidadConFactor extends Durabilidad {
 
     private double factor;

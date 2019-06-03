@@ -1,3 +1,5 @@
+package Durabilidad;
+
 public abstract class Durabilidad {
 
     protected double durabilidad;

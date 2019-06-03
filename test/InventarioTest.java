@@ -1,5 +1,8 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertSame;
+
+import Herramientas.Hacha;
+import Jugador.Inventario;
 import org.junit.jupiter.api.Test;
 
 public class InventarioTest {
@@ -14,7 +17,7 @@ public class InventarioTest {
 	@Test
     void test02InventarioSeLeAgregaUnItemCantidadEs1() {
 		Inventario inventario = new Inventario();
-		Hacha hacha = Hacha.crearHachaDeMadera(); 
+		Hacha hacha = Hacha.crearHachaDeMadera();
 		inventario.agregar(hacha);
 		
 		assertEquals(inventario.cantidad(), 1);

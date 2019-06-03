@@ -1,3 +1,7 @@
+package Materiales;
+
+import Herramientas.*;
+
 public interface Golpeable {
     public void golpeadoPor(Golpeador golpeador);
     

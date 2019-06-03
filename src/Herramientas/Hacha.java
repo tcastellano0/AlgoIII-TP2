@@ -1,3 +1,8 @@
+package Herramientas;
+
+import Materiales.Material;
+import Durabilidad.*;
+
 public class Hacha extends Herramienta {
 
     public Hacha(Durabilidad durabilidad, Golpeador golpeador){

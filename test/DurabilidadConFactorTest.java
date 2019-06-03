@@ -1,4 +1,7 @@
+import Durabilidad.Durabilidad;
 import org.junit.jupiter.api.Test;
+
+import Durabilidad.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

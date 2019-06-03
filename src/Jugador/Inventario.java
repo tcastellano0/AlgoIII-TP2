@@ -1,3 +1,7 @@
+package Jugador;
+
+import Durabilidad.Desgastable;
+
 import java.util.ArrayList;
 
 public class Inventario {

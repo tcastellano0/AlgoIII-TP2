@@ -1,4 +1,10 @@
-public abstract class Herramienta implements Desgastable{
+package Herramientas;
+
+import Herramientas.Golpeador;
+import Durabilidad.*;
+import Materiales.Material;
+
+public abstract class Herramienta implements Desgastable {
 
 	protected Durabilidad durabilidad;
 	protected Golpeador golpeador;

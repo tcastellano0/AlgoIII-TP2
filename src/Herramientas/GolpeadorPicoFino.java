@@ -1,3 +1,7 @@
+package Herramientas;
+
+import Materiales.Material;
+
 public class GolpeadorPicoFino extends Golpeador {
 
 	public GolpeadorPicoFino() {

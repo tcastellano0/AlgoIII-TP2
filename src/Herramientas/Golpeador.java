@@ -1,3 +1,6 @@
+package Herramientas;
+import Materiales.*;
+
 public abstract class Golpeador {
 
 	protected int fuerza;

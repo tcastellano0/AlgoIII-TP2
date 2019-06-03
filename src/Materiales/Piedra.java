@@ -1,3 +1,8 @@
+package Materiales;
+
+import Herramientas.*;
+import Durabilidad.*;
+
 public class Piedra extends Material {
 
     public Piedra() {

@@ -1,4 +1,9 @@
-public abstract class Material implements Desgastable, Golpeable{
+package Materiales;
+
+import Herramientas.*;
+import Durabilidad.*;
+
+public abstract class Material implements Desgastable, Golpeable {
 
 	protected DurabilidadConFactor durabilidad;
 

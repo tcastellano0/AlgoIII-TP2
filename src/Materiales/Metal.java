@@ -1,8 +1,12 @@
+package Materiales;
 
-public class Diamante extends Material {
+import Herramientas.*;
+import Durabilidad.*;
 
-	public Diamante() {
-        this.durabilidad = new DurabilidadConFactor(1, 100);
+public class Metal extends Material {
+
+	public Metal() {
+        this.durabilidad = new DurabilidadConFactor(1, 50);
     }
 	
 	@Override
@@ -18,7 +22,9 @@ public class Diamante extends Material {
 	public void golpeadoPor(GolpeadorPicoDeMadera golpeador) { }
 
 	@Override
-	public void golpeadoPor(GolpeadorPicoDePiedra golpeador) { }
+	public void golpeadoPor(GolpeadorPicoDePiedra golpeador) {
+		this.desgastar(golpeador.getFuerza());
+	}
 
 	@Override
 	public void golpeadoPor(GolpeadorPicoDeMetal golpeador) {

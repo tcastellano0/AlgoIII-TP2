@@ -1,3 +1,9 @@
+package Jugador;
+
+import Durabilidad.Desgastable;
+import Herramientas.Hacha;
+import Herramientas.Herramienta;
+
 public class Jugador {
 	
 	private Herramienta herramientaEquipada;

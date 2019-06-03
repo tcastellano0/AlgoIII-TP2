@@ -1,3 +1,9 @@
+package Materiales;
+
+import Herramientas.*;
+import Durabilidad.*;
+
+
 public class Madera extends Material{
 
     public Madera() {

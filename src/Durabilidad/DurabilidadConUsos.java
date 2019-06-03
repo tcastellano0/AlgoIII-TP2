@@ -1,3 +1,4 @@
+package Durabilidad;
 
 public class DurabilidadConUsos extends Durabilidad {
 
