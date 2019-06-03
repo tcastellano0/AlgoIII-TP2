@@ -4,13 +4,13 @@ public interface Golpeable {
     public void golpeadoPor(Pico pico);
     
     /*
-    public void golpeadorPorHachaDeMadera(Hacha hacha);
-    public void golpeadorPorHachaDePiedra(Hacha hacha);
-    public void golpeadorPorHachaDeMetal(Hacha hacha);
+    public void golpeadorPorHachaDeMadera(GolpeadorHachaDeMadera golpeador);
+    public void golpeadorPorHachaDePiedra(GolpeadorHachaDePiedra golpeador);
+    public void golpeadorPorHachaDeMetal(GolpeadorHachaDeMetal golpeador);
     
-    public void golpeadorPorPicoDeMadera(Pico pico);
-    public void golpeadorPorPicoDePiedra(Pico pico);
-    public void golpeadorPorPicoDeMetal(Pico pico);
-    public void golpeadorPorPicoFino(Pico pico);
+    public void golpeadorPorPicoDeMadera(GolpeadorPicoDeMadera golpeador);
+    public void golpeadorPorPicoDePiedra(GolpeadorPicoDePiedra golpeador);
+    public void golpeadorPorPicoDeMetal(GolpeadorPicoDeMetal golpeador);
+    public void golpeadorPorPicoFino(GolpeadorPicoFino golpeador);
     */
 }
