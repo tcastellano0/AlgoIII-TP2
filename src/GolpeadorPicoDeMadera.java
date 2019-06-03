@@ -6,7 +6,7 @@ public class GolpeadorPicoDeMadera extends Golpeador {
 	
 	@Override
 	public void golpear(Material material) {
-		//material.golpeadoPor(this);
+		material.golpeadoPor(this);
 	}
 	
 }
