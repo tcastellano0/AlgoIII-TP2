@@ -84,6 +84,7 @@ public class MaderaTest {
         assertEquals(madera.getDurabilidad(), 10);
     }
     
+    /*
     @Test
     void test08MaderaEsGolpeadaPorHachaDeMaderaQuedaCon0DurabilidadDespuesDe5Golpes() {
         Hacha hachaMadera = Hacha.crearHachaDeMadera(); //fuerza 2
@@ -118,5 +119,6 @@ public class MaderaTest {
 
         assertEquals(madera.getDurabilidad(), 0);
     }
+    */
     
 }
