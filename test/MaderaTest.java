@@ -23,7 +23,7 @@ public class MaderaTest {
     void test02MaderaEsGolpeadaPorHachaDePiedraYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
         //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
         //seguramente falle en el futuro
-        GolpeadorHachaDePiedra hachaDePiedra = new GolpeadorHachaDePiedra(); //fuerza 10
+        GolpeadorHachaDePiedra hachaDePiedra = new GolpeadorHachaDePiedra(); //fuerza 5
         Madera madera = new Madera(); //durabilidad 10
         double durabilidad = madera.getDurabilidad();
 
@@ -38,7 +38,7 @@ public class MaderaTest {
     void test03MaderaEsGolpeadaPorHachaDeMetalYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
         //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
         //seguramente falle en el futuro
-        GolpeadorHachaDeMetal hachaDeMetal = new GolpeadorHachaDeMetal(); //fuerza 2
+        GolpeadorHachaDeMetal hachaDeMetal = new GolpeadorHachaDeMetal(); //fuerza 10
         Madera madera = new Madera(); //durabilidad 10
         double durabilidad = madera.getDurabilidad();
 
