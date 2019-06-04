@@ -1,5 +1,6 @@
 import Herramientas.Hacha;
 import Herramientas.Pico;
+import Materiales.Madera;
 import Materiales.Piedra;
 import org.junit.jupiter.api.Test;
 
@@ -75,4 +76,18 @@ public class PiedraTest {
 
         assertEquals(piedra.getDurabilidad(), durabilidadInicial );
     }
+    
+    @Test
+    void test07PiedraEsGolpeadaPorPicoFinoYSeReduceSuDurabilidadIgualALaFuerzaDelPico() {
+        Piedra piedra = new Piedra();
+        Pico picoFino = Pico.crearPicoFino();
+        double durabilidadInicial = piedra.getDurabilidad();
+
+        picoFino.golpear(piedra);
+        //piedra.golpeadoPor(hacha);
+
+        assertEquals(piedra.getDurabilidad(), durabilidadInicial - picoFino.getFuerza() );
+    }
+    
+    
 }
