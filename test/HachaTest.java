@@ -17,7 +17,6 @@ public class HachaTest {
         Herramienta hacha = Herramienta.hachaDeMadera();
 
         assertEquals(hacha.getFuerza(), 2);
-
     }
 
     @Test
@@ -50,7 +49,7 @@ public class HachaTest {
 
     @Test
     void test06HachaDeMaderaSeDesgastaIgualASuFuerza(){
-        Herramienta hacha = Herramienta.hachaDeMadera(); //tiene fuerza 2, durabilidad 100
+        Herramienta hacha = Herramienta.hachaDeMadera();
         int fuerzaDesgaste = hacha.getFuerza();
 
         hacha.desgastar(fuerzaDesgaste);
@@ -59,50 +58,54 @@ public class HachaTest {
 
     @Test
     void test07HachaDePiedraSeDesgastaIgualASuFuerza(){
-        Herramienta hacha = Herramienta.hachaDePiedra(); //tiene fuerza 5, durabilidad 200
+        Herramienta hacha = Herramienta.hachaDePiedra();
         int fuerzaDesgaste = hacha.getFuerza();
+        double durabilidad = hacha.getDurabilidad();
 
         hacha.desgastar(fuerzaDesgaste);
-        assertEquals(hacha.getDurabilidad(), 200 - fuerzaDesgaste);
+        assertEquals(hacha.getDurabilidad(), durabilidad - fuerzaDesgaste);
     }
 
     @Test
     void test08HachaDeMetalSeDesgastaConLaMitadDeSuFuerza(){
-        Herramienta hacha = Herramienta.hachaDeMetal(); //tiene fuerza 10, durabilidad 400
+        Herramienta hacha = Herramienta.hachaDeMetal();
         int fuerzaDesgaste = hacha.getFuerza();
+        double durabilidad = hacha.getDurabilidad();
 
         hacha.desgastar(fuerzaDesgaste);
-        assertEquals(hacha.getDurabilidad(), 400 - fuerzaDesgaste/2);
+        assertEquals(hacha.getDurabilidad(), durabilidad - fuerzaDesgaste / 2);
     }
 
     @Test
     void test09HachaDeMaderaSeDesgastaAlGolpearMadera(){
-        Herramienta hacha = Herramienta.hachaDeMadera(); //100, 2
+        Herramienta hacha = Herramienta.hachaDeMadera();
         Madera madera = new Madera();
+        double durabilidad = hacha.getDurabilidad();
 
         hacha.golpear(madera);
 
-        assertEquals(hacha.getDurabilidad(), 100 - hacha.getFuerza());
+        assertEquals(hacha.getDurabilidad(), durabilidad - hacha.getFuerza());
     }
 
     @Test
     void test10HachaDePiedraSeDesgastaAlGolpearMadera(){
-        Herramienta hacha = Herramienta.hachaDePiedra(); //200, 5
+        Herramienta hacha = Herramienta.hachaDePiedra();
         Madera madera = new Madera();
+        double durabilidad = hacha.getDurabilidad();
 
         hacha.golpear(madera);
 
-        assertEquals(hacha.getDurabilidad(), 200 - hacha.getFuerza());
+        assertEquals(hacha.getDurabilidad(), durabilidad - hacha.getFuerza());
     }
 
     @Test
     void test11HachaDeMetalSeDesgastaAlGolpearMadera(){
-        Herramienta hacha = Herramienta.hachaDeMetal(); //400,10
+        Herramienta hacha = Herramienta.hachaDeMetal();
         Madera madera = new Madera();
+        double durabilidad = hacha.getDurabilidad();
 
         hacha.golpear(madera);
 
-        assertEquals(hacha.getDurabilidad(), 400 - hacha.getFuerza()/2);
+        assertEquals(hacha.getDurabilidad(), durabilidad - hacha.getFuerza()/2);
     }
-
 }

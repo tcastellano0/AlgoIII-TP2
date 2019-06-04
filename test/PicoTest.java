@@ -49,28 +49,30 @@ public class PicoTest {
     }
 
     @Test
-    void test07PicoDeMaderaSeDesgastaIgualASuFuerza(){
-        Herramienta pico = Herramienta.picoDeMadera(); //fuerza 2, durabilidad 100
+    void test07PicoDeMaderaSeDesgastaIgualASuFuerza() {
+        Herramienta pico = Herramienta.picoDeMadera();
         int fuerzaDesgaste = pico.getFuerza();
-
+        double durabilidad = pico.getDurabilidad();
+        
         pico.desgastar(fuerzaDesgaste);
-        assertEquals(pico.getDurabilidad(), 100 - fuerzaDesgaste);
+        assertEquals(pico.getDurabilidad(), durabilidad - fuerzaDesgaste);
     }
 
     @Test
     void test08PicoDePiedraSeDesgastaConSuFuerzaDivididoTresMedios(){
-        Herramienta pico = Herramienta.picoDePiedra(); //fuerza 4, durabilidad 200
+        Herramienta pico = Herramienta.picoDePiedra();
         int fuerzaDesgaste = pico.getFuerza();
+        double durabilidad = pico.getDurabilidad();
 
         pico.desgastar(fuerzaDesgaste);
-        assertEquals(pico.getDurabilidad(), 200  - fuerzaDesgaste/1.5);
+        assertEquals(pico.getDurabilidad(), durabilidad - fuerzaDesgaste/1.5);
     }
     
     @Test
     void test09PicoDeMetalSeRompeALos10Usos(){
         Herramienta pico = Herramienta.picoDeMetal();
         int fuerzaDesgaste = pico.getFuerza();
-
+        
         for(int i = 0; i < 10; i++) {
         	pico.desgastar(fuerzaDesgaste);
         }
@@ -82,12 +84,13 @@ public class PicoTest {
     void test10PicoDeMetalSeRompeNoSeDeberiaRomperAntesDeLosDiezUsos(){
         Herramienta pico = Herramienta.picoDeMetal();
         int fuerzaDesgaste = pico.getFuerza();
-
+        double durabilidad = pico.getDurabilidad();
+        
         for(int i = 0; i < 9; i++) {
         	pico.desgastar(fuerzaDesgaste);
         }
 
-        assertEquals(pico.getDurabilidad(), 400);
+        assertEquals(pico.getDurabilidad(), durabilidad);
     }
 
     @Test
@@ -108,19 +111,22 @@ public class PicoTest {
     void test13PicoDePiedraSeDesgastaConElDiezProcientoDeSuFuerza(){
         Herramienta pico = Herramienta.picoFino();
         int fuerzaDesgaste = pico.getFuerza();
+        double durabilidad = pico.getDurabilidad();
 
         pico.desgastar(fuerzaDesgaste);
-        assertEquals(pico.getDurabilidad(), 1000 - fuerzaDesgaste / 10);
+        assertEquals(pico.getDurabilidad(), durabilidad - fuerzaDesgaste / 10);
     }
 
     @Test
     void test14PicoFinoSeDesgastaLinealementeConElDiezProcientoDeSuFuerza(){
         Herramienta pico = Herramienta.picoFino();
-        double valorDesgaste = pico.getFuerza() / 10;
         int fuerzaDesgaste = pico.getFuerza();
+        double valorDesgaste = fuerzaDesgaste / 10;
+        double durabilidad = pico.getDurabilidad();
+        
 
         for(int i = 0; i < 25; i++) {
-        	assertEquals(pico.getDurabilidad(), 1000 - (valorDesgaste * i));
+        	assertEquals(pico.getDurabilidad(), durabilidad - (valorDesgaste * i));
 
         	pico.desgastar(fuerzaDesgaste);
         }
@@ -130,31 +136,34 @@ public class PicoTest {
     void test15PicoDeMaderaSeDesgastaAlGolpearMadera(){
         Herramienta pico = Herramienta.picoDeMadera();
         Madera madera = new Madera();
-
+        double durabilidad = pico.getDurabilidad();
+        
         pico.golpear(madera);
 
-        assertEquals(pico.getDurabilidad(), 100 - pico.getFuerza());
+        assertEquals(pico.getDurabilidad(), durabilidad - pico.getFuerza());
     }
 
     @Test
     void test16PicoDePiedraSeDesgastaAlGolpearMadera(){
         Herramienta pico = Herramienta.picoDePiedra();
         Madera madera = new Madera();
+        double durabilidad = pico.getDurabilidad();
 
         pico.golpear(madera);
 
-        assertEquals(pico.getDurabilidad(), 200 - pico.getFuerza()/1.5 );
+        assertEquals(pico.getDurabilidad(), durabilidad - pico.getFuerza()/1.5 );
     }
 
     @Test
-    void test17PicoDeMetalSeDesgastaAlGolpearMadera(){
+    void test17PicoDeMetalSeDesgastaAlGolpearMadera() {
         Herramienta pico = Herramienta.picoDeMetal();
         Madera madera = new Madera();
+        double durabilidad = pico.getDurabilidad();
 
         for (int i = 0; i < 9; i++){
             pico.golpear(madera);
         }
-        assertEquals(pico.getDurabilidad(), 400); //golpea 9 veces y no se modifica su durabilidad
+        assertEquals(pico.getDurabilidad(), durabilidad); //golpea 9 veces y no se modifica su durabilidad
         pico.golpear(madera);
         assertEquals(pico.getDurabilidad(), 0); //al decimo golpe se rompe
     }
