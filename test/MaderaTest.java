@@ -85,7 +85,7 @@ public class MaderaTest {
     }
     
     @Test
-    void test08MaderaEsGolpeadaPorHachaDeMaderaSeRompeDespuesDe5Golpes() {
+    void test08MaderaEsGolpeadaPorHachaDeMaderaQuedaCon0DurabilidadDespuesDe5Golpes() {
         Hacha hachaMadera = Hacha.crearHachaDeMadera(); //fuerza 2
         Madera madera = new Madera(); //durabilidad 10
 
@@ -99,7 +99,7 @@ public class MaderaTest {
     }
     
     @Test
-    void test09MaderaEsGolpeadaPorHachaDePiedraSeRompeDespuesDe2Golpes() {
+    void test09MaderaEsGolpeadaPorHachaDePiedraQuedaCon0DurabilidadDespuesDe2Golpes() {
         Hacha hachaPiedra = Hacha.crearHachaDePiedra(); //fuerza 5
         Madera madera = new Madera(); //durabilidad 10
 
@@ -110,7 +110,7 @@ public class MaderaTest {
     }
     
     @Test
-    void test10MaderaEsGolpeadaPorHachaDeMetalSeRompeDespuesDe1Golpe() {
+    void test10MaderaEsGolpeadaPorHachaDeMetalQuedaCon0DurabilidadDespuesDe1Golpe() {
         Hacha hachaMetal = Hacha.crearHachaDeMetal(); //fuerza 10
         Madera madera = new Madera(); //durabilidad 10
 
