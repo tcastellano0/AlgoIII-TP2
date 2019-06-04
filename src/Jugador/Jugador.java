@@ -1,7 +1,6 @@
 package Jugador;
 
 import Durabilidad.Desgastable;
-import Herramientas.Hacha;
 import Herramientas.Herramienta;
 
 public class Jugador {
@@ -11,7 +10,7 @@ public class Jugador {
 	private Inventario inventarioDeMateriales;
 	
 	public Jugador() {
-		this.herramientaEquipada = Hacha.crearHachaDeMadera();
+		this.herramientaEquipada = Herramienta.hachaDeMadera();
 		this.inventarioDeHerramientas = new Inventario();
 		this.inventarioDeHerramientas.agregar(this.herramientaEquipada);
 		this.inventarioDeMateriales = new Inventario();

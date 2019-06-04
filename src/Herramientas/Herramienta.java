@@ -1,13 +1,17 @@
 package Herramientas;
 
-import Herramientas.Golpeador;
 import Durabilidad.*;
 import Materiales.Material;
 
-public abstract class Herramienta implements Desgastable {
+public class Herramienta implements Desgastable {
 
 	protected Durabilidad durabilidad;
 	protected Golpeador golpeador;
+
+    public Herramienta(Durabilidad durabilidad, Golpeador golpeador) {
+        this.durabilidad = durabilidad;
+        this.golpeador = golpeador;
+    }
 
     public double getDurabilidad() {
         return this.durabilidad.getDurabilidad();
@@ -21,5 +25,38 @@ public abstract class Herramienta implements Desgastable {
         this.durabilidad.desgastar(fuerzaDesgaste);
     }
 
-    public abstract void golpear(Material material);
+    public void golpear(Material material) {
+        material.golpeadoPor(this.golpeador);
+        this.desgastar(this.getFuerza());
+    }
+
+    //metodos de clase para instanciar cada tipo de herramienta
+    public static Herramienta hachaDeMadera(){
+        return new Herramienta(new DurabilidadConFactor(1, 100), new GolpeadorHachaDeMadera());
+    }
+
+    public static Herramienta hachaDePiedra(){
+        return new Herramienta(new DurabilidadConFactor(1, 200), new GolpeadorHachaDePiedra());
+    }
+
+    public static Herramienta hachaDeMetal(){
+        return new Herramienta(new DurabilidadConFactor(2, 400), new GolpeadorHachaDeMetal());
+    }
+
+    public static Herramienta picoDeMadera() {
+        return new Herramienta(new DurabilidadConFactor(1, 100), new GolpeadorPicoDeMadera());
+    }
+
+    public static Herramienta picoDePiedra() {
+        return new Herramienta(new DurabilidadConFactor(1.5, 200), new GolpeadorPicoDePiedra());
+    }
+
+    public static Herramienta picoDeMetal() {
+        return new Herramienta(new DurabilidadConUsos(10, 400), new GolpeadorPicoDeMetal());
+    }
+
+    public static Herramienta picoFino() {
+        return new Herramienta(new DurabilidadConFactor(10, 1000), new GolpeadorPicoFino());
+    }
+
 }
