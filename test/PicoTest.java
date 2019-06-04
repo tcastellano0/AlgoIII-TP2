@@ -9,6 +9,7 @@ public class PicoTest {
     public void test01PicoDeMaderaSeInicializaConDurabilidad100(){
         Pico pico = Pico.crearPicoDeMadera();
 
+
         assertEquals(pico.getDurabilidad(), 100);
     }
     

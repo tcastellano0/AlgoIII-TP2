@@ -1,5 +1,4 @@
-import Herramientas.Hacha;
-import Herramientas.Pico;
+import Herramientas.*;
 import Materiales.Madera;
 import org.junit.jupiter.api.Test;
 
@@ -9,116 +8,93 @@ public class MaderaTest {
 
     @Test
     void test01MaderaEsGolpeadaPorHachaDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
-        Hacha hachaMadera = Hacha.crearHachaDeMadera(); //fuerza 2
+        GolpeadorHachaDeMadera hachaMadera = new GolpeadorHachaDeMadera(); //fuerza 2
         Madera madera = new Madera(); //durabilidad 10
+        double durabilidad = madera.getDurabilidad();
 
-        hachaMadera.golpear(madera);
-        //madera.golpeadoPor(hachaMadera);
-
-        assertEquals(madera.getDurabilidad(), 8);
+        for (int i = 0; i < 5; i++) { //golpeo varias veces y veo que se reduce
+            madera.golpeadoPor(hachaMadera);
+            assertEquals(madera.getDurabilidad(), durabilidad - hachaMadera.getFuerza());
+            durabilidad = madera.getDurabilidad();
+        }
     }
 
     @Test
     void test02MaderaEsGolpeadaPorHachaDePiedraYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
-        Hacha hachaPiedra = Hacha.crearHachaDePiedra(); //fuerza 5
+        //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
+        //seguramente falle en el futuro
+        GolpeadorHachaDePiedra hachaDePiedra = new GolpeadorHachaDePiedra(); //fuerza 10
         Madera madera = new Madera(); //durabilidad 10
+        double durabilidad = madera.getDurabilidad();
 
-        hachaPiedra.golpear(madera);
-        //madera.golpeadoPor(hachaPiedra);
-
-        assertEquals(madera.getDurabilidad(), 5);
+        for (int i = 0; i < 5; i++) { //golpeo varias veces y veo que se reduce
+            madera.golpeadoPor(hachaDePiedra);
+            assertEquals(madera.getDurabilidad(), durabilidad - hachaDePiedra.getFuerza());
+            durabilidad = madera.getDurabilidad();
+        }
     }
 
     @Test
     void test03MaderaEsGolpeadaPorHachaDeMetalYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
-        Hacha hachaMetal = Hacha.crearHachaDeMetal(); //fuerza 10
+        //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
+        //seguramente falle en el futuro
+        GolpeadorHachaDeMetal hachaDeMetal = new GolpeadorHachaDeMetal(); //fuerza 2
         Madera madera = new Madera(); //durabilidad 10
+        double durabilidad = madera.getDurabilidad();
 
-        hachaMetal.golpear(madera);
-        //madera.golpeadoPor(hachaMetal);
-
-        assertEquals(madera.getDurabilidad(), 0);
+        for (int i = 0; i < 5; i++) { //golpeo varias veces y veo que se reduce
+            madera.golpeadoPor(hachaDeMetal);
+            assertEquals(madera.getDurabilidad(), durabilidad - hachaDeMetal.getFuerza());
+            durabilidad = madera.getDurabilidad();
+        }
     }
 
     @Test
-    void test04MaderaEsGolpeadaPorPicoDeMaderaYNoSeReduceSuDurabilidad(){
+    void test04MaderaEsGolpeadaPorPicoDeMaderaYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera(); //durabilidad 10
-        Pico picoMadera = Pico.crearPicoDeMadera(); //fuerza 2
+        GolpeadorPicoDeMadera picoMadera = new GolpeadorPicoDeMadera(); //fuerza 2
+        double durabilidad = madera.getDurabilidad();
 
-        picoMadera.golpear(madera);
-        //madera.golpeadoPor(picoMadera);
-
-        assertEquals(madera.getDurabilidad(), 10);
+        for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
+            madera.golpeadoPor(picoMadera);
+            assertEquals(madera.getDurabilidad(), durabilidad);
+        }
     }
-    
+
     @Test
-    void test05MaderaEsGolpeadaPorPicoDePiedraYNoSeReduceSuDurabilidad(){
+    void test05MaderaEsGolpeadaPorPicoDePiedraYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera(); //durabilidad 10
-        Pico picoPiedra = Pico.crearPicoDePiedra(); //fuerza 5
+        GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra(); //fuerza 4
+        double durabilidad = madera.getDurabilidad();
 
-        picoPiedra.golpear(madera);
-        //madera.golpeadoPor(picoPiedra);
+        for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
+            madera.golpeadoPor(picoDePiedra);
+            assertEquals(madera.getDurabilidad(), durabilidad);
+        }
 
-        assertEquals(madera.getDurabilidad(), 10);
     }
-    
+
     @Test
-    void test06MaderaEsGolpeadaPorPicoDeMetalYNoSeReduceSuDurabilidad(){
+    void test06MaderaEsGolpeadaPorPicoDeMetalYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera(); //durabilidad 10
-        Pico picoMetal = Pico.crearPicoDeMetal(); //fuerza 10
+        GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal(); //fuerza 12
+        double durabilidad = madera.getDurabilidad();
 
-        picoMetal.golpear(madera);
-        //madera.golpeadoPor(picoMetal);
-
-        assertEquals(madera.getDurabilidad(), 10);
+        for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
+            madera.golpeadoPor(picoDeMetal);
+            assertEquals(madera.getDurabilidad(), durabilidad);
+        }
     }
-    
+
     @Test
-    void test07MaderaEsGolpeadaPorPicoFinoYNoSeReduceSuDurabilidad(){
+    void test07MaderaEsGolpeadaPorPicoFinoYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera(); //durabilidad 10
-        Pico picoFino = Pico.crearPicoFino(); //fuerza 20
+        GolpeadorPicoFino picoFino = new GolpeadorPicoFino(); //fuerza 20
+        double durabilidad = madera.getDurabilidad();
 
-        picoFino.golpear(madera);
-        //madera.golpeadoPor(picoMetal);
-
-        assertEquals(madera.getDurabilidad(), 10);
+        for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
+            madera.golpeadoPor(picoFino);
+            assertEquals(madera.getDurabilidad(), durabilidad);
+        }
     }
-    
-    /*
-    @Test
-    void test08MaderaEsGolpeadaPorHachaDeMaderaQuedaCon0DurabilidadDespuesDe5Golpes() {
-        Hacha hachaMadera = Hacha.crearHachaDeMadera(); //fuerza 2
-        Madera madera = new Madera(); //durabilidad 10
-
-        hachaMadera.golpear(madera);
-        hachaMadera.golpear(madera);
-        hachaMadera.golpear(madera);
-        hachaMadera.golpear(madera);
-        hachaMadera.golpear(madera);
-
-        assertEquals(madera.getDurabilidad(), 0);
-    }
-    
-    @Test
-    void test09MaderaEsGolpeadaPorHachaDePiedraQuedaCon0DurabilidadDespuesDe2Golpes() {
-        Hacha hachaPiedra = Hacha.crearHachaDePiedra(); //fuerza 5
-        Madera madera = new Madera(); //durabilidad 10
-
-        hachaPiedra.golpear(madera);
-        hachaPiedra.golpear(madera);
-
-        assertEquals(madera.getDurabilidad(), 0);
-    }
-    
-    @Test
-    void test10MaderaEsGolpeadaPorHachaDeMetalQuedaCon0DurabilidadDespuesDe1Golpe() {
-        Hacha hachaMetal = Hacha.crearHachaDeMetal(); //fuerza 10
-        Madera madera = new Madera(); //durabilidad 10
-
-        hachaMetal.golpear(madera);
-
-        assertEquals(madera.getDurabilidad(), 0);
-    }
-    */
-    
 }
