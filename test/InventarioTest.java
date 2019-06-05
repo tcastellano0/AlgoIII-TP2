@@ -15,16 +15,36 @@ public class InventarioTest {
     }
 	
 	@Test
-    void test02InventarioSeLeAgregaUnItemCantidadEs1() {
+    void test02InventarioSeLeAgregaUnItemYSuCantidadAumentaEn1() {
 		Inventario<Herramienta> inventario = new Inventario<Herramienta>();
 		Herramienta hacha = Herramienta.hachaDeMadera();
 		inventario.agregar(hacha);
 		
 		assertEquals(inventario.cantidad(), 1);
     }
+
+	@Test
+	void test03InventarioSeLeAgregaUnItemCincoVecesYSuCantidadAumentaEn1CadaVez() {
+		Inventario<Herramienta> inventario = new Inventario<Herramienta>();
+		Herramienta hacha = Herramienta.hachaDeMadera();
+		inventario.agregar(hacha);
+		assertEquals(inventario.cantidad(), 1);
+		hacha = Herramienta.hachaDeMadera();
+		inventario.agregar(hacha);
+		assertEquals(inventario.cantidad(), 2);
+		hacha = Herramienta.hachaDeMadera();
+		inventario.agregar(hacha);
+		assertEquals(inventario.cantidad(), 3);
+		hacha = Herramienta.hachaDeMadera();
+		inventario.agregar(hacha);
+		assertEquals(inventario.cantidad(), 4);
+		hacha = Herramienta.hachaDeMadera();
+		inventario.agregar(hacha);
+		assertEquals(inventario.cantidad(), 5);
+	}
 	
 	@Test
-    void test03InventarioDevuelveElMismoUltimoItem() {
+    void test04InventarioDevuelveElMismoUltimoItem() {
 		Inventario<Herramienta> inventario = new Inventario<Herramienta>();
 		Herramienta hacha = Herramienta.hachaDeMadera();
 		inventario.agregar(hacha);
