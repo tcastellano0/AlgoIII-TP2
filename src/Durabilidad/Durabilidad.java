@@ -1,6 +1,6 @@
 package Durabilidad;
 
-public abstract class Durabilidad {
+public abstract class Durabilidad implements Desgastable{
 
     protected double durabilidad;
 
