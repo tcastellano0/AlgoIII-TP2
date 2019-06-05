@@ -2,18 +2,19 @@ package Jugador;
 
 import Durabilidad.Desgastable;
 import Herramientas.Herramienta;
+import Materiales.Material;
 
 public class Jugador {
 	
 	private Herramienta herramientaEquipada;
-	private Inventario inventarioDeHerramientas;
-	private Inventario inventarioDeMateriales;
+	private Inventario<Herramienta> inventarioDeHerramientas;
+	private Inventario<Material> inventarioDeMateriales;
 	
 	public Jugador() {
 		this.herramientaEquipada = Herramienta.hachaDeMadera();
-		this.inventarioDeHerramientas = new Inventario();
+		this.inventarioDeHerramientas = new Inventario<Herramienta>();
 		this.inventarioDeHerramientas.agregar(this.herramientaEquipada);
-		this.inventarioDeMateriales = new Inventario();
+		this.inventarioDeMateriales = new Inventario<Material>();
 	}
 	
 	public int cantidadDeHerramientas() {

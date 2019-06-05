@@ -1,18 +1,16 @@
 package Jugador;
 
-import Durabilidad.Desgastable;
-
 import java.util.ArrayList;
 
-public class Inventario {
+public class Inventario<T> {
 	
-	private ArrayList<Desgastable> listaDeItems;
+	private ArrayList<T> listaDeItems;
 	
 	public Inventario() {
-		this.listaDeItems = new ArrayList<Desgastable>(); 
+		this.listaDeItems = new ArrayList<T>(); 
 	}
 	
-	public void agregar(Desgastable item) {
+	public void agregar(T item) {
 		this.listaDeItems.add(item);
 	}
 	
@@ -20,7 +18,7 @@ public class Inventario {
 		return this.listaDeItems.size();
 	}
 	
-	public Desgastable ultimoItem() {
+	public T ultimoItem() {
 		return this.listaDeItems.get(listaDeItems.size() - 1);
 	}
 
