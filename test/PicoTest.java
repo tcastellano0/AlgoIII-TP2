@@ -155,7 +155,7 @@ public class PicoTest {
     }
 
     @Test
-    void test17PicoDeMetalSeDesgastaAlGolpearMadera() {
+    void test17PicoDeMetalSeDesgastaTotalmenteAlGolpearMaderaUnasDiezVeces() {
         Herramienta pico = Herramienta.picoDeMetal();
         Madera madera = new Madera();
         double durabilidad = pico.getDurabilidad();

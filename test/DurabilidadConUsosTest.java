@@ -12,7 +12,6 @@ public class DurabilidadConUsosTest {
         Durabilidad durabilidad = new DurabilidadConUsos(10, durabilidadInicial);
 
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial);
-
     }
 
     @Test
@@ -27,29 +26,28 @@ public class DurabilidadConUsosTest {
         durabilidad.desgastar(5);
 
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial);
-
     }
 
     @Test
     public void test03DurabilidadConDosUsosTieneDurabilidadCeroDespuesDeDosUsosConFuerzaCinco(){
         double durabilidadInicial = 400;
         Durabilidad durabilidad = new DurabilidadConUsos(2, durabilidadInicial);
+        
         durabilidad.desgastar(5);
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial);
         durabilidad.desgastar(5);
         assertEquals(durabilidad.getDurabilidad(), 0);
-
     }
 
     @Test
     public void test04DurabilidadConDosUsosTieneDurabilidadCeroDespuesDeDosUsosConFuerzaCero(){
         double durabilidadInicial = 400;
         Durabilidad durabilidad = new DurabilidadConUsos(2, durabilidadInicial);
+        
         durabilidad.desgastar(0);
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial);
         durabilidad.desgastar(0);
         assertEquals(durabilidad.getDurabilidad(), 0);
-
     }
 
     @Test
@@ -80,7 +78,6 @@ public class DurabilidadConUsosTest {
         assertEquals(durabilidad.getDurabilidad(), durabilidadInicial);
         durabilidad.desgastar(500);
         assertEquals(durabilidad.getDurabilidad(), 0);
-
     }
     
     @Test

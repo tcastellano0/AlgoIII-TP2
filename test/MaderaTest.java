@@ -8,8 +8,8 @@ public class MaderaTest {
 
     @Test
     void test01MaderaEsGolpeadaPorHachaDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
-        GolpeadorHachaDeMadera hachaMadera = new GolpeadorHachaDeMadera(); //fuerza 2
-        Madera madera = new Madera(); //durabilidad 10
+        Madera madera = new Madera();
+        GolpeadorHachaDeMadera hachaMadera = new GolpeadorHachaDeMadera();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 5; i++) { //golpeo varias veces y veo que se reduce
@@ -23,8 +23,8 @@ public class MaderaTest {
     void test02MaderaEsGolpeadaPorHachaDePiedraYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
         //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
         //seguramente falle en el futuro
-        GolpeadorHachaDePiedra hachaDePiedra = new GolpeadorHachaDePiedra(); //fuerza 5
-        Madera madera = new Madera(); //durabilidad 10
+        Madera madera = new Madera();
+        GolpeadorHachaDePiedra hachaDePiedra = new GolpeadorHachaDePiedra();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 5; i++) { //golpeo varias veces y veo que se reduce
@@ -38,8 +38,8 @@ public class MaderaTest {
     void test03MaderaEsGolpeadaPorHachaDeMetalYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
         //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
         //seguramente falle en el futuro
-        GolpeadorHachaDeMetal hachaDeMetal = new GolpeadorHachaDeMetal(); //fuerza 10
-        Madera madera = new Madera(); //durabilidad 10
+        Madera madera = new Madera();
+        GolpeadorHachaDeMetal hachaDeMetal = new GolpeadorHachaDeMetal();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 5; i++) { //golpeo varias veces y veo que se reduce
@@ -51,8 +51,8 @@ public class MaderaTest {
 
     @Test
     void test04MaderaEsGolpeadaPorPicoDeMaderaYNoSeReduceSuDurabilidad() {
-        Madera madera = new Madera(); //durabilidad 10
-        GolpeadorPicoDeMadera picoMadera = new GolpeadorPicoDeMadera(); //fuerza 2
+        Madera madera = new Madera();
+        GolpeadorPicoDeMadera picoMadera = new GolpeadorPicoDeMadera();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
@@ -63,8 +63,8 @@ public class MaderaTest {
 
     @Test
     void test05MaderaEsGolpeadaPorPicoDePiedraYNoSeReduceSuDurabilidad() {
-        Madera madera = new Madera(); //durabilidad 10
-        GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra(); //fuerza 4
+        Madera madera = new Madera();
+        GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
@@ -76,8 +76,8 @@ public class MaderaTest {
 
     @Test
     void test06MaderaEsGolpeadaPorPicoDeMetalYNoSeReduceSuDurabilidad() {
-        Madera madera = new Madera(); //durabilidad 10
-        GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal(); //fuerza 12
+        Madera madera = new Madera();
+        GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
@@ -88,8 +88,8 @@ public class MaderaTest {
 
     @Test
     void test07MaderaEsGolpeadaPorPicoFinoYNoSeReduceSuDurabilidad() {
-        Madera madera = new Madera(); //durabilidad 10
-        GolpeadorPicoFino picoFino = new GolpeadorPicoFino(); //fuerza 20
+        Madera madera = new Madera();
+        GolpeadorPicoFino picoFino = new GolpeadorPicoFino();
         double durabilidad = madera.getDurabilidad();
 
         for (int i = 0; i < 10; i++) { //golpeo varias veces y veo que no se reduce
