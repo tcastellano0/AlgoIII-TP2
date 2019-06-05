@@ -1,6 +1,5 @@
 package Jugador;
 
-import Durabilidad.Desgastable;
 import Herramientas.Herramienta;
 import Materiales.Material;
 
@@ -29,7 +28,7 @@ public class Jugador {
 		return (this.herramientaEquipada);
 	}
 	
-	public Desgastable ultimaHerramientaAgregada() {
+	public Herramienta ultimaHerramientaObtenida() {
 		return this.inventarioDeHerramientas.ultimoItemAgregado();
 	}
 	
