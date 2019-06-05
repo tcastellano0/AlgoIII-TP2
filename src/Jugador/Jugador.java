@@ -29,8 +29,8 @@ public class Jugador {
 		return (this.herramientaEquipada);
 	}
 	
-	public Desgastable ultimaHerramienta() {
-		return this.inventarioDeHerramientas.ultimoItem();
+	public Desgastable ultimaHerramientaAgregada() {
+		return this.inventarioDeHerramientas.ultimoItemAgregado();
 	}
 	
 }

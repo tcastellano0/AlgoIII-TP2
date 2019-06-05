@@ -18,7 +18,7 @@ public class Inventario<T> {
 		return this.listaDeItems.size();
 	}
 	
-	public T ultimoItem() {
+	public T ultimoItemAgregado() {
 		return this.listaDeItems.get(listaDeItems.size() - 1);
 	}
 

@@ -29,7 +29,7 @@ public class InventarioTest {
 		Herramienta hacha = Herramienta.hachaDeMadera();
 		inventario.agregar(hacha);
 		
-		assertSame(inventario.ultimoItem(), hacha);
+		assertSame(inventario.ultimoItemAgregado(), hacha);
     }
 
 }

@@ -19,14 +19,6 @@ public class JugadorTest {
 		assertEquals(jugador.cantidadDeHerramientas(), 1);
     }
 	
-/*	@Test
-    void test03JugadorSeInicializaConUnHachaEquipada() {
-		//este test esta mal
-		Jugador jugador = new Jugador();
-		
-		assertTrue((jugador.herramientaEquipada()) instanceof Hacha);
-    }*/
-	
 	@Test
     void test04JugadorSeInicializaConUnHachaDeMaderaEquipada() {
 		Jugador jugador = new Jugador();
@@ -39,7 +31,7 @@ public class JugadorTest {
     void test05JugadorSeInicializaConLaMismaHachaDeMaderaEquipadaYEnInventario() {
 		Jugador jugador = new Jugador();
 
-        assertSame(jugador.herramientaEquipada(), jugador.ultimaHerramienta());
+        assertSame(jugador.herramientaEquipada(), jugador.ultimaHerramientaAgregada());
     }
 	
 }
