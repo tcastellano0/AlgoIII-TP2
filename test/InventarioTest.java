@@ -9,14 +9,14 @@ public class InventarioTest {
 	
 	@Test
     void test01InventarioSeInicializaConCeroItems() {
-		Inventario inventario = new Inventario();
+		Inventario<Herramienta> inventario = new Inventario<Herramienta>();
 		
 		assertEquals(inventario.cantidad(), 0);
     }
 	
 	@Test
     void test02InventarioSeLeAgregaUnItemCantidadEs1() {
-		Inventario inventario = new Inventario();
+		Inventario<Herramienta> inventario = new Inventario<Herramienta>();
 		Herramienta hacha = Herramienta.hachaDeMadera();
 		inventario.agregar(hacha);
 		
@@ -25,7 +25,7 @@ public class InventarioTest {
 	
 	@Test
     void test03InventarioDevuelveElMismoUltimoItem() {
-		Inventario inventario = new Inventario();
+		Inventario<Herramienta> inventario = new Inventario<Herramienta>();
 		Herramienta hacha = Herramienta.hachaDeMadera();
 		inventario.agregar(hacha);
 		

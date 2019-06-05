@@ -51,9 +51,11 @@ public class HachaTest {
     void test06HachaDeMaderaSeDesgastaIgualASuFuerza(){
         Herramienta hacha = Herramienta.hachaDeMadera();
         int fuerzaDesgaste = hacha.getFuerza();
+        double durabilidad = hacha.getDurabilidad();
 
         hacha.desgastar(fuerzaDesgaste);
-        assertEquals(hacha.getDurabilidad(), 100 - fuerzaDesgaste);
+        
+        assertEquals(hacha.getDurabilidad(), durabilidad - fuerzaDesgaste);
     }
 
     @Test
@@ -63,6 +65,7 @@ public class HachaTest {
         double durabilidad = hacha.getDurabilidad();
 
         hacha.desgastar(fuerzaDesgaste);
+        
         assertEquals(hacha.getDurabilidad(), durabilidad - fuerzaDesgaste);
     }
 
@@ -73,6 +76,7 @@ public class HachaTest {
         double durabilidad = hacha.getDurabilidad();
 
         hacha.desgastar(fuerzaDesgaste);
+        
         assertEquals(hacha.getDurabilidad(), durabilidad - fuerzaDesgaste / 2);
     }
 
