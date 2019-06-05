@@ -1,3 +1,4 @@
+import Herramientas.Herramienta;
 import Jugador.Jugador;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -22,9 +23,10 @@ public class JugadorTest {
 	@Test
     void test04JugadorSeInicializaConUnHachaDeMaderaEquipada() {
 		Jugador jugador = new Jugador();
+        Herramienta unHacha = Herramienta.hachaDeMadera();
 
-        assertEquals(jugador.herramientaEquipada().getDurabilidad(), 100);
-        assertEquals(jugador.herramientaEquipada().getFuerza(), 2);
+        assertEquals(jugador.herramientaEquipada().getDurabilidad(), unHacha.getDurabilidad());
+        assertEquals(jugador.herramientaEquipada().getFuerza(), unHacha.getFuerza());
     }
 	
 	@Test
