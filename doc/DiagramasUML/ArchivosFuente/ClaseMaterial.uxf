@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text/>
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>250</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Piedra
+--
+--
++ golpeadoPor(golpeador: Golpeador)
++ golpeadoPor(golpeadorHachaDeMadera: Golpeador)
++ golpeadoPor(golpeadorHachaDePiedra: Golpeador)
++ golpeadoPor(golpeadorHachaDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoDeMadera: Golpeador)
++ golpeadoPor(golpeadorPicoDePiedra: Golpeador)
++ golpeadoPor(golpeadorPicoDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoFino: Golpeador)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>560</y>
+      <w>240</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interfaz&gt;&gt;
+Desgastable
+--
+/+ desgastar(fuerzaDesgaste: Int)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>410</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/Material/
+--
+- durabilidad (DurabilidadConFactor)
+--
++ getDurabilidad(): double
++ desgastar(): int
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>120</x>
+      <y>60</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Interfaz&gt;&gt;
+Golpeable
+--
+/+ golpeadoPor(golpeador: Golpeador)/
+/+ golpeadoPor(golpeadorHachaDeMadera: Golpeador)/
+/+ golpeadoPor(golpeadorHachaDePiedra: Golpeador)/
+/+ golpeadoPor(golpeadorHachaDeMetal: Golpeador)/
+/+ golpeadoPor(golpeadorPicoDeMadera: Golpeador)/
+/+ golpeadoPor(golpeadorPicoDePiedra: Golpeador)/
+/+ golpeadoPor(golpeadorPicoDeMetal: Golpeador)/
+/+ golpeadoPor(golpeadorPicoFino: Golpeador)/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>60</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Madera
+--
+--
++ golpeadoPor(golpeador: Golpeador)
++ golpeadoPor(golpeadorHachaDeMadera: Golpeador)
++ golpeadoPor(golpeadorHachaDePiedra: Golpeador)
++ golpeadoPor(golpeadorHachaDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoDeMadera: Golpeador)
++ golpeadoPor(golpeadorPicoDePiedra: Golpeador)
++ golpeadoPor(golpeadorPicoDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoFino: Golpeador)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>630</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Metal
+--
+--
++ golpeadoPor(golpeador: Golpeador)
++ golpeadoPor(golpeadorHachaDeMadera: Golpeador)
++ golpeadoPor(golpeadorHachaDePiedra: Golpeador)
++ golpeadoPor(golpeadorHachaDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoDeMadera: Golpeador)
++ golpeadoPor(golpeadorPicoDePiedra: Golpeador)
++ golpeadoPor(golpeadorPicoDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoFino: Golpeador)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>440</y>
+      <w>360</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>Diamante
+--
+--
++ golpeadoPor(golpeador: Golpeador)
++ golpeadoPor(golpeadorHachaDeMadera: Golpeador)
++ golpeadoPor(golpeadorHachaDePiedra: Golpeador)
++ golpeadoPor(golpeadorHachaDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoDeMadera: Golpeador)
++ golpeadoPor(golpeadorPicoDePiedra: Golpeador)
++ golpeadoPor(golpeadorPicoDeMetal: Golpeador)
++ golpeadoPor(golpeadorPicoFino: Golpeador)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>490</y>
+      <w>30</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>280</x>
+      <y>230</y>
+      <w>30</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>110</y>
+      <w>280</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;340.0;140.0;340.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>300</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;150.0;140.0;150.0;260.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>440</y>
+      <w>280</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;260.0;120.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>400</x>
+      <y>440</y>
+      <w>280</w>
+      <h>300</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;140.0;10.0;260.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>150</x>
+      <y>720</y>
+      <w>380</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Diagrama de Clases: Matierales
+fontsize=25
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
