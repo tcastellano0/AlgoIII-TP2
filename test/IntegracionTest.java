@@ -55,5 +55,5 @@ public class IntegracionTest {
 
         assertTrue(hacha.getDurabilidad() < durabilidadInicialHacha);
     }
-    
+
 }
