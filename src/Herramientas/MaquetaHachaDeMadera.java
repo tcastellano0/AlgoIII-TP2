@@ -8,7 +8,7 @@ public class MaquetaHachaDeMadera extends Maqueta {
 		
 		this.agregarMaterialEnCelda(0, 0, new Madera());
 		this.agregarMaterialEnCelda(0, 1, new Madera());
-		this.agregarMaterialEnCelda(0, 2, new Madera());
+		this.agregarMaterialEnCelda(1, 0, new Madera());
 		this.agregarMaterialEnCelda(1, 1, new Madera());
 		this.agregarMaterialEnCelda(2, 1, new Madera());
 	}

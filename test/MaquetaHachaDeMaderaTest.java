@@ -14,7 +14,7 @@ public class MaquetaHachaDeMaderaTest {
 		
 		maquetaUnaHerramienta.agregarMaterialEnCelda(0, 0, new Madera());
 		maquetaUnaHerramienta.agregarMaterialEnCelda(0, 1, new Madera());
-		maquetaUnaHerramienta.agregarMaterialEnCelda(0, 2, new Madera());
+		maquetaUnaHerramienta.agregarMaterialEnCelda(1, 0, new Madera());
 		maquetaUnaHerramienta.agregarMaterialEnCelda(1, 1, new Madera());
 		maquetaUnaHerramienta.agregarMaterialEnCelda(2, 1, new Madera());
 		
@@ -41,7 +41,7 @@ public class MaquetaHachaDeMaderaTest {
 		
 		maquetaUnaHerramienta.agregarMaterialEnCelda(0, 0, new Piedra());
 		maquetaUnaHerramienta.agregarMaterialEnCelda(0, 1, new Madera());
-		maquetaUnaHerramienta.agregarMaterialEnCelda(0, 2, new Madera());
+		maquetaUnaHerramienta.agregarMaterialEnCelda(1, 0, new Madera());
 		maquetaUnaHerramienta.agregarMaterialEnCelda(1, 1, new Piedra());
 		maquetaUnaHerramienta.agregarMaterialEnCelda(2, 1, new Madera());
 		

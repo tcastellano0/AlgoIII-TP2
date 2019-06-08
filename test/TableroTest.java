@@ -10,7 +10,7 @@ import Materiales.Material;
 public class TableroTest {
 	//falta nombrar bien los tests
 	@Test
-    void test01() {
+    void test01Creo() {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
 		tablero.agregar(diamante, 1, 1);
@@ -48,3 +48,4 @@ public class TableroTest {
 	//falta probar el caso new Tablero<Material>(0, 0) y agregar(diamante, 0, 0) sacar(diamante, 0, 0) etc etc
 
 }
+
