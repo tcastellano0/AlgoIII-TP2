@@ -9,7 +9,7 @@ public class Maqueta {
 		int filas = this.getCantidadFilas(),
 			columnas = this.getCantidadColumnas();
 
-		matrizDeMateriales = new Material [filas][columnas];
+		this.matrizDeMateriales = new Material [filas][columnas];
 	}
 	
 	public int getCantidadColumnas() {
@@ -21,11 +21,11 @@ public class Maqueta {
 	}
 	
 	public void agregarMaterialEnCelda(int fila, int columma, Material material) {
-		matrizDeMateriales[fila][columma] = material;
+		this.matrizDeMateriales[fila][columma] = material;
 	}
 	
 	public Material getMaterialEnCelda(int fila, int columma) {
-		return matrizDeMateriales[fila][columma];
+		return this.matrizDeMateriales[fila][columma];
 	}
 
 	public boolean esIgualA(Maqueta unaMaqueta) {
