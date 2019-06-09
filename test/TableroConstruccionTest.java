@@ -1,5 +1,5 @@
 import Herramientas.Herramienta;
-import Jugador.TableroConstruccion;
+import Herramientas.Construccion.TableroConstruccion;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

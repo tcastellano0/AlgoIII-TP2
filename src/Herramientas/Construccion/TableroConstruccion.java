@@ -1,5 +1,6 @@
-package Jugador;
+package Herramientas.Construccion;
 
+import Herramientas.Construccion.CeldaConstruccion;
 import Herramientas.Herramienta;
 
 import java.util.ArrayList;
@@ -8,20 +9,25 @@ import java.util.List;
 import java.util.Map;
 
 public class TableroConstruccion {
-    private int alto = 3;
-    private int ancho = 3;
+    private int filas = 3;
+    private int columnas = 3;
     private List<CeldaConstruccion> celdas = new ArrayList<>();
     private Map<String, Herramienta> maquetas = new HashMap<>();
 
+
     public TableroConstruccion() {
-        for (int i = 0; i < this.alto * this.ancho; i++) {
+        for (int i = 0; i < this.filas * this.columnas; i++) {
             celdas.add(new CeldaConstruccion());
         }
         maquetas.put("MMVMMVVMV", Herramienta.hachaDeMadera());
     }
 
-    public void ponerMadera(int x, int y) {
-        celdas.get((x - 1) * this.ancho + y - 1).madera();
+    private CeldaConstruccion getCelda(int fila, int columna){
+       return celdas.get((fila - 1) * this.columnas + columna - 1);
+    }
+
+    public void ponerMadera(int fila, int columna) {
+        getCelda(fila,columna).madera();
     }
 
     public String maqueta() {
