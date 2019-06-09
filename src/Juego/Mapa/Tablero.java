@@ -12,6 +12,14 @@ public class Tablero<T> {
 	private List<Celda<T>> celdas = new ArrayList<>();
 	
 	public Tablero(int filas, int columnas) {
+
+		if (filas < 1){
+			throw new TableroCreacionException();
+		}
+		if (columnas < 1){
+			throw new TableroCreacionException();
+		}
+
 		this.filas = filas;
 		this.columnas = columnas;
 
