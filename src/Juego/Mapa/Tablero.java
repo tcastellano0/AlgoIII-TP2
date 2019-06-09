@@ -29,6 +29,12 @@ public class Tablero<T> {
 	}
 	
 	public void agregar(T item, int fila, int columna) {
+		if (fila < 1 || fila > this.filas){
+			throw new UbicacionInvalidaException();
+		}
+		if (columna < 1 || fila > this.columnas){
+			throw new UbicacionInvalidaException();
+		}
 		celdas.get((fila - 1) * this.columnas + columna - 1).setContenido(item);
 	}
 	

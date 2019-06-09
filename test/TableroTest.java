@@ -21,21 +21,21 @@ public class TableroTest {
 	}
 
 	@Test
-	void test01CrearMapaConNumColumnasNegativoLanzaError() {
+	void test02CrearMapaConNumColumnasNegativoLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
 				new Tablero(1, -1);
 		});
 	}
 
 	@Test
-	void test01CrearMapaConNumFilasCeroLanzaError() {
+	void test03CrearMapaConNumFilasCeroLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
 			new Tablero(0, 1);
 		});
 	}
 
 	@Test
-	void test01CrearMapaConNumColumnasCeroLanzaError() {
+	void test04CrearMapaConNumColumnasCeroLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
 			new Tablero(1, 0);
 		});
@@ -43,41 +43,34 @@ public class TableroTest {
 
 
 	@Test
-    void test01Creo() {
+    void test05CreoUnTableroTresPorTresAgregoUnDiamanteEn3Y3YAlSacarloEsElMismo() {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
-		tablero.agregar(diamante, 1, 1);
+		tablero.agregar(diamante, 3, 3);
 		
-		assertSame(diamante, tablero.sacar(1, 1));
+		assertSame(diamante, tablero.sacar(3, 3));
     }
-	
-	@Test
-    void test02() {
+
+    @Test
+	void test06AgregarEnUnTableroEnPosicionCeroYCeroLanzaError(){
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
-		tablero.agregar(diamante, 1, 2);
-		
-		assertSame(diamante, tablero.sacar(1, 2));
-    }
-	
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.agregar(diamante, 0, 0);
+		});
+	}
+
 	@Test
-	void test03() {
+	void test06AgregarEnUnTableroEnPosicionCeroYUnoLanzaError(){
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
-		tablero.agregar(diamante, 1, 3);
-		
-		assertSame(diamante, tablero.sacar(1, 3));
-    }
-	
-	@Test
-    void test04() {
-		Tablero<Material> tablero = new Tablero<Material>(1, 1);
-		Diamante diamante = new Diamante();
-		tablero.agregar(diamante, 1, 1);
-		
-		assertSame(diamante, tablero.sacar(1, 1));
-    }
-	
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.agregar(diamante, 0, 1);
+		});
+	}
+
 	//falta probar el caso new Tablero<Material>(0, 0) y agregar(diamante, 0, 0) sacar(diamante, 0, 0) etc etc
 
 }
