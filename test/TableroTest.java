@@ -62,7 +62,7 @@ public class TableroTest {
 	}
 
 	@Test
-	void test06AgregarEnUnTableroEnPosicionCeroYUnoLanzaError(){
+	void test07AgregarEnUnTableroEnPosicionCeroYUnoLanzaError(){
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
 
