@@ -1,6 +1,4 @@
-package Herramientas;
-
-import Jugador.Celda;
+package Jugador;
 
 public class CeldaConstruccion extends Celda<Character> {
 

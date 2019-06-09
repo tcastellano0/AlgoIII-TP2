@@ -1,4 +1,6 @@
-package Herramientas;
+package Jugador;
+
+import Herramientas.Herramienta;
 
 import java.util.ArrayList;
 import java.util.HashMap;
