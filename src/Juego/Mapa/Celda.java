@@ -1,4 +1,4 @@
-package Jugador;
+package Juego.Mapa;
 
 public class Celda<T> {
 

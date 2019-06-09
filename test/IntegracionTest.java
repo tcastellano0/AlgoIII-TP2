@@ -1,6 +1,6 @@
 import Materiales.*;
 import Herramientas.*;
-import Jugador.Jugador;
+import Juego.Jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

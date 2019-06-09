@@ -1,4 +1,6 @@
-package Jugador;
+package Juego.Mapa;
+
+import Juego.Mapa.Celda;
 
 import java.util.ArrayList;
 import java.util.List;

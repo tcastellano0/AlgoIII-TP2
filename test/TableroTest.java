@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.assertSame;
 
 import org.junit.jupiter.api.Test;
 
-import Jugador.Tablero;
+import Juego.Mapa.Tablero;
 import Materiales.Diamante;
 import Materiales.Material;
 
