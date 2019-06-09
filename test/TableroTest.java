@@ -71,6 +71,30 @@ public class TableroTest {
 		});
 	}
 
+	@Test
+	void test08AgregarEnUnTableroEnPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
+		int fila = 3;
+
+		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+		Diamante diamante = new Diamante();
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.agregar(diamante, fila+2, 2);
+		});
+	}
+
+	@Test
+	void test09AgregarEnUnTableroEnPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
+		int columna = 3;
+
+		Tablero<Material> tablero = new Tablero<Material>(3, columna);
+		Diamante diamante = new Diamante();
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.agregar(diamante, 2, columna+2);
+		});
+	}
+
 	//falta probar el caso new Tablero<Material>(0, 0) y agregar(diamante, 0, 0) sacar(diamante, 0, 0) etc etc
 
 }

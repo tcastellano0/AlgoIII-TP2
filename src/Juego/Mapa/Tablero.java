@@ -32,7 +32,7 @@ public class Tablero<T> {
 		if (fila < 1 || fila > this.filas){
 			throw new UbicacionInvalidaException();
 		}
-		if (columna < 1 || fila > this.columnas){
+		if (columna < 1 || columna > this.columnas){
 			throw new UbicacionInvalidaException();
 		}
 		celdas.get((fila - 1) * this.columnas + columna - 1).setContenido(item);
