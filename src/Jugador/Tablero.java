@@ -13,7 +13,7 @@ public class Tablero<T> {
 		
 		for (int fila = 0; fila < this.filas; ++fila) {
 			for (int columna = 0; columna < this.columnas; ++columna) {
-				celdas[fila][columna] = new Celda<T>(fila, columna);
+				celdas[fila][columna] = new Celda<T>();
 			}
 		}
 	}

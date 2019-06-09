@@ -26,7 +26,7 @@ public class TableroConstruccion {
         String maqueta = "";
         StringBuilder sb = new StringBuilder();
         for (CeldaConstruccion c : celdas) {
-            sb.append(c.material());
+            sb.append(c.getContenido());
         }
         maqueta = sb.toString();
         return maqueta;

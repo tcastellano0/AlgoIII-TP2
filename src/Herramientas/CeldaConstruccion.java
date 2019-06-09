@@ -1,34 +1,31 @@
 package Herramientas;
 
-public class CeldaConstruccion {
-    private char letra;
+import Jugador.Celda;
+
+public class CeldaConstruccion extends Celda<Character> {
 
     public CeldaConstruccion() {
-        this.letra = 'V'; //V de vacio
+        super();
+        this.setContenido('V');//V de vacio
     }
 
     public void madera() {
-        this.letra = 'M';
+        this.setContenido('M');
     }
 
     public void piedra() {
-        this.letra = 'P';
+        this.setContenido('P');
     }
 
     public void metal() {
-        this.letra = 'M';
+        this.setContenido('E');
     }
 
     public void diamante() {
-        this.letra = 'D';
+        this.setContenido('D');
     }
 
     public void vacio() {
-        this.letra = 'V';
+        this.setContenido('V');
     }
-
-    public char material() {
-        return this.letra;
-    }
-
 }
