@@ -30,14 +30,14 @@ public class TableroTest {
 	@Test
 	void test01CrearMapaConNumFilasCeroLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
-			new Tablero(-1, 1);
+			new Tablero(0, 1);
 		});
 	}
 
 	@Test
 	void test01CrearMapaConNumColumnasCeroLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
-			new Tablero(1, -1);
+			new Tablero(1, 0);
 		});
 	}
 
