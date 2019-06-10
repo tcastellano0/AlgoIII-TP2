@@ -35,5 +35,9 @@ public class Metal extends Material {
 	public void golpeadoPor(GolpeadorPicoFino golpeador) {
 		this.desgastar(golpeador.getFuerza());
 	}
+	
+	public boolean esIgual(Metal material) {
+		return true;
+	}
 
 }

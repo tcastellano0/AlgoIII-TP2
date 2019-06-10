@@ -1,4 +1,10 @@
+import Juego.Mapa.Contenedor;
 import Juego.Mapa.Posicion;
+import Juego.Mapa.Celda;
+
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +24,7 @@ public class PosicionTest {
 
         Assertions.assertNotEquals(pos1, pos2);
     }
+    
     @Test
     void test03DosPosicionesSonDistintasSiTienenDistintaSegundaCoordenada(){
         Posicion pos1 = new Posicion(2, 2);

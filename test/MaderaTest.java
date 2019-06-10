@@ -1,8 +1,8 @@
 import Herramientas.*;
-import Materiales.Madera;
+import Materiales.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MaderaTest {
 
@@ -96,5 +96,13 @@ public class MaderaTest {
             madera.golpeadoPor(picoFino);
             assertEquals(madera.getDurabilidad(), durabilidad);
         }
+    }
+    
+    @Test
+    void test08MaderaEsIgualAMadera() {
+        Madera madera1 = new Madera();
+        Piedra madera2 = new Piedra();
+
+        assertFalse(madera1.esIgual(madera2));
     }
 }

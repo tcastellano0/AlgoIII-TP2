@@ -1,9 +1,8 @@
 package Herramientas.Construccion;
 
 import Herramientas.Herramienta;
-import Juego.Mapa.Tablero;
+import Juego.Mapa.TableroMateriales;
 import Materiales.Madera;
-import Materiales.Material;
 
 public class EsquemaPicoMadera extends EsquemaHerramienta {
 
@@ -14,7 +13,7 @@ public class EsquemaPicoMadera extends EsquemaHerramienta {
     }
 
     private EsquemaPicoMadera(){
-        this.tablero = new Tablero<Material>(3,3);
+        this.tablero = new TableroMateriales(3,3);
         this.tablero.poner(new Madera(),1, 1);
         this.tablero.poner(new Madera(),1, 2);
         this.tablero.poner(new Madera(),1, 3);

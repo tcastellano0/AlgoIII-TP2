@@ -37,4 +37,8 @@ public class Piedra extends Material {
     public void golpeadoPor(GolpeadorPicoFino golpeador) { 
 		this.desgastar(golpeador.getFuerza());
 	}
+	
+	public boolean esIgual(Piedra material) {
+		return true;
+	}
 }

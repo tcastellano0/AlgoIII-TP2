@@ -11,33 +11,32 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TableroTest {
-	//falta nombrar bien los tests
 
 	@Test
 	void test01CrearMapaConNumFilasNegativoLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
-			new Tablero(-1, 1);
+			new Tablero<Material>(-1, 1);
 		});
 	}
 
 	@Test
 	void test02CrearMapaConNumColumnasNegativoLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
-				new Tablero(1, -1);
+			new Tablero<Material>(1, -1);
 		});
 	}
 
 	@Test
 	void test03CrearMapaConNumFilasCeroLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
-			new Tablero(0, 1);
+			new Tablero<Material>(0, 1);
 		});
 	}
 
 	@Test
 	void test04CrearMapaConNumColumnasCeroLanzaError() {
 		assertThrows(TableroCreacionException.class, () -> {
-			new Tablero(1, 0);
+			new Tablero<Material>(1, 0);
 		});
 	}
 
@@ -94,6 +93,7 @@ public class TableroTest {
 			tablero.poner(diamante, 2, columna+2);
 		});
 	}
+	
 	@Test
 	void test10SacarDeUnaPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
 		int columna = 3;
@@ -103,6 +103,7 @@ public class TableroTest {
 			tablero.sacar(2, columna+2);
 		});
 	}
+	
 	@Test
 	void test11SacarDeUnaPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
 		int fila = 3;
@@ -132,6 +133,27 @@ public class TableroTest {
 			tablero.sacar(1, 1);
 		});
 	}
+	
+	/*
+	@Test
+	void test14TablerosConMismoContenidoSonIguales() {
+		TableroMateriales tablero1 = new TableroMateriales(2, 2);
+		TableroMateriales tablero2 = new TableroMateriales(2, 2);
+		
+		tablero1.poner(new Madera(), 1, 1);
+		tablero1.poner(new Madera(), 1, 2);
+		tablero1.poner(new Madera(), 2, 1);
+		tablero1.poner(new Madera(), 2, 2);
+		
+		tablero2.poner(new Madera(), 1, 1);
+		tablero2.poner(new Madera(), 1, 2);
+		tablero2.poner(new Madera(), 2, 1);
+		tablero2.poner(new Madera(), 2, 2);
+		
+		assertTrue(tablero1.esIgual(tablero2));
+	}
+	*/
+	
 
 }
 

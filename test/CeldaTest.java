@@ -8,7 +8,7 @@ public class CeldaTest {
     @Test
     void test01SePuedeObtenerElContenidoDeUnaCeldaOcupada(){
         Celda<String> celda = new Celda<>("hola");
-        String contenido = celda.getContenido();
+        String contenido = celda.sacar();
 
         assertEquals(contenido, "hola");
     }
@@ -18,16 +18,16 @@ public class CeldaTest {
         Celda<Integer> celda = new Celda<Integer>(5);
 
         assertThrows(ContenedorOcupadoException.class, () -> {
-            celda.setContenido(5);
+            celda.poner(5);
         });
     }
 
     @Test
     void test03SePuedePonerContenidoEnUnaCeldaVacia(){
         Celda<String> celda = new Celda<>();
-        celda.setContenido("hola");
+        celda.poner("hola");
 
-        String contenido = celda.getContenido();
+        String contenido = celda.sacar();
 
         assertEquals(contenido, "hola");
     }
@@ -35,7 +35,7 @@ public class CeldaTest {
     void test04getContenidoDeUnaCeldaVaciaLanzaError(){
         Celda<String> celda = new Celda<>();
         assertThrows(ContenedorVacioException.class, () -> {
-            celda.getContenido();
+            celda.sacar();
         });
     }
 

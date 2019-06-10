@@ -1,7 +1,7 @@
 package Herramientas.Construccion;
 
 import Herramientas.Herramienta;
-import Juego.Mapa.Tablero;
+import Juego.Mapa.TableroMateriales;
 import Materiales.*;
 
 public class EsquemaHachaPiedra extends EsquemaHerramienta {
@@ -13,7 +13,7 @@ public class EsquemaHachaPiedra extends EsquemaHerramienta {
     }
 
     private EsquemaHachaPiedra(){
-        this.tablero = new Tablero<Material>(3,3);
+        this.tablero = new TableroMateriales(3,3);
         this.tablero.poner(new Piedra(),1, 1);
         this.tablero.poner(new Piedra(),1, 2);
         this.tablero.poner(new Piedra(),2, 1);

@@ -1,4 +1,3 @@
 package Juego.Mapa;
 
-public class ContenedorOcupadoException extends RuntimeException {
-}
+public class ContenedorOcupadoException extends RuntimeException { }

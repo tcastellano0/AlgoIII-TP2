@@ -1,5 +1,3 @@
 package Juego.Mapa;
 
-public class TableroCreacionException extends RuntimeException {
-
-}
+public class TableroCreacionException extends RuntimeException { }

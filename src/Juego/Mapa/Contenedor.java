@@ -1,7 +1,9 @@
 package Juego.Mapa;
 
 public interface Contenedor<T> {
-    public void setContenido(T contenido);
+    public void poner(T contenido);
 
-    public T getContenido();
+    public T sacar();
+    
+    public T ver();
 }

@@ -1,5 +1,3 @@
 package Juego.Mapa;
 
-public class UbicacionInvalidaException extends RuntimeException {
-
-}
+public class UbicacionInvalidaException extends RuntimeException { }

@@ -34,5 +34,9 @@ public class Diamante extends Material {
 	public void golpeadoPor(GolpeadorPicoFino golpeador) {
 		this.desgastar(golpeador.getFuerza());
 	}
+	
+	public boolean esIgual(Diamante material) {
+		return true;
+	}
 
 }
