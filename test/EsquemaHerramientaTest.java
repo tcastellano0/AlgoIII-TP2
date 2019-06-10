@@ -39,4 +39,19 @@ public class EsquemaHerramientaTest {
 		assertEquals(unHacha.getFuerza(), unaHerramienta.getFuerza());
 	}
 
+	@Test
+	void testEsquemaHachaMetalConstruirDevuelveUnaHerramientaConMismaDurabilidadQueHachaDeMetal(){
+		Herramienta unaHerramienta = EsquemaHachaMetal.getInstance().construir();
+		Herramienta unHacha = Herramienta.hachaDeMetal();
+
+		assertEquals(unHacha.getDurabilidad(), unaHerramienta.getDurabilidad());
+	}
+
+	@Test
+	void testEsquemaHachaMetalConstruirDevuelveUnaHerramientaConMismaFuerzaQueHachaDeMetal() {
+		Herramienta unaHerramienta = EsquemaHachaMetal.getInstance().construir();
+		Herramienta unHacha = Herramienta.hachaDeMetal();
+
+		assertEquals(unHacha.getFuerza(), unaHerramienta.getFuerza());
+	}
 }
