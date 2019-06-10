@@ -4,15 +4,15 @@ import Herramientas.Herramienta;
 import Juego.Mapa.Tablero;
 import Materiales.*;
 
-public class CianotipoHachaPiedra extends Cianotipo {
+public class EsquemaHachaPiedra extends EsquemaHerramienta {
 
-    private static CianotipoHachaPiedra ourInstance = new CianotipoHachaPiedra();
+    private static EsquemaHachaPiedra ourInstance = new EsquemaHachaPiedra();
 
-    public static CianotipoHachaPiedra getInstance() {
+    public static EsquemaHachaPiedra getInstance() {
         return ourInstance;
     }
 
-    private CianotipoHachaPiedra(){
+    private EsquemaHachaPiedra(){
         this.tablero = new Tablero<Material>(3,3);
         this.tablero.poner(new Piedra(),1, 1);
         this.tablero.poner(new Piedra(),1, 2);

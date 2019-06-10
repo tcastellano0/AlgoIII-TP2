@@ -5,15 +5,15 @@ import Juego.Mapa.Tablero;
 import Materiales.Madera;
 import Materiales.Material;
 
-public class CianotipoPicoMadera extends Cianotipo {
+public class EsquemaPicoMadera extends EsquemaHerramienta {
 
-    private static CianotipoPicoMadera ourInstance = new CianotipoPicoMadera();
+    private static EsquemaPicoMadera ourInstance = new EsquemaPicoMadera();
 
-    public static CianotipoPicoMadera getInstance() {
+    public static EsquemaPicoMadera getInstance() {
         return ourInstance;
     }
 
-    private CianotipoPicoMadera(){
+    private EsquemaPicoMadera(){
         this.tablero = new Tablero<Material>(3,3);
         this.tablero.poner(new Madera(),1, 1);
         this.tablero.poner(new Madera(),1, 2);

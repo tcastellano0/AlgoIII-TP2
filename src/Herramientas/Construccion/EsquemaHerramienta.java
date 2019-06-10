@@ -3,7 +3,7 @@ import Herramientas.Herramienta;
 import Juego.Mapa.Tablero;
 import Materiales.Material;
 
-public abstract class Cianotipo {
+public abstract class EsquemaHerramienta {
 
 
     protected Tablero<Material> tablero;
@@ -11,8 +11,8 @@ public abstract class Cianotipo {
     //protected void vaciar();
 
 
-    protected boolean esIgual(Cianotipo cianotipo) {
-        return this.tablero.equals(cianotipo.tablero);
+    protected boolean esIgual(EsquemaHerramienta esquemaHerramienta) {
+        return this.tablero.equals(esquemaHerramienta.tablero);
     }
 
     public abstract Herramienta construir();

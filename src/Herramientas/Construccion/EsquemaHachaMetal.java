@@ -5,17 +5,16 @@ import Juego.Mapa.Tablero;
 import Materiales.Madera;
 import Materiales.Material;
 import Materiales.Metal;
-import Materiales.Piedra;
 
-public class CianotipoHachaMetal extends Cianotipo {
+public class EsquemaHachaMetal extends EsquemaHerramienta {
 
-    private static CianotipoHachaMetal ourInstance = new CianotipoHachaMetal();
+    private static EsquemaHachaMetal ourInstance = new EsquemaHachaMetal();
 
-    public static CianotipoHachaMetal getInstance() {
+    public static EsquemaHachaMetal getInstance() {
         return ourInstance;
     }
 
-    private CianotipoHachaMetal(){
+    private EsquemaHachaMetal(){
         this.tablero = new Tablero<Material>(3,3);
         this.tablero.poner(new Metal(),1,1);
         this.tablero.poner(new Metal(),1, 2);
