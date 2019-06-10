@@ -1,11 +1,11 @@
 package Herramientas.Construccion;
 
-import Juego.Mapa.Celda;
+/*
+public class CeldaOcupadaConstruccion extends CeldaOcupada<Character> {
 
-public class CeldaConstruccion extends Celda<Character> {
-
-    public CeldaConstruccion() {
+    public CeldaOcupadaConstruccion() {
         super();
+
         this.setContenido('V');//V de vacio
     }
 
@@ -29,3 +29,4 @@ public class CeldaConstruccion extends Celda<Character> {
         this.setContenido('V');
     }
 }
+*/

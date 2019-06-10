@@ -1,13 +1,13 @@
-import static org.junit.jupiter.api.Assertions.assertSame;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-
 import Juego.Mapa.TableroCreacionException;
+import Materiales.Madera;
+import Materiales.Piedra;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Assertions;
 
 import Juego.Mapa.*;
 import Materiales.Diamante;
 import Materiales.Material;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class TableroTest {
@@ -46,7 +46,7 @@ public class TableroTest {
     void test05CreoUnTableroTresPorTresAgregoUnDiamanteEn3Y3YAlSacarloEsElMismo() {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
-		tablero.agregar(diamante, 3, 3);
+		tablero.poner(diamante, 3, 3);
 		
 		assertSame(diamante, tablero.sacar(3, 3));
     }
@@ -57,7 +57,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.agregar(diamante, 0, 0);
+			tablero.poner(diamante, 0, 0);
 		});
 	}
 
@@ -67,7 +67,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.agregar(diamante, 0, 1);
+			tablero.poner(diamante, 0, 1);
 		});
 	}
 
@@ -79,7 +79,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.agregar(diamante, fila+2, 2);
+			tablero.poner(diamante, fila+2, 2);
 		});
 	}
 
@@ -91,11 +91,47 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.agregar(diamante, 2, columna+2);
+			tablero.poner(diamante, 2, columna+2);
+		});
+	}
+	@Test
+	void test10SacarDeUnaPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
+		int columna = 3;
+		Tablero<Material> tablero = new Tablero<Material>(3, columna);
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.sacar(2, columna+2);
+		});
+	}
+	@Test
+	void test11SacarDeUnaPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
+		int fila = 3;
+		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.sacar(fila+2, 2);
 		});
 	}
 
-	//falta probar el caso new Tablero<Material>(0, 0) y agregar(diamante, 0, 0) sacar(diamante, 0, 0) etc etc
+	@Test
+	void test12PonerDosVecesEnUnaMismaPosicionMantieneLoPrimeroQueSePuso(){
+		Tablero<Material> tablero = new Tablero<>(5, 5);
+		Material madera = new Madera();
+		Material piedra = new Piedra();
+
+		tablero.poner(madera, 3, 3);
+
+		assertEquals(tablero.sacar(3,3),madera);
+	}
+
+	@Test
+	void test13SacarDeUnaPosicionQueNoTieneNadaLanzaError(){
+		Tablero<Material> tablero = new Tablero<>(1, 1);
+
+		assertThrows(ContenedorVacioException.class, () -> {
+			tablero.sacar(1, 1);
+		});
+	}
 
 }
 
