@@ -17,7 +17,7 @@ public class CianotipoPicoMadera extends Cianotipo {
         this.tablero = new Tablero<Material>(3,3);
         this.tablero.poner(new Madera(),1, 1);
         this.tablero.poner(new Madera(),1, 2);
-        this.tablero.poner(new Madera(),2, 1);
+        this.tablero.poner(new Madera(),1, 3);
         this.tablero.poner(new Madera(),2, 2);
         this.tablero.poner(new Madera(),3, 2);
     }
