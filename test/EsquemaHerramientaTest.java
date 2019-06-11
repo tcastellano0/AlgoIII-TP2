@@ -9,8 +9,10 @@ public class EsquemaHerramientaTest {
 
 	@Test
 	void testEsquemaHerramientaJugadorVacioConstruirLanzaNoExisteEsquemaException(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+
 		assertThrows(NoExisteEsquemaException.class, () -> {
-			EsquemaHerramientaDelJugador.getInstance().construir();
+			esquemaJugador.construir();
 		});
 	}
 

@@ -1,7 +1,6 @@
 package Herramientas.Construccion;
 
 import Herramientas.Herramienta;
-import Juego.Mapa.Tablero;
 import Juego.Mapa.TableroMateriales;
 import Materiales.Material;
 import Materiales.MaterialNulo;
