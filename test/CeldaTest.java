@@ -2,7 +2,7 @@ import Juego.Mapa.*;
 import org.junit.jupiter.api.Test;
 import Materiales.*;
 
-
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -49,6 +49,49 @@ public class CeldaTest {
         assertThrows(ContenedorOcupadoException.class, () -> {
             celda.poner(new Madera());
         });
+    }
+    
+    @Test
+    void test06sePuedeVerElContenidoDeCeldaOcupada(){
+    	Celda<String> celda = new Celda<>();
+        celda.poner("hola");
+
+        String contenido = celda.ver();
+
+        assertEquals(contenido, "hola");
+    }
+    
+    @Test
+    void test06verElContenidoDeCeldaVaciaEsNull(){
+    	Celda<String> celda = new Celda<>();
+
+        String contenido = celda.ver();
+
+        assertEquals(contenido, null);
+    }
+    
+    @Test
+    void test07CeldaSeInstanciaVacia(){
+    	Celda<String> celda = new Celda<>();
+
+    	assertTrue(celda.estaVacia());
+    }
+    
+    @Test
+    void test08CeldaSeInstanciaVaciaAlPonerAlgoYaNoEstaVacia(){
+    	Celda<String> celda = new Celda<>();
+    	celda.poner("hola");
+
+    	assertTrue(!celda.estaVacia());
+    }
+     
+    @Test
+    void test09CeldaOcupadaLuegoDeSacarQuedaVacia(){
+    	Celda<Material> celda = new Celda<>();
+    	celda.poner(new Madera());
+    	celda.sacar();
+
+        assertTrue(celda.estaVacia());
     }
 
 
