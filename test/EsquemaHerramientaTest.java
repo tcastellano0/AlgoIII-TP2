@@ -16,7 +16,7 @@ public class EsquemaHerramientaTest {
 		});
 	}
 
-	EsquemaHerramientaDelJugador crearEsquemaHachaDeMadera(){
+	private EsquemaHerramientaDelJugador crearEsquemaHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Madera(),1,1);
 		esquemaJugador.poner(new Madera(),1,2);
@@ -26,7 +26,7 @@ public class EsquemaHerramientaTest {
 		return esquemaJugador;
 	}
 
-	EsquemaHerramientaDelJugador crearEsquemaHachaDePiedra(){
+	private EsquemaHerramientaDelJugador crearEsquemaHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Piedra(),1,1);
 		esquemaJugador.poner(new Piedra(),1,2);
@@ -36,7 +36,7 @@ public class EsquemaHerramientaTest {
 		return esquemaJugador;
 	}
 
-	EsquemaHerramientaDelJugador crearEsquemaHachaDeMetal(){
+	private EsquemaHerramientaDelJugador crearEsquemaHachaDeMetal(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Metal(),1,1);
 		esquemaJugador.poner(new Metal(),1,2);
