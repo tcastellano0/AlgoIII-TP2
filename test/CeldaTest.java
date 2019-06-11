@@ -4,6 +4,7 @@ import Materiales.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CeldaTest {
@@ -67,7 +68,7 @@ public class CeldaTest {
 
         String contenido = celda.ver();
 
-        assertEquals(contenido, null);
+        assertEquals(contenido, null); //esto no deberia tirar una excepcion?
     }
     
     @Test
@@ -82,7 +83,7 @@ public class CeldaTest {
     	Celda<String> celda = new Celda<>();
     	celda.poner("hola");
 
-    	assertTrue(!celda.estaVacia());
+    	assertFalse(celda.estaVacia());
     }
      
     @Test
