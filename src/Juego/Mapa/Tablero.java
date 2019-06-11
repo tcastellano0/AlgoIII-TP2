@@ -1,7 +1,5 @@
 package Juego.Mapa;
 
-import javafx.geometry.Pos;
-
 import java.util.HashMap;
 import java.util.Map;
 

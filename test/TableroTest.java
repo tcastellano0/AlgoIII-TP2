@@ -7,7 +7,10 @@ import Juego.Mapa.*;
 import Materiales.Diamante;
 import Materiales.Material;
 
-import static org.junit.jupiter.api.Assertions.*;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 public class TableroTest {
@@ -40,14 +43,13 @@ public class TableroTest {
 		});
 	}
 
-
 	@Test
     void test05CreoUnTableroTresPorTresAgregoUnDiamanteEn3Y3YAlSacarloEsElMismo() {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
 		tablero.poner(diamante, 3, 3);
 		
-		assertSame(diamante, tablero.sacar(3, 3));
+		assertEquals(diamante, tablero.sacar(3, 3));
     }
 
     @Test
@@ -78,7 +80,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.poner(diamante, fila+2, 2);
+			tablero.poner(diamante, fila + 2, 2);
 		});
 	}
 
@@ -100,7 +102,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, columna);
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.sacar(2, columna+2);
+			tablero.sacar(2, columna + 2);
 		});
 	}
 	
@@ -110,20 +112,20 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.sacar(fila+2, 2);
+			tablero.sacar(fila + 2, 2);
 		});
 	}
 
 	@Test
-	void test12PonerDosVecesEnUnaMismaPosicionMantieneLoPrimeroQueSePuso(){
+	void test12PonerDosVecesEnUnaMismaPosicionNoMantieneLoPrimeroQueSePuso(){
 		Tablero<Material> tablero = new Tablero<>(5, 5);
 		Material madera = new Madera();
 		Material piedra = new Piedra();
 
 		tablero.poner(madera, 3, 3);
-		//tablero.poner(piedra, 3, 3); FALTABA ESTA LINEA Y SI LA PONGO NO PASA EL TEST
+		tablero.poner(piedra, 3, 3);
 
-		assertEquals(tablero.sacar(3,3),madera);
+		assertEquals(tablero.sacar(3,3), piedra);
 	}
 
 	@Test
@@ -135,72 +137,22 @@ public class TableroTest {
 		});
 	}
 
-
 	@Test
-	void test14TablerosConSoloMaderaSonIguales() {
-		TableroMateriales tablero1 = new TableroMateriales(2, 2);
-		TableroMateriales tablero2 = new TableroMateriales(2, 2);
-
-		tablero1.poner(new Madera(), 1, 1);
-		tablero1.poner(new Madera(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Madera(), 2, 2);
-
-		tablero2.poner(new Madera(), 1, 1);
-		tablero2.poner(new Madera(), 1, 2);
-		tablero2.poner(new Madera(), 2, 1);
-		tablero2.poner(new Madera(), 2, 2);
-
-		assertTrue(tablero1.esIgual(tablero2));
-	}
-
-	@Test
-	void test15TableroDeMaderasYTableroDePiedrasNoSonIguales() {
-		TableroMateriales tablero1 = new TableroMateriales(2, 2);
-		TableroMateriales tablero2 = new TableroMateriales(2, 2);
-
-		tablero1.poner(new Madera(), 1, 1);
-		tablero1.poner(new Madera(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Madera(), 2, 2);
-
-		tablero2.poner(new Piedra(), 1, 1);
-		tablero2.poner(new Piedra(), 1, 2);
-		tablero2.poner(new Piedra(), 2, 1);
-		tablero2.poner(new Piedra(), 2, 2);
-
-		assertFalse(tablero1.esIgual(tablero2));
-	}
-
-	@Test
-	void test15TablerosDeMaderasYUnaPiedrasSonIguales() {
-		TableroMateriales tablero1 = new TableroMateriales(2, 2);
-		TableroMateriales tablero2 = new TableroMateriales(2, 2);
-
-		tablero1.poner(new Madera(), 1, 1);
-		tablero1.poner(new Madera(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Piedra(), 2, 2);
-
-		tablero2.poner(new Madera(), 1, 1);
-		tablero2.poner(new Madera(), 1, 2);
-		tablero2.poner(new Madera(), 2, 1);
-		tablero2.poner(new Piedra(), 2, 2);
-
-		assertTrue(tablero1.esIgual(tablero2));
-	}
-
-	@Test
-	void testPonerUnaPiedraEnUnTableroYVerLaPosicionDosVeces(){
-		int fila = 3;
-		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+	void testPonerUnaPiedraEnUnTableroYVerLaPosicionDosVecesDebeDarLaMismaPiedra(){
+		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Piedra piedra = new Piedra();
 
-		tablero.poner(piedra, 1,1);
-		tablero.ver(1,1);
-		assertTrue((piedra.getClass() == tablero.ver(1,1).getClass()));
+		tablero.poner(piedra, 1, 1);
+		
+		assertEquals(piedra, tablero.ver(1, 1));
+		assertEquals(piedra, tablero.ver(1, 1));
 	}
+	
+	@Test
+	void testVerEnUnaPosicionSinContenidoDeberiaSerNull(){
+		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 
-
+		assertEquals(tablero.ver(1, 1), null);
+	}
 }
 
