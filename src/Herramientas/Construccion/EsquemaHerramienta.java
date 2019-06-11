@@ -7,14 +7,6 @@ public abstract class EsquemaHerramienta {
 
     protected TableroMateriales tablero;
 
-    //protected void vaciar();
-
-    /*
-    protected boolean esIgual(EsquemaHerramienta esquemaHerramienta) {
-        return esquemaHerramienta.miTableroEsIgual(this.tablero);
-        //return this.tablero.esIgual(esquemaHerramienta.tablero);
-    }*/
-
     protected abstract boolean esIgual(EsquemaHerramienta esquemaHerramienta);
 
     protected boolean miTableroEsIgual(TableroMateriales otroTablero){
