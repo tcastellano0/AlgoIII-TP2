@@ -37,9 +37,8 @@ public class Madera extends Material{
 	@Override
     public void golpeadoPor(GolpeadorPicoFino golpeador){ }
 
-	
-	public boolean esIgual(Madera material) {
-		return true;
-	}	
+	/*
+	public boolean esIgualA(Madera material) {
+		*/
     
 }

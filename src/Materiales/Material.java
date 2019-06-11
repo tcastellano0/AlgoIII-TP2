@@ -42,8 +42,8 @@ public abstract class Material implements Desgastable, Golpeable {
 	@Override
     public abstract void golpeadoPor(GolpeadorPicoFino golpeador);
 
-	public boolean esIgual(Material material) {
-		return false;
+	public boolean esIgual(Material material){
+		return (this.getClass()== material.getClass());
 	}
 
 }

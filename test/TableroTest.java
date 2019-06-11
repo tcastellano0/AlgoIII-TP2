@@ -133,27 +133,25 @@ public class TableroTest {
 			tablero.sacar(1, 1);
 		});
 	}
-	
-	/*
+
+
 	@Test
-	void test14TablerosConMismoContenidoSonIguales() {
+	void test14TablerosConSoloMaderaSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
-		
+
 		tablero1.poner(new Madera(), 1, 1);
 		tablero1.poner(new Madera(), 1, 2);
 		tablero1.poner(new Madera(), 2, 1);
 		tablero1.poner(new Madera(), 2, 2);
-		
+
 		tablero2.poner(new Madera(), 1, 1);
 		tablero2.poner(new Madera(), 1, 2);
 		tablero2.poner(new Madera(), 2, 1);
 		tablero2.poner(new Madera(), 2, 2);
-		
+
 		assertTrue(tablero1.esIgual(tablero2));
 	}
-	*/
-	
 
 }
 
