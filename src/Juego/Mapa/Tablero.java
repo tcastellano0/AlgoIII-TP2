@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class Tablero<T> {
 	
-	private int filas;
-	private int columnas;
+	protected int filas;
+	protected int columnas;
 	protected Map<Posicion, Contenedor<T>> celdas = new HashMap<>();
 	
 	public Tablero(int filas, int columnas) {

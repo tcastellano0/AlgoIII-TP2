@@ -155,7 +155,7 @@ public class TableroTest {
 	}
 
 	@Test
-	void test14TableroDeMaderasYTableroDePiedrasNoSonIguales() {
+	void test15TableroDeMaderasYTableroDePiedrasNoSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
@@ -173,7 +173,7 @@ public class TableroTest {
 	}
 
 	@Test
-	void test14TablerosDeMaderasYUnaPiedrasSonIguales() {
+	void test15TablerosDeMaderasYUnaPiedrasSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
@@ -188,6 +188,17 @@ public class TableroTest {
 		tablero2.poner(new Piedra(), 2, 2);
 
 		assertTrue(tablero1.esIgual(tablero2));
+	}
+
+	@Test
+	void testPonerUnaPiedraEnUnTableroYVerLaPosicionDosVeces(){
+		int fila = 3;
+		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+		Piedra piedra = new Piedra();
+
+		tablero.poner(piedra, 1,1);
+		tablero.ver(1,1);
+		assertTrue((piedra.getClass() == tablero.ver(1,1).getClass()));
 	}
 
 

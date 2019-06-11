@@ -17,19 +17,19 @@ public class Celda<T> implements Contenedor<T> {
 
     @Override
     public T sacar() {
-        desocupar();
+        this.desocupar();
         return contenido;
     }
     
     @Override
     public T ver() {
-        return contenido;
+        return this.contenido;
     }
 
     @Override
     public void poner(T contenido) {
         this.contenido = contenido;
-        ocupar();
+        this.ocupar();
 
     }
 
