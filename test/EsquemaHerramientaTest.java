@@ -3,9 +3,7 @@ import Herramientas.Herramienta;
 import Materiales.*;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class EsquemaHerramientaTest {
 
@@ -34,7 +32,7 @@ public class EsquemaHerramientaTest {
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaFuerzaQueHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Madera(),1,1);
 		esquemaJugador.poner(new Madera(),1,2);
@@ -44,18 +42,35 @@ public class EsquemaHerramientaTest {
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
 
-		assertEquals(construida.getDurabilidad(), hachaDeMadera.getDurabilidad());
+		assertEquals(construida.getFuerza(), hachaDeMadera.getFuerza());
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYSeConstruyeBien(){
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneDistintaFuerzaQueHachaDePiedra(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Madera(),1,1);
+		esquemaJugador.poner(new Madera(),1,2);
+		esquemaJugador.poner(new Madera(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
+
+		assertNotEquals(construida.getFuerza(), hachaDePiedra.getFuerza());
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaFuerzaQueHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Piedra(),1,1);
 		esquemaJugador.poner(new Piedra(),1,2);
 		esquemaJugador.poner(new Piedra(),2,1);
 		esquemaJugador.poner(new Madera(),2,2);
 		esquemaJugador.poner(new Madera(),3,2);
-		assertEquals(esquemaJugador.construir().getClass(),Herramienta.hachaDePiedra().getClass());
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
+
+		assertEquals(construida.getFuerza(), hachaDePiedra.getFuerza());
 	}
 
 	@Test

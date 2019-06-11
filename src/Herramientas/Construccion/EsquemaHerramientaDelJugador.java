@@ -23,6 +23,7 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
         this.esquemaHerramientas = new ArrayList<>();
         this.esquemaHerramientas.add(EsquemaHachaMadera.getInstance());
         this.esquemaHerramientas.add(EsquemaHachaPiedra.getInstance());
+        this.esquemaHerramientas.add(EsquemaHachaMetal.getInstance());
     }
 
     public void poner(Material material, int fila, int columna){
