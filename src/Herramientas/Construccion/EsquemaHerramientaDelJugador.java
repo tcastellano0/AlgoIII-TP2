@@ -45,16 +45,16 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
 
     public Herramienta construir() {
-
+        /*
         if(EsquemaHachaMadera.getInstance().esIgual(this))
             return EsquemaHachaMadera.getInstance().construir();
-        /*
+        */
         for (EsquemaHerramienta esquemaHerramienta : this.esquemaHerramientas) {
             System.err.println("herramienta");
             if (esquemaHerramienta.esIgual(this)) {
                 return esquemaHerramienta.construir();
             }
-        }*/
+        }
         throw new NoExisteEsquemaException();
     }
 

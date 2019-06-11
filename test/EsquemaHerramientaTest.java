@@ -1,8 +1,10 @@
 import Herramientas.Construccion.*;
 import Herramientas.Herramienta;
+import Materiales.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class EsquemaHerramientaTest {
@@ -14,6 +16,17 @@ public class EsquemaHerramientaTest {
 		assertThrows(NoExisteEsquemaException.class, () -> {
 			esquemaJugador.construir();
 		});
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYSeConstruyeBien(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Madera(),1,1);
+		esquemaJugador.poner(new Madera(),1,2);
+		esquemaJugador.poner(new Madera(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		assertEquals(esquemaJugador.construir().getClass(),Herramienta.hachaDeMadera().getClass());
 	}
 
 	@Test
