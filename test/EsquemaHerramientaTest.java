@@ -7,6 +7,36 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EsquemaHerramientaTest {
 
+	EsquemaHerramientaDelJugador crearEsquemaHachaDeMadera(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Madera(),1,1);
+		esquemaJugador.poner(new Madera(),1,2);
+		esquemaJugador.poner(new Madera(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		return esquemaJugador;
+	}
+
+	EsquemaHerramientaDelJugador crearEsquemaHachaDePiedra(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Piedra(),1,1);
+		esquemaJugador.poner(new Piedra(),1,2);
+		esquemaJugador.poner(new Piedra(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		return esquemaJugador;
+	}
+
+	EsquemaHerramientaDelJugador crearEsquemaHachaDeMetal(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Metal(),1,1);
+		esquemaJugador.poner(new Metal(),1,2);
+		esquemaJugador.poner(new Metal(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		return esquemaJugador;
+	}
+
 	@Test
 	void testEsquemaHerramientaJugadorVacioConstruirLanzaNoExisteEsquemaException(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
@@ -18,12 +48,8 @@ public class EsquemaHerramientaTest {
 
 	@Test
 	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){
-		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
-		esquemaJugador.poner(new Madera(),1,1);
-		esquemaJugador.poner(new Madera(),1,2);
-		esquemaJugador.poner(new Madera(),2,1);
-		esquemaJugador.poner(new Madera(),2,2);
-		esquemaJugador.poner(new Madera(),3,2);
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMadera();
+
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
 
@@ -33,12 +59,7 @@ public class EsquemaHerramientaTest {
 
 	@Test
 	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaFuerzaQueHachaDeMadera(){
-		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
-		esquemaJugador.poner(new Madera(),1,1);
-		esquemaJugador.poner(new Madera(),1,2);
-		esquemaJugador.poner(new Madera(),2,1);
-		esquemaJugador.poner(new Madera(),2,2);
-		esquemaJugador.poner(new Madera(),3,2);
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMadera();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
 
@@ -47,12 +68,7 @@ public class EsquemaHerramientaTest {
 
 	@Test
 	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneDistintaFuerzaQueHachaDePiedra(){
-		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
-		esquemaJugador.poner(new Madera(),1,1);
-		esquemaJugador.poner(new Madera(),1,2);
-		esquemaJugador.poner(new Madera(),2,1);
-		esquemaJugador.poner(new Madera(),2,2);
-		esquemaJugador.poner(new Madera(),3,2);
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMadera();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
 
@@ -61,16 +77,70 @@ public class EsquemaHerramientaTest {
 
 	@Test
 	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaFuerzaQueHachaDePiedra(){
-		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
-		esquemaJugador.poner(new Piedra(),1,1);
-		esquemaJugador.poner(new Piedra(),1,2);
-		esquemaJugador.poner(new Piedra(),2,1);
-		esquemaJugador.poner(new Madera(),2,2);
-		esquemaJugador.poner(new Madera(),3,2);
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDePiedra();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
 
 		assertEquals(construida.getFuerza(), hachaDePiedra.getFuerza());
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaDurabilidadQueHachaDePiedra(){
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDePiedra();
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
+
+		assertEquals(construida.getDurabilidad(), hachaDePiedra.getDurabilidad());
+	}
+
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneMismaDurabilidadQueHachaDeMetal(){
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDeMetal = Herramienta.hachaDeMetal();
+
+		assertEquals(construida.getDurabilidad(), hachaDeMetal.getDurabilidad());
+	}
+
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneMismaFuerzaQueHachaDeMetal(){
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
+
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hacha = Herramienta.hachaDeMetal();
+
+		assertEquals(construida.getFuerza(), hacha.getFuerza());
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneDistintaFuerzaQueHachaDeMadera(){
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
+
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hacha = Herramienta.hachaDeMadera();
+
+		assertNotEquals(construida.getFuerza(), hacha.getFuerza());
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYNoTieneMismaFuerzaQueHachaDePiedra(){
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
+
+		assertNotEquals(construida.getFuerza(), hachaDePiedra.getFuerza());
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYNoTieneMismaDurabilidadQueHachaDePiedra(){
+		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
+
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hacha = Herramienta.hachaDePiedra();
+
+		assertNotEquals(construida.getDurabilidad(), hacha.getDurabilidad());
 	}
 
 	@Test
