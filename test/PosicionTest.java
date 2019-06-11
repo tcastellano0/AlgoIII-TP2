@@ -1,9 +1,4 @@
-import Juego.Mapa.Contenedor;
 import Juego.Mapa.Posicion;
-import Juego.Mapa.Celda;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
