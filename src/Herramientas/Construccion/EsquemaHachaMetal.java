@@ -7,12 +7,9 @@ import Materiales.Metal;
 
 public class EsquemaHachaMetal extends EsquemaHerramienta {
 
-    private static EsquemaHachaMetal ourInstance;// = new EsquemaHachaMetal();
+    private static EsquemaHachaMetal ourInstance = new EsquemaHachaMetal();
 
     public static EsquemaHachaMetal getInstance() {
-    	if(ourInstance == null)
-        	ourInstance = new EsquemaHachaMetal();
-    	
     	return ourInstance;
     }
 

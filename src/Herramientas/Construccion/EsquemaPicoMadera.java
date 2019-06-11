@@ -6,12 +6,9 @@ import Materiales.Madera;
 
 public class EsquemaPicoMadera extends EsquemaHerramienta {
 
-    private static EsquemaPicoMadera ourInstance;// = new EsquemaPicoMadera();
+    private static EsquemaPicoMadera ourInstance = new EsquemaPicoMadera();
 
     public static EsquemaPicoMadera getInstance() {
-    	if(ourInstance == null)
-        	ourInstance = new EsquemaPicoMadera();
-    	
     	return ourInstance;
     }
 

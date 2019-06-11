@@ -7,6 +7,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EsquemaHerramientaTest {
 
+	@Test
+	void testEsquemaHerramientaJugadorVacioConstruirLanzaNoExisteEsquemaException(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+
+		assertThrows(NoExisteEsquemaException.class, () -> {
+			esquemaJugador.construir();
+		});
+	}
+
 	EsquemaHerramientaDelJugador crearEsquemaHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Madera(),1,1);
@@ -37,14 +46,6 @@ public class EsquemaHerramientaTest {
 		return esquemaJugador;
 	}
 
-	@Test
-	void testEsquemaHerramientaJugadorVacioConstruirLanzaNoExisteEsquemaException(){
-		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
-
-		assertThrows(NoExisteEsquemaException.class, () -> {
-			esquemaJugador.construir();
-		});
-	}
 
 	@Test
 	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){

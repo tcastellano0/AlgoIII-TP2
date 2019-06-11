@@ -6,12 +6,9 @@ import Materiales.*;
 
 public class EsquemaHachaPiedra extends EsquemaHerramienta {
 
-    private static EsquemaHachaPiedra ourInstance;// = new EsquemaHachaPiedra();
+    private static EsquemaHachaPiedra ourInstance = new EsquemaHachaPiedra();
 
     public static EsquemaHachaPiedra getInstance() {
-    	if(ourInstance == null)
-        	ourInstance = new EsquemaHachaPiedra();
-    	
     	return ourInstance;
     }
 
