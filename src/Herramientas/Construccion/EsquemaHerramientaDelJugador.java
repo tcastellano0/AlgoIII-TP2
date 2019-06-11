@@ -3,6 +3,7 @@ package Herramientas.Construccion;
 import Herramientas.Herramienta;
 import Juego.Mapa.TableroMateriales;
 import Materiales.Material;
+import Materiales.Madera;
 import Materiales.MaterialNulo;
 
 import java.util.ArrayList;
@@ -21,6 +22,16 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
     private EsquemaHerramientaDelJugador() {
         this.tablero = new TableroMateriales(3,3);
+       
+        this.tablero.poner(new Madera(), 1, 1);
+        this.tablero.poner(new Madera(), 1, 2);
+        this.tablero.poner(new Madera(), 1, 3);
+        this.tablero.poner(new Madera(), 2, 1);
+        this.tablero.poner(new Madera(), 2, 2);
+        this.tablero.poner(new Madera(), 2, 3);
+        this.tablero.poner(new Madera(), 3, 1);
+        this.tablero.poner(new Madera(), 3, 2);
+        this.tablero.poner(new Madera(), 3, 3);
 
         this.esquemaHerramientas = new ArrayList<>();
         this.esquemaHerramientas.add(EsquemaHachaMadera.getInstance());
