@@ -2,6 +2,7 @@ import Juego.Mapa.*;
 import org.junit.jupiter.api.Test;
 import Materiales.*;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -82,7 +83,7 @@ public class CeldaTest {
     	Celda<String> celda = new Celda<>();
     	celda.poner("hola");
 
-    	assertTrue(!celda.estaVacia());
+    	assertFalse(celda.estaVacia());
     }
      
     @Test
