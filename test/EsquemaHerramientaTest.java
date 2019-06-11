@@ -178,18 +178,52 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHachaMetalConstruirDevuelveUnaHerramientaConMismaDurabilidadQueHachaDeMetal(){
-		Herramienta unaHerramienta = EsquemaHachaMetal.getInstance().construir();
-		Herramienta unHacha = Herramienta.hachaDeMetal();
+	void testEsquemaPicoMaderaConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoMadera(){
+		Herramienta unaHerramienta = EsquemaPicoMadera.getInstance().construir();
+		Herramienta unPico = Herramienta.picoDeMadera();
 
-		assertEquals(unHacha.getDurabilidad(), unaHerramienta.getDurabilidad());
+		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad());
 	}
 
 	@Test
-	void testEsquemaHachaMetalConstruirDevuelveUnaHerramientaConMismaFuerzaQueHachaDeMetal() {
-		Herramienta unaHerramienta = EsquemaHachaMetal.getInstance().construir();
-		Herramienta unHacha = Herramienta.hachaDeMetal();
+	void testEsquemaPicoMaderaConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoMadera() {
+		Herramienta unaHerramienta = EsquemaPicoMadera.getInstance().construir();
+		Herramienta unPico = Herramienta.picoDeMadera();
 
-		assertEquals(unHacha.getFuerza(), unaHerramienta.getFuerza());
+		assertEquals(unPico.getFuerza(), unaHerramienta.getFuerza());
 	}
+
+	@Test
+	void testEsquemaPicoPiedraConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoPiedra(){
+		Herramienta unaHerramienta = EsquemaPicoPiedra.getInstance().construir();
+		Herramienta unPico = Herramienta.picoDePiedra();
+
+		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad());
+	}
+
+	@Test
+	void testEsquemaPicoPiedraConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoPiedra() {
+		Herramienta unaHerramienta = EsquemaPicoPiedra.getInstance().construir();
+		Herramienta unPico = Herramienta.picoDePiedra();
+
+		assertEquals(unPico.getFuerza(), unaHerramienta.getFuerza());
+	}
+
+	@Test
+	void testEsquemaPicoMetalConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoMetal(){
+		Herramienta unaHerramienta = EsquemaPicoMetal.getInstance().construir();
+		Herramienta unPico = Herramienta.picoDeMetal();
+
+		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad());
+	}
+
+	@Test
+	void testEsquemaPicoMetalConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoMetal() {
+		Herramienta unaHerramienta = EsquemaPicoMetal.getInstance().construir();
+		Herramienta unPico = Herramienta.picoDeMetal();
+
+		assertEquals(unPico.getFuerza(), unaHerramienta.getFuerza());
+	}
+
+
 }

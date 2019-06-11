@@ -25,7 +25,7 @@ public class EsquemaPicoFino extends EsquemaHerramienta {
     }
 
     public Herramienta construir(){
-        return Herramienta.picoDePiedra();
+        return Herramienta.picoFino();
     }
 
     protected  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
