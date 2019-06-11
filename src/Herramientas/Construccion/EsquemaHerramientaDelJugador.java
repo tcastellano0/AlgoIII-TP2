@@ -20,7 +20,7 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
     private EsquemaHerramientaDelJugador() {
         this.tablero = new Tablero<Material>(3,3);
-        this.esquemaHerramientas = new ArrayList<EsquemaHerramienta>();
+        this.esquemaHerramientas = new ArrayList<>();
         this.esquemaHerramientas.add(EsquemaHachaMadera.getInstance());
         this.esquemaHerramientas.add(EsquemaHachaPiedra.getInstance());
     }
@@ -40,7 +40,7 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
                 return esquemaHerramienta.construir();
             }
         }
-        throw new NoExisteCianotipoException();
+        throw new NoExisteEsquemaException();
     }
 
 }
