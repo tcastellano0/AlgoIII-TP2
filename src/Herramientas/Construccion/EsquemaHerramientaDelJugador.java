@@ -19,20 +19,10 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
     private EsquemaHerramientaDelJugador() {
         this.tablero = new TableroMateriales(3,3);
-        /*
-        this.tablero.poner(new Madera(), 1, 1);
-        this.tablero.poner(new Madera(), 1, 2);
-        this.tablero.poner(new Madera(), 1, 3);
-        this.tablero.poner(new Madera(), 2, 1);
-        this.tablero.poner(new Madera(), 2, 2);
-        this.tablero.poner(new Madera(), 2, 3);
-        this.tablero.poner(new Madera(), 3, 1);
-        this.tablero.poner(new Madera(), 3, 2);
-        this.tablero.poner(new Madera(), 3, 3);
-        */
+
         this.esquemaHerramientas = new ArrayList<>();
         this.esquemaHerramientas.add(EsquemaHachaMadera.getInstance());
-        //this.esquemaHerramientas.add(EsquemaHachaPiedra.getInstance());
+        this.esquemaHerramientas.add(EsquemaHachaPiedra.getInstance());
     }
 
     public void poner(Material material, int fila, int columna){
@@ -52,10 +42,21 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
         for (EsquemaHerramienta esquemaHerramienta : this.esquemaHerramientas) {
             System.err.println("herramienta");
             if (esquemaHerramienta.esIgual(this)) {
-                return esquemaHerramienta.construir();
+                System.err.println("Construyo");
+                Herramienta contruida = esquemaHerramienta.construir();
+                System.err.println(contruida.getClass());
+                return contruida;
+                //return esquemaHerramienta.construir();
             }
         }
+
         throw new NoExisteEsquemaException();
     }
+
+    protected boolean esIgual(EsquemaHerramienta esquemaHerramienta){
+        return esquemaHerramienta.miTableroEsIgual(this.tablero);
+        //return this.tablero.esIgual(esquemaHerramienta.tablero);
+    }
+
 
 }

@@ -25,4 +25,11 @@ public class EsquemaHachaMetal extends EsquemaHerramienta {
     public Herramienta construir(){
         return Herramienta.hachaDeMetal();
     }
+
+
+
+    protected  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
+        return esquemaHerramienta.miTableroEsIgual(this.tablero);
+        //return this.tablero.esIgual(esquemaHerramienta.tablero);
+    }
 }

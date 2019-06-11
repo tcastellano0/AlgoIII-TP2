@@ -19,14 +19,43 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYSeConstruyeBien(){
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 		esquemaJugador.poner(new Madera(),1,1);
 		esquemaJugador.poner(new Madera(),1,2);
 		esquemaJugador.poner(new Madera(),2,1);
 		esquemaJugador.poner(new Madera(),2,2);
 		esquemaJugador.poner(new Madera(),3,2);
-		assertEquals(esquemaJugador.construir().getClass(),Herramienta.hachaDeMadera().getClass());
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
+
+		assertEquals(construida.getDurabilidad(), hachaDeMadera.getDurabilidad());
+	}
+
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Madera(),1,1);
+		esquemaJugador.poner(new Madera(),1,2);
+		esquemaJugador.poner(new Madera(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		Herramienta construida = esquemaJugador.construir();
+		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
+
+		assertEquals(construida.getDurabilidad(), hachaDeMadera.getDurabilidad());
+	}
+
+	@Test
+	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYSeConstruyeBien(){
+		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
+		esquemaJugador.poner(new Piedra(),1,1);
+		esquemaJugador.poner(new Piedra(),1,2);
+		esquemaJugador.poner(new Piedra(),2,1);
+		esquemaJugador.poner(new Madera(),2,2);
+		esquemaJugador.poner(new Madera(),3,2);
+		assertEquals(esquemaJugador.construir().getClass(),Herramienta.hachaDePiedra().getClass());
 	}
 
 	@Test
