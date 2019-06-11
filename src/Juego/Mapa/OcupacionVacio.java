@@ -13,4 +13,8 @@ public class OcupacionVacio<T> implements EstadoOcupacion<T>{
         throw new ContenedorVacioException();
     }
 
+    public boolean estaVacia(){
+        return true;
+    }
+
 }

@@ -1,5 +1,7 @@
 import Juego.Mapa.*;
 import org.junit.jupiter.api.Test;
+import Materiales.*;
+
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -31,6 +33,7 @@ public class CeldaTest {
 
         assertEquals(contenido, "hola");
     }
+
     @Test
     void test04getContenidoDeUnaCeldaVaciaLanzaError(){
         Celda<String> celda = new Celda<>();
@@ -38,5 +41,15 @@ public class CeldaTest {
             celda.sacar();
         });
     }
+
+    @Test
+    void test05ocuparCeldaOcupadaLanzaContenedorOcupadoException(){
+        Celda<Material> celda = new Celda<>();
+        celda.poner(new Madera());
+        assertThrows(ContenedorOcupadoException.class, () -> {
+            celda.poner(new Madera());
+        });
+    }
+
 
 }

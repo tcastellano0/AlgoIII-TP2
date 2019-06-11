@@ -1,5 +1,7 @@
 package Juego.Mapa;
 
+import javafx.geometry.Pos;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -67,6 +69,9 @@ public class Tablero<T> {
             throw new UbicacionInvalidaException();
         }
     }
-	
+
+    protected boolean posicionEstaVacia(Posicion unaPosicion){
+		return celdas.get(unaPosicion).estaVacia();
+	}
 
 }

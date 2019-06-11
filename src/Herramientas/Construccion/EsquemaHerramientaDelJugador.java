@@ -21,16 +21,6 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
     private EsquemaHerramientaDelJugador() {
         this.tablero = new TableroMateriales(3,3);
-        this.tablero.poner(new MaterialNulo(),1, 1);
-        this.tablero.poner(new MaterialNulo(),1, 2);
-        this.tablero.poner(new MaterialNulo(),1,3);
-        this.tablero.poner(new MaterialNulo(),2, 1);
-        this.tablero.poner(new MaterialNulo(),2, 2);
-        this.tablero.poner(new MaterialNulo(),2,3);
-        this.tablero.poner(new MaterialNulo(),3,1);
-        this.tablero.poner(new MaterialNulo(),3, 2);
-        this.tablero.poner(new MaterialNulo(),3,3);
-
 
         this.esquemaHerramientas = new ArrayList<>();
         this.esquemaHerramientas.add(EsquemaHachaMadera.getInstance());

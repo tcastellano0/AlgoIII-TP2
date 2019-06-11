@@ -6,4 +6,6 @@ public interface Contenedor<T> {
     public T sacar();
     
     public T ver();
+
+    public boolean estaVacia();
 }

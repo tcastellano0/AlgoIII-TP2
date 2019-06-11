@@ -11,4 +11,7 @@ public class OcupacionLleno<T> implements EstadoOcupacion<T> {
     public void desocupar() {
     }
 
+    public boolean estaVacia(){
+        return false;
+    }
 }

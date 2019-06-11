@@ -28,9 +28,8 @@ public class Celda<T> implements Contenedor<T> {
 
     @Override
     public void poner(T contenido) {
-        this.contenido = contenido;
         this.ocupar();
-
+        this.contenido = contenido;
     }
 
     private void desocupar(){
@@ -42,4 +41,7 @@ public class Celda<T> implements Contenedor<T> {
         ocupacion = new OcupacionLleno<>();
     }
 
+    public boolean estaVacia(){
+        return ocupacion.estaVacia();
+    }
 }
