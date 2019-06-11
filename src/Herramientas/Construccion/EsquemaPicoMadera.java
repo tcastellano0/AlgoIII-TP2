@@ -14,6 +14,7 @@ public class EsquemaPicoMadera extends EsquemaHerramienta {
 
     private EsquemaPicoMadera(){
         this.tablero = new TableroMateriales(3,3);
+        
         this.tablero.poner(new Madera(),1, 1);
         this.tablero.poner(new Madera(),1, 2);
         this.tablero.poner(new Madera(),1, 3);

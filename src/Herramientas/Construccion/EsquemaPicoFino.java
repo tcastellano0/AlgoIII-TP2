@@ -16,6 +16,7 @@ public class EsquemaPicoFino extends EsquemaHerramienta {
 
     private EsquemaPicoFino(){
         this.tablero = new TableroMateriales(3,3);
+        
         this.tablero.poner(new Metal(),1, 1);
         this.tablero.poner(new Metal(),1, 2);
         this.tablero.poner(new Metal(),1, 3);

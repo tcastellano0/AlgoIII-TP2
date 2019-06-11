@@ -14,6 +14,7 @@ public class EsquemaHachaPiedra extends EsquemaHerramienta {
 
     private EsquemaHachaPiedra(){
         this.tablero = new TableroMateriales(3,3);
+        
         this.tablero.poner(new Piedra(),1, 1);
         this.tablero.poner(new Piedra(),1, 2);
         this.tablero.poner(new Piedra(),2, 1);

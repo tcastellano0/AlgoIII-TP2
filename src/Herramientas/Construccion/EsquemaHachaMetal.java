@@ -15,6 +15,7 @@ public class EsquemaHachaMetal extends EsquemaHerramienta {
 
     private EsquemaHachaMetal(){
         this.tablero = new TableroMateriales(3,3);
+        
         this.tablero.poner(new Metal(),1,1);
         this.tablero.poner(new Metal(),1, 2);
         this.tablero.poner(new Metal(),2, 1);
@@ -25,8 +26,6 @@ public class EsquemaHachaMetal extends EsquemaHerramienta {
     public Herramienta construir(){
         return Herramienta.hachaDeMetal();
     }
-
-
 
     protected  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
         return esquemaHerramienta.miTableroEsIgual(this.tablero);
