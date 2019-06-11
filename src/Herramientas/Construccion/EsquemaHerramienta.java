@@ -11,9 +11,13 @@ public abstract class EsquemaHerramienta {
 
 
     protected boolean esIgual(EsquemaHerramienta esquemaHerramienta) {
-        return this.tablero.esIgual(esquemaHerramienta.tablero);
+        return esquemaHerramienta.miTableroEsIgual(this.tablero);
+        //return this.tablero.esIgual(esquemaHerramienta.tablero);
     }
 
+    protected boolean miTableroEsIgual(TableroMateriales otroTablero){
+        return this.tablero.esIgual(otroTablero);
+    }
     public abstract Herramienta construir();
 
 }
