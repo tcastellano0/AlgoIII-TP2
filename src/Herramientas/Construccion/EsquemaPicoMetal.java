@@ -3,26 +3,27 @@ package Herramientas.Construccion;
 import Herramientas.Herramienta;
 import Juego.Mapa.TableroMateriales;
 import Materiales.Madera;
+import Materiales.Metal;
 
-public class EsquemaPicoMadera extends EsquemaHerramienta {
+public class EsquemaPicoMetal extends EsquemaHerramienta {
 
-    private static EsquemaPicoMadera ourInstance = new EsquemaPicoMadera();
+    private static EsquemaPicoMetal ourInstance = new EsquemaPicoMetal();
 
-    public static EsquemaPicoMadera getInstance() {
+    public static EsquemaPicoMetal getInstance() {
     	return ourInstance;
     }
 
-    private EsquemaPicoMadera(){
+    private EsquemaPicoMetal(){
         this.tablero = new TableroMateriales(3,3);
-        this.tablero.poner(new Madera(),1, 1);
-        this.tablero.poner(new Madera(),1, 2);
-        this.tablero.poner(new Madera(),1, 3);
+        this.tablero.poner(new Metal(),1, 1);
+        this.tablero.poner(new Metal(),1, 2);
+        this.tablero.poner(new Metal(),1, 3);
         this.tablero.poner(new Madera(),2, 2);
         this.tablero.poner(new Madera(),3, 2);
     }
 
     public Herramienta construir(){
-        return Herramienta.picoDeMadera();
+        return Herramienta.picoDeMetal();
     }
 
     protected  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
