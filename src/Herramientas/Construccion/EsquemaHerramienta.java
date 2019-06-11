@@ -20,6 +20,7 @@ public abstract class EsquemaHerramienta {
     protected boolean miTableroEsIgual(TableroMateriales otroTablero){
         return this.tablero.esIgual(otroTablero);
     }
+    
     public abstract Herramienta construir();
 
 }

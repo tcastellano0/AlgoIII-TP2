@@ -11,10 +11,13 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
     private List<EsquemaHerramienta> esquemaHerramientas;
 
-    private static EsquemaHerramientaDelJugador ourInstance = new EsquemaHerramientaDelJugador();
+    private static EsquemaHerramientaDelJugador ourInstance;
 
     public static EsquemaHerramientaDelJugador getInstance() {
-        return ourInstance;
+    	if(ourInstance == null)
+        	ourInstance = new EsquemaHerramientaDelJugador();
+    	
+    	return new EsquemaHerramientaDelJugador();
     }
 
     private EsquemaHerramientaDelJugador() {
