@@ -1,8 +1,10 @@
 import Herramientas.*;
-import Materiales.Piedra;
+import Materiales.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class PiedraTest {
 
@@ -94,5 +96,37 @@ public class PiedraTest {
         }
     }
 
+
+    @Test
+    void testPiedraEsIgualAPiedra() {
+        Piedra material1 = new Piedra();
+        Piedra material2 = new Piedra();
+
+        assertTrue(material1.esIgual(material2));
+    }
+
+    @Test
+    void testPiedraNoEsIgualAMadera() {
+        Piedra material1 = new Piedra();
+        Madera material2 = new Madera();
+
+        assertFalse(material1.esIgual(material2));
+    }
+
+    @Test
+    void testPiedraNoEsIgualAMetal() {
+        Piedra material1 = new Piedra();
+        Metal material2 = new Metal();
+
+        assertFalse(material1.esIgual(material2));
+    }
+
+    @Test
+    void testPiedraNoEsIgualADiamante() {
+        Piedra material1 = new Piedra();
+        Diamante material2 = new Diamante();
+
+        assertFalse(material1.esIgual(material2));
+    }
 
 }
