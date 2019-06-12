@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertSame;
 
 public class CeldaTest {
     @Test
@@ -93,6 +94,24 @@ public class CeldaTest {
     	celda.sacar();
 
         assertTrue(celda.estaVacia());
+    }
+    
+    @Test
+    void test10verElContenidoDeCeldaDevuelveElMismoObjeto(){
+    	Celda<Material> celda = new Celda<>();
+    	Madera madera = new Madera();
+    	celda.poner(madera);
+
+        assertSame(celda.ver(), madera);
+    }
+    
+    @Test
+    void test11ObetnerElContenidoDeCeldaDevuelveElMismoObjeto(){
+    	Celda<Material> celda = new Celda<>();
+    	Madera madera = new Madera();
+    	celda.poner(madera);
+
+        assertSame(celda.sacar(), madera);
     }
 
 
