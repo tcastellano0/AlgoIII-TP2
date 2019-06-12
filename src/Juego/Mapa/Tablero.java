@@ -36,6 +36,8 @@ public class Tablero<T> {
 	}
 	
 	public void poner(T item, Posicion unaPosicion) {
+		validarUbicacion(unaPosicion.getCoordenadaY(), unaPosicion.getCoordenadaX());
+		
 		celdas.get(unaPosicion).poner(item);
 	}
 	
@@ -45,7 +47,9 @@ public class Tablero<T> {
 		return sacar(new Posicion(fila, columna));
 	}
 	
-	protected T sacar(Posicion unaPosicion) {
+	public T sacar(Posicion unaPosicion) {
+		validarUbicacion(unaPosicion.getCoordenadaY(), unaPosicion.getCoordenadaX());
+		
 		return celdas.get(unaPosicion).sacar();
 	}
 
