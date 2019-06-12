@@ -46,9 +46,9 @@ public class TableroTest {
     void test05CreoUnTableroTresPorTresAgregoUnDiamanteEn3Y3YAlSacarloEsElMismo() {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
-		tablero.poner(diamante, 3, 3);
+		tablero.poner(diamante, new Posicion(3, 3));
 		
-		assertEquals(diamante, tablero.sacar(3, 3));
+		assertEquals(diamante, tablero.sacar(new Posicion(3, 3)));
     }
 
     @Test
@@ -57,7 +57,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.poner(diamante, 0, 0);
+			tablero.poner(diamante, new Posicion(0, 0));
 		});
 	}
 
@@ -67,7 +67,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.poner(diamante, 0, 1);
+			tablero.poner(diamante, new Posicion(0, 1));
 		});
 	}
 
@@ -79,7 +79,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.poner(diamante, fila + 2, 2);
+			tablero.poner(diamante, new Posicion(fila + 2, 2));
 		});
 	}
 
@@ -91,7 +91,7 @@ public class TableroTest {
 		Diamante diamante = new Diamante();
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.poner(diamante, 2, columna+2);
+			tablero.poner(diamante, new Posicion(2, columna+2));
 		});
 	}
 	
@@ -101,7 +101,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, columna);
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.sacar(2, columna + 2);
+			tablero.sacar(new Posicion(2, columna + 2));
 		});
 	}
 	
@@ -111,7 +111,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
 
 		assertThrows(UbicacionInvalidaException.class, () -> {
-			tablero.sacar(fila + 2, 2);
+			tablero.sacar(new Posicion(fila + 2, 2));
 		});
 	}
 
@@ -121,10 +121,10 @@ public class TableroTest {
 		Material madera = new Madera();
 		Material piedra = new Piedra();
 
-		tablero.poner(madera, 3, 3);
+		tablero.poner(madera, new Posicion(3, 3));
 		
 		assertThrows(ContenedorOcupadoException.class, () -> {
-			tablero.poner(piedra, 3, 3);
+			tablero.poner(piedra, new Posicion(3, 3));
 		});
 	}
 
@@ -133,7 +133,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<>(1, 1);
 
 		assertThrows(ContenedorVacioException.class, () -> {
-			tablero.sacar(1, 1);
+			tablero.sacar(new Posicion(1, 1));
 		});
 	}
 
@@ -142,7 +142,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Piedra piedra = new Piedra();
 
-		tablero.poner(piedra, 1, 1);
+		tablero.poner(piedra, new Posicion(1, 1));
 		
 		assertEquals(piedra, tablero.ver(1, 1));
 		assertEquals(piedra, tablero.ver(1, 1));
