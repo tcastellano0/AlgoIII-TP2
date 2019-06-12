@@ -37,4 +37,12 @@ public class Posicion {
     public int hashCode() {
         return Objects.hash(coordenadaX, coordenadaY);
     }
+
+    public int getCoordenadaX() {
+        return coordenadaX;
+    }
+
+    public int getCoordenadaY() {
+        return coordenadaY;
+    }
 }
