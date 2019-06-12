@@ -97,12 +97,39 @@ public class MaderaTest {
             assertEquals(madera.getDurabilidad(), durabilidad);
         }
     }
-    
-    @Test
-    void test08MaderaEsIgualAMadera() {
-        Madera madera1 = new Madera();
-        Piedra madera2 = new Piedra();
 
-        assertFalse(madera1.esIgual(madera2));
+
+    @Test
+    void testMaderaEsIgualAMadera() {
+        Madera material1 = new Madera();
+        Madera material2 = new Madera();
+
+        assertTrue(material1.esIgual(material2));
     }
+
+    @Test
+    void testMaderaNoEsIgualAPiedra() {
+        Madera material1 = new Madera();
+        Piedra material2 = new Piedra();
+
+        assertFalse(material1.esIgual(material2));
+    }
+
+    @Test
+    void testMaderaNoEsIgualAMetal() {
+        Madera material1 = new Madera();
+        Metal material2 = new Metal();
+
+        assertFalse(material1.esIgual(material2));
+    }
+
+    @Test
+    void testMaderaNoEsIgualADiamante() {
+        Madera material1 = new Madera();
+        Diamante material2 = new Diamante();
+
+        assertFalse(material1.esIgual(material2));
+    }
+
+
 }
