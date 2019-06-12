@@ -154,5 +154,77 @@ public class TableroTest {
 
 		assertEquals(tablero.ver(1, 1), null);
 	}
+	
+	 @Test
+		void testAgregarEnUnTableroConObjetoPosicionCeroYCeroLanzaError(){
+			Posicion posicion = new Posicion(0, 0);
+			Tablero<Material> tablero = new Tablero<Material>(3, 3);
+			Diamante diamante = new Diamante();
+
+			assertThrows(UbicacionInvalidaException.class, () -> {
+				tablero.poner(diamante, posicion);
+			});
+		}
+
+		@Test
+		void testAgregarEnUnTableroConObjetoPosicionCeroYUnoLanzaError(){
+			Posicion posicion = new Posicion(0, 1);
+			Tablero<Material> tablero = new Tablero<Material>(3, 3);
+			Diamante diamante = new Diamante();
+
+			assertThrows(UbicacionInvalidaException.class, () -> {
+				tablero.poner(diamante, posicion);
+			});
+		}
+
+		@Test
+		void testAgregarEnUnTableroConObjetoPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
+			int fila = 3;
+
+			Posicion posicion = new Posicion(fila + 2, 2);
+			Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+			Diamante diamante = new Diamante();
+
+			assertThrows(UbicacionInvalidaException.class, () -> {
+				tablero.poner(diamante, posicion);
+			});
+		}
+
+		@Test
+		void testAgregarEnUnTableroConObjetoPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
+			int columna = 3;
+
+			Posicion posicion = new Posicion(2, columna+2);
+			Tablero<Material> tablero = new Tablero<Material>(3, columna);
+			Diamante diamante = new Diamante();
+
+			assertThrows(UbicacionInvalidaException.class, () -> {
+				tablero.poner(diamante, posicion);
+			});
+		}
+		
+		@Test
+		void testSacarConObjetoPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
+			int columna = 3;
+			
+			Posicion posicion = new Posicion(2, columna+2);
+			Tablero<Material> tablero = new Tablero<Material>(3, columna);
+
+			assertThrows(UbicacionInvalidaException.class, () -> {
+				tablero.sacar(posicion);
+			});
+		}
+		
+		@Test
+		void testSacarDeObjetoPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
+			int fila = 3;
+			
+			Posicion posicion = new Posicion(fila + 2, 2);
+			Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+
+			assertThrows(UbicacionInvalidaException.class, () -> {
+				tablero.sacar(posicion);
+			});
+		}
 }
 
