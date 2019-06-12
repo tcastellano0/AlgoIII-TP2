@@ -16,16 +16,16 @@ public class MovimientoTest {
 	
     @Test
     void testLaDireccionInicialDelMovimientoEsNorte(){
-    	Mapa mapa = new Mapa(20, 20);
+    	Mapa mapa = new Mapa();
         Movimiento movimiento = new Movimiento(mapa);
         Direccion direccion = movimiento.getDireccion();
         
         assertEquals(direccion, DireccionNorte.getInstancia());
     }
-
+    
     @Test
     void testMoverUnJugadorModificaSuPosicion(){
-    	Mapa mapa = new Mapa(20, 20);
+    	Mapa mapa = new Mapa();
     	Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(mapa);
         
@@ -40,7 +40,7 @@ public class MovimientoTest {
     
     @Test
     void testNoMoverUnJugadorNoDeberiaModificarSuPosicion() {
-    	Mapa mapa = new Mapa(20, 20);
+    	Mapa mapa = new Mapa();
     	Jugador jugador = new Jugador();
     	
     	Posicion posicion = new Posicion(1,1);
@@ -53,7 +53,7 @@ public class MovimientoTest {
     
     @Test
     void testMoverUnJugadorEnDireccionNorteConLugarOcupadoNoEsPosible() {
-    	Mapa mapa = new Mapa(20, 20);
+    	Mapa mapa = new Mapa();
     	Madera madera = new Madera();
     	Jugador jugador = new Jugador();
     	Movimiento movimiento = new Movimiento(mapa);
@@ -71,7 +71,7 @@ public class MovimientoTest {
     
     @Test
     void testMoverUnJugadorNPasosDeberiaModificarLaPosicionDelJugadorNVeces() {
-    	Mapa mapa = new Mapa(20, 20);
+    	Mapa mapa = new Mapa();
     	Jugador jugador = new Jugador();
     	Movimiento movimiento = new Movimiento(mapa);
     	
