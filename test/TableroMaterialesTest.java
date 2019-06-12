@@ -25,7 +25,7 @@ public class TableroMaterialesTest {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 		
-		tablero2.poner(new Piedra(), 1, 1);
+		tablero2.poner(new Piedra(), new Posicion(1, 1));
 
 		assertFalse(tablero1.esIgual(tablero2));
 	}	
@@ -35,15 +35,15 @@ public class TableroMaterialesTest {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
-		tablero1.poner(new Madera(), 1, 1);
-		tablero1.poner(new Madera(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Madera(), 2, 2);
+		tablero1.poner(new Madera(), new Posicion(1, 1));
+		tablero1.poner(new Madera(), new Posicion(1, 2));
+		tablero1.poner(new Madera(), new Posicion(2, 1));
+		tablero1.poner(new Madera(), new Posicion(2, 2));
 
-		tablero2.poner(new Madera(), 1, 1);
-		tablero2.poner(new Madera(), 1, 2);
-		tablero2.poner(new Madera(), 2, 1);
-		tablero2.poner(new Madera(), 2, 2);
+		tablero2.poner(new Madera(), new Posicion(1, 1));
+		tablero2.poner(new Madera(), new Posicion(1, 2));
+		tablero2.poner(new Madera(), new Posicion(2, 1));
+		tablero2.poner(new Madera(), new Posicion(2, 2));
 
 		assertTrue(tablero1.esIgual(tablero2));
 	}
@@ -53,15 +53,15 @@ public class TableroMaterialesTest {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
-		tablero1.poner(new Madera(), 1, 1);
-		tablero1.poner(new Madera(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Madera(), 2, 2);
+		tablero1.poner(new Madera(), new Posicion(1, 1));
+		tablero1.poner(new Madera(), new Posicion(1, 2));
+		tablero1.poner(new Madera(), new Posicion(2, 1));
+		tablero1.poner(new Madera(), new Posicion(2, 2));
 
-		tablero2.poner(new Piedra(), 1, 1);
-		tablero2.poner(new Piedra(), 1, 2);
-		tablero2.poner(new Piedra(), 2, 1);
-		tablero2.poner(new Piedra(), 2, 2);
+		tablero2.poner(new Piedra(), new Posicion(1, 1));
+		tablero2.poner(new Piedra(), new Posicion(1, 2));
+		tablero2.poner(new Piedra(), new Posicion(2, 1));
+		tablero2.poner(new Piedra(), new Posicion(2, 2));
 
 		assertFalse(tablero1.esIgual(tablero2));
 	}
@@ -71,15 +71,15 @@ public class TableroMaterialesTest {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
-		tablero1.poner(new Madera(), 1, 1);
-		tablero1.poner(new Madera(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Piedra(), 2, 2);
+		tablero1.poner(new Madera(), new Posicion(1, 1));
+		tablero1.poner(new Madera(), new Posicion(1, 2));
+		tablero1.poner(new Madera(), new Posicion(2, 1));
+		tablero1.poner(new Piedra(), new Posicion(2, 2));
 
-		tablero2.poner(new Madera(), 1, 1);
-		tablero2.poner(new Madera(), 1, 2);
-		tablero2.poner(new Madera(), 2, 1);
-		tablero2.poner(new Piedra(), 2, 2);
+		tablero2.poner(new Madera(), new Posicion(1, 1));
+		tablero2.poner(new Madera(), new Posicion(1, 2));
+		tablero2.poner(new Madera(), new Posicion(2, 1));
+		tablero2.poner(new Piedra(), new Posicion(2, 2));
 
 		assertTrue(tablero1.esIgual(tablero2));
 	}
@@ -89,15 +89,15 @@ public class TableroMaterialesTest {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
-		tablero1.poner(new Diamante(), 1, 1);
-		tablero1.poner(new Metal(), 1, 2);
-		tablero1.poner(new Madera(), 2, 1);
-		tablero1.poner(new Piedra(), 2, 2);
+		tablero1.poner(new Diamante(), new Posicion(1, 1));
+		tablero1.poner(new Metal(), new Posicion(1, 2));
+		tablero1.poner(new Madera(), new Posicion(2, 1));
+		tablero1.poner(new Piedra(), new Posicion(2, 2));
 
-		tablero2.poner(new Piedra(), 1, 1);
-		tablero2.poner(new Madera(), 1, 2);
-		tablero2.poner(new Metal(), 2, 1);
-		tablero2.poner(new Diamante(), 2, 2);
+		tablero2.poner(new Piedra(), new Posicion(1, 1));
+		tablero2.poner(new Madera(), new Posicion(1, 2));
+		tablero2.poner(new Metal(), new Posicion(2, 1));
+		tablero2.poner(new Diamante(), new Posicion(2, 2));
 
 		assertFalse(tablero1.esIgual(tablero2));
 	}

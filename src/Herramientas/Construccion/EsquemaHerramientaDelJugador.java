@@ -1,6 +1,7 @@
 package Herramientas.Construccion;
 
 import Herramientas.Herramienta;
+import Juego.Mapa.Posicion;
 import Juego.Mapa.TableroMateriales;
 import Materiales.Material;
 
@@ -29,11 +30,11 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
     }
 
     public void poner(Material material, int fila, int columna){
-        this.tablero.poner(material, fila, columna);
+        this.tablero.poner(material, new Posicion(fila, columna));
     }
 
     public Material sacar(int fila, int columna){
-        return (Material) this.tablero.sacar(fila, columna);
+        return (Material) this.tablero.sacar(new Posicion(fila,columna));
     }
 
 

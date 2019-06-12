@@ -16,11 +16,11 @@ public class EsquemaHachaMadera extends EsquemaHerramienta {
     private EsquemaHachaMadera(){
         this.tablero = new TableroMateriales(3,3);
 
-        this.tablero.poner(new Madera(),new Posicion(1,1));
+        this.tablero.poner(new Madera(),new Posicion(1, 1));
         this.tablero.poner(new Madera(),new Posicion(1, 2));
-        this.tablero.poner(new Madera(),2, 1);
-        this.tablero.poner(new Madera(),2, 2);
-        this.tablero.poner(new Madera(),3, 2);
+        this.tablero.poner(new Madera(),new Posicion(2, 1));
+        this.tablero.poner(new Madera(),new Posicion(2, 2));
+        this.tablero.poner(new Madera(),new Posicion(3, 2));
     }
 
     public Herramienta construir(){
