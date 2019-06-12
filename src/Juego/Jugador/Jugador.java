@@ -2,9 +2,10 @@ package Juego.Jugador;
 
 import Herramientas.Herramienta;
 import Juego.Mapa.Posicion;
+import Juego.Mapa.Ubicable;
 import Materiales.Material;
 
-public class Jugador {
+public class Jugador implements Ubicable {
 	
 	private Herramienta herramientaEquipada;
 	private Inventario<Herramienta> inventarioDeHerramientas;
