@@ -2,8 +2,9 @@ package Materiales;
 
 import Herramientas.*;
 import Durabilidad.*;
+import Juego.Mapa.Ubicable;
 
-public abstract class Material implements Desgastable, Golpeable {
+public abstract class Material implements Desgastable, Golpeable, Ubicable {
 
 	protected DurabilidadConFactor durabilidad;
 
