@@ -4,8 +4,11 @@ import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
 import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
-import Juego.Mapa.ContenedorOcupadoException;
 import Materiales.Madera;
+
+import Juego.Mapa.UbicacionInvalidaException;
+import Juego.Mapa.ContenedorOcupadoException;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -52,24 +55,6 @@ public class MovimientoTest {
     }
     
     @Test
-    void testMoverUnJugadorEnDireccionNorteConLugarOcupadoNoEsPosible() {
-    	Mapa mapa = new Mapa();
-    	Madera madera = new Madera();
-    	Jugador jugador = new Jugador();
-    	Movimiento movimiento = new Movimiento(mapa);
-    	
-    	Posicion posicion = new Posicion(1,1);
-    	
-    	mapa.poner(jugador, posicion);
-    	mapa.poner(madera, posicion.arriba());
-        jugador.setPosicion(posicion);
-    	
-        assertThrows(ContenedorOcupadoException.class, () -> {
-        	movimiento.avanzar(jugador);
-		});
-    }
-    
-    @Test
     void testMoverUnJugadorNPasosDeberiaModificarLaPosicionDelJugadorNVeces() {
     	Mapa mapa = new Mapa();
     	Jugador jugador = new Jugador();
@@ -89,7 +74,116 @@ public class MovimientoTest {
         
         assertEquals(jugador.getPosicion(), posicionProxima);
     }
-
+    
+    @Test
+    void testMoverUnJugadorEnDireccionNorteConLugarOcupadoNoEsPosible() {
+    	Mapa mapa = new Mapa();
+    	Madera madera = new Madera();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(1,1);
+    	
+    	mapa.poner(jugador, posicion);
+    	mapa.poner(madera, posicion.arriba());
+        jugador.setPosicion(posicion);
+    	
+        assertThrows(ContenedorOcupadoException.class, () -> {
+        	movimiento.avanzar(jugador);
+		});
+    }
+    
+    @Test
+    void testMoverUnJugadorEnDireccionNorteFueraDelMapaNoEsPosible() {
+    	Mapa mapa = new Mapa();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(1,20);
+    	
+    	mapa.poner(jugador, posicion);
+        jugador.setPosicion(posicion);
+        
+        assertThrows(UbicacionInvalidaException.class, () -> {
+        	movimiento.avanzar(jugador);
+		});
+    }
+    
+    @Test
+    void testMoverUnJugadorEnDireccionSurFueraDelMapaNoEsPosible() {
+    	Mapa mapa = new Mapa();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(1,1);
+    	
+    	mapa.poner(jugador, posicion);
+        jugador.setPosicion(posicion);
+    	
+        movimiento.invertir();
+        
+        assertThrows(UbicacionInvalidaException.class, () -> {
+        	movimiento.avanzar(jugador);
+		});
+    }
+    
+    @Test
+    void testMoverUnJugadorEnDireccionEsteFueraDelMapaNoEsPosible() {
+    	Mapa mapa = new Mapa();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(20, 1);
+    	
+    	mapa.poner(jugador, posicion);
+        jugador.setPosicion(posicion);
+    	
+        movimiento.rotar();
+        
+        assertThrows(UbicacionInvalidaException.class, () -> {
+        	movimiento.avanzar(jugador);
+		});
+    }
+    
+    @Test
+    void testMoverUnJugadorEnDireccionOesteFueraDelMapaNoEsPosible() {
+    	Mapa mapa = new Mapa();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(1, 1);
+    	
+    	mapa.poner(jugador, posicion);
+        jugador.setPosicion(posicion);
+    	
+        movimiento.invertir();
+        movimiento.rotar();
+        
+        assertThrows(UbicacionInvalidaException.class, () -> {
+        	movimiento.avanzar(jugador);
+		});
+    }
+    
+    @Test
+    void testMoverUnJugadorEnDireccionEsteConPosicionOcupadaEnNorteEsPosible() {
+    	Mapa mapa = new Mapa();
+    	Madera madera = new Madera();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(1,1);
+    	
+    	mapa.poner(jugador, posicion);
+    	mapa.poner(madera, posicion.arriba());
+        jugador.setPosicion(posicion);
+    	
+        movimiento.rotar();
+        movimiento.avanzar(jugador);
+        
+        assertNotEquals(jugador.getPosicion(), posicion);
+    }
+    
+    
 /*    @Test
     void test03sarasa(){
         Jugador jugador = new Jugador();
