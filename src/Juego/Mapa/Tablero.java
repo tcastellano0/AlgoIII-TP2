@@ -36,7 +36,7 @@ public class Tablero<T> {
 	}
 	
 	public void poner(T item, Posicion unaPosicion) {
-		celdas.put(unaPosicion, new Celda<T>(item));
+		celdas.get(unaPosicion).poner(item);
 	}
 	
 	public T sacar(int fila, int columna) {
