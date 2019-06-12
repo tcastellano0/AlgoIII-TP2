@@ -20,12 +20,24 @@ public class MovimientoTest {
     void test02MoverUnJugadorModificaSuPosicion(){
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento();
-        Posicion posicion = new Posicion(0,0);
+        Posicion posicion = new Posicion(1,1);
         jugador.setPosicion(posicion);
 
         movimiento.avanzar(jugador);
 
         assertNotEquals(jugador.getPosicion(), posicion);
     }
+
+/*    @Test
+    void test03sarasa(){
+        Jugador jugador = new Jugador();
+        Movimiento movimiento = new Movimiento();
+        Posicion posicion = new Posicion(1,1);
+        jugador.setPosicion(posicion);
+        for(int i=0; i<15; i++) {
+            movimiento.avanzar(jugador);
+            System.out.println(jugador.getPosicion().getCoordenadaY());
+        }
+    }*/
 
 }

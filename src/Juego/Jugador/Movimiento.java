@@ -1,5 +1,6 @@
 package Juego.Jugador;
 
+import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
 
 public class Movimiento {

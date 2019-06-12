@@ -35,7 +35,7 @@ public class Tablero<T> {
 		poner(item, new Posicion(fila, columna));
 	}
 	
-	protected void poner(T item, Posicion unaPosicion) {
+	public void poner(T item, Posicion unaPosicion) {
 		celdas.put(unaPosicion, new Celda<T>(item));
 	}
 	
