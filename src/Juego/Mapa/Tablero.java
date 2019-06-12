@@ -42,13 +42,7 @@ public class Tablero<T> {
 		return celdas.get(unaPosicion).sacar();
 	}
 
-	public T ver(int fila, int columna) {
-		validarUbicacion(new Posicion(fila,columna));
-		
-		return ver(new Posicion(fila, columna));
-	}
-	
-	protected T ver(Posicion unaPosicion) {
+	public T ver(Posicion unaPosicion) {
 		return celdas.get(unaPosicion).ver();
 	}
 	
