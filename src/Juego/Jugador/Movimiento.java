@@ -6,7 +6,7 @@ public class Movimiento {
     private Direccion direccion = DireccionNorte.getInstancia();
 
 
-    public void siguiente(Jugador jugador){
+    public void avanzar(Jugador jugador){
         Posicion nuevaPosicion = direccion.siguiente(jugador.getPosicion());
         jugador.setPosicion(nuevaPosicion);
     }

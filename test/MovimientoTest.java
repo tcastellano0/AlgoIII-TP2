@@ -23,7 +23,7 @@ public class MovimientoTest {
         Posicion posicion = new Posicion(0,0);
         jugador.setPosicion(posicion);
 
-        movimiento.siguiente(jugador);
+        movimiento.avanzar(jugador);
 
         assertNotEquals(jugador.getPosicion(), posicion);
     }
