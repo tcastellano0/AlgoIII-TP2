@@ -30,31 +30,31 @@ public class Tablero<T> {
 	}
 	
 	public void poner(T item, int fila, int columna) {
-		validarUbicacion(fila, columna);
+		validarUbicacion(new Posicion(fila, columna));
 		
 		poner(item, new Posicion(fila, columna));
 	}
 	
 	public void poner(T item, Posicion unaPosicion) {
-		validarUbicacion(unaPosicion.getCoordenadaY(), unaPosicion.getCoordenadaX());
+		validarUbicacion(unaPosicion);
 		
 		celdas.get(unaPosicion).poner(item);
 	}
 	
 	public T sacar(int fila, int columna) {
-		validarUbicacion(fila, columna);
+		validarUbicacion(new Posicion(fila,columna));
 		
 		return sacar(new Posicion(fila, columna));
 	}
 	
 	public T sacar(Posicion unaPosicion) {
-		validarUbicacion(unaPosicion.getCoordenadaY(), unaPosicion.getCoordenadaX());
+		validarUbicacion(unaPosicion);
 		
 		return celdas.get(unaPosicion).sacar();
 	}
 
 	public T ver(int fila, int columna) {
-		validarUbicacion(fila, columna);
+		validarUbicacion(new Posicion(fila,columna));
 		
 		return ver(new Posicion(fila, columna));
 	}
@@ -63,13 +63,10 @@ public class Tablero<T> {
 		return celdas.get(unaPosicion).ver();
 	}
 	
-	private void validarUbicacion(int fila, int columna){
-        if (fila < 1 || fila > this.filas){
-            throw new UbicacionInvalidaException();
-        }
-        if (columna < 1 || columna > this.columnas){
-            throw new UbicacionInvalidaException();
-        }
+	private void validarUbicacion(Posicion posicion){
+		if (!celdas.keySet().contains(posicion)){
+			throw new UbicacionInvalidaException();
+		}
     }
 
     protected boolean posicionEstaVacia(Posicion unaPosicion){
