@@ -36,4 +36,76 @@ public class DireccionTest {
 
         assertTrue(direccionSur.siguiente(posicion).getCoordenadaY()< posicion.getCoordenadaY());
     }
+
+    @Test
+    void test05DireccionNorteRotaYEsDireccionEste(){
+        Posicion posicion = new Posicion(0, 0);
+        Direccion direccion = DireccionNorte.getInstancia();
+        direccion = direccion.rotar();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaX()>posicion.getCoordenadaX());
+    }
+
+    @Test
+    void test06DireccionEsteRotaYEsDireccionSur(){
+        Posicion posicion = new Posicion(0, 0);
+        Direccion direccion = DireccionEste.getInstancia();
+        direccion = direccion.rotar();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaY()< posicion.getCoordenadaY());
+
+    }
+
+    @Test
+    void test07DireccionSurRotaYEsDireccionOeste(){
+        Posicion posicion = new Posicion(0, 0);
+        Direccion direccion = DireccionSur.getInstancia();
+        direccion = direccion.rotar();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaX()< posicion.getCoordenadaX());
+
+    }
+
+    @Test
+    void test08DireccionOesteRotaYEsDireccionNorte(){
+        Posicion posicion = new Posicion(0, 0);
+        Direccion direccion = DireccionOeste.getInstancia();
+        direccion = direccion.rotar();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaY()> posicion.getCoordenadaY());
+    }
+
+    @Test
+    void test09LaDireccionInversaALaNorteEsLaSur(){
+        Posicion posicion = new Posicion(0,0);
+        Direccion direccion = DireccionNorte.getInstancia();
+        direccion = direccion.invertir();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaY()< posicion.getCoordenadaY());
+    }
+
+    @Test
+    void test10LaDireccionInversaALaSurEsLaNorte(){
+        Posicion posicion = new Posicion(0,0);
+        Direccion direccion = DireccionSur.getInstancia();
+        direccion = direccion.invertir();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaY()> posicion.getCoordenadaY());
+    }
+    @Test
+    void test11LaDireccionInversaALaEsteEsLaOeste(){
+        Posicion posicion = new Posicion(0,0);
+        Direccion direccion = DireccionEste.getInstancia();
+        direccion = direccion.invertir();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaX()< posicion.getCoordenadaX());
+    }
+    @Test
+    void test12LaDireccionInversaALaOEsteEsLaEste(){
+        Posicion posicion = new Posicion(0,0);
+        Direccion direccion = DireccionOeste.getInstancia();
+        direccion = direccion.invertir();
+
+        assertTrue(direccion.siguiente(posicion).getCoordenadaX()> posicion.getCoordenadaX());
+    }
 }
