@@ -8,8 +8,6 @@ import Juego.Mapa.ContenedorOcupadoException;
 import Materiales.Madera;
 import org.junit.jupiter.api.Test;
 
-import Herramientas.Construccion.NoExisteEsquemaException;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
