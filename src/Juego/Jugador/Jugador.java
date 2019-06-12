@@ -1,6 +1,7 @@
 package Juego.Jugador;
 
 import Herramientas.Herramienta;
+import Juego.Mapa.Posicion;
 import Materiales.Material;
 
 public class Jugador {
@@ -8,7 +9,9 @@ public class Jugador {
 	private Herramienta herramientaEquipada;
 	private Inventario<Herramienta> inventarioDeHerramientas;
 	private Inventario<Material> inventarioDeMateriales;
-	
+	private Posicion posicion;
+	private Movimiento movimiento;
+
 	public Jugador() {
 		this.herramientaEquipada = Herramienta.hachaDeMadera();
 		this.inventarioDeHerramientas = new Inventario<Herramienta>();
@@ -31,5 +34,17 @@ public class Jugador {
 	public Herramienta ultimaHerramientaObtenida() {
 		return this.inventarioDeHerramientas.ultimoItemAgregado();
 	}
-	
+
+	public Posicion getPosicion() {
+		return this.posicion;
+	}
+
+	public void setPosicion(Posicion nuevaPosicion) {
+		this.posicion = nuevaPosicion;
+	}
+
+	public void setMovimiento(Movimiento movimiento) {
+		this.movimiento = movimiento;
+	}
+
 }
