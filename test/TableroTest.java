@@ -116,15 +116,16 @@ public class TableroTest {
 	}
 
 	@Test
-	void test12PonerDosVecesEnUnaMismaPosicionNoMantieneLoPrimeroQueSePuso(){
+	void test12PonerDosVecesEnUnaMismaPosicionTieneQueLanzarException(){
 		Tablero<Material> tablero = new Tablero<>(5, 5);
 		Material madera = new Madera();
 		Material piedra = new Piedra();
 
 		tablero.poner(madera, 3, 3);
-		tablero.poner(piedra, 3, 3);
-
-		assertEquals(tablero.sacar(3,3), piedra);
+		
+		assertThrows(ContenedorOcupadoException.class, () -> {
+			tablero.poner(piedra, 3, 3);
+		});
 	}
 
 	@Test
