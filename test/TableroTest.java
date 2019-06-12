@@ -144,15 +144,15 @@ public class TableroTest {
 
 		tablero.poner(piedra, new Posicion(1, 1));
 		
-		assertEquals(piedra, tablero.ver(1, 1));
-		assertEquals(piedra, tablero.ver(1, 1));
+		assertEquals(piedra, tablero.ver(new Posicion(1, 1)));
+		assertEquals(piedra, tablero.ver(new Posicion(1, 1)));
 	}
 	
 	@Test
 	void testVerEnUnaPosicionSinContenidoDeberiaSerNull(){
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 
-		assertEquals(tablero.ver(1, 1), null);
+		assertEquals(tablero.ver(new Posicion(1, 1)), null);
 	}
 	
 	 @Test
