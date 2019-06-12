@@ -34,9 +34,22 @@ public class Diamante extends Material {
 	public void golpeadoPor(GolpeadorPicoFino golpeador) {
 		this.desgastar(golpeador.getFuerza());
 	}
-	
-	public boolean esIgual(Diamante material) {
-		return true;
+
+	@Override
+	public boolean esIgual(Material material){
+		return material.esIgual(this);
 	}
+
+	@Override
+	public boolean esIgual(Madera material) {return false;}
+
+	@Override
+	public boolean esIgual(Piedra material) {return false;}
+
+	@Override
+	public boolean esIgual(Metal material) {return false;}
+
+	@Override
+	public boolean esIgual(Diamante material) {return true;}
 
 }

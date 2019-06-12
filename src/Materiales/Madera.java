@@ -37,8 +37,21 @@ public class Madera extends Material{
 	@Override
     public void golpeadoPor(GolpeadorPicoFino golpeador){ }
 
-	/*
-	public boolean esIgualA(Madera material) {
-		*/
+    @Override
+    public boolean esIgual(Material material){
+        return material.esIgual(this);
+    }
+
+    @Override
+	public boolean esIgual(Madera material) {return true;}
+
+    @Override
+    public boolean esIgual(Piedra material) {return false;}
+
+    @Override
+    public boolean esIgual(Metal material) {return false;}
+
+    @Override
+    public boolean esIgual(Diamante material) {return false;}
     
 }
