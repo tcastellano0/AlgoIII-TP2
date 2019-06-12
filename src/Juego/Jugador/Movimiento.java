@@ -2,7 +2,6 @@ package Juego.Jugador;
 
 import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
-import Juego.Mapa.UbicacionInvalidaException;
 
 public class Movimiento {
 	private Mapa mapa;
@@ -16,12 +15,10 @@ public class Movimiento {
     	Posicion posicionJugador = jugador.getPosicion();
         Posicion nuevaPosicion = direccion.siguiente(posicionJugador);
         
-        try {
-        	mapa.poner(jugador, nuevaPosicion);
-        	jugador.setPosicion(nuevaPosicion);
-        	mapa.sacar(posicionJugador);
-    	}
-        catch(UbicacionInvalidaException e) { }  
+        mapa.poner(jugador, nuevaPosicion);
+    	mapa.sacar(posicionJugador); 
+    	
+    	jugador.setPosicion(nuevaPosicion);
     }
 
     public void rotar(){

@@ -4,10 +4,15 @@ import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
 import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
+import Juego.Mapa.ContenedorOcupadoException;
+import Materiales.Madera;
 import org.junit.jupiter.api.Test;
+
+import Herramientas.Construccion.NoExisteEsquemaException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MovimientoTest {
 	
@@ -46,6 +51,24 @@ public class MovimientoTest {
         jugador.setPosicion(posicion);
 
         assertEquals(jugador.getPosicion(), posicion);
+    }
+    
+    @Test
+    void testMoverUnJugadorEnDireccionNorteConLugarOcupadoNoEsPosible() {
+    	Mapa mapa = new Mapa(20, 20);
+    	Madera madera = new Madera();
+    	Jugador jugador = new Jugador();
+    	Movimiento movimiento = new Movimiento(mapa);
+    	
+    	Posicion posicion = new Posicion(1,1);
+    	
+    	mapa.poner(jugador, posicion);
+    	mapa.poner(madera, posicion.arriba());
+        jugador.setPosicion(posicion);
+    	
+        assertThrows(ContenedorOcupadoException.class, () -> {
+        	movimiento.avanzar(jugador);
+		});
     }
     
     @Test
