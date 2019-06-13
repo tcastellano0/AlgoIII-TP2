@@ -43,7 +43,7 @@ public class MovimientoTest {
     }
 
     @Test
-    void testNoMoverUnJugadorNoDeberiaModificarSuPosicion() {
+    void testNoMoverUnJugadorNoModificaSuPosicion() {
         Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
 
@@ -56,24 +56,24 @@ public class MovimientoTest {
     }
 
     @Test
-    void testMoverUnJugadorNPasosDeberiaModificarLaPosicionDelJugadorNVeces() {
+    void testMoverUnJugadorNPasosModificaLaPosicionDelJugadorNVeces() {
         Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
         int numeroPasos = 15;
 
-        Posicion posicion = new Posicion(1,1);
-        Posicion posicionProxima = new Posicion(1, 1 + numeroPasos);
+        Posicion posicionInicial = new Posicion(1,1);
+        Posicion posicionFinal = new Posicion(1, 1 + numeroPasos);
 
-        tablero.poner(jugador, posicion);
-        jugador.setPosicion(posicion);
+        tablero.poner(jugador, posicionInicial);
+        jugador.setPosicion(posicionInicial);
 
         for(int i = 1; i <= numeroPasos; i++) {
             movimiento.avanzar(jugador);
         }
 
-        assertEquals(jugador.getPosicion(), posicionProxima);
+        assertEquals(jugador.getPosicion(), posicionFinal);
     }
 
     @Test
