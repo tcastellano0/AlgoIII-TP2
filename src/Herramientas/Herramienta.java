@@ -3,7 +3,7 @@ package Herramientas;
 import Durabilidad.*;
 import Materiales.Material;
 
-public class Herramienta implements Desgastable {
+public class Herramienta {
 
 	protected Durabilidad durabilidad;
 	protected Golpeador golpeador;
