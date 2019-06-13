@@ -89,9 +89,7 @@ public class MovimientoTest {
         tablero.poner(madera, posicion.arriba());
         jugador.setPosicion(posicion);
 
-        assertThrows(ContenedorOcupadoException.class, () -> {
-            movimiento.avanzar(jugador);
-        });
+        assertEquals(posicion, jugador.getPosicion());
     }
 
     @Test
