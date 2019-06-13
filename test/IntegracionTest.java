@@ -1,5 +1,8 @@
+import Juego.Mapa.Ubicable;
 import Materiales.*;
 import Herramientas.*;
+import Juego.Mapa.Tablero;
+import Juego.Mapa.Posicion;
 import Juego.Jugador.Jugador;
 import org.junit.jupiter.api.Test;
 
@@ -55,5 +58,42 @@ public class IntegracionTest {
 
         assertTrue(hacha.getDurabilidad() < durabilidadInicialHacha);
     }
+
+    /*
+    @Test
+    void testJugadorPuedeMoverseALaIzquierdaEnUnMapaVacioEstandoEnElCentro(){
+        Tablero mapa = new Tablero<Ubicable>(3,3);
+        Posicion posInicial = new Posicion(2,2);
+        Jugador j = new Jugador();
+        j.setPosicion(posInicial);
+        mapa.poner(j, posInicial);
+    }
+
+    @Test
+    void testJugadorPuedeMoverseALaDerechaEnUnMapaVacioEstandoEnElCentro(){
+        Tablero mapa = new Tablero<Ubicable>(3,3);
+        Posicion posInicial = new Posicion(2,2);
+        Jugador j = new Jugador();
+        j.setPosicion(posInicial);
+        mapa.poner(j, posInicial);
+    }
+
+    @Test
+    void testJugadorPuedeMoverseArribaEnUnMapaVacioEstandoEnElCentro(){
+        Tablero mapa = new Tablero<Ubicable>(3,3);
+        Posicion posInicial = new Posicion(2,2);
+        Jugador j = new Jugador();
+        j.setPosicion(posInicial);
+        mapa.poner(j, posInicial);
+    }
+
+    @Test
+    void testJugadorPuedeMoverseAbajoEnUnMapaVacioEstandoEnElCentro(){
+        Tablero mapa = new Tablero<Ubicable>(3,3);
+        Posicion posInicial = new Posicion(2,2);
+        Jugador j = new Jugador();
+        j.setPosicion(posInicial);
+        mapa.poner(j, posInicial);
+    }*/
 
 }

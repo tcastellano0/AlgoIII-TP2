@@ -250,17 +250,5 @@ public class MovimientoTest {
 
         assertEquals(posicion.derecha(), jugador.getPosicion());
     }
-    
-/*    @Test
-    void test03sarasa(){
-        Jugador jugador = new Jugador();
-        Movimiento movimiento = new Movimiento();
-        Posicion posicion = new Posicion(1,1);
-        jugador.setPosicion(posicion);
-        for(int i=0; i<15; i++) {
-            movimiento.avanzar(jugador);
-            System.out.println(jugador.getPosicion().getCoordenadaY());
-        }
-    }*/
 
 }
