@@ -1,11 +1,11 @@
 package Juego.Mapa;
 
 public interface Contenedor<T> {
-    public void poner(T contenido);
+    void poner(T contenido);
 
-    public T sacar();
+    T sacar();
     
-    public T ver();
+    T ver();
 
-    public boolean estaVacia();
+    boolean estaVacia();
 }

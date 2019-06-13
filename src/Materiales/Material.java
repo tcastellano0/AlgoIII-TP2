@@ -3,13 +3,26 @@ package Materiales;
 import Herramientas.*;
 import Durabilidad.*;
 import Juego.Mapa.Ubicable;
+import Juego.Mapa.Posicion;
 
 public abstract class Material implements Desgastable, Golpeable, Ubicable {
 
 	protected DurabilidadConFactor durabilidad;
 
+	protected Posicion posicion;
+
 	public double getDurabilidad() {
 		return this.durabilidad.getDurabilidad();
+	}
+
+	@Override
+	public void setPosicion(Posicion pos){
+		this.posicion = pos;
+	}
+
+	@Override
+	public Posicion getPosicion(){
+		return this.posicion;
 	}
 
 	@Override

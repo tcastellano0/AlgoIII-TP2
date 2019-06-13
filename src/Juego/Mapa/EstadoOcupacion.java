@@ -1,9 +1,9 @@
 package Juego.Mapa;
 
 public interface EstadoOcupacion<T> {
-    public void ocupar();
+    void ocupar();
 
-    public void desocupar();
+    void desocupar();
 
     boolean estaVacia();
 }
