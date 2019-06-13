@@ -9,6 +9,7 @@ import Materiales.Diamante;
 import Materiales.Madera;
 import Materiales.Metal;
 import Materiales.Piedra;
+import javafx.geometry.Pos;
 
 public class AlgoCraft {
 	
@@ -132,5 +133,13 @@ public class AlgoCraft {
     private void setUpDiamante() {
     	this.mapa.poner(new Diamante(), new Posicion(10, 10));
     }
+
+    public Ubicable verEnPosicion(Posicion pos){
+		return this.mapa.ver(pos);
+	}
+
+	public Posicion posicionDelJugador(){
+		return jugador.getPosicion();
+	}
 
 }
