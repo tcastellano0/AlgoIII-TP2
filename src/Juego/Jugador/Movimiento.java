@@ -1,25 +1,28 @@
 package Juego.Jugador;
 
 import Juego.Mapa.Posicion;
+import Juego.Mapa.Tablero;
+import Juego.Mapa.Ubicable;
 import Juego.Mapa.UbicacionInvalidaException;
 
+
 public class Movimiento {
-    private Mapa mapa;
+    private Tablero<Ubicable> tablero;
     private Direccion direccion = DireccionNorte.getInstancia();
 
-    public Movimiento(Mapa mapa) {
-        this.mapa = mapa;
+    public Movimiento(Tablero<Ubicable> tablero) {
+        this.tablero = tablero;
     }
 
     public void avanzar(Jugador jugador) {
         Posicion posicionInicial = jugador.getPosicion();
         Posicion nuevaPosicion = direccion.siguiente(posicionInicial);
         try {
-            mapa.sacar(posicionInicial);
-            mapa.poner(jugador, nuevaPosicion);
+        	tablero.sacar(posicionInicial);
+        	tablero.poner(jugador, nuevaPosicion);
             jugador.setPosicion(nuevaPosicion);
         } catch (UbicacionInvalidaException e) {
-            mapa.poner(jugador,posicionInicial);
+        	tablero.poner(jugador,posicionInicial);
             invertir();
         }
     }
