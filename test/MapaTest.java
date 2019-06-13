@@ -13,7 +13,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 public class MapaTest {
-	
+	/*
 	@Test
 	void testSePuedeOcuparUnCasilleroVacioConUnJugador() {
 		Mapa mapa = new Mapa();
@@ -139,5 +139,5 @@ public class MapaTest {
 			mapa.sacar(posicion);
 		});
 	}
-	
+	*/
 }

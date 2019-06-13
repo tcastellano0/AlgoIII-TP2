@@ -4,6 +4,7 @@ import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
+import Juego.Mapa.Ubicable;
 import Materiales.Madera;
 
 import Juego.Mapa.ContenedorOcupadoException;
@@ -19,7 +20,7 @@ public class MovimientoTest {
 
     @Test
     void testLaDireccionInicialDelMovimientoEsNorte(){
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Movimiento movimiento = new Movimiento(tablero);
         Direccion direccion = movimiento.getDireccion();
 
@@ -28,7 +29,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorModificaSuPosicion(){
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -43,7 +44,7 @@ public class MovimientoTest {
 
     @Test
     void testNoMoverUnJugadorNoDeberiaModificarSuPosicion() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
 
         Posicion posicion = new Posicion(1,1);
@@ -56,7 +57,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorNPasosDeberiaModificarLaPosicionDelJugadorNVeces() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -77,7 +78,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorEnDireccionNorteConLugarOcupadoNoEsPosible() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Madera madera = new Madera();
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
@@ -95,7 +96,7 @@ public class MovimientoTest {
 
     @Test
     void testIntentarMoverUnJugadorEnDireccionNorteSuperandoLaDimensionDelTableroNoLoMueve() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -111,7 +112,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorEnDireccionSurFueraDelTableroNoEsPosible() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -129,7 +130,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorEnDireccionEsteFueraDelTableroNoEsPosible() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -146,7 +147,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorEnDireccionOesteFueraDelTableroNoEsPosible() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -164,7 +165,7 @@ public class MovimientoTest {
 
     @Test
     void testMoverUnJugadorEnDireccionEsteConPosicionOcupadaEnNorteEsPosible() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Madera madera = new Madera();
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
@@ -183,7 +184,7 @@ public class MovimientoTest {
 
     @Test
     void testLuegoIntentarMoverUnJugadorFueraDelTableroEnDireccionNortePasaAMoverseEnDireccionSur() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -199,7 +200,7 @@ public class MovimientoTest {
     }
     @Test
     void testLuegoIntentarMoverUnJugadorFueraDelTableroEnDireccionSurPasaAMoverseEnDireccionNorte() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -216,7 +217,7 @@ public class MovimientoTest {
     }
     @Test
     void testLuegoIntentarMoverUnJugadorFueraDelTableroEnDireccionEstePasaAMoverseEnDireccionOeste() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
@@ -233,7 +234,7 @@ public class MovimientoTest {
     }
     @Test
     void testLuegoIntentarMoverUnJugadorFueraDelTableroEnDireccionOestePasaAMoverseEnDireccionEste() {
-        Tablero tablero = new Tablero();
+        Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
