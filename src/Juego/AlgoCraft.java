@@ -1,17 +1,17 @@
-package Juego.Juego;
+package Juego;
 
 import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
 import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
 
-public class Juego {
+public class AlgoCraft {
 	
 	private Jugador jugador;
 	private Mapa mapa;
 	private Movimiento movimiento;
 	
-	public Juego() {
+	public AlgoCraft() {
 		Posicion posicionInicial = new Posicion(1,1);
 		
 		this.jugador = new Jugador();
