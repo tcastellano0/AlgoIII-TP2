@@ -9,7 +9,6 @@ import Materiales.Diamante;
 import Materiales.Madera;
 import Materiales.Metal;
 import Materiales.Piedra;
-import javafx.geometry.Pos;
 
 public class AlgoCraft {
 	
