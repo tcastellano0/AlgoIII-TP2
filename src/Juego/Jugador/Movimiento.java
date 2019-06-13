@@ -1,6 +1,5 @@
 package Juego.Jugador;
 
-import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.UbicacionInvalidaException;
 

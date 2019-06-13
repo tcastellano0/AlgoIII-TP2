@@ -2,7 +2,6 @@ package Juego;
 
 import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
-import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;

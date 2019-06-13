@@ -2,11 +2,9 @@ import Juego.Jugador.Direccion;
 import Juego.Jugador.DireccionNorte;
 import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
-import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
 import Materiales.Madera;
 
-import Juego.Mapa.UbicacionInvalidaException;
 import Juego.Mapa.ContenedorOcupadoException;
 
 

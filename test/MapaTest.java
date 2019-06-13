@@ -1,5 +1,4 @@
 import Materiales.*;
-import Juego.Mapa.Mapa;
 import Juego.Mapa.Posicion;
 import Juego.Jugador.Jugador;
 
