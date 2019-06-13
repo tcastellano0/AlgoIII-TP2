@@ -55,7 +55,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, new Posicion(0, 0));
 		});
 	}
@@ -65,7 +65,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, new Posicion(0, 1));
 		});
 	}
@@ -77,7 +77,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, new Posicion(fila + 2, 2));
 		});
 	}
@@ -89,7 +89,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, columna);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, new Posicion(2, columna+2));
 		});
 	}
@@ -99,7 +99,7 @@ public class TableroTest {
 		int columna = 3;
 		Tablero<Material> tablero = new Tablero<Material>(3, columna);
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.sacar(new Posicion(2, columna + 2));
 		});
 	}
@@ -109,7 +109,7 @@ public class TableroTest {
 		int fila = 3;
 		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.sacar(new Posicion(fila + 2, 2));
 		});
 	}
@@ -159,7 +159,7 @@ public class TableroTest {
 		Posicion posicion = new Posicion(0, 0);
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, posicion);
 		});
 	}
@@ -170,7 +170,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, 3);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, posicion);
 		});
 	}
@@ -183,7 +183,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, posicion);
 		});
 	}
@@ -196,7 +196,7 @@ public class TableroTest {
 		Tablero<Material> tablero = new Tablero<Material>(3, columna);
 		Diamante diamante = new Diamante();
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.poner(diamante, posicion);
 		});
 	}
@@ -208,7 +208,7 @@ public class TableroTest {
 		Posicion posicion = new Posicion(2, columna+2);
 		Tablero<Material> tablero = new Tablero<Material>(3, columna);
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.sacar(posicion);
 		});
 	}
@@ -220,7 +220,7 @@ public class TableroTest {
 		Posicion posicion = new Posicion(fila + 2, 2);
 		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			tablero.sacar(posicion);
 		});
 	}
@@ -311,7 +311,7 @@ public class TableroTest {
 
 		Posicion posicion = new Posicion(25,25);
 
-		assertThrows(UbicacionInvalidaException.class, () -> {
+		assertThrows(UbicacionFueraDeRangoException.class, () -> {
 			mapa.poner(diamante, posicion);
 		});
 	}

@@ -5,7 +5,7 @@ import Durabilidad.*;
 import Juego.Mapa.Ubicable;
 import Juego.Mapa.Posicion;
 
-public abstract class Material implements Desgastable, Golpeable, Ubicable {
+public abstract class Material implements Golpeable, Ubicable {
 
 	protected DurabilidadConFactor durabilidad;
 
@@ -25,7 +25,6 @@ public abstract class Material implements Desgastable, Golpeable, Ubicable {
 		return this.posicion;
 	}
 
-	@Override
 	public void desgastar(int fuerzaDesgaste) {
 		this.durabilidad.desgastar(fuerzaDesgaste);
 	}
