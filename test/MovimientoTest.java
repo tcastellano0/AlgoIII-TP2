@@ -77,7 +77,7 @@ public class MovimientoTest {
     }
 
     @Test
-    void testMoverUnJugadorEnDireccionNorteConLugarOcupadoNoEsPosible() {
+    void testIntentarMoverUnJugadorEnDireccionNorteConLugarOcupadoNoLoMueve() {
         Tablero tablero = new Tablero<Ubicable>(20,20);
         Madera madera = new Madera();
         Jugador jugador = new Jugador();

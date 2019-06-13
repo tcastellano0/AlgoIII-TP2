@@ -1,3 +1,3 @@
 package Juego.Mapa;
 
-public class ContenedorVacioException extends RuntimeException { }
+public class ContenedorVacioException extends UbicacionInvalidaException { }

@@ -1,9 +1,6 @@
 package Juego.Jugador;
 
-import Juego.Mapa.Posicion;
-import Juego.Mapa.Tablero;
-import Juego.Mapa.Ubicable;
-import Juego.Mapa.UbicacionInvalidaException;
+import Juego.Mapa.*;
 
 
 public class Movimiento {
