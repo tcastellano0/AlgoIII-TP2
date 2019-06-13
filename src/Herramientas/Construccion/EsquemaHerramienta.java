@@ -7,7 +7,7 @@ public abstract class EsquemaHerramienta {
 
     protected TableroMateriales tablero;
 
-    protected abstract boolean esIgual(EsquemaHerramienta esquemaHerramienta);
+    public abstract boolean esIgual(EsquemaHerramienta esquemaHerramienta);
 
     protected boolean miTableroEsIgual(TableroMateriales otroTablero){
         return this.tablero.esIgual(otroTablero);

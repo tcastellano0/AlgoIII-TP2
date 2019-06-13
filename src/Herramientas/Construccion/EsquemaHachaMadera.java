@@ -27,7 +27,7 @@ public class EsquemaHachaMadera extends EsquemaHerramienta {
         return Herramienta.hachaDeMadera();
     }
 
-    protected  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
+    public  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
         return esquemaHerramienta.miTableroEsIgual(this.tablero);
     }
 

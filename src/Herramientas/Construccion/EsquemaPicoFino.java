@@ -30,7 +30,7 @@ public class EsquemaPicoFino extends EsquemaHerramienta {
         return Herramienta.picoFino();
     }
 
-    protected  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
+    public  boolean esIgual(EsquemaHerramienta esquemaHerramienta){
         return esquemaHerramienta.miTableroEsIgual(this.tablero);
     }
 }

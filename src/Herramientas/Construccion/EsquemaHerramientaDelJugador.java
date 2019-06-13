@@ -48,7 +48,7 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
         throw new NoExisteEsquemaException();
     }
 
-    protected boolean esIgual(EsquemaHerramienta esquemaHerramienta){
+    public boolean esIgual(EsquemaHerramienta esquemaHerramienta){
         return esquemaHerramienta.miTableroEsIgual(this.tablero);
     }
 
