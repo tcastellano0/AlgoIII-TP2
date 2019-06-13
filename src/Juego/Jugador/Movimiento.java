@@ -14,12 +14,12 @@ public class Movimiento {
     public void avanzar(Jugador jugador) {
         Posicion posicionInicial = jugador.getPosicion();
         Posicion nuevaPosicion = direccion.siguiente(posicionInicial);
+        
         try {
-        	tablero.sacar(posicionInicial);
         	tablero.poner(jugador, nuevaPosicion);
+        	tablero.sacar(posicionInicial);
             jugador.setPosicion(nuevaPosicion);
         } catch (UbicacionInvalidaException e) {
-        	tablero.poner(jugador,posicionInicial);
             invertir();
         }
     }
