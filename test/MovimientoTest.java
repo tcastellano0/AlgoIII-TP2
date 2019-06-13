@@ -109,6 +109,23 @@ public class MovimientoTest {
         assertEquals(posicion, jugador.getPosicion());
     }
 
+    @Test
+    void testIntentarMoverUnJugadorEnDireccionEsteConLugarOcupadoNoLoMueve() {
+        Tablero tablero = new Tablero<Ubicable>(20,20);
+        Madera madera = new Madera();
+        Jugador jugador = new Jugador();
+        Movimiento movimiento = new Movimiento(tablero);
+
+        Posicion posicion = new Posicion(1,2);
+        movimiento.rotar();
+
+        tablero.poner(jugador, posicion);
+        tablero.poner(madera, posicion.derecha());
+        jugador.setPosicion(posicion);
+
+        assertEquals(posicion, jugador.getPosicion());
+    }
+
 
     @Test
     void testIntentarMoverUnJugadorEnDireccionNorteSuperandoLaDimensionDelTableroNoLoMueve() {
