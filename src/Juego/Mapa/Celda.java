@@ -1,6 +1,6 @@
 package Juego.Mapa;
 
-public class Celda<T> implements Contenedor<T> {
+public class Celda<T> {
 	private T contenido;
 	private EstadoOcupacion<T> ocupacion;
     
@@ -15,18 +15,15 @@ public class Celda<T> implements Contenedor<T> {
 
     }
 
-    @Override
     public T sacar() {
         this.desocupar();
         return contenido;
     }
-    
-    @Override
+
     public T ver() {
         return this.contenido;
     }
 
-    @Override
     public void poner(T contenido) {
         this.ocupar();
         this.contenido = contenido;

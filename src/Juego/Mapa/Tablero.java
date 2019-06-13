@@ -7,7 +7,7 @@ public class Tablero<T> {
 	
 	protected int filas;
 	protected int columnas;
-	protected Map<Posicion, Contenedor<T>> celdas = new HashMap<>();
+	protected Map<Posicion, Celda<T>> celdas = new HashMap<>();
 	
 	public Tablero(int filas, int columnas) {
 		
