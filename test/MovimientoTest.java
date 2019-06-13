@@ -165,7 +165,7 @@ public class MovimientoTest {
     }
 
     @Test
-    void testMoverUnJugadorEnDireccionSurFueraDelTableroNoEsPosible() {
+    void testMoverUnJugadorEnDireccionSurFueraDelTableroNoLoMueve() {
         Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
@@ -183,7 +183,7 @@ public class MovimientoTest {
     }
 
     @Test
-    void testMoverUnJugadorEnDireccionEsteFueraDelTableroNoEsPosible() {
+    void testMoverUnJugadorEnDireccionEsteFueraDelTableroNoLoMueve() {
         Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
@@ -200,7 +200,7 @@ public class MovimientoTest {
     }
 
     @Test
-    void testMoverUnJugadorEnDireccionOesteFueraDelTableroNoEsPosible() {
+    void testMoverUnJugadorEnDireccionOesteFueraDelTableroNoLoMueve() {
         Tablero tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
