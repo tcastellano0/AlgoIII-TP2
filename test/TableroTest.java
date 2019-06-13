@@ -1,12 +1,11 @@
 import Juego.Mapa.TableroCreacionException;
-import Materiales.Madera;
-import Materiales.Piedra;
+
+
 import org.junit.jupiter.api.Test;
 
+import Materiales.*;
 import Juego.Mapa.*;
-import Materiales.Diamante;
-import Materiales.Material;
-
+import Juego.Jugador.Jugador;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -154,77 +153,203 @@ public class TableroTest {
 
 		assertEquals(tablero.ver(new Posicion(1, 1)), null);
 	}
-	
-	 @Test
-		void testAgregarEnUnTableroConObjetoPosicionCeroYCeroLanzaError(){
-			Posicion posicion = new Posicion(0, 0);
-			Tablero<Material> tablero = new Tablero<Material>(3, 3);
-			Diamante diamante = new Diamante();
 
-			assertThrows(UbicacionInvalidaException.class, () -> {
-				tablero.poner(diamante, posicion);
-			});
-		}
+	@Test
+	void testAgregarEnUnTableroConObjetoPosicionCeroYCeroLanzaError(){
+		Posicion posicion = new Posicion(0, 0);
+		Tablero<Material> tablero = new Tablero<Material>(3, 3);
+		Diamante diamante = new Diamante();
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.poner(diamante, posicion);
+		});
+	}
 
-		@Test
-		void testAgregarEnUnTableroConObjetoPosicionCeroYUnoLanzaError(){
-			Posicion posicion = new Posicion(0, 1);
-			Tablero<Material> tablero = new Tablero<Material>(3, 3);
-			Diamante diamante = new Diamante();
+	@Test
+	void testAgregarEnUnTableroConObjetoPosicionCeroYUnoLanzaError(){
+		Posicion posicion = new Posicion(0, 1);
+		Tablero<Material> tablero = new Tablero<Material>(3, 3);
+		Diamante diamante = new Diamante();
 
-			assertThrows(UbicacionInvalidaException.class, () -> {
-				tablero.poner(diamante, posicion);
-			});
-		}
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.poner(diamante, posicion);
+		});
+	}
 
-		@Test
-		void testAgregarEnUnTableroConObjetoPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
-			int fila = 3;
+	@Test
+	void testAgregarEnUnTableroConObjetoPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
+		int fila = 3;
 
-			Posicion posicion = new Posicion(fila + 2, 2);
-			Tablero<Material> tablero = new Tablero<Material>(fila, 3);
-			Diamante diamante = new Diamante();
+		Posicion posicion = new Posicion(fila + 2, 2);
+		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+		Diamante diamante = new Diamante();
 
-			assertThrows(UbicacionInvalidaException.class, () -> {
-				tablero.poner(diamante, posicion);
-			});
-		}
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.poner(diamante, posicion);
+		});
+	}
 
-		@Test
-		void testAgregarEnUnTableroConObjetoPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
-			int columna = 3;
+	@Test
+	void testAgregarEnUnTableroConObjetoPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
+		int columna = 3;
 
-			Posicion posicion = new Posicion(2, columna+2);
-			Tablero<Material> tablero = new Tablero<Material>(3, columna);
-			Diamante diamante = new Diamante();
+		Posicion posicion = new Posicion(2, columna+2);
+		Tablero<Material> tablero = new Tablero<Material>(3, columna);
+		Diamante diamante = new Diamante();
 
-			assertThrows(UbicacionInvalidaException.class, () -> {
-				tablero.poner(diamante, posicion);
-			});
-		}
-		
-		@Test
-		void testSacarConObjetoPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
-			int columna = 3;
-			
-			Posicion posicion = new Posicion(2, columna+2);
-			Tablero<Material> tablero = new Tablero<Material>(3, columna);
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.poner(diamante, posicion);
+		});
+	}
 
-			assertThrows(UbicacionInvalidaException.class, () -> {
-				tablero.sacar(posicion);
-			});
-		}
-		
-		@Test
-		void testSacarDeObjetoPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
-			int fila = 3;
-			
-			Posicion posicion = new Posicion(fila + 2, 2);
-			Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+	@Test
+	void testSacarConObjetoPosicionConColumnaMasAltaQueLaDelTableroLanzaError(){
+		int columna = 3;
 
-			assertThrows(UbicacionInvalidaException.class, () -> {
-				tablero.sacar(posicion);
-			});
-		}
+		Posicion posicion = new Posicion(2, columna+2);
+		Tablero<Material> tablero = new Tablero<Material>(3, columna);
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.sacar(posicion);
+		});
+	}
+
+	@Test
+	void testSacarDeObjetoPosicionConFilaMasAltaQueLaDelTableroLanzaError(){
+		int fila = 3;
+
+		Posicion posicion = new Posicion(fila + 2, 2);
+		Tablero<Material> tablero = new Tablero<Material>(fila, 3);
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			tablero.sacar(posicion);
+		});
+	}
+
+	@Test
+	void testSePuedeOcuparUnCasilleroVacioConUnJugador() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Jugador jugador = new Jugador();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(jugador, posicion);
+		assertEquals(mapa.sacar(posicion), jugador);
+	}
+
+	@Test
+	void testSePuedeOcuparUnCasilleroVacioConUnaMadera() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Madera madera = new Madera();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(madera, posicion);
+		assertEquals(mapa.sacar(posicion), madera);
+	}
+
+	@Test
+	void testSePuedeOcuparUnCasilleroVacioConUnaPiedra() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Piedra piedra = new Piedra();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(piedra, posicion);
+		assertEquals(mapa.sacar(posicion), piedra);
+	}
+
+	@Test
+	void testSePuedeOcuparUnCasilleroVacioConUnMetal() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Metal metal = new Metal();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(metal, posicion);
+		assertEquals(mapa.sacar(posicion), metal);
+	}
+
+	@Test
+	void testSePuedeOcuparUnCasilleroVacioConUnDiamante() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Diamante diamante = new Diamante();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(diamante, posicion);
+		assertEquals(mapa.sacar(posicion), diamante);
+	}
+
+	@Test
+	void testNoSePuedeOcuparUnCasilleroOcupadoConUnMaterial() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Madera madera = new Madera();
+		Diamante diamante = new Diamante();
+
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(diamante, posicion);
+		assertThrows(ContenedorOcupadoException.class, () -> {
+			mapa.poner(madera, posicion);
+		});
+	}
+
+	@Test
+	void testNoSePuedeOcuparUnCasilleroOcupadoConElJugador() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Jugador jugador = new Jugador();
+		Diamante diamante = new Diamante();
+
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(diamante, posicion);
+
+		assertThrows(ContenedorOcupadoException.class, () -> {
+			mapa.poner(jugador, posicion);
+		});
+	}
+
+	@Test
+	void testNoSePuedeOcuparUnCasilleroFueraDelTablero() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Diamante diamante = new Diamante();
+
+		Posicion posicion = new Posicion(25,25);
+
+		assertThrows(UbicacionInvalidaException.class, () -> {
+			mapa.poner(diamante, posicion);
+		});
+	}
+
+	@Test
+	void testAlPonerYSacarUnMaterialDeUnCasilleroEsteDebeSerElMismo() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Diamante diamante = new Diamante();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(diamante, posicion);
+
+		assertEquals(mapa.sacar(posicion), diamante);
+	}
+
+	@Test
+	void testAlSacarUnMaterialDeUnCasilleroOcupadoEsteLuegoDebeEstarVacio() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Diamante diamante = new Diamante();
+		Posicion posicion = new Posicion(1,1);
+
+		mapa.poner(diamante, posicion);
+		mapa.sacar(posicion);
+
+		assertThrows(ContenedorVacioException.class, () -> {
+			mapa.sacar(posicion);
+		});
+	}
+
+	@Test
+	void testAlSacarUnMaterialDeUnCasilleroVacioEsteNoDebePermitirlo() {
+		Tablero mapa = new Tablero<Ubicable>(20,20);
+		Posicion posicion = new Posicion(1,1);
+
+		assertThrows(ContenedorVacioException.class, () -> {
+			mapa.sacar(posicion);
+		});
+	}
+
 }
 
