@@ -1,13 +1,15 @@
 import Herramientas.*;
 import Materiales.*;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class MaderaTest {
 
     @Test
-    void test01MaderaEsGolpeadaCincoVecesPorHachaDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelHachaPorCinco() {
+    public void test01MaderaEsGolpeadaCincoVecesPorHachaDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelHachaPorCinco() {
         Madera madera = new Madera();
         GolpeadorHachaDeMadera hachaMadera = new GolpeadorHachaDeMadera();
         double durabilidad = madera.getDurabilidad();
@@ -18,22 +20,22 @@ public class MaderaTest {
         madera.golpeadoPor(hachaMadera);
         madera.golpeadoPor(hachaMadera);
 
-        assertEquals(madera.getDurabilidad(), durabilidad - (hachaMadera.getFuerza() * 5));
+        assertEquals(madera.getDurabilidad(), durabilidad - (hachaMadera.getFuerza() * 5), 0);
     }
 
     @Test
-    void test01MaderaEsGolpeadaUnaVezPorHachaDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
+    public void test01MaderaEsGolpeadaUnaVezPorHachaDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelHacha() {
         Madera madera = new Madera();
         GolpeadorHachaDeMadera hachaMadera = new GolpeadorHachaDeMadera();
         double durabilidad = madera.getDurabilidad();
 
         madera.golpeadoPor(hachaMadera);
 
-        assertEquals(madera.getDurabilidad(), durabilidad - hachaMadera.getFuerza());
+        assertEquals(madera.getDurabilidad(), durabilidad - hachaMadera.getFuerza(), 0);
     }
 
     @Test
-    void test02MaderaEsGolpeadaCincoVecesPorHachaDePiedraYSeReduceSuDurabilidadIgualALaFuerzaDelHachaPorCinco() {
+    public void test02MaderaEsGolpeadaCincoVecesPorHachaDePiedraYSeReduceSuDurabilidadIgualALaFuerzaDelHachaPorCinco() {
         //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
         //seguramente falle en el futuro
         Madera madera = new Madera();
@@ -46,11 +48,11 @@ public class MaderaTest {
         madera.golpeadoPor(hachaDePiedra);
         madera.golpeadoPor(hachaDePiedra);
 
-        assertEquals(madera.getDurabilidad(), durabilidad - (hachaDePiedra.getFuerza() * 5));
+        assertEquals(madera.getDurabilidad(), durabilidad - (hachaDePiedra.getFuerza() * 5), 0);
     }
 
     @Test
-    void test03MaderaEsGolpeadaPorHachaDeMetalCincoVecesYSeReduceSuDurabilidadIgualALaFuerzaDelHachaPorCinco() {
+    public void test03MaderaEsGolpeadaPorHachaDeMetalCincoVecesYSeReduceSuDurabilidadIgualALaFuerzaDelHachaPorCinco() {
         //aun no esta definido que pasa si la durabilidad llega a 0 o es negativa, este test
         //seguramente falle en el futuro
         Madera madera = new Madera();
@@ -63,11 +65,11 @@ public class MaderaTest {
         madera.golpeadoPor(hachaDeMetal);
         madera.golpeadoPor(hachaDeMetal);
 
-        assertEquals(madera.getDurabilidad(), durabilidad - (hachaDeMetal.getFuerza() * 5));
+        assertEquals(madera.getDurabilidad(), durabilidad - (hachaDeMetal.getFuerza() * 5), 0);
     }
 
     @Test
-    void test04MaderaEsGolpeadaCincoVecesPorPicoDeMaderaYNoSeReduceSuDurabilidad() {
+    public void test04MaderaEsGolpeadaCincoVecesPorPicoDeMaderaYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera();
         GolpeadorPicoDeMadera picoMadera = new GolpeadorPicoDeMadera();
         double durabilidad = madera.getDurabilidad();
@@ -78,11 +80,11 @@ public class MaderaTest {
         madera.golpeadoPor(picoMadera);
         madera.golpeadoPor(picoMadera);
 
-        assertEquals(madera.getDurabilidad(), durabilidad);
+        assertEquals(madera.getDurabilidad(), durabilidad, 0);
     }
 
     @Test
-    void test05MaderaEsGolpeadaCincoVecesPorPicoDePiedraYNoSeReduceSuDurabilidad() {
+    public void test05MaderaEsGolpeadaCincoVecesPorPicoDePiedraYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera();
         GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra();
         double durabilidad = madera.getDurabilidad();
@@ -93,11 +95,11 @@ public class MaderaTest {
         madera.golpeadoPor(picoDePiedra);
         madera.golpeadoPor(picoDePiedra);
 
-        assertEquals(madera.getDurabilidad(), durabilidad);
+        assertEquals(madera.getDurabilidad(), durabilidad, 0);
     }
 
     @Test
-    void test06MaderaEsGolpeadaCincoVecesPorPicoDeMetalYNoSeReduceSuDurabilidad() {
+    public void test06MaderaEsGolpeadaCincoVecesPorPicoDeMetalYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera();
         GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal();
         double durabilidad = madera.getDurabilidad();
@@ -108,11 +110,11 @@ public class MaderaTest {
         madera.golpeadoPor(picoDeMetal);
         madera.golpeadoPor(picoDeMetal);
 
-        assertEquals(madera.getDurabilidad(), durabilidad);
+        assertEquals(madera.getDurabilidad(), durabilidad, 0);
     }
 
     @Test
-    void test07MaderaEsGolpeadaCincoVecesPorPicoFinoYNoSeReduceSuDurabilidad() {
+    public void test07MaderaEsGolpeadaCincoVecesPorPicoFinoYNoSeReduceSuDurabilidad() {
         Madera madera = new Madera();
         GolpeadorPicoFino picoFino = new GolpeadorPicoFino();
         double durabilidad = madera.getDurabilidad();
@@ -123,12 +125,12 @@ public class MaderaTest {
         madera.golpeadoPor(picoFino);
         madera.golpeadoPor(picoFino);
 
-        assertEquals(madera.getDurabilidad(), durabilidad);
+        assertEquals(madera.getDurabilidad(), durabilidad, 0);
     }
 
 
     @Test
-    void testMaderaEsIgualAMadera() {
+    public void testMaderaEsIgualAMadera() {
         Madera material1 = new Madera();
         Madera material2 = new Madera();
 
@@ -136,7 +138,7 @@ public class MaderaTest {
     }
 
     @Test
-    void testMaderaNoEsIgualAPiedra() {
+    public void testMaderaNoEsIgualAPiedra() {
         Madera material1 = new Madera();
         Piedra material2 = new Piedra();
 
@@ -144,7 +146,7 @@ public class MaderaTest {
     }
 
     @Test
-    void testMaderaNoEsIgualAMetal() {
+    public void testMaderaNoEsIgualAMetal() {
         Madera material1 = new Madera();
         Metal material2 = new Metal();
 
@@ -152,7 +154,7 @@ public class MaderaTest {
     }
 
     @Test
-    void testMaderaNoEsIgualADiamante() {
+    public void testMaderaNoEsIgualADiamante() {
         Madera material1 = new Madera();
         Diamante material2 = new Diamante();
 

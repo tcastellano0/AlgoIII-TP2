@@ -1,19 +1,17 @@
-
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
 import Juego.Mapa.*;
 import Materiales.Metal;
 import Materiales.Madera;
 import Materiales.Piedra;
 import Materiales.Diamante;
 
+import org.junit.Test;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class TableroMaterialesTest {
 
 	@Test
-	void testTablerosDeMaterialesVacioEsIgualATableroVacio() {
+	public void testTablerosDeMaterialesVacioEsIgualATableroVacio() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
@@ -21,7 +19,7 @@ public class TableroMaterialesTest {
 	}
 	
 	@Test
-	void testTablerosDeMaterialesVacioEsDistintoATableroConAlMenosUnMateria() {
+	public void testTablerosDeMaterialesVacioEsDistintoATableroConAlMenosUnMateria() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 		
@@ -31,7 +29,7 @@ public class TableroMaterialesTest {
 	}	
 	
 	@Test
-	void testTablerosConSoloMaderaSonIguales() {
+	public void testTablerosConSoloMaderaSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
@@ -49,7 +47,7 @@ public class TableroMaterialesTest {
 	}
 
 	@Test
-	void testTableroDeMaderasYTableroDePiedrasNoSonIguales() {
+	public void testTableroDeMaderasYTableroDePiedrasNoSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
@@ -67,7 +65,7 @@ public class TableroMaterialesTest {
 	}
 
 	@Test
-	void testTablerosDeMaderasYUnaPiedrasSonIguales() {
+	public void testTablerosDeMaderasYUnaPiedrasSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 
@@ -85,7 +83,7 @@ public class TableroMaterialesTest {
 	}
 	
 	@Test
-	void testTablerosDeMaterialesInvertidosNoSonIguales() {
+	public void testTablerosDeMaterialesInvertidosNoSonIguales() {
 		TableroMateriales tablero1 = new TableroMateriales(2, 2);
 		TableroMateriales tablero2 = new TableroMateriales(2, 2);
 

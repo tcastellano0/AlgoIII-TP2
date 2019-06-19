@@ -1,19 +1,17 @@
 import Herramientas.Construccion.*;
 import Herramientas.Herramienta;
 import Materiales.*;
-import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class EsquemaHerramientaTest {
 
-	@Test
-	void testEsquemaHerramientaJugadorVacioConstruirLanzaNoExisteEsquemaException(){
+	@Test(expected = NoExisteEsquemaException.class)
+	public void testEsquemaHerramientaJugadorVacioConstruirLanzaNoExisteEsquemaException(){
 		EsquemaHerramientaDelJugador esquemaJugador = EsquemaHerramientaDelJugador.getInstance();
 
-		assertThrows(NoExisteEsquemaException.class, () -> {
-			esquemaJugador.construir();
-		});
+		esquemaJugador.construir();
 	}
 
 	private EsquemaHerramientaDelJugador crearEsquemaHachaDeMadera(){
@@ -88,18 +86,18 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaDurabilidadQueHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMadera();
 
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
 
-		assertEquals(construida.getDurabilidad(), hachaDeMadera.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), hachaDeMadera.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaFuerzaQueHachaDeMadera(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneMismaFuerzaQueHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMadera();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDeMadera = Herramienta.hachaDeMadera();
@@ -108,7 +106,7 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneDistintaFuerzaQueHachaDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMaderaYTieneDistintaFuerzaQueHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMadera();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
@@ -117,7 +115,7 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaFuerzaQueHachaDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaFuerzaQueHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDePiedra();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
@@ -126,27 +124,27 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaDurabilidadQueHachaDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDePiedraYTieneMismaDurabilidadQueHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDePiedra();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
 
-		assertEquals(construida.getDurabilidad(), hachaDePiedra.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), hachaDePiedra.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneMismaDurabilidadQueHachaDeMetal(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneMismaDurabilidadQueHachaDeMetal(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDeMetal = Herramienta.hachaDeMetal();
 
-		assertEquals(construida.getDurabilidad(), hachaDeMetal.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), hachaDeMetal.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneMismaFuerzaQueHachaDeMetal(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneMismaFuerzaQueHachaDeMetal(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
 
 		Herramienta construida = esquemaJugador.construir();
@@ -156,7 +154,7 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneDistintaFuerzaQueHachaDeMadera(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYTieneDistintaFuerzaQueHachaDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
 
 		Herramienta construida = esquemaJugador.construir();
@@ -166,7 +164,7 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYNoTieneMismaFuerzaQueHachaDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYNoTieneMismaFuerzaQueHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta hachaDePiedra = Herramienta.hachaDePiedra();
@@ -175,7 +173,7 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYNoTieneMismaDurabilidadQueHachaDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaHachaDeMetalYNoTieneMismaDurabilidadQueHachaDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaHachaDeMetal();
 
 		Herramienta construida = esquemaJugador.construir();
@@ -188,18 +186,18 @@ public class EsquemaHerramientaTest {
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMaderaYTieneMismaDurabilidadQuePicoDeMadera(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMaderaYTieneMismaDurabilidadQuePicoDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoDeMadera();
 
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoDeMadera();
 
-		assertEquals(construida.getDurabilidad(), pico.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), pico.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMaderaYTieneMismaFuerzaQuePicoDeMadera(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMaderaYTieneMismaFuerzaQuePicoDeMadera(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoDeMadera();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoDeMadera();
@@ -209,18 +207,18 @@ public class EsquemaHerramientaTest {
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoDePiedraYTieneMismaDurabilidadQuePicoDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoDePiedraYTieneMismaDurabilidadQuePicoDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoDePiedra();
 
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoDePiedra();
 
-		assertEquals(construida.getDurabilidad(), pico.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), pico.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoDePiedraYTieneMismaFuerzaQuePicoDePiedra(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoDePiedraYTieneMismaFuerzaQuePicoDePiedra(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoDePiedra();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoDePiedra();
@@ -229,18 +227,18 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMetalYTieneMismaDurabilidadQuePicoDeMetal(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMetalYTieneMismaDurabilidadQuePicoDeMetal(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoDeMetal();
 
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoDeMetal();
 
-		assertEquals(construida.getDurabilidad(), pico.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), pico.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMetalYTieneMismaFuerzaQuePicoDeMetal(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoDeMetalYTieneMismaFuerzaQuePicoDeMetal(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoDeMetal();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoDeMetal();
@@ -249,18 +247,18 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoFinoYTieneMismaDurabilidadQuePicoFino(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoFinoYTieneMismaDurabilidadQuePicoFino(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoFino();
 
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoFino();
 
-		assertEquals(construida.getDurabilidad(), pico.getDurabilidad());
+		assertEquals(construida.getDurabilidad(), pico.getDurabilidad(), 0);
 	}
 
 
 	@Test
-	void testEsquemaHerramientaJugadorCreaEsquemaPicoFinoYTieneMismaFuerzaQuePicoFino(){
+	public void testEsquemaHerramientaJugadorCreaEsquemaPicoFinoYTieneMismaFuerzaQuePicoFino(){
 		EsquemaHerramientaDelJugador esquemaJugador = crearEsquemaPicoFino();
 		Herramienta construida = esquemaJugador.construir();
 		Herramienta pico = Herramienta.picoFino();
@@ -269,15 +267,15 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaHachaMaderaConstruirDevuelveUnaHerramientaConMismaDurabilidadQueHachaDeMadera(){
+	public void testEsquemaHachaMaderaConstruirDevuelveUnaHerramientaConMismaDurabilidadQueHachaDeMadera(){
 		Herramienta unaHerramienta = EsquemaHachaMadera.getInstance().construir();
 		Herramienta unHacha = Herramienta.hachaDeMadera();
 
-		assertEquals(unHacha.getDurabilidad(), unaHerramienta.getDurabilidad());
+		assertEquals(unHacha.getDurabilidad(), unaHerramienta.getDurabilidad(), 0);
 	}
 
 	@Test
-	void testEsquemaHachaMaderaConstruirDevuelveUnaHerramientaConMismaFuerzaQueHachaDeMadera(){
+	public void testEsquemaHachaMaderaConstruirDevuelveUnaHerramientaConMismaFuerzaQueHachaDeMadera(){
 		Herramienta unaHerramienta = EsquemaHachaMadera.getInstance().construir();
 		Herramienta unHacha = Herramienta.hachaDeMadera();
 
@@ -286,15 +284,15 @@ public class EsquemaHerramientaTest {
 
 
 	@Test
-	void testEsquemaHachaPiedraConstruirDevuelveUnaHerramientaConMismaDurabilidadQueHachaDePiedra(){
+	public void testEsquemaHachaPiedraConstruirDevuelveUnaHerramientaConMismaDurabilidadQueHachaDePiedra(){
 		Herramienta unaHerramienta = EsquemaHachaPiedra.getInstance().construir();
 		Herramienta unHacha = Herramienta.hachaDePiedra();
 
-		assertEquals(unHacha.getDurabilidad(), unaHerramienta.getDurabilidad());
+		assertEquals(unHacha.getDurabilidad(), unaHerramienta.getDurabilidad(), 0);
 	}
 
 	@Test
-	void testEsquemaHachaPiedraConstruirDevuelveUnaHerramientaConMismaFuerzaQueHachaDePiedra(){
+	public void testEsquemaHachaPiedraConstruirDevuelveUnaHerramientaConMismaFuerzaQueHachaDePiedra(){
 		Herramienta unaHerramienta = EsquemaHachaPiedra.getInstance().construir();
 		Herramienta unHacha = Herramienta.hachaDePiedra();
 
@@ -302,15 +300,15 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaPicoMaderaConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoMadera(){
+	public void testEsquemaPicoMaderaConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoMadera(){
 		Herramienta unaHerramienta = EsquemaPicoMadera.getInstance().construir();
 		Herramienta unPico = Herramienta.picoDeMadera();
 
-		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad());
+		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad(), 0);
 	}
 
 	@Test
-	void testEsquemaPicoMaderaConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoMadera() {
+	public void testEsquemaPicoMaderaConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoMadera() {
 		Herramienta unaHerramienta = EsquemaPicoMadera.getInstance().construir();
 		Herramienta unPico = Herramienta.picoDeMadera();
 
@@ -318,15 +316,15 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaPicoPiedraConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoPiedra(){
+	public void testEsquemaPicoPiedraConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoPiedra(){
 		Herramienta unaHerramienta = EsquemaPicoPiedra.getInstance().construir();
 		Herramienta unPico = Herramienta.picoDePiedra();
 
-		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad());
+		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad(), 0);
 	}
 
 	@Test
-	void testEsquemaPicoPiedraConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoPiedra() {
+	public void testEsquemaPicoPiedraConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoPiedra() {
 		Herramienta unaHerramienta = EsquemaPicoPiedra.getInstance().construir();
 		Herramienta unPico = Herramienta.picoDePiedra();
 
@@ -334,15 +332,15 @@ public class EsquemaHerramientaTest {
 	}
 
 	@Test
-	void testEsquemaPicoMetalConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoMetal(){
+	public void testEsquemaPicoMetalConstruirDevuelveUnaHerramientaConMismaDurabilidadQuePicoMetal(){
 		Herramienta unaHerramienta = EsquemaPicoMetal.getInstance().construir();
 		Herramienta unPico = Herramienta.picoDeMetal();
 
-		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad());
+		assertEquals(unPico.getDurabilidad(), unaHerramienta.getDurabilidad(), 0);
 	}
 
 	@Test
-	void testEsquemaPicoMetalConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoMetal() {
+	public void testEsquemaPicoMetalConstruirDevuelveUnaHerramientaConMismaFuerzaQuePicoMetal() {
 		Herramienta unaHerramienta = EsquemaPicoMetal.getInstance().construir();
 		Herramienta unPico = Herramienta.picoDeMetal();
 

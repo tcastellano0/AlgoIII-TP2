@@ -1,9 +1,8 @@
 import Durabilidad.Durabilidad;
-import org.junit.jupiter.api.Test;
-
 import Durabilidad.*;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import org.junit.Test;
+import static org.junit.Assert.assertEquals;
 
 public class DurabilidadConFactorTest {
 
@@ -15,7 +14,7 @@ public class DurabilidadConFactorTest {
 
         durabilidad.desgastar(fuerza);
 
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza);
+        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza, 0);
 
     }
 
@@ -29,15 +28,15 @@ public class DurabilidadConFactorTest {
 
         durabilidad.desgastar(fuerza);
 
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza);
+        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza, 0);
 
         durabilidad.desgastar(otraFuerza);
 
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza - otraFuerza);
+        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza - otraFuerza, 0);
 
         durabilidad.desgastar(otraFuerzaMas);
 
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza - otraFuerza - otraFuerzaMas);
+        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza - otraFuerza - otraFuerzaMas, 0);
     }
 
     @Test
@@ -49,7 +48,7 @@ public class DurabilidadConFactorTest {
 
         durabilidad.desgastar(fuerza);
 
-        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza/factor);
+        assertEquals(durabilidad.getDurabilidad(), durabilidadInicial - fuerza/factor, 2);
     }
     
     @Test
@@ -63,7 +62,7 @@ public class DurabilidadConFactorTest {
     		durabilidad.desgastar(fuerza);
     	}
     	
-    	assertEquals(durabilidad.getDurabilidad(), 0);
+    	assertEquals(durabilidad.getDurabilidad(), 0, 0);
     }
 
 }
