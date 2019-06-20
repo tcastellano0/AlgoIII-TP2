@@ -49,6 +49,7 @@ public class Tablero<T> {
 	private void validarUbicacion(Posicion posicion){
 		if (!celdas.keySet().contains(posicion)){
 			throw new UbicacionFueraDeRangoException();
+			//throw new UbicacionInvalidaException();
 		}
     }
 
