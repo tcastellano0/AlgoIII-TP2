@@ -25,9 +25,7 @@ public class Main extends Application {
         window.setMaxWidth(800);
         window.setMinWidth(800);
 
-
-
-
+        
         empezarJuego = new Button("Empezar Juego");
         salir = new Button("Salir");
 
@@ -36,11 +34,11 @@ public class Main extends Application {
         Scene scene = new Scene(layout, 300, 250);
 
         Image titleBackground = new Image("images/menu/title.png",800,600, false, true);
-        BackgroundImage myBI= new BackgroundImage(titleBackground,
+        BackgroundImage imagenTitulo = new BackgroundImage(titleBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
-        //then you set to your node
-        layout.setBackground(new Background(myBI));
+
+        layout.setBackground(new Background(imagenTitulo));
 
         window.setScene(scene);
         window.show();
