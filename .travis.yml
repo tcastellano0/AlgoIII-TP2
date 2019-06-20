@@ -1,1 +1,8 @@
 language: java
+
+notifications:  
+  email:  
+    recipients:  
+    - fang.robinson@gmail.com
+    on_success: always  
+    on_failure: always
