@@ -1,8 +1,10 @@
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
+
 
 public class Main extends Application {
 
@@ -24,6 +26,8 @@ public class Main extends Application {
         window.setMinWidth(800);
 
 
+
+
         empezarJuego = new Button("Empezar Juego");
         salir = new Button("Salir");
 
@@ -31,9 +35,17 @@ public class Main extends Application {
         layout.getChildren().add(empezarJuego);
         Scene scene = new Scene(layout, 300, 250);
 
+        Image titleBackground = new Image("images/menu/title.png",800,600, false, true);
+        BackgroundImage myBI= new BackgroundImage(titleBackground,
+                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        //then you set to your node
+        layout.setBackground(new Background(myBI));
+
         window.setScene(scene);
         window.show();
     }
+
 
 
 }
