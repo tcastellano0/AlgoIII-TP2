@@ -4,5 +4,8 @@ notifications:
   email:  
     recipients:  
     - fang.robinson@gmail.com
-    on_success: always  
+    - federicofrontera@gmail.com
+    - nicolaswu96@gmail.com
+    - tomas@itaptec.com.ar
+    on_success: never  
     on_failure: always
