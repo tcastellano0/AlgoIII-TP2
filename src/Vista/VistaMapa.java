@@ -42,7 +42,10 @@ public class VistaMapa extends GridPane {
         }
 
         mapa.poner(new Diamante(), new Posicion(2,1));
-
+        actualizar();
+        mapa.poner(new Diamante(), new Posicion(2,2));
+        actualizar();
+        mapa.sacar(new Posicion(2,1));
         actualizar();
     } 
 
