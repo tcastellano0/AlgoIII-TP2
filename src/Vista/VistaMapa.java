@@ -7,6 +7,8 @@ import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
 import javafx.collections.ObservableList;
 
+import Materiales.Diamante;
+
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 
@@ -38,8 +40,21 @@ public class VistaMapa extends GridPane {
                 this.add(vistaCelda, i, j);
             }
         }
+
+        mapa.poner(new Diamante(), new Posicion(2,1));
+
+        actualizar();
     } 
 
+    public void actualizar(){
+        ObservableList<Node> celdas = this.getChildren();
+        for (Node celda : celdas) {
+            VistaCelda c = (VistaCelda) celda;
+            c.actualizar();
+        }
+    }
+
+    /*
     public void actualizarCelda(Posicion posicion) {
         Node resultado = null;
         int fila = posicion.getCoordenadaX() ;
@@ -54,5 +69,6 @@ public class VistaMapa extends GridPane {
             }
         }
     }
+    */
 }
 

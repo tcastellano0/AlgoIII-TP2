@@ -15,7 +15,7 @@ public class BotonAvanzar extends Button {
         setText("Avanzar");
         setOnAction(actionEvent ->  {
             movimiento.avanzar(jugador);
-            mapa.actualizarCelda(jugador.getPosicion());
+            //mapa.actualizarCelda(jugador.getPosicion());
         });
     }
 }
