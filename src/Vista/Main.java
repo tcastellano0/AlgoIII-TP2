@@ -34,7 +34,11 @@ public class Main extends Application {
 
     public void prepararMapa() {
 
-        escenaJuego = new Scene(new VistaMapa());
+        HBox botones = new HBox();
+        botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
+        VBox pantalla = new VBox();
+        pantalla.getChildren().addAll(botones,new VistaMapa());
+        escenaJuego = new Scene(pantalla);
     }
 
     public void prepararMenuInicio() {
