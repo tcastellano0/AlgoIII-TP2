@@ -21,7 +21,11 @@ public class AlgoCraft {
 	private Jugador jugador;
 	private Tablero<Ubicable> mapa;
 	private Movimiento movimiento;
-	
+
+	public Tablero<Ubicable> getMapa() {
+		return mapa;
+	}
+
 	private AlgoCraft() {
 		Posicion posicionInicial = new Posicion(1,1);
 		

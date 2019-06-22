@@ -29,6 +29,14 @@ public class Tablero<T> {
 		}
 	}
 
+	public int getFilas() {
+		return filas;
+	}
+
+	public int getColumnas() {
+		return columnas;
+	}
+
 	public void poner(T item, Posicion unaPosicion) {
 		validarUbicacion(unaPosicion);
 		
@@ -45,6 +53,7 @@ public class Tablero<T> {
 	public T ver(Posicion unaPosicion) {
 		return celdas.get(unaPosicion).ver();
 	}
+
 	
 	private void validarUbicacion(Posicion posicion){
 		if (!celdas.keySet().contains(posicion)){

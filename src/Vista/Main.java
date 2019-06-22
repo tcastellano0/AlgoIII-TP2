@@ -1,11 +1,14 @@
 package Vista;
 
 import Juego.AlgoCraft;
+import Juego.Mapa.Tablero;
+import Juego.Mapa.Ubicable;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -26,9 +29,27 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
 
+        this.prepararMapa();
         this.prepararMenuInicio();
 
         window.show();
+    }
+
+    public void prepararMapa(){
+        GridPane vistaMapa = new GridPane();
+        Tablero<Ubicable> mapa = AlgoCraft.getInstancia().getMapa();
+        int filas = mapa.getFilas();
+        int columnas = mapa.getColumnas();
+        for(int i = 0; i < filas; i++){
+            for(int j = 0; j < columnas; j++) {
+                Image imagen = new Image("Vista/images/menu/madera.jpg",25,25, false, true);
+                ImageView iw = new ImageView(imagen);
+                Button boton = new Button("",iw);
+
+                vistaMapa.add(boton,i,j);
+            }
+        }
+        escenaJuego = new Scene(vistaMapa);
     }
 
     public void prepararMenuInicio(){
