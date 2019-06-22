@@ -27,7 +27,13 @@ public class VistaMapa extends GridPane {
     }
     
     private VistaMapa() {
-        this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+    	this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+    	
+    	dibujarMapa();
+    }
+    
+    public void dibujarMapa() {
+    	
         int filas = mapa.getFilas();
         int columnas = mapa.getColumnas();
         for (int i = 0; i < filas; i++) {
@@ -37,7 +43,8 @@ public class VistaMapa extends GridPane {
                 this.add(vistaCelda, i, j);
             }
         }
-    } 
+        
+    }
 
     public void actualizarCelda(Posicion posicion) {
         Node resultado = null;

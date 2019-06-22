@@ -48,10 +48,10 @@ public class Main extends Application {
     	
         escenaJuego = new Scene(vistaMapa);
         
-        Posicion posicionInicial = jugador.getPosicion();
+        //Posicion posicionInicial = jugador.getPosicion();
         
-        escenaJuego.setOnKeyPressed(ke -> {
-	            KeyCode keyCode = ke.getCode();
+        escenaJuego.setOnKeyPressed(key -> {
+	            KeyCode keyCode = key.getCode();
 	            
 	            if(keyCode.equals(KeyCode.UP)) {
 	            	jugador.moverArriba();
@@ -66,12 +66,7 @@ public class Main extends Application {
 					jugador.moverDerecha();
 	        	}
 				
-				Posicion posicionSiguiente = jugador.getPosicion();
-				
-				if(!posicionInicial.equals(posicionSiguiente)) {
-					vistaMapa.actualizarCelda(posicionInicial);
-					vistaMapa.actualizarCelda(posicionSiguiente);
-				}
+				vistaMapa.dibujarMapa();
 			}
 		);
     }

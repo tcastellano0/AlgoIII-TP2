@@ -21,10 +21,13 @@ public class VistaCelda extends StackPane {
     }
 
     public void actualizar() {
+    	this.getChildren().clear();
+    	
         if (celda.estaVacia()) {
-            this.getChildren().add(imgVacio);
+        	this.getChildren().add(imgVacio);
             return;
         }
+        
         //ACORDARSE DE SACAR
         Ubicable u = (Ubicable) celda.ver();
         String ruta = this.rutaVistas.getRutaImagen(u);
