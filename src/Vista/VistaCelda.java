@@ -11,7 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class VistaCelda extends Button {
-
+    Celda celda;
     ImageView imageView;
     Image imagenJugador = new Image("Vista/images/menu/jugador.jpg", 25, 25, false, true);
     Image imagenMadera = new Image("Vista/images/menu/madera.jpg", 25, 25, false, true);
@@ -26,10 +26,11 @@ public class VistaCelda extends Button {
     }
 
     public VistaCelda(Celda celda) {
-        actualizar(celda);
+        this.celda = celda;
+        actualizar();
     }
 
-    public void actualizar(Celda celda) {
+    public void actualizar() {
         try {
             Class<?> clase = celda.ver().getClass();
             if (clase == Madera.class) {
@@ -45,6 +46,7 @@ public class VistaCelda extends Button {
                 imageView = new ImageView(imagenDiamante);
             }
             if (clase == Jugador.class) {
+
                 imageView = new ImageView(imagenJugador);
             }
             if (clase == null) {
