@@ -19,9 +19,9 @@ public class EligeVistas {
 
         rutaVistas.put(Madera.class, "Vista/images/materiales/map_arbol.png");
         rutaVistas.put(Piedra.class, "Vista/images/materiales/map_piedra.png");
-        rutaVistas.put(Metal.class, "Vista/images/materiales/metal.jpg");
+        rutaVistas.put(Metal.class, "Vista/images/materiales/map_metal.png");
         rutaVistas.put(Diamante.class, "Vista/images/materiales/map_diamante.png");
-        rutaVistas.put(Jugador.class, "Vista/images/materiales/jugador.jpg");
+        rutaVistas.put(Jugador.class, "Vista/images/materiales/map_jugador.png");
     }
 
     public String getRutaImagen(Ubicable u){

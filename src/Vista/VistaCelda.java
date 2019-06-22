@@ -23,7 +23,7 @@ public class VistaCelda extends StackPane {
         this.celda = celda;
         this.actualizar();
     }
-    
+
     public void actualizar() {
         //ACORDARSE DE SACAR
         Ubicable u = (Ubicable) celda.ver();
