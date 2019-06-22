@@ -11,6 +11,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class VistaCelda extends Button {
+
     ImageView imageView;
     Image imagenJugador = new Image("Vista/images/menu/jugador.jpg", 25, 25, false, true);
     Image imagenMadera = new Image("Vista/images/menu/madera.jpg", 25, 25, false, true);
