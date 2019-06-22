@@ -38,12 +38,5 @@ public class VistaCelda extends StackPane {
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundPosition.CENTER,
                 bSize)));
-
-        //if (celda.estaVacia()) {
-        //    this.getChildren().add(imgVacio);
-        //    return;
-        //}
-
-        //this.getChildren().add(new ImageView((img)));
     }
 }

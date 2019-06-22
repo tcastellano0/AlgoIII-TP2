@@ -19,20 +19,6 @@ public class MovimientoTest {
         assertEquals(direccion, DireccionNorte.getInstancia());
     }
 
-/*    @Test
-    public void testMoverNorte(){
-        Tablero<Ubicable> tablero = new Tablero<Ubicable>(20,20);
-        Movimiento movimiento = new Movimiento(tablero);
-        Posicion posicion = new Posicion(2,2);
-        Jugador jugador = new Jugador();
-        jugador.setPosicion(posicion);
-        System.out.println(posicion.getCoordenadaX()+" "+posicion.getCoordenadaY());
-        jugador.setMovimiento(movimiento);
-        jugador.moverArriba();
-
-        System.out.println(jugador.getPosicion().getCoordenadaX()+" "+jugador.getPosicion().getCoordenadaY());
-        assertEquals(jugador.getPosicion(), posicion.arriba());
-    }*/
 
     @Test
     public void testMoverUnJugadorModificaSuPosicion(){
