@@ -19,10 +19,14 @@ import javafx.scene.layout.CornerRadii;
 
 
 public class VistaMapa extends GridPane {
-    private static VistaMapa instancia = new VistaMapa();
     Tablero<Ubicable> mapa = AlgoCraft.getInstancia().getMapa();
     Jugador jugador = AlgoCraft.getInstancia().getJugador();
 
+    private static VistaMapa instancia = new VistaMapa();
+    public static VistaMapa getInstancia() {
+        return instancia;
+    }
+    
     private VistaMapa() {
         this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
         int filas = mapa.getFilas();
@@ -34,11 +38,7 @@ public class VistaMapa extends GridPane {
                 this.add(vistaCelda, i, j);
             }
         }
-    }
-
-    public static VistaMapa getInstancia() {
-        return instancia;
-    }
+    } 
 
     public void actualizarCelda(Posicion posicion) {
         Node resultado = null;
