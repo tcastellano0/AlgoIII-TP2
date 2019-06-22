@@ -30,13 +30,7 @@ public class VistaMapa extends GridPane {
         for (int i = 0; i < filas; i++) {
             VistaCelda vistaCelda;
             for (int j = 0; j < columnas; j++) {
-                try {
-                    vistaCelda = new VistaCelda(mapa.getCelda(new Posicion(i + 1, j + 1)));
-                    // vistaCelda = new VistaCelda((mapa.ver(new Posicion(i + 1, j + 1))));
-                } catch (NullPointerException e) {
-                    vistaCelda = new VistaCelda();
-
-                }
+                vistaCelda = new VistaCelda(mapa.getCelda(new Posicion(i + 1, j + 1)));
                 this.add(vistaCelda, i, j);
             }
         }
