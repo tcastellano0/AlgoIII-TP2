@@ -29,6 +29,11 @@ public class Tablero<T> {
 		}
 	}
 
+	public Celda<T> getCelda(Posicion posicion){
+		validarUbicacion(posicion);
+		return celdas.get(posicion);
+	}
+
 	public int getFilas() {
 		return filas;
 	}

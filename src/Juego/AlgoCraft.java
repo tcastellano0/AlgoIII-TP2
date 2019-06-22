@@ -30,6 +30,10 @@ public class AlgoCraft {
 		return jugador;
 	}
 
+	public Movimiento getMovimiento() {
+		return movimiento;
+	}
+
 	private AlgoCraft() {
 		Posicion posicionInicial = new Posicion(1,1);
 		
