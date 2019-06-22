@@ -45,8 +45,12 @@ public class Main extends Application {
             for (int j = 0; j < columnas; j++) {
                 try {
                     String clase = String.valueOf((mapa.ver(new Posicion(i + 1, j + 1)).getClass()));
+                    System.out.println(clase);
                     Image fondo = null;
                     switch (clase) {
+                        case "class Juego.Jugador.Jugador":
+                            fondo = new Image("Vista/images/menu/jugador.jpg", 25, 25, false, true);
+                            break;
                         case "class Materiales.Madera":
                             fondo = new Image("Vista/images/menu/madera.jpg", 25, 25, false, true);
                             break;
