@@ -44,36 +44,61 @@ public class Main extends Application {
         VBox pantalla = new VBox();
         pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
-
+    	
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
+    	
+    	Button slotMaterial1 = new Button();
+    	Button slotMaterial2 = new Button();
+    	Button slotMaterial3 = new Button();
+    	Button slotMaterial4 = new Button();
+    	Button slotMaterial5 = new Button();
+    	Button slotMaterial6 = new Button();
+    	Button slotMaterial7 = new Button();
+    	Button slotMaterial8 = new Button();
+    	Button slotMaterial9 = new Button();
+
     	Text contructorTexto = new Text("Constructor");
     	contructorTexto.setStyle("-fx-font: 24 arial;");
-    	
-    	Text textoPrueba = new Text("textoPrueba");
-    	contructorTexto.setStyle("-fx-font: 24 arial;");
-    	
     	menuDerecha.getChildren().add(contructorTexto);
-    	menuDerecha.getChildren().add(textoPrueba);
+    	
+    	GridPane gridpane = new GridPane();
+    	gridpane.add(slotMaterial1, 0, 0);
+    	gridpane.add(slotMaterial2, 0, 1);
+    	gridpane.add(slotMaterial3, 0, 2);
+    	gridpane.add(slotMaterial4, 1, 0);
+    	gridpane.add(slotMaterial5, 1, 1);
+    	gridpane.add(slotMaterial6, 1, 2);
+    	gridpane.add(slotMaterial7, 2, 0);
+    	gridpane.add(slotMaterial8, 2, 1);
+    	gridpane.add(slotMaterial9, 2, 2);
+    	
+    	
+    	menuDerecha.getChildren().add(gridpane);
+  
+    	
+    	
     	
     	HBox menuInferior = new HBox();
     	menuInferior.setPadding(new Insets(10, 10, 10, 10));
     	menuInferior.setSpacing(25);
-    	menuInferior.getChildren().add(new Text("Herramientas:"));
     	
-    	Button button1 = new Button();
-    	Button button2 = new Button();
-    	Button button3 = new Button();
-    	Button button4 = new Button();
-    	Button button5 = new Button();
-    	Button button6 = new Button();
-    	Button button7 = new Button();
+    	Button slotHerramienta1 = new Button();
+    	Button slotHerramienta2 = new Button();
+    	Button slotHerramienta3 = new Button();
+    	Button slotHerramienta4 = new Button();
+    	Button slotHerramienta5 = new Button();
+    	Button slotHerramienta6 = new Button();
+    	Button slotHerramienta7 = new Button();
+    		
+    	Text herramientasTexto = new Text("Herramientas:");
+    	herramientasTexto.setStyle("-fx-font: 24 arial;");
+    	menuInferior.getChildren().add(herramientasTexto);
     	
-    	menuInferior.getChildren().addAll(button1,button2,button3,button4,button5,button6,button7);
+    	menuInferior.getChildren().addAll(slotHerramienta1,slotHerramienta2,slotHerramienta3,slotHerramienta4,slotHerramienta5,slotHerramienta6,slotHerramienta7);
     	
     	BorderPane borderpane = new BorderPane();
-    	
     	borderpane.setRight(menuDerecha);
     	borderpane.setBottom(menuInferior);
     	borderpane.setCenter(VistaMapa.getInstancia());
@@ -103,8 +128,8 @@ public class Main extends Application {
 
     public void prepararMenuInicio() {
         window.setTitle("AlgoCraft");
-        window.setMaxHeight(900);
-        window.setMinHeight(900);
+        window.setMaxHeight(800);
+        window.setMinHeight(800);
         window.setMaxWidth(1200);
         window.setMinWidth(1200);
 
