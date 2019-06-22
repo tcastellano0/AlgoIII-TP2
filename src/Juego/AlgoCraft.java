@@ -26,6 +26,10 @@ public class AlgoCraft {
 		return mapa;
 	}
 
+	public Jugador getJugador() {
+		return jugador;
+	}
+
 	private AlgoCraft() {
 		Posicion posicionInicial = new Posicion(1,1);
 		
