@@ -65,5 +65,7 @@ public abstract class Material implements Golpeable, Ubicable {
 	public abstract boolean esIgual(Metal material);
 
 	public abstract boolean esIgual(Diamante material);
+	
+	public abstract boolean esIgual(MaterialNulo material);
 
 }

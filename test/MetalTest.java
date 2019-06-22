@@ -133,5 +133,14 @@ public class MetalTest {
 
         assertFalse(material1.esIgual(material2));
     }
+    
+    @Test
+    public void testMetalNoEsIgualAMaterialNulo() {
+        Metal material1 = new Metal();
+        MaterialNulo material2 = new MaterialNulo();
+
+        assertFalse(material1.esIgual(material2));
+    }
+
 
 }

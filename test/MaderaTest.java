@@ -160,6 +160,13 @@ public class MaderaTest {
 
         assertFalse(material1.esIgual(material2));
     }
+    
+    @Test
+    public void testMaderaNoEsIgualAMaterialNulo() {
+        Madera material1 = new Madera();
+        MaterialNulo material2 = new MaterialNulo();
 
+        assertFalse(material1.esIgual(material2));
+    }
 
 }

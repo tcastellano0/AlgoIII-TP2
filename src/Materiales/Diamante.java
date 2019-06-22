@@ -52,4 +52,6 @@ public class Diamante extends Material {
 	@Override
 	public boolean esIgual(Diamante material) {return true;}
 
+	@Override
+	public boolean esIgual(MaterialNulo material) { return false; }
 }
