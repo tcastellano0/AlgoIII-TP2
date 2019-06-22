@@ -1,6 +1,7 @@
 package Vista;
 
 import Juego.AlgoCraft;
+import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
 import javafx.application.Application;
@@ -35,24 +36,46 @@ public class Main extends Application {
         window.show();
     }
 
-    public void prepararMapa(){
+    public void prepararMapa() {
         GridPane vistaMapa = new GridPane();
         Tablero<Ubicable> mapa = AlgoCraft.getInstancia().getMapa();
         int filas = mapa.getFilas();
         int columnas = mapa.getColumnas();
-        for(int i = 0; i < filas; i++){
-            for(int j = 0; j < columnas; j++) {
-                Image imagen = new Image("Vista/images/menu/madera.jpg",25,25, false, true);
-                ImageView iw = new ImageView(imagen);
-                Button boton = new Button("",iw);
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                try {
+                    String clase = String.valueOf((mapa.ver(new Posicion(i + 1, j + 1)).getClass()));
+                    Image fondo = null;
+                    switch (clase) {
+                        case "class Materiales.Madera":
+                            fondo = new Image("Vista/images/menu/madera.jpg", 25, 25, false, true);
+                            break;
+                        case "class Materiales.Piedra":
+                            fondo = new Image("Vista/images/menu/piedra.jpg", 25, 25, false, true);
+                            break;
+                        case "class Materiales.Metal":
+                            fondo = new Image("Vista/images/menu/metal.jpg", 25, 25, false, true);
+                            break;
+                        case "class Materiales.Diamante":
+                            fondo = new Image("Vista/images/menu/diamante.jpg", 25, 25, false, true);
+                            break;
+                    }
+                    ImageView iw = new ImageView(fondo);
+                    Button boton = new Button("", iw);
+                    vistaMapa.add(boton, i, j);
+                } catch (NullPointerException e) {
+                    Image fondo = new Image("Vista/images/menu/pasto.jpg", 25, 25, false, true);
+                    ImageView iw = new ImageView(fondo);
+                    Button boton = new Button("",iw);
+                    vistaMapa.add(boton, i, j);
+                }
 
-                vistaMapa.add(boton,i,j);
             }
         }
         escenaJuego = new Scene(vistaMapa);
     }
 
-    public void prepararMenuInicio(){
+    public void prepararMenuInicio() {
         window.setTitle("AlgoCraft");
         window.setMaxHeight(600);
         window.setMinHeight(600);
@@ -66,7 +89,7 @@ public class Main extends Application {
         salir.setOnAction(e -> System.exit(0));
 
         BorderPane layout = new BorderPane();
-        VBox vertical = new VBox(8 );
+        VBox vertical = new VBox(8);
         vertical.getSpacing();
         vertical.getChildren().add(empezarJuego);
         vertical.getChildren().add(salir);
@@ -75,7 +98,7 @@ public class Main extends Application {
         layout.setCenter(vertical);
         Scene scene = new Scene(layout, 300, 250);
 
-        Image titleBackground = new Image("Vista/images/menu/title.png",800,600, false, true);
+        Image titleBackground = new Image("Vista/images/menu/title.png", 800, 600, false, true);
         BackgroundImage imagenTitulo = new BackgroundImage(titleBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
