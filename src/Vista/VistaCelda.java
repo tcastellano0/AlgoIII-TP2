@@ -19,16 +19,16 @@ public class VistaCelda extends StackPane {
 
     }
 
+    public VistaCelda(Celda celda) {
+        this.celda = celda;
+        this.actualizar();
+    }
+    
     public void actualizar() {
         //ACORDARSE DE SACAR
         Ubicable u = (Ubicable) celda.ver();
         String ruta = this.rutaVistas.getRutaImagen(u);
         Image img = new Image(ruta, 40, 40, false, false);
         this.getChildren().add(new ImageView((img)));
-    }
-
-    public VistaCelda(Celda celda) {
-        this.celda = celda;
-        this.actualizar();
     }
 }
