@@ -29,16 +29,16 @@ public class PosicionTest {
     }
 
     @Test
-    public void test04LaPosicionDeArribaEsLaQueTieneLaSegundaCoordenadaUnoMayor(){
+    public void test04LaPosicionDeArribaEsLaQueTieneLaSegundaCoordenadaUnoMenor(){
         Posicion pos1 = new Posicion(2, 2);
-        Posicion pos2 = new Posicion(2, 3);
+        Posicion pos2 = new Posicion(2, 1);
 
         Assert.assertEquals(pos1.arriba(), pos2);
     }
     @Test
-    public void test05LaPosicionDeAbajoEsLaQueTieneLaSegundaCoordenadaUnoMenor(){
+    public void test05LaPosicionDeAbajoEsLaQueTieneLaSegundaCoordenadaUnoMayor(){
         Posicion pos1 = new Posicion(2, 2);
-        Posicion pos2 = new Posicion(2, 1);
+        Posicion pos2 = new Posicion(2, 3);
 
         Assert.assertEquals(pos1.abajo(), pos2);
     }

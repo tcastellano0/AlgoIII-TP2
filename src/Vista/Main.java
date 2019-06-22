@@ -2,8 +2,6 @@ package Vista;
 
 import Juego.AlgoCraft;
 import Juego.Jugador.Jugador;
-import Juego.Mapa.Posicion;
-
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -11,6 +9,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -43,12 +42,29 @@ public class Main extends Application {
         botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
         VBox pantalla = new VBox();
         pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
-    	
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
+
+    	VBox menuDerecha = new VBox();
+    	menuDerecha.setSpacing(100);
+    	Text contructorTexto = new Text("Constructor");
+    	contructorTexto.setStyle("-fx-font: 24 arial;");
     	
-        escenaJuego = new Scene(vistaMapa);
-        
-        //Posicion posicionInicial = jugador.getPosicion();
+    	Text textoPrueba = new Text("textoPrueba");
+    	contructorTexto.setStyle("-fx-font: 24 arial;");
+    	
+    	menuDerecha.getChildren().add(contructorTexto);
+    	menuDerecha.getChildren().add(textoPrueba);
+    	
+    	HBox menuAbajo = new HBox();
+    	menuAbajo.getChildren().add(new Text("Herramientas:"));
+    	
+    	BorderPane borderpane = new BorderPane();
+    	
+    	borderpane.setRight(menuDerecha);
+    	borderpane.setBottom(menuAbajo);
+    	borderpane.setCenter(VistaMapa.getInstancia());
+    	
+        escenaJuego = new Scene(borderpane);
         
         escenaJuego.setOnKeyPressed(key -> {
 	            KeyCode keyCode = key.getCode();
@@ -73,8 +89,8 @@ public class Main extends Application {
 
     public void prepararMenuInicio() {
         window.setTitle("AlgoCraft");
-        window.setMaxHeight(800);
-        window.setMinHeight(800);
+        window.setMaxHeight(900);
+        window.setMinHeight(900);
         window.setMaxWidth(1200);
         window.setMinWidth(1200);
 
