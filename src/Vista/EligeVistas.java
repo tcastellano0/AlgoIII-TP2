@@ -29,4 +29,7 @@ public class EligeVistas {
         return this.rutaVistas.get(claseUbicable);
     }
 
+    public String vacio(){
+        return "Vista/images/materiales/map_vacio.png";
+    }
 }

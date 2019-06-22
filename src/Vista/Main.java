@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
@@ -39,6 +40,24 @@ public class Main extends Application {
         VBox pantalla = new VBox();
         pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
         escenaJuego = new Scene(VistaMapa.getInstancia());
+        
+        escenaJuego.setOnKeyPressed(ke -> {
+	            KeyCode keyCode = ke.getCode();
+	            
+	            if(keyCode.equals(KeyCode.UP)) {
+	        		
+	        	}
+	    		if(keyCode.equals(KeyCode.DOWN)) {
+	        		
+	        	}
+				if(keyCode.equals(KeyCode.LEFT)) {
+	        		
+	        	}
+				if(keyCode.equals(KeyCode.RIGHT)) {
+	        		
+	        	}
+			}
+		);
     }
 
     public void prepararMenuInicio() {
