@@ -45,6 +45,7 @@ public class AlgoCraft {
 		mapa.poner(this.jugador, posicionInicial);
 		
 		this.movimiento = new Movimiento(mapa);
+		this.jugador.setMovimiento(movimiento);
 	}
 	
 	private void inicializarMapa() {

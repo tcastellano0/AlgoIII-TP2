@@ -11,6 +11,7 @@ public class Jugador implements Ubicable {
 	private Inventario<Herramienta> inventarioDeHerramientas;
 	private Inventario<Material> inventarioDeMateriales;
 	private Posicion posicion;
+	private Movimiento movimiento;
 
 	public Jugador() {
 		this.herramientaEquipada = Herramienta.hachaDeMadera();
@@ -18,7 +19,15 @@ public class Jugador implements Ubicable {
 		this.inventarioDeHerramientas.agregar(this.herramientaEquipada);
 		this.inventarioDeMateriales = new Inventario<Material>();
 	}
-	
+
+	public void setMovimiento(Movimiento movimiento) {
+		this.movimiento = movimiento;
+	}
+
+	public void moverArriba(){
+		this.movimiento.moverArriba(this);
+	}
+
 	public int cantidadDeHerramientas() {
 		return (this.inventarioDeHerramientas.cantidad());
 	}

@@ -36,4 +36,9 @@ public class Movimiento {
     public Direccion getDireccion() {
         return this.direccion;
     }
+
+    public void moverArriba(Jugador jugador) {
+        this.direccion = DireccionNorte.getInstancia();
+        avanzar(jugador);
+    }
 }
