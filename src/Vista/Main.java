@@ -37,7 +37,7 @@ public class Main extends Application {
         HBox botones = new HBox();
         botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
         VBox pantalla = new VBox();
-        pantalla.getChildren().addAll(botones,new VistaMapa());
+        pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());
         escenaJuego = new Scene(pantalla);
     }
 

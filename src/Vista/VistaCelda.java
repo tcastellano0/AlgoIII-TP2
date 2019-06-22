@@ -1,7 +1,7 @@
 package Vista;
 
 import Juego.Jugador.Jugador;
-import Juego.Mapa.Ubicable;
+import Juego.Mapa.Celda;
 import Materiales.Diamante;
 import Materiales.Madera;
 import Materiales.Metal;
@@ -20,30 +20,37 @@ public class VistaCelda extends Button {
     Image imagenDiamante = new Image("Vista/images/menu/diamante.jpg", 25, 25, false, true);
     Image imagenPasto = new Image("Vista/images/menu/pasto.jpg", 25, 25, false, true);
 
-    public VistaCelda(){
+    public VistaCelda() {
         imageView = new ImageView(imagenPasto);
         this.setGraphic(imageView);
     }
 
-    public VistaCelda(Ubicable ubicable) {
-        Class<? extends Ubicable> clase = ubicable.getClass();
+    public VistaCelda(Celda celda) {
+        actualizar(celda);
+    }
 
-        if (clase == Madera.class) {
-            imageView = new ImageView(imagenMadera);
-        }
-        if (clase == Piedra.class) {
-            imageView = new ImageView(imagenPiedra);
-        }
-        if (clase == Metal.class) {
-            imageView = new ImageView(imagenMetal);
-        }
-        if (clase == Diamante.class) {
-            imageView = new ImageView(imagenDiamante);
-        }
-        if (clase == Jugador.class) {
-            imageView = new ImageView(imagenJugador);
-        }
-        if (clase == null){
+    public void actualizar(Celda celda) {
+        try {
+            Class<?> clase = celda.ver().getClass();
+            if (clase == Madera.class) {
+                imageView = new ImageView(imagenMadera);
+            }
+            if (clase == Piedra.class) {
+                imageView = new ImageView(imagenPiedra);
+            }
+            if (clase == Metal.class) {
+                imageView = new ImageView(imagenMetal);
+            }
+            if (clase == Diamante.class) {
+                imageView = new ImageView(imagenDiamante);
+            }
+            if (clase == Jugador.class) {
+                imageView = new ImageView(imagenJugador);
+            }
+            if (clase == null) {
+
+            }
+        } catch (NullPointerException e) {
             imageView = new ImageView(imagenPasto);
         }
         this.setGraphic(imageView);
