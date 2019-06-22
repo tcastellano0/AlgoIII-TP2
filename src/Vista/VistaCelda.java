@@ -10,15 +10,20 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class VistaCelda extends Button {
     Celda celda;
     ImageView imageView;
-    Image imagenJugador = new Image("Vista/images/menu/jugador.jpg", 25, 25, false, true);
-    Image imagenMadera = new Image("Vista/images/menu/madera.jpg", 25, 25, false, true);
-    Image imagenPiedra = new Image("Vista/images/menu/piedra.jpg", 25, 25, false, true);
-    Image imagenMetal = new Image("Vista/images/menu/metal.jpg", 25, 25, false, true);
-    Image imagenDiamante = new Image("Vista/images/menu/diamante.jpg", 25, 25, false, true);
-    Image imagenPasto = new Image("Vista/images/menu/pasto.jpg", 25, 25, false, true);
+
+    protected Map<Class, Class> vistas = new HashMap<>();
+    Image imagenJugador = new Image("Vista/images/materiales/jugador.jpg", 25, 25, false, true);
+    Image imagenMadera = new Image("Vista/images/materiales/madera.jpg", 25, 25, false, true);
+    Image imagenPiedra = new Image("Vista/images/materiales/piedra.jpg", 25, 25, false, true);
+    Image imagenMetal = new Image("Vista/images/materiales/metal.jpg", 25, 25, false, true);
+    Image imagenDiamante = new Image("Vista/images/materiales/diamante.jpg", 25, 25, false, true);
+    Image imagenPasto = new Image("Vista/images/materiales/pasto.jpg", 25, 25, false, true);
 
     public VistaCelda() {
         imageView = new ImageView(imagenPasto);
