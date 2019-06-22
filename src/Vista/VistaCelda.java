@@ -25,24 +25,24 @@ public class VistaCelda extends Button {
     }
 
     public VistaCelda(Ubicable ubicable) {
-        Class<? extends Ubicable> x = ubicable.getClass();
+        Class<? extends Ubicable> clase = ubicable.getClass();
 
-        if (x == Madera.class) {
+        if (clase == Madera.class) {
             imageView = new ImageView(imagenMadera);
         }
-        if (x == Piedra.class) {
+        if (clase == Piedra.class) {
             imageView = new ImageView(imagenPiedra);
         }
-        if (x == Metal.class) {
+        if (clase == Metal.class) {
             imageView = new ImageView(imagenMetal);
         }
-        if (x == Diamante.class) {
+        if (clase == Diamante.class) {
             imageView = new ImageView(imagenDiamante);
         }
-        if (x == Jugador.class) {
+        if (clase == Jugador.class) {
             imageView = new ImageView(imagenJugador);
         }
-        if (x == null){
+        if (clase == null){
             imageView = new ImageView(imagenPasto);
         }
         this.setGraphic(imageView);
