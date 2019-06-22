@@ -14,11 +14,13 @@ public class Movimiento {
     public void avanzar(Jugador jugador) {
         Posicion posicionInicial = jugador.getPosicion();
         Posicion nuevaPosicion = direccion.siguiente(posicionInicial);
+
         
         try {
         	tablero.poner(jugador, nuevaPosicion);
         	tablero.sacar(posicionInicial);
             jugador.setPosicion(nuevaPosicion);
+
 
         } catch (UbicacionInvalidaException e) {
             invertir();
@@ -39,6 +41,18 @@ public class Movimiento {
 
     public void moverArriba(Jugador jugador) {
         this.direccion = DireccionNorte.getInstancia();
-        avanzar(jugador);
+        this.avanzar(jugador);
+    }
+    public void moverAbajo(Jugador jugador) {
+        this.direccion = DireccionSur.getInstancia();
+        this.avanzar(jugador);
+    }
+    public void moverDerecha(Jugador jugador) {
+        this.direccion = DireccionEste.getInstancia();
+        this.avanzar(jugador);
+    }
+    public void moverIzquierda(Jugador jugador) {
+        this.direccion = DireccionOeste.getInstancia();
+        this.avanzar(jugador);
     }
 }

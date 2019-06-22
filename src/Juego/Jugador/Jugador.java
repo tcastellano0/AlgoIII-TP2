@@ -27,6 +27,15 @@ public class Jugador implements Ubicable {
 	public void moverArriba(){
 		this.movimiento.moverArriba(this);
 	}
+	public void moverAbajo(){
+		this.movimiento.moverAbajo(this);
+	}
+	public void moverDerecha(){
+		this.movimiento.moverDerecha(this);
+	}
+	public void moverIzquierda(){
+		this.movimiento.moverIzquierda(this);
+	}
 
 	public int cantidadDeHerramientas() {
 		return (this.inventarioDeHerramientas.cantidad());
