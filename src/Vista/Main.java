@@ -2,8 +2,6 @@ package Vista;
 
 import Juego.AlgoCraft;
 import Juego.Jugador.Jugador;
-import Juego.Mapa.Posicion;
-
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -44,7 +42,7 @@ public class Main extends Application {
         botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
         VBox pantalla = new VBox();
         pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
-    	
+    	VistaMapa vistaMapa = VistaMapa.getInstancia();
 
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(100);
