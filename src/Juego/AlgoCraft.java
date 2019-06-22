@@ -11,12 +11,18 @@ import Materiales.Metal;
 import Materiales.Piedra;
 
 public class AlgoCraft {
+
+	private static AlgoCraft instancia = new AlgoCraft();
+
+	public static AlgoCraft getInstancia() {
+		return instancia;
+	}
 	
 	private Jugador jugador;
 	private Tablero<Ubicable> mapa;
 	private Movimiento movimiento;
 	
-	public AlgoCraft() {
+	private AlgoCraft() {
 		Posicion posicionInicial = new Posicion(1,1);
 		
 		this.jugador = new Jugador();

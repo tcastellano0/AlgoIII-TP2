@@ -1,5 +1,6 @@
 package Vista;
 
+import Juego.AlgoCraft;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class Main extends Application {
     Scene escenaJuego;
     Button empezarJuego;
     Button salir;
+    AlgoCraft algoCraft;
 
     public static void main(String[] args) {
         launch(args);

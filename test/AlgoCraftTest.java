@@ -12,21 +12,21 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerPosicionInicialDeJugadorCasteaAJugadorYNoLanzaError(){
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
 
         juego.verEnPosicion(new Posicion(1, 1));
     }
 
     @Test(expected = ClassCastException.class)
     public void testAlgoCraftVerPosicion1Y6CasteaAJugadorYLanzaError(){
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         
         Jugador unJugador = (Jugador)juego.verEnPosicion(new Posicion(1,6));
     }
 
     @Test
     public void testAlgoCraftPosicionJugadorDevuelvePosicion1Y1(){
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Posicion posJugador = juego.posicionDelJugador();
         Posicion posEsperada = new Posicion(1,1);
 
@@ -35,7 +35,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftPosicionJugadorNoDevuelvePosicion1Y2(){
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Posicion posJugador = juego.posicionDelJugador();
         Posicion posNoEsperada = new Posicion(1,2);
 
@@ -44,7 +44,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion1Y6DevuelveUnaMadera() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(1, 6));
         Madera unaMadera = new Madera();
 
@@ -53,7 +53,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion8Y15DevuelveUnaMadera() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(8, 15));
         Madera unaMadera = new Madera();
 
@@ -62,7 +62,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion20Y20DevuelveUnaMadera() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(20, 20));
         Madera unaMadera = new Madera();
 
@@ -71,7 +71,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion4Y6DevuelveUnaPiedra() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(4, 6));
         Piedra unaPiedra = new Piedra();
 
@@ -80,7 +80,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion15Y2DevuelveUnaPiedra() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(15, 2));
         Piedra unaPiedra = new Piedra();
 
@@ -89,7 +89,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion19Y14DevuelveUnaPiedra() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(19, 14));
         Piedra unaPiedra = new Piedra();
 
@@ -99,7 +99,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion7Y7DevuelveUnMetal() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(7, 7));
         Metal unMetal = new Metal();
 
@@ -108,7 +108,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion11Y13DevuelveUnMetal() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(11, 13));
         Metal unMetal = new Metal();
 
@@ -117,7 +117,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion13Y13DevuelveUnMetal() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(13, 13));
         Metal unMetal = new Metal();
 
@@ -126,7 +126,7 @@ public class AlgoCraftTest {
 
     @Test
     public void testAlgoCraftVerEnPosicion10Y10DevuelveUnDiamante() {
-        AlgoCraft juego = new AlgoCraft();
+        AlgoCraft juego = AlgoCraft.getInstancia();
         Material ubicable = (Material) juego.verEnPosicion(new Posicion(10, 10));
         Diamante unDiamante = new Diamante();
 
