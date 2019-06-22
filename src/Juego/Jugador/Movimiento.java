@@ -19,6 +19,7 @@ public class Movimiento {
         	tablero.poner(jugador, nuevaPosicion);
         	tablero.sacar(posicionInicial);
             jugador.setPosicion(nuevaPosicion);
+            System.out.println(nuevaPosicion.getCoordenadaX()+" "+nuevaPosicion.getCoordenadaY());
         } catch (UbicacionInvalidaException e) {
             invertir();
         }
