@@ -1,6 +1,9 @@
 package Vista;
 
 import Juego.AlgoCraft;
+import Juego.Jugador.Jugador;
+import Juego.Mapa.Posicion;
+
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -18,6 +21,7 @@ public class Main extends Application {
     Button empezarJuego;
     Button salir;
     AlgoCraft algoCraft;
+    Jugador jugador = AlgoCraft.getInstancia().getJugador();
 
     public static void main(String[] args) {
         launch(args);
@@ -39,23 +43,35 @@ public class Main extends Application {
         botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
         VBox pantalla = new VBox();
         pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
-        escenaJuego = new Scene(VistaMapa.getInstancia());
+    	
+    	VistaMapa vistaMapa = VistaMapa.getInstancia();
+    	
+        escenaJuego = new Scene(vistaMapa);
+        
+        Posicion posicionInicial = jugador.getPosicion();
         
         escenaJuego.setOnKeyPressed(ke -> {
 	            KeyCode keyCode = ke.getCode();
 	            
 	            if(keyCode.equals(KeyCode.UP)) {
-	        		
+	            	jugador.moverArriba();
 	        	}
 	    		if(keyCode.equals(KeyCode.DOWN)) {
-	        		
+	    			jugador.moverAbajo();
 	        	}
 				if(keyCode.equals(KeyCode.LEFT)) {
-	        		
+					jugador.moverIzquierda();
 	        	}
 				if(keyCode.equals(KeyCode.RIGHT)) {
-	        		
+					jugador.moverDerecha();
 	        	}
+				
+				Posicion posicionSiguiente = jugador.getPosicion();
+				
+				if(!posicionInicial.equals(posicionSiguiente)) {
+					vistaMapa.actualizarCelda(posicionInicial);
+					vistaMapa.actualizarCelda(posicionSiguiente);
+				}
 			}
 		);
     }

@@ -20,7 +20,6 @@ import javafx.scene.layout.CornerRadii;
 
 public class VistaMapa extends GridPane {
     Tablero<Ubicable> mapa = AlgoCraft.getInstancia().getMapa();
-    Jugador jugador = AlgoCraft.getInstancia().getJugador();
 
     private static VistaMapa instancia = new VistaMapa();
     public static VistaMapa getInstancia() {
