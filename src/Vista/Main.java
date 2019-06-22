@@ -3,6 +3,7 @@ package Vista;
 import Juego.AlgoCraft;
 import Juego.Jugador.Jugador;
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -45,7 +46,8 @@ public class Main extends Application {
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
 
     	VBox menuDerecha = new VBox();
-    	menuDerecha.setSpacing(100);
+    	menuDerecha.setSpacing(25);
+    	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
     	Text contructorTexto = new Text("Constructor");
     	contructorTexto.setStyle("-fx-font: 24 arial;");
     	
@@ -55,13 +57,25 @@ public class Main extends Application {
     	menuDerecha.getChildren().add(contructorTexto);
     	menuDerecha.getChildren().add(textoPrueba);
     	
-    	HBox menuAbajo = new HBox();
-    	menuAbajo.getChildren().add(new Text("Herramientas:"));
+    	HBox menuInferior = new HBox();
+    	menuInferior.setPadding(new Insets(10, 10, 10, 10));
+    	menuInferior.setSpacing(25);
+    	menuInferior.getChildren().add(new Text("Herramientas:"));
+    	
+    	Button button1 = new Button();
+    	Button button2 = new Button();
+    	Button button3 = new Button();
+    	Button button4 = new Button();
+    	Button button5 = new Button();
+    	Button button6 = new Button();
+    	Button button7 = new Button();
+    	
+    	menuInferior.getChildren().addAll(button1,button2,button3,button4,button5,button6,button7);
     	
     	BorderPane borderpane = new BorderPane();
     	
     	borderpane.setRight(menuDerecha);
-    	borderpane.setBottom(menuAbajo);
+    	borderpane.setBottom(menuInferior);
     	borderpane.setCenter(VistaMapa.getInstancia());
     	
         escenaJuego = new Scene(borderpane);
