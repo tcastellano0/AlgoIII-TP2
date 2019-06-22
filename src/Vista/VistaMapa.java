@@ -7,6 +7,8 @@ import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
 import javafx.collections.ObservableList;
 
+import Materiales.Diamante;
+
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
 
@@ -20,7 +22,6 @@ import javafx.scene.layout.CornerRadii;
 
 public class VistaMapa extends GridPane {
     Tablero<Ubicable> mapa = AlgoCraft.getInstancia().getMapa();
-    Jugador jugador = AlgoCraft.getInstancia().getJugador();
 
     private static VistaMapa instancia = new VistaMapa();
     public static VistaMapa getInstancia() {
@@ -28,7 +29,13 @@ public class VistaMapa extends GridPane {
     }
     
     private VistaMapa() {
-        this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+    	this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
+    	
+    	dibujarMapa();
+    }
+    
+    public void dibujarMapa() {
+    	
         int filas = mapa.getFilas();
         int columnas = mapa.getColumnas();
         for (int i = 0; i < filas; i++) {
@@ -38,8 +45,20 @@ public class VistaMapa extends GridPane {
                 this.add(vistaCelda, i, j);
             }
         }
+
     } 
 
+
+
+    public void actualizar(){
+        ObservableList<Node> celdas = this.getChildren();
+        for (Node celda : celdas) {
+            VistaCelda c = (VistaCelda) celda;
+            c.actualizar();
+        }
+    }
+
+    /*
     public void actualizarCelda(Posicion posicion) {
         Node resultado = null;
         int fila = posicion.getCoordenadaX() ;
@@ -54,5 +73,6 @@ public class VistaMapa extends GridPane {
             }
         }
     }
+    */
 }
 

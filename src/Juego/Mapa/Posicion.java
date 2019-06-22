@@ -12,10 +12,10 @@ public class Posicion {
     }
 
     public Posicion arriba(){
-        return new Posicion(this.coordenadaX,this.coordenadaY+1);
+        return new Posicion(this.coordenadaX,this.coordenadaY-1);
     }
     public Posicion abajo(){
-        return new Posicion(this.coordenadaX,this.coordenadaY-1);
+        return new Posicion(this.coordenadaX,this.coordenadaY+1);
     }
     public Posicion izquierda(){
         return new Posicion(this.coordenadaX-1,this.coordenadaY);
