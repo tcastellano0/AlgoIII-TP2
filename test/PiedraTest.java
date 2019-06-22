@@ -128,5 +128,13 @@ public class PiedraTest {
 
         assertFalse(material1.esIgual(material2));
     }
+    
+    @Test
+    public void testPiedraNoEsIgualAMaterialNulo() {
+        Piedra material1 = new Piedra();
+        MaterialNulo material2 = new MaterialNulo();
+
+        assertFalse(material1.esIgual(material2));
+    }
 
 }

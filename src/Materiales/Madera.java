@@ -53,5 +53,7 @@ public class Madera extends Material{
 
     @Override
     public boolean esIgual(Diamante material) {return false;}
-    
+
+	@Override
+	public boolean esIgual(MaterialNulo material) { return false; }
 }

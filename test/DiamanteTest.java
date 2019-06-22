@@ -156,5 +156,13 @@ public class DiamanteTest {
 
         assertFalse(material1.esIgual(material2));
     }
+    
+    @Test
+    public void testDiamanteNoEsIgualAMaterialNulo() {
+        Diamante material1 = new Diamante();
+        MaterialNulo material2 = new MaterialNulo();
+
+        assertFalse(material1.esIgual(material2));
+    }
 
 }
