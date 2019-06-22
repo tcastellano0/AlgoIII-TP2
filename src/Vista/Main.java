@@ -26,8 +26,8 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
 
-        this.prepararMapa();
         this.prepararMenuInicio();
+        this.prepararMapa();
 
         window.show();
     }
@@ -39,10 +39,10 @@ public class Main extends Application {
 
     public void prepararMenuInicio() {
         window.setTitle("AlgoCraft");
-        window.setMaxHeight(600);
-        window.setMinHeight(600);
-        window.setMaxWidth(800);
-        window.setMinWidth(800);
+        window.setMaxHeight(800);
+        window.setMinHeight(800);
+        window.setMaxWidth(1200);
+        window.setMinWidth(1200);
 
 
         empezarJuego = new Button("Empezar Juego");
@@ -60,7 +60,7 @@ public class Main extends Application {
         layout.setCenter(vertical);
         Scene scene = new Scene(layout, 300, 250);
 
-        Image titleBackground = new Image("Vista/images/menu/title.png", 800, 600, false, true);
+        Image titleBackground = new Image("Vista/images/menu/title.png", 1200, 800, false, true);
         BackgroundImage imagenTitulo = new BackgroundImage(titleBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
