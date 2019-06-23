@@ -108,21 +108,20 @@ public class Main extends Application {
     	borderpane.setCenter(VistaMapa.getInstancia());
     	
         escenaJuego = new Scene(borderpane);
-        borderpane.requestFocus();
         
         escenaJuego.setOnKeyPressed(key -> {
 	            KeyCode keyCode = key.getCode();
 	            
-	            if(keyCode.equals(KeyCode.UP)) {
+	            if(keyCode.equals(KeyCode.W)) {
 	            	jugador.moverArriba();
 	        	}
-	    		if(keyCode.equals(KeyCode.DOWN)) {
+	    		if(keyCode.equals(KeyCode.S)) {
 	    			jugador.moverAbajo();
 	        	}
-				if(keyCode.equals(KeyCode.LEFT)) {
+				if(keyCode.equals(KeyCode.A)) {
 					jugador.moverIzquierda();
 	        	}
-				if(keyCode.equals(KeyCode.RIGHT)) {
+				if(keyCode.equals(KeyCode.D)) {
 					jugador.moverDerecha();
 	        	}
 				
