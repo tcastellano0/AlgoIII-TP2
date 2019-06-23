@@ -150,6 +150,4 @@ public class MetalTest {
         assertTrue(metal.esIgual(metal.recolectar()));
     }
 
-    
-
 }

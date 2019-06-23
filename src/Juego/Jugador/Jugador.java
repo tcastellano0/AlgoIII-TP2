@@ -82,8 +82,6 @@ public class Jugador implements Ubicable {
 		material.esGuardadoEn(this);
 	}
 	
-	public void guardar(MaterialNulo material) { }
-	
 	public void guardar(Madera material) {
 		this.inventarioDeMateriales.agregar(material);
 	}
