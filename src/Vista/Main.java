@@ -47,31 +47,21 @@ public class Main extends Application {
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
-    	
-    	Button slotMaterial1 = new Button();
-    	Button slotMaterial2 = new Button();
-    	Button slotMaterial3 = new Button();
-    	Button slotMaterial4 = new Button();
-    	Button slotMaterial5 = new Button();
-    	Button slotMaterial6 = new Button();
-    	Button slotMaterial7 = new Button();
-    	Button slotMaterial8 = new Button();
-    	Button slotMaterial9 = new Button();
 
     	Text contructorTexto = new Text("Constructor");
     	contructorTexto.setStyle("-fx-font: 24 arial;");
     	menuDerecha.getChildren().add(contructorTexto);
     	
     	GridPane gridpane = new GridPane();
-    	gridpane.add(slotMaterial1, 0, 0);
-    	gridpane.add(slotMaterial2, 0, 1);
-    	gridpane.add(slotMaterial3, 0, 2);
-    	gridpane.add(slotMaterial4, 1, 0);
-    	gridpane.add(slotMaterial5, 1, 1);
-    	gridpane.add(slotMaterial6, 1, 2);
-    	gridpane.add(slotMaterial7, 2, 0);
-    	gridpane.add(slotMaterial8, 2, 1);
-    	gridpane.add(slotMaterial9, 2, 2);
+    	gridpane.add(new Button (), 0, 0);
+    	gridpane.add(new Button (), 0, 1);
+    	gridpane.add(new Button (), 0, 2);
+    	gridpane.add(new Button (), 1, 0);
+    	gridpane.add(new Button (), 1, 1);
+    	gridpane.add(new Button (), 1, 2);
+    	gridpane.add(new Button (), 2, 0);
+    	gridpane.add(new Button (), 2, 1);
+    	gridpane.add(new Button (), 2, 2);
     	
     	menuDerecha.getChildren().add(gridpane);
     	
