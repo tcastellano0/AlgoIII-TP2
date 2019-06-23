@@ -12,7 +12,6 @@ import Materiales.*;
 public class AlgoCraft {
 
 	private static AlgoCraft instancia = new AlgoCraft();
-
 	public static AlgoCraft getInstancia() {
 		return instancia;
 	}
