@@ -108,6 +108,7 @@ public class Main extends Application {
     	borderpane.setCenter(VistaMapa.getInstancia());
     	
         escenaJuego = new Scene(borderpane);
+        borderpane.requestFocus();
         
         escenaJuego.setOnKeyPressed(key -> {
 	            KeyCode keyCode = key.getCode();
