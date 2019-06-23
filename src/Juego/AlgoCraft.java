@@ -160,9 +160,17 @@ public class AlgoCraft {
     		Material materialSiguiente = (Material)this.verEnPosicion(posicionSiguiente);
     		
     		this.jugador.golpear(materialSiguiente);
+
+    		sacarMaterialRoto(posicionSiguiente, materialSiguiente);
     	}
     	catch(ContenedorVacioException e) { }
     }
+
+    private void sacarMaterialRoto(Posicion pos, Material mat){
+		if (mat.getDurabilidad() <= 0) {
+			this.mapa.sacar(pos);
+		}
+	}
 
 	public Posicion posicionDelJugador(){
 		return jugador.getPosicion();
