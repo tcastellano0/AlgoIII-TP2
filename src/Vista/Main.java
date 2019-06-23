@@ -8,6 +8,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
@@ -44,20 +45,22 @@ public class Main extends Application {
         VBox pantalla = new VBox();
         pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
+    	EligeVistas rutaVistas = EligeVistas.getInstance();
     	
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
     	
-    	Button slotMaterial1 = new Button();
-    	Button slotMaterial2 = new Button();
-    	Button slotMaterial3 = new Button();
-    	Button slotMaterial4 = new Button();
-    	Button slotMaterial5 = new Button();
-    	Button slotMaterial6 = new Button();
-    	Button slotMaterial7 = new Button();
-    	Button slotMaterial8 = new Button();
-    	Button slotMaterial9 = new Button();
+    	Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
+    	Button slotMaterial1 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial2 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial3 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial4 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial5 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial6 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial7 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial8 = new Button("", new ImageView(imgVacio));
+    	Button slotMaterial9 = new Button("", new ImageView(imgVacio));
 
     	Text contructorTexto = new Text("Constructor");
     	contructorTexto.setStyle("-fx-font: 24 arial;");
@@ -88,13 +91,13 @@ public class Main extends Application {
     	menuInferior.setPadding(new Insets(10, 10, 10, 10));
     	menuInferior.setSpacing(25);
     	
-    	Button slotHerramienta1 = new Button();
-    	Button slotHerramienta2 = new Button();
-    	Button slotHerramienta3 = new Button();
-    	Button slotHerramienta4 = new Button();
-    	Button slotHerramienta5 = new Button();
-    	Button slotHerramienta6 = new Button();
-    	Button slotHerramienta7 = new Button();
+    	Button slotHerramienta1 = new Button("", new ImageView(imgVacio));
+    	Button slotHerramienta2 = new Button("", new ImageView(imgVacio));
+    	Button slotHerramienta3 = new Button("", new ImageView(imgVacio));
+    	Button slotHerramienta4 = new Button("", new ImageView(imgVacio));
+    	Button slotHerramienta5 = new Button("", new ImageView(imgVacio));
+    	Button slotHerramienta6 = new Button("", new ImageView(imgVacio));
+    	Button slotHerramienta7 = new Button("", new ImageView(imgVacio));
     		
     	Text herramientasTexto = new Text("Herramientas:");
     	herramientasTexto.setStyle("-fx-font: 18 arial;");
@@ -134,8 +137,8 @@ public class Main extends Application {
         window.setTitle("AlgoCraft");
         window.setMaxHeight(800);
         window.setMinHeight(800);
-        window.setMaxWidth(1200);
-        window.setMinWidth(1200);
+        window.setMaxWidth(950);
+        window.setMinWidth(950);
 
 
         empezarJuego = new Button("Empezar Juego");
