@@ -74,10 +74,14 @@ public class Main extends Application {
     	gridpane.add(slotMaterial8, 2, 1);
     	gridpane.add(slotMaterial9, 2, 2);
     	
-    	
     	menuDerecha.getChildren().add(gridpane);
-  
     	
+    	Button limpiar = new Button("Limpiar");
+    	Button crear = new Button("Crear");
+    	HBox botonesLimpiarYCrearContenedor = new HBox();
+    	botonesLimpiarYCrearContenedor.setSpacing(10);
+    	botonesLimpiarYCrearContenedor.getChildren().addAll(limpiar, crear);
+    	menuDerecha.getChildren().add(botonesLimpiarYCrearContenedor);
     	
     	
     	HBox menuInferior = new HBox();
@@ -93,7 +97,7 @@ public class Main extends Application {
     	Button slotHerramienta7 = new Button();
     		
     	Text herramientasTexto = new Text("Herramientas:");
-    	herramientasTexto.setStyle("-fx-font: 24 arial;");
+    	herramientasTexto.setStyle("-fx-font: 18 arial;");
     	menuInferior.getChildren().add(herramientasTexto);
     	
     	menuInferior.getChildren().addAll(slotHerramienta1,slotHerramienta2,slotHerramienta3,slotHerramienta4,slotHerramienta5,slotHerramienta6,slotHerramienta7);
