@@ -1,7 +1,6 @@
 package Vista;
 
 import Juego.AlgoCraft;
-import Juego.Jugador.Jugador;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -18,10 +17,7 @@ public class Main extends Application {
 
     Stage window;
     Scene escenaJuego;
-    Button empezarJuego;
-    Button salir;
-    AlgoCraft algoCraft;
-    Jugador jugador = AlgoCraft.getInstancia().getJugador();
+    AlgoCraft algoCraft = AlgoCraft.getInstancia();
 
     public static void main(String[] args) {
         launch(args);
@@ -103,16 +99,23 @@ public class Main extends Application {
 	            KeyCode keyCode = key.getCode();
 	            
 	            if(keyCode.equals(KeyCode.W)) {
-	            	jugador.moverArriba();
+	            	algoCraft.moverJugadorArriba();
 	        	}
-	    		if(keyCode.equals(KeyCode.S)) {
-	    			jugador.moverAbajo();
+	    		
+	            if(keyCode.equals(KeyCode.S)) {
+	    			algoCraft.moverJugadorAbajo();
 	        	}
-				if(keyCode.equals(KeyCode.A)) {
-					jugador.moverIzquierda();
+				
+	    		if(keyCode.equals(KeyCode.A)) {
+					algoCraft.moverJugadorIzquierda();
 	        	}
+				
 				if(keyCode.equals(KeyCode.D)) {
-					jugador.moverDerecha();
+					algoCraft.moverJugadorDerecha();
+	        	}
+				
+				if(keyCode.equals(KeyCode.SPACE)) {
+					algoCraft.golpearMaterialSiguiente();
 	        	}
 				
 				vistaMapa.actualizar();
@@ -127,10 +130,10 @@ public class Main extends Application {
         window.setMaxWidth(1200);
         window.setMinWidth(1200);
 
-
-        empezarJuego = new Button("Empezar Juego");
+        Button empezarJuego = new Button("Empezar Juego");
+        Button salir = new Button("Salir");
+        
         empezarJuego.setOnAction(e -> window.setScene(escenaJuego));
-        salir = new Button("Salir");
         salir.setOnAction(e -> System.exit(0));
 
         BorderPane layout = new BorderPane();
