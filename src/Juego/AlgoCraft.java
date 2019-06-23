@@ -8,7 +8,6 @@ import Juego.Mapa.Ubicable;
 import Juego.Mapa.ContenedorVacioException;
 
 import Materiales.*;
-import javafx.scene.input.KeyCode;
 
 public class AlgoCraft {
 
@@ -156,14 +155,14 @@ public class AlgoCraft {
 		return this.mapa.ver(pos);
 	}
     
-    public Material getMaterialParaGolpear() {
+    public void golpearMaterialSiguiente() {
     	Posicion posicionSiguiente = this.posicionSiguenteDelJugador();
     	try {
-    		return (Material)this.verEnPosicion(posicionSiguiente); 
+    		Material materialSiguiente = (Material)this.verEnPosicion(posicionSiguiente);
+    		
+    		this.jugador.golpear(materialSiguiente);
     	}
-    	catch(ContenedorVacioException e) {
-    		return new MaterialNulo();
-    	}
+    	catch(ContenedorVacioException e) { }
     }
 
 	public Posicion posicionDelJugador(){
