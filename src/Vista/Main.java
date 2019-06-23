@@ -35,53 +35,29 @@ public class Main extends Application {
     }
 
     public void prepararMapa() {
-
-/*        HBox botones = new HBox();
-        botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
-        VBox pantalla = new VBox();
-        pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
+        Image imgVacio = new Image(EligeVistas.getInstance().vacio(), 35, 35, false, false);
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
-    	EligeVistas rutaVistas = EligeVistas.getInstance();
-    	
+
+
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-    	
-    	Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
-    	Button slotMaterial1 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial2 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial3 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial4 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial5 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial6 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial7 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial8 = new Button("", new ImageView(imgVacio));
-    	Button slotMaterial9 = new Button("", new ImageView(imgVacio));
 
     	Text contructorTexto = new Text("Constructor");
     	contructorTexto.setStyle("-fx-font: 24 arial;");
     	menuDerecha.getChildren().add(contructorTexto);
     	
-    	GridPane gridpane = new GridPane();
-    	gridpane.add(slotMaterial1, 0, 0);
-    	gridpane.add(slotMaterial2, 0, 1);
-    	gridpane.add(slotMaterial3, 0, 2);
-    	gridpane.add(slotMaterial4, 1, 0);
-    	gridpane.add(slotMaterial5, 1, 1);
-    	gridpane.add(slotMaterial6, 1, 2);
-    	gridpane.add(slotMaterial7, 2, 0);
-    	gridpane.add(slotMaterial8, 2, 1);
-    	gridpane.add(slotMaterial9, 2, 2);
+        VistaConstructor vistaConstructor = new VistaConstructor();
     	
-    	menuDerecha.getChildren().add(gridpane);
+    	menuDerecha.getChildren().add(vistaConstructor);
     	
-    	Button limpiar = new Button("Limpiar");
+/*    	Button limpiar = new Button("Limpiar");
     	Button crear = new Button("Crear");
     	HBox botonesLimpiarYCrearContenedor = new HBox();
     	botonesLimpiarYCrearContenedor.setSpacing(10);
     	botonesLimpiarYCrearContenedor.getChildren().addAll(limpiar, crear);
-    	menuDerecha.getChildren().add(botonesLimpiarYCrearContenedor);
+    	menuDerecha.getChildren().add(botonesLimpiarYCrearContenedor);*/
     	
     	
     	HBox menuInferior = new HBox();
