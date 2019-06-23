@@ -2,6 +2,7 @@ package Materiales;
 
 import Herramientas.*;
 import Durabilidad.*;
+import Juego.Jugador.Jugador;
 
 
 public class Madera extends Material{
@@ -64,4 +65,9 @@ public class Madera extends Material{
 
 	@Override
 	public boolean esIgual(MaterialNulo material) { return false; }
+
+    public void esGuardadoEn(Jugador j){
+        j.guardar(this);
+    }
+
 }
