@@ -114,7 +114,7 @@ public class Main extends Application {
 					algoCraft.moverJugadorDerecha();
 	        	}
 				
-				if(keyCode.equals(KeyCode.SPACE)) {
+				if(keyCode.equals(KeyCode.G)) {
 					algoCraft.golpearMaterialSiguiente();
 	        	}
 				

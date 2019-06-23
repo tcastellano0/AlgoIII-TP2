@@ -22,7 +22,7 @@ public class Movimiento {
 
 
         } catch (UbicacionInvalidaException e) {
-            invertir();
+
         }
     }
 
