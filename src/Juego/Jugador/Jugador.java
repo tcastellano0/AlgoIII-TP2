@@ -76,11 +76,7 @@ public class Jugador implements Ubicable {
 	
 	public void guardar(Material material) {
 		material.esGuardadoEn(this);
-		//Esta linea hace un StackOverFlow al golpear.
-		//this.guardar(material);
 	}
-	
-	public void guardar(MaterialNulo material) { }
 	
 	public void guardar(Madera material) {
 		this.inventarioDeMateriales.agregar(material);
