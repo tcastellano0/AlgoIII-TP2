@@ -31,24 +31,18 @@ public class VistaMapa extends GridPane {
     private VistaMapa() {
     	this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
     	
-    	dibujarMapa();
-    }
-    
-    public void dibujarMapa() {
-    	
-        int filas = mapa.getFilas();
+    	int filas = mapa.getFilas();
         int columnas = mapa.getColumnas();
+        
+        VistaCelda vistaCelda;
+        
         for (int i = 0; i < filas; i++) {
-            VistaCelda vistaCelda;
             for (int j = 0; j < columnas; j++) {
                 vistaCelda = new VistaCelda(mapa.getCelda(new Posicion(i + 1, j + 1)));
                 this.add(vistaCelda, i, j);
             }
         }
-
-    } 
-
-
+    }
 
     public void actualizar(){
         ObservableList<Node> celdas = this.getChildren();

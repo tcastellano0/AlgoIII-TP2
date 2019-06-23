@@ -5,10 +5,10 @@ import Juego.Jugador.Movimiento;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
-import Materiales.Diamante;
-import Materiales.Madera;
-import Materiales.Metal;
-import Materiales.Piedra;
+import Juego.Mapa.ContenedorVacioException;
+
+import Materiales.*;
+import javafx.scene.input.KeyCode;
 
 public class AlgoCraft {
 
@@ -155,9 +155,39 @@ public class AlgoCraft {
     public Ubicable verEnPosicion(Posicion pos){
 		return this.mapa.ver(pos);
 	}
+    
+    public Material getMaterialParaGolpear() {
+    	Posicion posicionSiguiente = this.posicionSiguenteDelJugador();
+    	try {
+    		return (Material)this.verEnPosicion(posicionSiguiente); 
+    	}
+    	catch(ContenedorVacioException e) {
+    		return new MaterialNulo();
+    	}
+    }
 
 	public Posicion posicionDelJugador(){
 		return jugador.getPosicion();
+	}
+	
+	public Posicion posicionSiguenteDelJugador() {
+		return jugador.getPosicionSiguiente();
+	}
+	
+	public void moverJugadorArriba() {
+		this.jugador.moverArriba();
+	}
+
+	public void moverJugadorAbajo() {
+		this.jugador.moverAbajo();
+	}
+	
+	public void moverJugadorIzquierda() {
+		this.jugador.moverIzquierda();
+	}
+	
+	public void moverJugadorDerecha() {
+		this.jugador.moverDerecha();
 	}
 
 }
