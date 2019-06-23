@@ -115,7 +115,7 @@ public class JugadorTest {
 		assertEquals(jugador.cantidadDeMateriales(), cantidadMateriales);
 	}
 	
-	/*
+
 	@Test
 	public void testJugadorGolpeaMaderaConHachaDeMaderaCincoVecesYSeGuardaLaMadera() {
 		Jugador jugador = new Jugador();
@@ -130,6 +130,5 @@ public class JugadorTest {
 
 		assertEquals(jugador.cantidadDeMateriales(), cantidadMateriales + 1);
 	}
-	*/
 	
 }

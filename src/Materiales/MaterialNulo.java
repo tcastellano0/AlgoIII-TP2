@@ -7,6 +7,7 @@ import Herramientas.GolpeadorPicoDeMadera;
 import Herramientas.GolpeadorPicoDeMetal;
 import Herramientas.GolpeadorPicoDePiedra;
 import Herramientas.GolpeadorPicoFino;
+import Juego.Jugador.Jugador;
 
 public class MaterialNulo extends Material {
 	
@@ -53,6 +54,12 @@ public class MaterialNulo extends Material {
 	
 	@Override
 	public boolean esIgual(MaterialNulo material) { return true; }
+
+
+	public void esGuardadoEn(Jugador j) {
+		return;
+	}
+
 
 
 }

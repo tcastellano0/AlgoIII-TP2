@@ -2,6 +2,7 @@ package Materiales;
 
 import Herramientas.*;
 import Durabilidad.*;
+import Juego.Jugador.Jugador;
 import Juego.Mapa.Ubicable;
 import Juego.Mapa.Posicion;
 
@@ -69,5 +70,7 @@ public abstract class Material implements Golpeable, Ubicable {
 	public abstract boolean esIgual(Diamante material);
 	
 	public abstract boolean esIgual(MaterialNulo material);
+
+	public abstract void esGuardadoEn(Jugador j);
 
 }
