@@ -319,6 +319,6 @@ public class MovimientoTest {
 
         assertEquals(posicion, jugador.getPosicion());
     }
-    
+
 
 }
