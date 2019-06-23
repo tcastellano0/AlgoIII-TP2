@@ -3,7 +3,7 @@ package Juego.Jugador;
 import Herramientas.Herramienta;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Ubicable;
-import Materiales.Material;
+import Materiales.*;
 
 public class Jugador implements Ubicable {
 	
@@ -45,8 +45,16 @@ public class Jugador implements Ubicable {
 		return (this.inventarioDeMateriales.cantidad());
 	}
 	
+	public void agregarHerramienta(Herramienta herramienta) {
+		this.inventarioDeHerramientas.agregar(herramienta);
+	}
+	
 	public Herramienta herramientaEquipada() {
 		return (this.herramientaEquipada);
+	}
+	
+	public void equiparConUltimaHerramienta() {
+		this.herramientaEquipada = this.ultimaHerramientaObtenida();
 	}
 	
 	public Herramienta ultimaHerramientaObtenida() {
@@ -59,6 +67,34 @@ public class Jugador implements Ubicable {
 
 	public void setPosicion(Posicion nuevaPosicion) {
 		this.posicion = nuevaPosicion;
+	}
+	
+	public void golpear(Material material) {
+		this.herramientaEquipada.golpear(material);	
+		this.guardar(material.recolectar());
+	}
+	
+	public void guardar(Material material) {
+		//Esta linea hace un StackOverFlow al golpear.
+		//this.guardar(material);
+	}
+	
+	public void guardar(MaterialNulo material) { }
+	
+	public void guardar(Madera material) {
+		this.inventarioDeMateriales.agregar(material);
+	}
+	
+	public void guardar(Metal material) {
+		this.inventarioDeMateriales.agregar(material);
+	}
+	
+	public void guardar(Piedra material) {
+		this.inventarioDeMateriales.agregar(material);
+	}
+	
+	public void guardar(Diamante material) {
+		this.inventarioDeMateriales.agregar(material);
 	}
 
 }
