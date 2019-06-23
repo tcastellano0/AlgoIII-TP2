@@ -7,18 +7,22 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 public class DiamanteTest {
-
+	
+	private void golpearCincoVecesElMaterialCon(Diamante diamante, Golpeador golpeadorHerramienta) {
+		diamante.golpeadoPor(golpeadorHerramienta);
+		diamante.golpeadoPor(golpeadorHerramienta);
+		diamante.golpeadoPor(golpeadorHerramienta);
+		diamante.golpeadoPor(golpeadorHerramienta);
+		diamante.golpeadoPor(golpeadorHerramienta);
+	}
+	
 	@Test
     public void test01DiamanteEsGolpeadoCincoVecesPorHachaDeMaderaYSuDurabilidadSigueIgual() {
         Diamante diamante = new Diamante();
         GolpeadorHachaDeMadera hachaDeMadera = new GolpeadorHachaDeMadera();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(hachaDeMadera);
-        diamante.golpeadoPor(hachaDeMadera);
-        diamante.golpeadoPor(hachaDeMadera);
-        diamante.golpeadoPor(hachaDeMadera);
-        diamante.golpeadoPor(hachaDeMadera);
+        this.golpearCincoVecesElMaterialCon(diamante, hachaDeMadera);
 
         assertEquals(diamante.getDurabilidad(), durabilidad, 0);
     }
@@ -29,11 +33,7 @@ public class DiamanteTest {
         GolpeadorHachaDePiedra hachaDePiedra = new GolpeadorHachaDePiedra();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(hachaDePiedra);
-        diamante.golpeadoPor(hachaDePiedra);
-        diamante.golpeadoPor(hachaDePiedra);
-        diamante.golpeadoPor(hachaDePiedra);
-        diamante.golpeadoPor(hachaDePiedra);
+        this.golpearCincoVecesElMaterialCon(diamante, hachaDePiedra);
 
         assertEquals(diamante.getDurabilidad(), durabilidad, 0);
     }
@@ -44,11 +44,7 @@ public class DiamanteTest {
         GolpeadorHachaDeMetal hachaDeMetal = new GolpeadorHachaDeMetal();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(hachaDeMetal);
-        diamante.golpeadoPor(hachaDeMetal);
-        diamante.golpeadoPor(hachaDeMetal);
-        diamante.golpeadoPor(hachaDeMetal);
-        diamante.golpeadoPor(hachaDeMetal);
+        this.golpearCincoVecesElMaterialCon(diamante, hachaDeMetal);
 
         assertEquals(diamante.getDurabilidad(), durabilidad, 0);
     }
@@ -59,11 +55,7 @@ public class DiamanteTest {
         GolpeadorPicoDeMadera picoDeMadera = new GolpeadorPicoDeMadera();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(picoDeMadera);
-        diamante.golpeadoPor(picoDeMadera);
-        diamante.golpeadoPor(picoDeMadera);
-        diamante.golpeadoPor(picoDeMadera);
-        diamante.golpeadoPor(picoDeMadera);
+        this.golpearCincoVecesElMaterialCon(diamante, picoDeMadera);
 
         assertEquals(diamante.getDurabilidad(), durabilidad, 0);
     }
@@ -74,11 +66,7 @@ public class DiamanteTest {
         GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
+        this.golpearCincoVecesElMaterialCon(diamante, picoDePiedra);
 
         assertEquals(diamante.getDurabilidad(), durabilidad, 0);
     }
@@ -86,16 +74,12 @@ public class DiamanteTest {
     @Test
     public void test06DiamanteEsGolpeadoCincoVecesPorPicoDeMetalYSeReduceSuDurabilidadIgualALaFuerzaDelPico(){
         Diamante diamante = new Diamante();
-        GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra();
+        GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
-        diamante.golpeadoPor(picoDePiedra);
+        this.golpearCincoVecesElMaterialCon(diamante, picoDeMetal);
 
-        assertEquals(diamante.getDurabilidad(), durabilidad, 0);
+        assertEquals(diamante.getDurabilidad(), durabilidad - (picoDeMetal.getFuerza() * 5), 0);
     }
 
     @Test
@@ -115,11 +99,7 @@ public class DiamanteTest {
         GolpeadorPicoFino picoFino = new GolpeadorPicoFino();
         double durabilidad = diamante.getDurabilidad();
 
-        diamante.golpeadoPor(picoFino);
-        diamante.golpeadoPor(picoFino);
-        diamante.golpeadoPor(picoFino);
-        diamante.golpeadoPor(picoFino);
-        diamante.golpeadoPor(picoFino);
+        this.golpearCincoVecesElMaterialCon(diamante, picoFino);
 
         assertEquals(diamante.getDurabilidad(), durabilidad - (picoFino.getFuerza() * 5), 0);
     }
@@ -163,6 +143,22 @@ public class DiamanteTest {
         MaterialNulo material2 = new MaterialNulo();
 
         assertFalse(material1.esIgual(material2));
+    }
+    
+    @Test
+    public void testAlRecolectarDiamanteConDurabilidadDevuelveMaterialNulo() {
+    	Diamante diamante = new Diamante();
+
+        assertFalse(diamante.esIgual(diamante.recolectar()));
+    }
+    
+    @Test
+    public void testAlRecolectarDiamanteSinDurabilidadDevuelveElDiamante() {
+    	Diamante diamante = new Diamante();
+        
+        this.golpearCincoVecesElMaterialCon(diamante, new GolpeadorPicoFino());
+
+        assertTrue(diamante.esIgual(diamante.recolectar()));
     }
 
 }

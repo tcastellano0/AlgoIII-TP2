@@ -10,6 +10,10 @@ public class MetalTest {
 
     public void golpearCincoVecesElMaterialCon(Material material, Golpeador golpeador){
         material.golpeadoPor(golpeador);
+        material.golpeadoPor(golpeador);
+        material.golpeadoPor(golpeador);
+        material.golpeadoPor(golpeador);
+        material.golpeadoPor(golpeador);
     }
 
 	@Test
@@ -62,11 +66,7 @@ public class MetalTest {
         GolpeadorPicoDePiedra picoDePiedra = new GolpeadorPicoDePiedra();
         double durabilidad = metal.getDurabilidad();
 
-        metal.golpeadoPor(picoDePiedra);
-        metal.golpeadoPor(picoDePiedra);
-        metal.golpeadoPor(picoDePiedra);
-        metal.golpeadoPor(picoDePiedra);
-        metal.golpeadoPor(picoDePiedra);
+        this.golpearCincoVecesElMaterialCon(metal, picoDePiedra);
 
         assertEquals(metal.getDurabilidad(), durabilidad - (picoDePiedra.getFuerza() * 5), 0);
     }
@@ -77,11 +77,7 @@ public class MetalTest {
         GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal();
         double durabilidad = metal.getDurabilidad();
 
-        metal.golpeadoPor(picoDeMetal);
-        metal.golpeadoPor(picoDeMetal);
-        metal.golpeadoPor(picoDeMetal);
-        metal.golpeadoPor(picoDeMetal);
-        metal.golpeadoPor(picoDeMetal);
+        this.golpearCincoVecesElMaterialCon(metal, picoDeMetal);
 
         assertEquals(metal.getDurabilidad(), durabilidad - (picoDeMetal.getFuerza() * 5), 0);
     }
@@ -92,11 +88,7 @@ public class MetalTest {
         GolpeadorPicoFino picoFino = new GolpeadorPicoFino();
         double durabilidad = metal.getDurabilidad();
 
-        metal.golpeadoPor(picoFino);
-        metal.golpeadoPor(picoFino);
-        metal.golpeadoPor(picoFino);
-        metal.golpeadoPor(picoFino);
-        metal.golpeadoPor(picoFino);
+        this.golpearCincoVecesElMaterialCon(metal, picoFino);
 
         assertEquals(metal.getDurabilidad(), durabilidad - (picoFino.getFuerza() * 5), 0);
     }
@@ -142,5 +134,22 @@ public class MetalTest {
         assertFalse(material1.esIgual(material2));
     }
 
+    @Test
+    public void testAlRecolectarMetalConDurabilidadDevuelveMaterialNulo() {
+    	Metal metal = new Metal();
+
+        assertFalse(metal.esIgual(metal.recolectar()));
+    }
+    
+    @Test
+    public void testAlRecolectarMetalSinDurabilidadDevuelveElMetal() {
+    	Metal metal = new Metal();
+        
+        this.golpearCincoVecesElMaterialCon(metal, new GolpeadorPicoFino());
+
+        assertTrue(metal.esIgual(metal.recolectar()));
+    }
+
+    
 
 }

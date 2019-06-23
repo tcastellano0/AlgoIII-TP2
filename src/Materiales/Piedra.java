@@ -8,6 +8,14 @@ public class Piedra extends Material {
     public Piedra() {
         this.durabilidad = new DurabilidadConFactor(1, 30);
     }
+    
+    @Override
+	public Material recolectar() {
+		if(this.getDurabilidad() <= 0)
+			return this;
+		
+		return new MaterialNulo();
+	}
 
     @Override	
     public void golpeadoPor(GolpeadorHachaDeMadera golpeador) { }

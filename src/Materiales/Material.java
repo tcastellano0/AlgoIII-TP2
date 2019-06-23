@@ -28,6 +28,8 @@ public abstract class Material implements Golpeable, Ubicable {
 	public void desgastar(int fuerzaDesgaste) {
 		this.durabilidad.desgastar(fuerzaDesgaste);
 	}
+	
+	public abstract Material recolectar();
 
 	@Override
 	public void golpeadoPor(Golpeador golpeador) {

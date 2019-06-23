@@ -2,6 +2,7 @@ package Materiales;
 
 import Herramientas.*;
 import Durabilidad.*;
+import Materiales.MaterialNulo;
 
 
 public class Diamante extends Material {
@@ -9,6 +10,14 @@ public class Diamante extends Material {
 	public Diamante() {
         this.durabilidad = new DurabilidadConFactor(1, 100);
     }
+	
+	@Override
+	public Material recolectar() {
+		if(this.getDurabilidad() <= 0)
+			return this;
+		
+		return new MaterialNulo();
+	}
 	
 	@Override
 	public void golpeadoPor(GolpeadorHachaDeMadera golpeador) { }

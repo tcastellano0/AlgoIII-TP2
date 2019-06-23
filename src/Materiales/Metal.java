@@ -10,6 +10,14 @@ public class Metal extends Material {
     }
 	
 	@Override
+	public Material recolectar() {
+		if(this.getDurabilidad() <= 0)
+			return this;
+		
+		return new MaterialNulo();
+	}
+	
+	@Override
 	public void golpeadoPor(GolpeadorHachaDeMadera golpeador) { }
 
 	@Override

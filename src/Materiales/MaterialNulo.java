@@ -9,6 +9,9 @@ import Herramientas.GolpeadorPicoDePiedra;
 import Herramientas.GolpeadorPicoFino;
 
 public class MaterialNulo extends Material {
+	
+	@Override
+	public Material recolectar() { return this; }
 
 	@Override
 	public void golpeadoPor(GolpeadorHachaDeMadera golpeador) { }
