@@ -6,11 +6,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 
 public class VistaConstructor extends VBox {
     private EligeVistas rutaVistas = EligeVistas.getInstance();
 
     public VistaConstructor() {
+        Text contructorTexto = new Text("Constructor");
+        contructorTexto.setStyle("-fx-font: 24 arial;");
+        getChildren().add(contructorTexto);
+
         Button limpiar = new Button("Limpiar");
         Button crear = new Button("Crear");
         HBox botonesLimpiarYCrearContenedor = new HBox();
@@ -41,6 +46,7 @@ public class VistaConstructor extends VBox {
         slots.add(slotMaterial8, 2, 1);
         slots.add(slotMaterial9, 2, 2);
 
+        getChildren().add(slots);
 
 
     }

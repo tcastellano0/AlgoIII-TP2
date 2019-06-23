@@ -43,22 +43,10 @@ public class Main extends Application {
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-
-    	Text contructorTexto = new Text("Constructor");
-    	contructorTexto.setStyle("-fx-font: 24 arial;");
-    	menuDerecha.getChildren().add(contructorTexto);
     	
         VistaConstructor vistaConstructor = new VistaConstructor();
-    	
     	menuDerecha.getChildren().add(vistaConstructor);
-    	
-/*    	Button limpiar = new Button("Limpiar");
-    	Button crear = new Button("Crear");
-    	HBox botonesLimpiarYCrearContenedor = new HBox();
-    	botonesLimpiarYCrearContenedor.setSpacing(10);
-    	botonesLimpiarYCrearContenedor.getChildren().addAll(limpiar, crear);
-    	menuDerecha.getChildren().add(botonesLimpiarYCrearContenedor);*/
-    	
+
     	
     	HBox menuInferior = new HBox();
     	menuInferior.setPadding(new Insets(10, 10, 10, 10));
