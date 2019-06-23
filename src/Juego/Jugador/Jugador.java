@@ -64,6 +64,10 @@ public class Jugador implements Ubicable {
 	public Posicion getPosicion() {
 		return this.posicion;
 	}
+	
+	public Posicion getPosicionSiguiente() {
+		return this.movimiento.getPosicionSiguiente(this.getPosicion());
+	}
 
 	public void setPosicion(Posicion nuevaPosicion) {
 		this.posicion = nuevaPosicion;
@@ -76,8 +80,6 @@ public class Jugador implements Ubicable {
 	
 	public void guardar(Material material) {
 		material.esGuardadoEn(this);
-		//Esta linea hace un StackOverFlow al golpear.
-		//this.guardar(material);
 	}
 	
 	public void guardar(MaterialNulo material) { }
