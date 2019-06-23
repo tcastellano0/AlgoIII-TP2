@@ -5,6 +5,7 @@ import Juego.Jugador.Movimiento;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
+import Juego.Mapa.UbicacionInvalidaException;
 import Juego.Mapa.ContenedorVacioException;
 
 import Materiales.*;
@@ -163,7 +164,9 @@ public class AlgoCraft {
 
     		sacarMaterialRoto(posicionSiguiente, materialSiguiente);
     	}
-    	catch(ContenedorVacioException e) { }
+    	catch (ContenedorVacioException e) { }
+    	catch (NullPointerException e) { }
+    	catch (ClassCastException e) { }
     }
 
     private void sacarMaterialRoto(Posicion pos, Material mat){
