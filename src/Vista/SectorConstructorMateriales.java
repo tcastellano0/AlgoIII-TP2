@@ -1,6 +1,5 @@
 package Vista;
 
-import Juego.Mapa.Ubicable;
 import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
@@ -81,7 +80,7 @@ public class SectorConstructorMateriales extends VBox {
 
     private void agregarIngresoParaConstruccion(){
         TextField filaField = new TextField();
-        
+
         filaField.setPrefHeight(40);
         getChildren().add(filaField);
 

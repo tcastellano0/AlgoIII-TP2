@@ -1,6 +1,10 @@
 package Vista;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
@@ -37,6 +41,34 @@ public class SectorConstructor extends VBox {
         Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
         GridPane slots = new GridPane();
         Button slotMaterial00 = new Button("", new ImageView(imgVacio));
+
+
+        ContextMenu contextMenu = new ContextMenu();
+        MenuItem ponerMadera = new MenuItem("Poner Madera");
+        ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                //Jugador SACAR MADERA
+                //PONER MADERA EN ESQUEMA HERRAMIENTAS
+                slotMaterial00.setBackground(new Background(backgroundImageMadera()));
+            }
+        });
+        MenuItem ponerPiedra = new MenuItem("Poner Piedra");
+        ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                //Jugador SACAR PIEDRA
+                //PONER PIEDRA EN ESQUEMA HERRAMIENTAS
+                slotMaterial00.setBackground(new Background(backgroundImagePiedra()));
+            }
+        });
+        MenuItem ponerMetal = new MenuItem("Poner Metal");
+        MenuItem ponerDiamante = new MenuItem("Poner Diamante");
+        contextMenu.getItems().addAll(ponerMadera, ponerPiedra, ponerMetal, ponerDiamante);
+        slotMaterial00.setContextMenu(contextMenu);
+
         Button slotMaterial01 = new Button("", new ImageView(imgVacio));
         Button slotMaterial02 = new Button("", new ImageView(imgVacio));
         Button slotMaterial10 = new Button("", new ImageView(imgVacio));
@@ -67,23 +99,23 @@ public class SectorConstructor extends VBox {
     //
     //button.setBackground(new Background(this.backgroundImageMadera()));
 
-    private static BackgroundImage backgroundImageMadera(){
+    private BackgroundImage backgroundImageMadera(){
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_madera.png");
     }
 
-    private static BackgroundImage backgroundImagePiedra(){
+    private BackgroundImage backgroundImagePiedra(){
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_piedra.png");
     }
 
-    private static BackgroundImage backgroundImageMetal(){
+    private BackgroundImage backgroundImageMetal(){
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_metal.png");
     }
 
-    private static BackgroundImage backgroundImageDiamante(){
+    private BackgroundImage backgroundImageDiamante(){
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_vacio.png");
     }
 
-    private static BackgroundImage imageViewPorString(String str){
+    private BackgroundImage imageViewPorString(String str){
         BackgroundSize bSize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false);
         Image img = new Image(str,25,25,false,false);
         return new BackgroundImage(img,
