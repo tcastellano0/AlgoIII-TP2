@@ -1,13 +1,13 @@
 package Juego.Jugador;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class Inventario<T> {
 	
-	private ArrayList<T> listaDeItems;
+	private LinkedList<T> listaDeItems;
 	
 	public Inventario() {
-		this.listaDeItems = new ArrayList<T>(); 
+		this.listaDeItems = new LinkedList<T>();
 	}
 	
 	public void agregar(T item) {
@@ -19,7 +19,7 @@ public class Inventario<T> {
 	}
 	
 	public T ultimoItemAgregado() {
-		return this.listaDeItems.get(listaDeItems.size() - 1);
+		return this.listaDeItems.getLast();
 	}
 
 }
