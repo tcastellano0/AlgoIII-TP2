@@ -1,5 +1,6 @@
 package Vista;
 
+import Juego.Jugador.Jugador;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -19,6 +20,8 @@ public class VistaInventarioHerramientas extends HBox {
     }
 
     private void agregarBotonesHerramientas(){
+        VistaHerramientaEquipada herramientaEquipada = new VistaHerramientaEquipada(new Jugador());
+
         Image imgVacio = new Image(EligeVistas.getInstance().vacio(), 35, 35, false, false);
 
         Button slotHerramienta1 = new Button("", new ImageView(imgVacio));
@@ -42,7 +45,7 @@ public class VistaInventarioHerramientas extends HBox {
         //        slotHerramienta3, cantidadHachaMetal, slotHerramienta4, cantidadPicoMadera,
         //        slotHerramienta5,cantidadPicoPiedra, slotHerramienta6, cantidadPicoMetal,
         //        slotHerramienta7, cantidadPicoFino);
-        getChildren().addAll(slotHerramienta1, cantHerramienta1, slotHerramienta2,
+        getChildren().addAll(herramientaEquipada, slotHerramienta1, cantHerramienta1, slotHerramienta2,
                 slotHerramienta3,  slotHerramienta4,
                 slotHerramienta5, slotHerramienta6,
                 slotHerramienta7);
