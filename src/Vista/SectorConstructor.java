@@ -42,35 +42,8 @@ public class SectorConstructor extends VBox {
     private void agregarSlots() {
         Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
         GridPane slots = new GridPane();
+        
         Button slotMaterial00 = new Button("", new ImageView(imgVacio));
-
-
-        ContextMenu contextMenu = new ContextMenu();
-        MenuItem ponerMadera = new MenuItem("Poner Madera");
-        ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                //Jugador SACAR MADERA
-                //PONER MADERA EN ESQUEMA HERRAMIENTAS
-                slotMaterial00.setBackground(new Background(backgroundImageMadera()));
-            }
-        });
-        MenuItem ponerPiedra = new MenuItem("Poner Piedra");
-        ponerPiedra.setOnAction(new EventHandler<ActionEvent>() {
-
-            @Override
-            public void handle(ActionEvent event) {
-                //Jugador SACAR PIEDRA
-                //PONER PIEDRA EN ESQUEMA HERRAMIENTAS
-                slotMaterial00.setBackground(new Background(backgroundImagePiedra()));
-            }
-        });
-        MenuItem ponerMetal = new MenuItem("Poner Metal");
-        MenuItem ponerDiamante = new MenuItem("Poner Diamante");
-        contextMenu.getItems().addAll(ponerMadera, ponerPiedra, ponerMetal, ponerDiamante);
-        slotMaterial00.setContextMenu(contextMenu);
-
         Button slotMaterial01 = new Button("", new ImageView(imgVacio));
         Button slotMaterial02 = new Button("", new ImageView(imgVacio));
         Button slotMaterial10 = new Button("", new ImageView(imgVacio));
@@ -80,6 +53,16 @@ public class SectorConstructor extends VBox {
         Button slotMaterial21 = new Button("", new ImageView(imgVacio));
         Button slotMaterial22 = new Button("", new ImageView(imgVacio));
 
+        slotMaterial00.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial00));
+        slotMaterial01.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial01));
+        slotMaterial02.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial02));
+        slotMaterial10.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial10));
+        slotMaterial11.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial11));
+        slotMaterial12.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial12));
+        slotMaterial20.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial20));
+        slotMaterial21.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial21));
+        slotMaterial22.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial22));
+        
         slots.add(slotMaterial00, 0, 0);
         slots.add(slotMaterial01, 0, 1);
         slots.add(slotMaterial02, 0, 2);
@@ -101,6 +84,56 @@ public class SectorConstructor extends VBox {
         getChildren().add(new SectorConstructorMateriales(new Jugador()));
     }
 
+    
+    private ContextMenu getContextMenuConstruccionParaSlot(Button btnSlot) {
+    	
+    	ContextMenu contextMenu = new ContextMenu();
+        
+        MenuItem ponerMadera = new MenuItem("Poner Madera");
+        ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                //Jugador SACAR MADERA
+                //PONER MADERA EN ESQUEMA HERRAMIENTAS
+            	btnSlot.setBackground(new Background(backgroundImageMadera()));
+            }
+        });
+        
+        MenuItem ponerPiedra = new MenuItem("Poner Piedra");
+        ponerPiedra.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+                //Jugador SACAR PIEDRA
+                //PONER PIEDRA EN ESQUEMA HERRAMIENTAS
+            	btnSlot.setBackground(new Background(backgroundImagePiedra()));
+            }
+        });
+        
+        MenuItem ponerMetal = new MenuItem("Poner Metal");
+        ponerMetal.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            	btnSlot.setBackground(new Background(backgroundImageMetal()));
+            }
+        });
+        
+        MenuItem ponerDiamante = new MenuItem("Poner Diamante");
+        ponerDiamante.setOnAction(new EventHandler<ActionEvent>() {
+
+            @Override
+            public void handle(ActionEvent event) {
+            	btnSlot.setBackground(new Background(backgroundImageDiamante()));
+            }
+        });
+        
+        contextMenu.getItems().addAll(ponerMadera, ponerPiedra, ponerMetal, ponerDiamante);
+    	
+        return contextMenu;
+    }
+    
     //
     //button.setBackground(new Background(this.backgroundImageMadera()));
 
@@ -117,7 +150,7 @@ public class SectorConstructor extends VBox {
     }
 
     private BackgroundImage backgroundImageDiamante(){
-        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_vacio.png");
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
     }
 
     private BackgroundImage imageViewPorString(String str){
