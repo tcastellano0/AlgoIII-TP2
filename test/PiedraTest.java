@@ -1,21 +1,19 @@
 import Herramientas.*;
 import Materiales.*;
-
 import org.junit.Test;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
+
+import static org.junit.Assert.*;
 
 public class PiedraTest {
 
-	private void golpearCincoVecesElMaterialCon(Piedra piedra, Golpeador golpeadorHerramienta) {
-		piedra.golpeadoPor(golpeadorHerramienta);
-		piedra.golpeadoPor(golpeadorHerramienta);
-		piedra.golpeadoPor(golpeadorHerramienta);
-		piedra.golpeadoPor(golpeadorHerramienta);
-		piedra.golpeadoPor(golpeadorHerramienta);
-	}
-	
+    private void golpearCincoVecesElMaterialCon(Piedra piedra, Golpeador golpeadorHerramienta) {
+        piedra.golpeadoPor(golpeadorHerramienta);
+        piedra.golpeadoPor(golpeadorHerramienta);
+        piedra.golpeadoPor(golpeadorHerramienta);
+        piedra.golpeadoPor(golpeadorHerramienta);
+        piedra.golpeadoPor(golpeadorHerramienta);
+    }
+
     @Test
     public void test01PiedraEsGolpeadaPorPicoDeMaderaYSeReduceSuDurabilidadIgualALaFuerzaDelPico() {
         Piedra piedra = new Piedra();
@@ -125,7 +123,7 @@ public class PiedraTest {
 
         assertFalse(material1.esIgual(material2));
     }
-    
+
     @Test
     public void testPiedraNoEsIgualAMaterialNulo() {
         Piedra material1 = new Piedra();
@@ -140,13 +138,13 @@ public class PiedraTest {
 
         assertFalse(piedra.esIgual(piedra.recolectar()));
     }
-    
+
     @Test
     public void testAlRecolectarPiedraSinDurabilidadDevuelveLaPiedra() {
-    	Piedra piedra = new Piedra();
-        
+        Piedra piedra = new Piedra();
+
         this.golpearCincoVecesElMaterialCon(piedra, new GolpeadorPicoFino());
 
         assertTrue(piedra.esIgual(piedra.recolectar()));
-    }    
+    }
 }

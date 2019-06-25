@@ -48,7 +48,7 @@ public class Main extends Application {
     	menuDerecha.getChildren().add(vistaConstructor);
 
     	
-    	HBox menuInferior = new HBox();
+/*    	HBox menuInferior = new HBox();
     	menuInferior.setPadding(new Insets(10, 10, 10, 10));
     	menuInferior.setSpacing(25);
     	
@@ -65,10 +65,12 @@ public class Main extends Application {
     	menuInferior.getChildren().add(herramientasTexto);
     	
     	menuInferior.getChildren().addAll(slotHerramienta1,slotHerramienta2,slotHerramienta3,slotHerramienta4,slotHerramienta5,slotHerramienta6,slotHerramienta7);
-    	
+    	*/
+
+        VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas();
     	BorderPane borderpane = new BorderPane();
     	borderpane.setRight(menuDerecha);
-    	borderpane.setBottom(menuInferior);
+    	borderpane.setBottom(herramientas);
     	borderpane.setCenter(VistaMapa.getInstancia());
     	
         escenaJuego = new Scene(borderpane);
