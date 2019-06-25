@@ -7,10 +7,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 
@@ -41,8 +39,8 @@ public class Main extends Application {
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-        VistaConstructor vistaConstructor = new VistaConstructor();
-    	menuDerecha.getChildren().add(vistaConstructor);
+        SectorConstructor sectorConstructor = new SectorConstructor();
+    	menuDerecha.getChildren().add(sectorConstructor);
 
         VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas();
     	BorderPane borderpane = new BorderPane();

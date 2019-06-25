@@ -6,16 +6,15 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
-public class VistaConstructor extends VBox {
+public class SectorConstructor extends VBox {
 
     private EligeVistas rutaVistas = EligeVistas.getInstance();
 
-    public VistaConstructor() {
+    public SectorConstructor() {
         setTitulo();
-
-
         agregarBotones();
         agregarSlots();
+        agregarSectorMateriales();
     }
 
 
@@ -61,23 +60,27 @@ public class VistaConstructor extends VBox {
     }
 
 
+    private void agregarSectorMateriales(){
+        getChildren().add(new SectorConstructorMateriales(this));
+    }
+
     //
     //button.setBackground(new Background(this.backgroundImageMadera()));
 
     private static BackgroundImage backgroundImageMadera(){
-        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_madera.png");
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_madera.png");
     }
 
     private static BackgroundImage backgroundImagePiedra(){
-        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_piedra.png");
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_piedra.png");
     }
 
     private static BackgroundImage backgroundImageMetal(){
-        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_metal.png");
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_metal.png");
     }
 
     private static BackgroundImage backgroundImageDiamante(){
-        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_vacio.png");
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_vacio.png");
     }
 
     private static BackgroundImage imageViewPorString(String str){
