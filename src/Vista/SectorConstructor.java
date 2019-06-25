@@ -26,7 +26,10 @@ public class SectorConstructor extends VBox {
         agregarBotones();
         agregarSectorMateriales();
     }
-
+    
+    public void actualizar() {
+    	this.sectorConstruccionMateriales.actualizar();
+    }
 
     private void setTitulo() {
         Text contructorTexto = new Text("Constructor");
@@ -86,12 +89,7 @@ public class SectorConstructor extends VBox {
     	
         getChildren().add(this.sectorConstruccionMateriales);
     }
-    
-    public void actualizarSectorConstruccion() {
-    	this.sectorConstruccionMateriales.actualizarCantidadMateriales();
-    }
 
-    
     private ContextMenu getContextMenuConstruccionParaSlot(Button btnSlot) {
     	
     	ContextMenu contextMenu = new ContextMenu();

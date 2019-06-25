@@ -32,24 +32,24 @@ public class SectorConstructorMateriales extends VBox {
         txtMadera.setStyle("-fx-font: 20 arial;");
         
         txtPiedra = new Text(); 
-        txtPiedra.setText("Madera: " + jugador.cantidadDePiedras());
+        txtPiedra.setText("Piedra: " + jugador.cantidadDePiedras());
         txtPiedra.setStyle("-fx-font: 20 arial;");
         
         txtMetal = new Text(); 
-        txtMetal.setText("Madera: " + jugador.cantidadDeMetales());
+        txtMetal.setText("Metal: " + jugador.cantidadDeMetales());
         txtMetal.setStyle("-fx-font: 20 arial;");
         
         txtDiamante = new Text(); 
-        txtDiamante.setText("Madera: " + jugador.cantidadDeDiamantes());
+        txtDiamante.setText("Diamante: " + jugador.cantidadDeDiamantes());
         txtDiamante.setStyle("-fx-font: 20 arial;");
         
-        agregarPanelMateriales(txtMadera, "Vista/images/MaterialesPanelConstruccion/cons_madera.png");
-        agregarPanelMateriales(txtPiedra, "Vista/images/MaterialesPanelConstruccion/cons_piedra.png");
-        agregarPanelMateriales(txtMetal, "Vista/images/MaterialesPanelConstruccion/cons_metal.png");
-        agregarPanelMateriales(txtDiamante, "Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
+        agregarPanelDeMaterial(txtMadera, "Vista/images/MaterialesPanelConstruccion/cons_madera.png");
+        agregarPanelDeMaterial(txtPiedra, "Vista/images/MaterialesPanelConstruccion/cons_piedra.png");
+        agregarPanelDeMaterial(txtMetal, "Vista/images/MaterialesPanelConstruccion/cons_metal.png");
+        agregarPanelDeMaterial(txtDiamante, "Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
     }
 
-    private void agregarPanelMateriales(Text txtMaterial, String srcImagen) {
+    private void agregarPanelDeMaterial(Text txtMaterial, String srcImagen) {
         HBox panelH = new HBox();
         panelH.setSpacing(10);
         StackPane panelImagen = new StackPane();
@@ -59,11 +59,11 @@ public class SectorConstructorMateriales extends VBox {
         getChildren().add(panelH);
     }
     
-    public void actualizarCantidadMateriales() {
+    public void actualizar() {
         this.txtMadera.setText("Madera: " + this.jugador.cantidadDeMaderas());
-        this.txtPiedra.setText("Madera: " + this.jugador.cantidadDePiedras());
-        this.txtMetal.setText("Madera: " + this.jugador.cantidadDeMetales());
-        this.txtDiamante.setText("Madera: " + this.jugador.cantidadDeDiamantes());
+        this.txtPiedra.setText("Piedra: " + this.jugador.cantidadDePiedras());
+        this.txtMetal.setText("Metal: " + this.jugador.cantidadDeMetales());
+        this.txtDiamante.setText("Diamante: " + this.jugador.cantidadDeDiamantes());
     }
 
 }

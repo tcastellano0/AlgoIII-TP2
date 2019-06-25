@@ -72,7 +72,7 @@ public class Main extends Application {
 				if(keyCode.equals(KeyCode.G)) {
 					algoCraft.golpearMaterialSiguiente();
 					
-					sectorConstructor.actualizarSectorConstruccion();
+					sectorConstructor.actualizar();
 	        	}
 				
 				
