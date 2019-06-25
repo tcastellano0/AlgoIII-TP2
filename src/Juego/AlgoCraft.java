@@ -169,7 +169,7 @@ public class AlgoCraft {
 
     private void sacarMaterialRoto(Posicion pos, Material mat){
 		if (mat.getDurabilidad() <= 0) {
-			System.out.println(mat.getDurabilidad());
+
 			this.mapa.sacar(pos);
 		}
 	}
