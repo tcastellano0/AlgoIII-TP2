@@ -33,8 +33,8 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
         this.tablero.poner(material, new Posicion(fila, columna));
     }
 
-    public Material sacar(Posicion pos){
-        return this.tablero.sacar(pos);
+    public Material sacar(int fila, int columna){
+        return this.tablero.sacar(new Posicion(fila, columna));
     }
 
 

@@ -3,12 +3,11 @@ package Vista;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 
 public class VistaConstructor extends VBox {
+
     private EligeVistas rutaVistas = EligeVistas.getInstance();
 
     public VistaConstructor() {
@@ -38,26 +37,58 @@ public class VistaConstructor extends VBox {
     private void agregarSlots() {
         Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
         GridPane slots = new GridPane();
-        Button slotMaterial1 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial2 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial3 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial4 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial5 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial6 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial7 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial8 = new Button("", new ImageView(imgVacio));
-        Button slotMaterial9 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial00 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial01 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial02 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial10 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial11 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial12 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial20 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial21 = new Button("", new ImageView(imgVacio));
+        Button slotMaterial22 = new Button("", new ImageView(imgVacio));
 
-        slots.add(slotMaterial1, 0, 0);
-        slots.add(slotMaterial2, 0, 1);
-        slots.add(slotMaterial3, 0, 2);
-        slots.add(slotMaterial4, 1, 0);
-        slots.add(slotMaterial5, 1, 1);
-        slots.add(slotMaterial6, 1, 2);
-        slots.add(slotMaterial7, 2, 0);
-        slots.add(slotMaterial8, 2, 1);
-        slots.add(slotMaterial9, 2, 2);
+        slots.add(slotMaterial00, 0, 0);
+        slots.add(slotMaterial01, 0, 1);
+        slots.add(slotMaterial02, 0, 2);
+        slots.add(slotMaterial10, 1, 0);
+        slots.add(slotMaterial11, 1, 1);
+        slots.add(slotMaterial12, 1, 2);
+        slots.add(slotMaterial20, 2, 0);
+        slots.add(slotMaterial21, 2, 1);
+        slots.add(slotMaterial22, 2, 2);
 
         getChildren().add(slots);
     }
+
+
+    //
+    //button.setBackground(new Background(this.backgroundImageMadera()));
+
+    private static BackgroundImage backgroundImageMadera(){
+        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_madera.png");
+    }
+
+    private static BackgroundImage backgroundImagePiedra(){
+        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_piedra.png");
+    }
+
+    private static BackgroundImage backgroundImageMetal(){
+        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_metal.png");
+    }
+
+    private static BackgroundImage backgroundImageDiamante(){
+        return imageViewPorString("Vista/MaterialesPanelConstruccion/cons_vacio.png");
+    }
+
+    private static BackgroundImage imageViewPorString(String str){
+        BackgroundSize bSize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false);
+        Image img = new Image(str,25,25,false,false);
+        return new BackgroundImage(img,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundRepeat.NO_REPEAT,
+                BackgroundPosition.CENTER,
+                bSize);
+    }
+
+
 }
