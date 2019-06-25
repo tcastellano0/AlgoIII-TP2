@@ -14,4 +14,5 @@ public class OcupacionLleno<T> implements EstadoOcupacion<T> {
     public boolean estaVacia(){
         return false;
     }
+
 }

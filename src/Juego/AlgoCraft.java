@@ -2,12 +2,10 @@ package Juego;
 
 import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
+import Juego.Mapa.ContenedorVacioException;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
-import Juego.Mapa.UbicacionInvalidaException;
-import Juego.Mapa.ContenedorVacioException;
-
 import Materiales.*;
 
 public class AlgoCraft {
@@ -171,6 +169,7 @@ public class AlgoCraft {
 
     private void sacarMaterialRoto(Posicion pos, Material mat){
 		if (mat.getDurabilidad() <= 0) {
+			System.out.println(mat.getDurabilidad());
 			this.mapa.sacar(pos);
 		}
 	}

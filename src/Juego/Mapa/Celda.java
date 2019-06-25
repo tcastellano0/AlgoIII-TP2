@@ -12,16 +12,19 @@ public class Celda<T> {
     public Celda(T contenido) {
         this.ocupacion = new OcupacionLleno<>();
         this.contenido = contenido;
-
     }
 
     public T sacar() {
+        T contenido = this.contenido;
         this.desocupar();
+        this.contenido = null;
         return contenido;
     }
 
     public T ver() {
+      //  if (!this.ocupacion.estaVacia())
         return this.contenido;
+       // return null;
     }
 
     public void poner(T contenido) {
