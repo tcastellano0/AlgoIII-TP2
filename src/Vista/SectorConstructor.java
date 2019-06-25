@@ -14,8 +14,11 @@ import javafx.scene.text.Text;
 public class SectorConstructor extends VBox {
 
     private EligeVistas rutaVistas = EligeVistas.getInstance();
+    private Jugador jugador;
 
-    public SectorConstructor() {
+    public SectorConstructor(Jugador jugador) {
+    	this.jugador = jugador;
+    	
         setSpacing(10);
         setTitulo();
         agregarSlots();
@@ -77,11 +80,8 @@ public class SectorConstructor extends VBox {
     }
 
 
-    private void agregarSectorMateriales(){
-
-        // BORRAR EL New Jugador Y REEMPLAZAR POR EL JUGADOR VERDADERO;
-
-        getChildren().add(new SectorConstructorMateriales(new Jugador()));
+    private void agregarSectorMateriales() {
+        getChildren().add(new SectorConstructorMateriales(this.jugador));
     }
 
     

@@ -39,7 +39,7 @@ public class Main extends Application {
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-        SectorConstructor sectorConstructor = new SectorConstructor();
+        SectorConstructor sectorConstructor = new SectorConstructor(algoCraft.getJugador());
     	menuDerecha.getChildren().add(sectorConstructor);
 
         VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas();
