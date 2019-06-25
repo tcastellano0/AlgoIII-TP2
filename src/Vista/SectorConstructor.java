@@ -15,9 +15,10 @@ public class SectorConstructor extends VBox {
     private EligeVistas rutaVistas = EligeVistas.getInstance();
 
     public SectorConstructor() {
+        setSpacing(10);
         setTitulo();
-        agregarBotones();
         agregarSlots();
+        agregarBotones();
         agregarSectorMateriales();
     }
 
