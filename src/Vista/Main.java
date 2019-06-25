@@ -35,11 +35,6 @@ public class Main extends Application {
     }
 
     public void prepararMapa() {
-
-/*        HBox botones = new HBox();
-        botones.getChildren().addAll(new BotonAvanzar(), new BotonGirar());
-        VBox pantalla = new VBox();
-        pantalla.getChildren().addAll(botones,VistaMapa.getInstancia());*/
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
     	EligeVistas rutaVistas = EligeVistas.getInstance();
     	
@@ -160,7 +155,7 @@ public class Main extends Application {
         layout.setCenter(vertical);
         Scene scene = new Scene(layout, 300, 250);
 
-        Image titleBackground = new Image("Vista/images/menu/title.png", 1200, 800, false, true);
+        Image titleBackground = new Image("Vista/images/menu/title.png", 950, 800, false, true);
         BackgroundImage imagenTitulo = new BackgroundImage(titleBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);

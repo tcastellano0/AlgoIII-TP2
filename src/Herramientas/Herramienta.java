@@ -26,8 +26,8 @@ public class Herramienta {
     }
 
     public void golpear(Material material) {
-        material.golpeadoPor(this.golpeador);
         this.desgastar(this.getFuerza());
+        material.golpeadoPor(this.golpeador);
     }
 
     //metodos de clase para instanciar cada tipo de herramienta
