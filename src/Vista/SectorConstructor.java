@@ -1,6 +1,11 @@
 package Vista;
 
+import Herramientas.Construccion.EsquemaHerramientaDelJugador;
 import Juego.Jugador.Jugador;
+import Materiales.Diamante;
+import Materiales.Madera;
+import Materiales.Metal;
+import Materiales.Piedra;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -16,19 +21,20 @@ public class SectorConstructor extends VBox {
     private EligeVistas rutaVistas = EligeVistas.getInstance();
     private Jugador jugador;
     private SectorConstructorMateriales sectorConstruccionMateriales;
+    private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();
 
     public SectorConstructor(Jugador jugador) {
-    	this.jugador = jugador;
-    	
+        this.jugador = jugador;
+
         setSpacing(10);
         setTitulo();
         agregarSlots();
         agregarBotones();
         agregarSectorMateriales();
     }
-    
+
     public void actualizar() {
-    	this.sectorConstruccionMateriales.actualizar();
+        this.sectorConstruccionMateriales.actualizar();
     }
 
     private void setTitulo() {
@@ -40,6 +46,12 @@ public class SectorConstructor extends VBox {
     private void agregarBotones() {
         Button limpiar = new Button("Limpiar");
         Button crear = new Button("Crear");
+        crear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                jugador.agregarHerramienta(esquema.construir());
+            }
+        });
         HBox botonesLimpiarYCrearContenedor = new HBox();
         botonesLimpiarYCrearContenedor.setSpacing(10);
         botonesLimpiarYCrearContenedor.getChildren().addAll(limpiar, crear);
@@ -49,7 +61,7 @@ public class SectorConstructor extends VBox {
     private void agregarSlots() {
         Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
         GridPane slots = new GridPane();
-        
+
         Button slotMaterial00 = new Button("", new ImageView(imgVacio));
         Button slotMaterial01 = new Button("", new ImageView(imgVacio));
         Button slotMaterial02 = new Button("", new ImageView(imgVacio));
@@ -60,16 +72,7 @@ public class SectorConstructor extends VBox {
         Button slotMaterial21 = new Button("", new ImageView(imgVacio));
         Button slotMaterial22 = new Button("", new ImageView(imgVacio));
 
-        slotMaterial00.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial00));
-        slotMaterial01.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial01));
-        slotMaterial02.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial02));
-        slotMaterial10.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial10));
-        slotMaterial11.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial11));
-        slotMaterial12.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial12));
-        slotMaterial20.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial20));
-        slotMaterial21.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial21));
-        slotMaterial22.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial22));
-        
+        getChildren().add(slots);
         slots.add(slotMaterial00, 0, 0);
         slots.add(slotMaterial01, 0, 1);
         slots.add(slotMaterial02, 0, 2);
@@ -80,87 +83,103 @@ public class SectorConstructor extends VBox {
         slots.add(slotMaterial21, 2, 1);
         slots.add(slotMaterial22, 2, 2);
 
-        getChildren().add(slots);
+        slotMaterial00.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial00));
+        slotMaterial01.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial01));
+        slotMaterial02.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial02));
+        slotMaterial10.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial10));
+        slotMaterial11.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial11));
+        slotMaterial12.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial12));
+        slotMaterial20.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial20));
+        slotMaterial21.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial21));
+        slotMaterial22.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial22));
+
+
     }
 
 
     private void agregarSectorMateriales() {
-    	this.sectorConstruccionMateriales = new SectorConstructorMateriales(this.jugador);
-    	
+        this.sectorConstruccionMateriales = new SectorConstructorMateriales(this.jugador);
+
         getChildren().add(this.sectorConstruccionMateriales);
     }
 
     private ContextMenu getContextMenuConstruccionParaSlot(Button btnSlot) {
-    	
-    	ContextMenu contextMenu = new ContextMenu();
-        
+        int columna = GridPane.getColumnIndex(btnSlot);
+        int fila = GridPane.getRowIndex(btnSlot);
+        ContextMenu contextMenu = new ContextMenu();
+
+
         MenuItem ponerMadera = new MenuItem("Poner Madera");
         ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
-
             @Override
             public void handle(ActionEvent event) {
+
                 //Jugador SACAR MADERA
-                //PONER MADERA EN ESQUEMA HERRAMIENTAS
-            	btnSlot.setBackground(new Background(backgroundImageMadera()));
+
+                esquema.poner(new Madera(), fila + 1, columna + 1);
+                btnSlot.setBackground(new Background(backgroundImageMadera()));
             }
         });
-        
+
         MenuItem ponerPiedra = new MenuItem("Poner Piedra");
         ponerPiedra.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
                 //Jugador SACAR PIEDRA
-                //PONER PIEDRA EN ESQUEMA HERRAMIENTAS
-            	btnSlot.setBackground(new Background(backgroundImagePiedra()));
+
+                esquema.poner(new Piedra(), fila + 1, columna + 1);
+                btnSlot.setBackground(new Background(backgroundImagePiedra()));
             }
         });
-        
+
         MenuItem ponerMetal = new MenuItem("Poner Metal");
         ponerMetal.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-            	btnSlot.setBackground(new Background(backgroundImageMetal()));
+                esquema.poner(new Metal(), fila + 1, columna + 1);
+                btnSlot.setBackground(new Background(backgroundImageMetal()));
             }
         });
-        
+
         MenuItem ponerDiamante = new MenuItem("Poner Diamante");
         ponerDiamante.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
-            	btnSlot.setBackground(new Background(backgroundImageDiamante()));
+                esquema.poner(new Diamante(), fila + 1, columna + 1);
+                btnSlot.setBackground(new Background(backgroundImageDiamante()));
             }
         });
-        
+
         contextMenu.getItems().addAll(ponerMadera, ponerPiedra, ponerMetal, ponerDiamante);
-    	
+
         return contextMenu;
     }
-    
+
     //
     //button.setBackground(new Background(this.backgroundImageMadera()));
 
-    private BackgroundImage backgroundImageMadera(){
+    private BackgroundImage backgroundImageMadera() {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_madera.png");
     }
 
-    private BackgroundImage backgroundImagePiedra(){
+    private BackgroundImage backgroundImagePiedra() {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_piedra.png");
     }
 
-    private BackgroundImage backgroundImageMetal(){
+    private BackgroundImage backgroundImageMetal() {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_metal.png");
     }
 
-    private BackgroundImage backgroundImageDiamante(){
+    private BackgroundImage backgroundImageDiamante() {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
     }
 
-    private BackgroundImage imageViewPorString(String str){
+    private BackgroundImage imageViewPorString(String str) {
         BackgroundSize bSize = new BackgroundSize(BackgroundSize.AUTO, BackgroundSize.AUTO, false, false, true, false);
-        Image img = new Image(str,25,25,false,false);
+        Image img = new Image(str, 25, 25, false, false);
         return new BackgroundImage(img,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,
