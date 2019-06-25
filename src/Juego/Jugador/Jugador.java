@@ -9,7 +9,12 @@ public class Jugador implements Ubicable {
 	
 	private Herramienta herramientaEquipada;
 	private Inventario<Herramienta> inventarioDeHerramientas;
-	private Inventario<Material> inventarioDeMateriales;
+	
+	private Inventario<Madera> inventarioDeMadera;
+	private Inventario<Metal> inventarioDeMetal;
+	private Inventario<Piedra> inventarioDePiedra;
+	private Inventario<Diamante> inventarioDeDiamante;
+	
 	private Posicion posicion;
 	private Movimiento movimiento;
 
@@ -17,7 +22,11 @@ public class Jugador implements Ubicable {
 		this.herramientaEquipada = Herramienta.hachaDeMadera();
 		this.inventarioDeHerramientas = new Inventario<Herramienta>();
 		this.inventarioDeHerramientas.agregar(this.herramientaEquipada);
-		this.inventarioDeMateriales = new Inventario<Material>();
+		
+		this.inventarioDeMadera = new Inventario<Madera>();
+		this.inventarioDeMetal = new Inventario<Metal>();
+		this.inventarioDePiedra = new Inventario<Piedra>();
+		this.inventarioDeDiamante = new Inventario<Diamante>();
 	}
 
 	public void setMovimiento(Movimiento movimiento) {
@@ -41,8 +50,20 @@ public class Jugador implements Ubicable {
 		return (this.inventarioDeHerramientas.cantidad());
 	}
 	
-	public int cantidadDeMateriales() {
-		return (this.inventarioDeMateriales.cantidad());
+	public int cantidadDeMaderas() {
+		return (this.inventarioDeMadera.cantidad());
+	}
+	
+	public int cantidadDeMetales() {
+		return (this.inventarioDeMetal.cantidad());
+	}
+	
+	public int cantidadDeDiamantes() {
+		return (this.inventarioDeDiamante.cantidad());
+	}
+	
+	public int cantidadDePiedras() {
+		return (this.inventarioDePiedra.cantidad());
 	}
 	
 	public void agregarHerramienta(Herramienta herramienta) {
@@ -82,20 +103,20 @@ public class Jugador implements Ubicable {
 		material.esGuardadoEn(this);
 	}
 	
-	public void guardar(Madera material) {
-		this.inventarioDeMateriales.agregar(material);
+	public void guardar(Metal material) {
+		this.inventarioDeMetal.agregar(material);
 	}
 	
-	public void guardar(Metal material) {
-		this.inventarioDeMateriales.agregar(material);
+	public void guardar(Madera material) {
+		this.inventarioDeMadera.agregar(material);
 	}
 	
 	public void guardar(Piedra material) {
-		this.inventarioDeMateriales.agregar(material);
+		this.inventarioDePiedra.agregar(material);
 	}
 	
 	public void guardar(Diamante material) {
-		this.inventarioDeMateriales.agregar(material);
+		this.inventarioDeDiamante.agregar(material);
 	}
 
 }
