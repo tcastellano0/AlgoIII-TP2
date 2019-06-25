@@ -1,5 +1,6 @@
 package Vista;
 
+import Juego.Jugador.Jugador;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
@@ -94,7 +95,10 @@ public class SectorConstructor extends VBox {
 
 
     private void agregarSectorMateriales(){
-        getChildren().add(new SectorConstructorMateriales(this));
+
+        // BORRAR EL New Jugador Y REEMPLAZAR POR EL JUGADOR VERDADERO;
+
+        getChildren().add(new SectorConstructorMateriales(new Jugador()));
     }
 
     //

@@ -1,5 +1,6 @@
 package Vista;
 
+import Juego.Jugador.Jugador;
 import javafx.geometry.Insets;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -8,10 +9,10 @@ import javafx.scene.text.Text;
 
 public class SectorConstructorMateriales extends VBox {
 
-    protected SectorConstructor padre;
+    Jugador jugador;
 
-    public SectorConstructorMateriales(SectorConstructor sectorConstructor){
-        this.padre = sectorConstructor;
+    public SectorConstructorMateriales(Jugador j){
+        jugador = j;
         setPadding(new Insets(10, 10, 10, 10));
         setSpacing(10);
         Text materialesTituloTexto = new Text("Materiales:");
