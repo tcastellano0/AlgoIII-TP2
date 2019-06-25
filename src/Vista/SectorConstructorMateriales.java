@@ -9,74 +9,61 @@ import javafx.scene.text.Text;
 
 public class SectorConstructorMateriales extends VBox {
 
-    Jugador jugador;
+    private Jugador jugador;
+    
+    private Text txtMadera;
+    private Text txtPiedra;
+    private Text txtMetal;
+    private Text txtDiamante;
 
     public SectorConstructorMateriales(Jugador jugador) {
+
+    	this.jugador = jugador;
     	
         setPadding(new Insets(10, 10, 10, 10));
         setSpacing(10);
-        
+
         Text materialesTituloTexto = new Text("Materiales:");
         materialesTituloTexto.setStyle("-fx-font: 24 arial;");
         getChildren().add(materialesTituloTexto);
         
-        agregarPanelMadera(jugador.cantidadDeMaderas());
-        agregarPanelPiedra(jugador.cantidadDePiedras());
-        agregarPanelMetal(jugador.cantidadDeMetales());
-        agregarPanelDiamante(jugador.cantidadDeDiamantes());
+        txtMadera = new Text(); 
+        txtMadera.setText("Madera: " + jugador.cantidadDeMaderas());
+        txtMadera.setStyle("-fx-font: 20 arial;");
+        
+        txtPiedra = new Text(); 
+        txtPiedra.setText("Madera: " + jugador.cantidadDePiedras());
+        txtPiedra.setStyle("-fx-font: 20 arial;");
+        
+        txtMetal = new Text(); 
+        txtMetal.setText("Madera: " + jugador.cantidadDeMetales());
+        txtMetal.setStyle("-fx-font: 20 arial;");
+        
+        txtDiamante = new Text(); 
+        txtDiamante.setText("Madera: " + jugador.cantidadDeDiamantes());
+        txtDiamante.setStyle("-fx-font: 20 arial;");
+        
+        agregarPanelMateriales(txtMadera, "Vista/images/MaterialesPanelConstruccion/cons_madera.png");
+        agregarPanelMateriales(txtPiedra, "Vista/images/MaterialesPanelConstruccion/cons_piedra.png");
+        agregarPanelMateriales(txtMetal, "Vista/images/MaterialesPanelConstruccion/cons_metal.png");
+        agregarPanelMateriales(txtDiamante, "Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
     }
 
-    private void agregarPanelMadera(int cantidadMadera) {
+    private void agregarPanelMateriales(Text txtMaterial, String srcImagen) {
         HBox panelH = new HBox();
         panelH.setSpacing(10);
         StackPane panelImagen = new StackPane();
-        panelImagen.getChildren().add(new ImageView(new Image("Vista/images/MaterialesPanelConstruccion/cons_madera.png",28,28,false,false)));
+        panelImagen.getChildren().add(new ImageView(new Image(srcImagen,28,28,false,false)));
 
-        Text maderaTexto = new Text("Madera: " + cantidadMadera);
-        maderaTexto.setStyle("-fx-font: 20 arial;");
-
-        panelH.getChildren().addAll(panelImagen, maderaTexto);
-        getChildren().add(panelH);
-
-    }
-
-    private void agregarPanelPiedra(int cantidadPiedras) {
-        HBox panelH = new HBox();
-        panelH.setSpacing(10);
-        StackPane panelImagen = new StackPane();
-        panelImagen.getChildren().add(new ImageView(new Image("Vista/images/MaterialesPanelConstruccion/cons_piedra.png",28,28,false,false)));
-
-        Text maderaTexto = new Text("Piedra: " + cantidadPiedras);
-        maderaTexto.setStyle("-fx-font: 20 arial;");
-
-        panelH.getChildren().addAll(panelImagen, maderaTexto);
+        panelH.getChildren().addAll(panelImagen, txtMaterial);
         getChildren().add(panelH);
     }
-
-    private void agregarPanelMetal(int cantidadMetales) {
-        HBox panelH = new HBox();
-        panelH.setSpacing(10);
-        StackPane panelImagen = new StackPane();
-        panelImagen.getChildren().add(new ImageView(new Image("Vista/images/MaterialesPanelConstruccion/cons_metal.png",28,28,false,false)));
-
-        Text maderaTexto = new Text("Metal: " + cantidadMetales);
-        maderaTexto.setStyle("-fx-font: 20 arial;");
-
-        panelH.getChildren().addAll(panelImagen, maderaTexto);
-        getChildren().add(panelH);
-    }
-
-    private void agregarPanelDiamante(int cantidadDiamantes) {
-        HBox panelH = new HBox();
-        panelH.setSpacing(10);
-        StackPane panelImagen = new StackPane();
-        panelImagen.getChildren().add(new ImageView(new Image("Vista/images/MaterialesPanelConstruccion/cons_diamante.png",28,28,false,false)));
-
-        Text maderaTexto = new Text("Diamante: " + cantidadDiamantes);
-        maderaTexto.setStyle("-fx-font: 20 arial;");
-
-        panelH.getChildren().addAll(panelImagen, maderaTexto);
-        getChildren().add(panelH);
+    
+    public void actualizarCantidadMateriales() {
+        this.txtMadera.setText("Madera: " + this.jugador.cantidadDeMaderas());
+        this.txtPiedra.setText("Madera: " + this.jugador.cantidadDePiedras());
+        this.txtMetal.setText("Madera: " + this.jugador.cantidadDeMetales());
+        this.txtDiamante.setText("Madera: " + this.jugador.cantidadDeDiamantes());
     }
 
 }

@@ -15,6 +15,7 @@ public class SectorConstructor extends VBox {
 
     private EligeVistas rutaVistas = EligeVistas.getInstance();
     private Jugador jugador;
+    private SectorConstructorMateriales sectorConstruccionMateriales;
 
     public SectorConstructor(Jugador jugador) {
     	this.jugador = jugador;
@@ -81,7 +82,13 @@ public class SectorConstructor extends VBox {
 
 
     private void agregarSectorMateriales() {
-        getChildren().add(new SectorConstructorMateriales(this.jugador));
+    	this.sectorConstruccionMateriales = new SectorConstructorMateriales(this.jugador);
+    	
+        getChildren().add(this.sectorConstruccionMateriales);
+    }
+    
+    public void actualizarSectorConstruccion() {
+    	this.sectorConstruccionMateriales.actualizarCantidadMateriales();
     }
 
     
