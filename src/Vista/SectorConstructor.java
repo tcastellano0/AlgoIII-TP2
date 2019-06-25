@@ -57,7 +57,7 @@ public class SectorConstructor extends VBox {
             }
         });
         MenuItem ponerPiedra = new MenuItem("Poner Piedra");
-        ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
+        ponerPiedra.setOnAction(new EventHandler<ActionEvent>() {
 
             @Override
             public void handle(ActionEvent event) {
