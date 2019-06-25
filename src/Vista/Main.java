@@ -35,43 +35,20 @@ public class Main extends Application {
     }
 
     public void prepararMapa() {
-        Image imgVacio = new Image(EligeVistas.getInstance().vacio(), 35, 35, false, false);
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
-
 
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-    	
         VistaConstructor vistaConstructor = new VistaConstructor();
     	menuDerecha.getChildren().add(vistaConstructor);
-
-    	
-/*    	HBox menuInferior = new HBox();
-    	menuInferior.setPadding(new Insets(10, 10, 10, 10));
-    	menuInferior.setSpacing(25);
-    	
-    	Button slotHerramienta1 = new Button("", new ImageView(imgVacio));
-    	Button slotHerramienta2 = new Button("", new ImageView(imgVacio));
-    	Button slotHerramienta3 = new Button("", new ImageView(imgVacio));
-    	Button slotHerramienta4 = new Button("", new ImageView(imgVacio));
-    	Button slotHerramienta5 = new Button("", new ImageView(imgVacio));
-    	Button slotHerramienta6 = new Button("", new ImageView(imgVacio));
-    	Button slotHerramienta7 = new Button("", new ImageView(imgVacio));
-    		
-    	Text herramientasTexto = new Text("Herramientas:");
-    	herramientasTexto.setStyle("-fx-font: 18 arial;");
-    	menuInferior.getChildren().add(herramientasTexto);
-    	
-    	menuInferior.getChildren().addAll(slotHerramienta1,slotHerramienta2,slotHerramienta3,slotHerramienta4,slotHerramienta5,slotHerramienta6,slotHerramienta7);
-    	*/
 
         VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas();
     	BorderPane borderpane = new BorderPane();
     	borderpane.setRight(menuDerecha);
     	borderpane.setBottom(herramientas);
-    	borderpane.setCenter(VistaMapa.getInstancia());
+    	borderpane.setCenter(vistaMapa);
     	
         escenaJuego = new Scene(borderpane);
         

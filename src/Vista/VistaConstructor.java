@@ -12,18 +12,30 @@ public class VistaConstructor extends VBox {
     private EligeVistas rutaVistas = EligeVistas.getInstance();
 
     public VistaConstructor() {
+        setTitulo();
+
+
+        agregarBotones();
+        agregarSlots();
+    }
+
+
+    private void setTitulo() {
         Text contructorTexto = new Text("Constructor");
         contructorTexto.setStyle("-fx-font: 24 arial;");
         getChildren().add(contructorTexto);
+    }
 
+    private void agregarBotones() {
         Button limpiar = new Button("Limpiar");
         Button crear = new Button("Crear");
         HBox botonesLimpiarYCrearContenedor = new HBox();
         botonesLimpiarYCrearContenedor.setSpacing(10);
         botonesLimpiarYCrearContenedor.getChildren().addAll(limpiar, crear);
         getChildren().add(botonesLimpiarYCrearContenedor);
+    }
 
-
+    private void agregarSlots() {
         Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
         GridPane slots = new GridPane();
         Button slotMaterial1 = new Button("", new ImageView(imgVacio));
@@ -47,7 +59,5 @@ public class VistaConstructor extends VBox {
         slots.add(slotMaterial9, 2, 2);
 
         getChildren().add(slots);
-
-
     }
 }
