@@ -21,7 +21,7 @@ public class VistaInventarioHerramientas extends HBox {
 
     private void agregarBotonesHerramientas(){
         VistaHerramientaEquipada herramientaEquipada = new VistaHerramientaEquipada(new Jugador());
-        
+
         ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",35,35, false, false));
         Button slotHerramienta1 = new Button("", imgHerr1);
         Text cantHerramienta1 = new Text("x N");
