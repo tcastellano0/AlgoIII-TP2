@@ -48,35 +48,20 @@ public class SectorConstructor extends VBox {
         getChildren().add(contructorTexto);
     }
 
-    private void agregarBotones() {
+    private Button crearBotonLimpiar(){
         Button limpiar = new Button("Limpiar");
-        Button crear = new Button("Crear");
-        crear.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-
-                try {
-                    jugador.agregarHerramienta(esquema.construir());
-                    sectorConstruccionMateriales.actualizar();
-                } catch (NoExisteEsquemaException a) {
-                    AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
-                }
-            }
-
-        });
-
         limpiar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                    for(int i=1; i<=3; i++)
-                        for (int j = 1; j <= 3; j++) {
-                            try {
-                                jugador.guardar(esquema.sacar(i, j));
-                            }
-                            catch (ContenedorVacioException c){
-                                continue;
-                            }
+                for(int i=1; i<=3; i++)
+                    for (int j = 1; j <= 3; j++) {
+                        try {
+                            jugador.guardar(esquema.sacar(i, j));
                         }
+                        catch (ContenedorVacioException c){
+                            continue;
+                        }
+                    }
                 ObservableList<Node> botones = slots.getChildren();
                 for ( Node n: botones){
                     if (n instanceof Button){
@@ -92,9 +77,36 @@ public class SectorConstructor extends VBox {
                 sectorConstruccionMateriales.actualizar();
             }
         });
+        return limpiar;
+    }
+
+    private Button crearBotonCrear(){
+        Button crear = new Button("Crear");
+        crear.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+
+                try {
+                    jugador.agregarHerramienta(esquema.construir());
+                    sectorConstruccionMateriales.actualizar();
+                } catch (NoExisteEsquemaException a) {
+                    AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
+                }
+            }
+
+        });
+        return crear;
+    }
+
+    private void agregarBotones() {
+/*        Button limpiar = new Button("Limpiar");
+        Button crear = new Button("Crear");*/
+
+
+
         HBox botonesLimpiarYCrearContenedor = new HBox();
         botonesLimpiarYCrearContenedor.setSpacing(10);
-        botonesLimpiarYCrearContenedor.getChildren().addAll(limpiar, crear);
+        botonesLimpiarYCrearContenedor.getChildren().addAll(crearBotonLimpiar(), crearBotonCrear());
         getChildren().add(botonesLimpiarYCrearContenedor);
     }
 
