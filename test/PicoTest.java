@@ -3,6 +3,7 @@ import Materiales.Madera;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class PicoTest {
     @Test
@@ -166,6 +167,38 @@ public class PicoTest {
         assertEquals(pico.getDurabilidad(), durabilidad, 0); //golpea 9 veces y no se modifica su durabilidad
         pico.golpear(madera);
         assertEquals(pico.getDurabilidad(), 0, 0); //al decimo golpe se rompe
+    }
+    
+    @Test
+    public void test18PicoDeMaderaTieneElMismoHashCodeQueOtraPicoDeMadera(){
+        Herramienta pico1 = Herramienta.picoDeMadera();
+        Herramienta pico2 = Herramienta.picoDeMadera();
+
+        assertEquals(pico1.hashCode(), pico2.hashCode());
+    }
+    
+    @Test
+    public void test19PicoDeMaderaNoTieneElMismoHashCodeQueUnPicoDePiedra(){
+        Herramienta pico1 = Herramienta.picoDeMadera();
+        Herramienta pico2 = Herramienta.picoDePiedra();
+
+        assertNotEquals(pico1.hashCode(), pico2.hashCode());
+    }
+    
+    @Test
+    public void test20PicoDeMaderaNoTieneElMismoHashCodeQueUnPicoDeMetal(){
+        Herramienta pico1 = Herramienta.picoDeMadera();
+        Herramienta pico2 = Herramienta.picoDeMetal();
+
+        assertNotEquals(pico1.hashCode(), pico2.hashCode());
+    }
+    
+    @Test
+    public void test21PicoDeMaderaNoTieneElMismoHashCodeQueUnPicoFino(){
+        Herramienta pico1 = Herramienta.picoDeMadera();
+        Herramienta pico2 = Herramienta.picoFino();
+
+        assertNotEquals(pico1.hashCode(), pico2.hashCode());
     }
 
 }
