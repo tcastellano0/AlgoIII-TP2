@@ -38,7 +38,25 @@ public class SectorConstructor extends VBox {
         agregarSectorMateriales();
     }
 
+    public void dibujarGrillaConstructor(){
+        ObservableList<Node> botones = slots.getChildren();
+        for (Node n: botones){
+            int i = GridPane.getRowIndex(n) + 1;
+            int j = GridPane.getColumnIndex(n) + 1;
+            Button boton = (Button) n;
+            try{
+                Material m = esquema.sacar(i,j);
+                esquema.poner(m, i,j);
+                boton.setBackground(new Background(backgroundImagePorClase(m)));
+            }
+            catch (ContenedorVacioException e){
+                boton.setBackground(new Background(backgroundImageVacio()));
+            }
+        }
+    }
+
     public void actualizar() {
+        dibujarGrillaConstructor();
         this.sectorConstruccionMateriales.actualizar();
     }
 
@@ -83,6 +101,7 @@ public class SectorConstructor extends VBox {
                 try {
                     jugador.agregarHerramienta(esquema.construir());
                     sectorConstruccionMateriales.actualizar();
+                    //System.out.println(jugador.cantidadDeHerramientas());
                 } catch (NoExisteEsquemaException a) {
                     AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
                 }
@@ -175,7 +194,7 @@ public class SectorConstructor extends VBox {
             		esquema.poner(madera, fila, columna);
             	}
                 
-                btnSlot.setBackground(new Background(backgroundImageMadera()));
+                dibujarGrillaConstructor();
                 sectorConstruccionMateriales.actualizar();
             }
         });
@@ -200,8 +219,8 @@ public class SectorConstructor extends VBox {
             		
             		esquema.poner(piedra, fila, columna);
             	}
-            	
-                btnSlot.setBackground(new Background(backgroundImagePiedra()));
+
+                dibujarGrillaConstructor();
                 sectorConstruccionMateriales.actualizar();
             }
         });
@@ -227,7 +246,7 @@ public class SectorConstructor extends VBox {
             		esquema.poner(metal, fila, columna);
             	}
 
-                btnSlot.setBackground(new Background(backgroundImageMetal()));
+                dibujarGrillaConstructor();
                 sectorConstruccionMateriales.actualizar();
             }
         });
@@ -252,8 +271,8 @@ public class SectorConstructor extends VBox {
             		
             		esquema.poner(diamante, fila, columna);
             	}
-            	
-                btnSlot.setBackground(new Background(backgroundImageDiamante()));
+
+                dibujarGrillaConstructor();
                 sectorConstruccionMateriales.actualizar();
             }
         });
@@ -263,8 +282,18 @@ public class SectorConstructor extends VBox {
         return contextMenu;
     }
 
-    //
-    //button.setBackground(new Background(this.backgroundImageMadera()));
+    private BackgroundImage backgroundImagePorClase(Material mat){
+        Class <? extends Material> clase = mat.getClass();
+        if (clase == Madera.class)
+            return backgroundImageMadera();
+        if (clase == Piedra.class)
+            return backgroundImagePiedra();
+        if (clase == Metal.class)
+            return backgroundImageMetal();
+        if (clase == Diamante.class)
+            return backgroundImageDiamante();
+        return backgroundImageVacio();
+    }
 
     private BackgroundImage backgroundImageMadera() {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_madera.png");

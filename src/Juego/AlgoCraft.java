@@ -36,6 +36,7 @@ public class AlgoCraft {
 		
 		this.jugador = new Jugador();
 		this.jugador.setPosicion(posicionInicial);
+		this.cheat(); //esto es para que inicialice con materiales para probar
 		
 		this.mapa = new Tablero<Ubicable>(20,20);
 		this.inicializarMapa(); //Siempre debe dejar libre posicionInicial
@@ -43,6 +44,15 @@ public class AlgoCraft {
 		
 		this.movimiento = new Movimiento(mapa);
 		this.jugador.setMovimiento(movimiento);
+	}
+	
+	private void cheat() {
+		for(int i=20; i>0; i--){
+            this.jugador.guardar(new Madera());
+            this.jugador.guardar(new Piedra());
+            this.jugador.guardar(new Metal());
+            this.jugador.guardar(new Diamante());
+       }
 	}
 	
 	private void inicializarMapa() {
