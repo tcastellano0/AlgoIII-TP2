@@ -10,6 +10,9 @@ import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import java.io.File;
 
 
 public class Main extends Application {
@@ -25,7 +28,8 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         window = primaryStage;
-
+        
+        this.ponerMusicaDeFondo();
         this.prepararMenuInicio();
         this.prepararMapa();
 
@@ -116,6 +120,15 @@ public class Main extends Application {
         layout.setBackground(new Background(imagenTitulo));
 
         window.setScene(scene);
+    }
+    
+    public void ponerMusicaDeFondo() {
+    	String musicFile = "src/Sonidos/Minecraft Background Music.mp3";     
+
+    	Media sound = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayer = new MediaPlayer(sound);
+    	mediaPlayer.play();
+    	
     }
 
 }
