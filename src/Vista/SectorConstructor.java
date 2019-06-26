@@ -20,12 +20,12 @@ import javafx.scene.text.Text;
 
 public class SectorConstructor extends VBox {
 
-    private EligeRutaImagenes rutaVistas = EligeRutaImagenes.getInstance();
+    private EligeRutaImagenes rutaImagenes = EligeRutaImagenes.getInstance();
     private Jugador jugador;
     private SectorConstructorMateriales sectorConstruccionMateriales;
     private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();
     private GridPane slots = new GridPane();
-    private Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
+    private Image imgVacio = new Image(rutaImagenes.vacio(), 35, 35, false, false);
 
     public SectorConstructor(Jugador jugador) {
         this.jugador = jugador;

@@ -12,8 +12,8 @@ import javafx.scene.image.ImageView;
 public class VistaCelda extends StackPane {
 
     Celda celda;
-    EligeRutaImagenes rutaVistas = EligeRutaImagenes.getInstance();
-    Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
+    EligeRutaImagenes rutaImagenes = EligeRutaImagenes.getInstance();
+    Image imgVacio = new Image(rutaImagenes.vacio(), 35, 35, false, false);
 
 
     public VistaCelda(Celda celda) {
@@ -30,7 +30,7 @@ public class VistaCelda extends StackPane {
         if (!celda.estaVacia()) {
             //ACORDARSE DE SACAR
             Ubicable u = (Ubicable) celda.ver();
-            String ruta = this.rutaVistas.getRutaImagen(u);
+            String ruta = this.rutaImagenes.getRutaImagen(u);
             img = new Image(ruta, 35, 35, false, false);
         }
 
