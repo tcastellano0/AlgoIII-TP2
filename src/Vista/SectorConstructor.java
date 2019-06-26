@@ -3,8 +3,10 @@ package Vista;
 import Herramientas.Construccion.EsquemaHerramientaDelJugador;
 import Herramientas.Construccion.NoExisteEsquemaException;
 import Juego.Jugador.Jugador;
+import Juego.Mapa.ContenedorOcupadoException;
 import Materiales.Diamante;
 import Materiales.Madera;
+import Materiales.Material;
 import Materiales.Metal;
 import Materiales.Piedra;
 import javafx.event.ActionEvent;
@@ -112,10 +114,10 @@ public class SectorConstructor extends VBox {
     }
 
     private ContextMenu getContextMenuConstruccionParaSlot(Button btnSlot) {
-        int columna = GridPane.getColumnIndex(btnSlot);
-        int fila = GridPane.getRowIndex(btnSlot);
+        int columna = GridPane.getColumnIndex(btnSlot) + 1;
+        int fila = GridPane.getRowIndex(btnSlot) + 1;
+        
         ContextMenu contextMenu = new ContextMenu();
-
 
         MenuItem ponerMadera = new MenuItem("Poner Madera");
         ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
@@ -125,10 +127,18 @@ public class SectorConstructor extends VBox {
             		AlertBox.mostrar("Para que apretas aca si sabes que no tenes madera, me queres decir?");
             		return;
             	}
-            	//TODO: Fijarse si hay un material en este slot, si no hay poner madera, sino sacar lo que habia y poner madera.
-            	
 
-                esquema.poner(new Madera(), fila + 1, columna + 1);
+            	Madera madera = jugador.sacarUnaMadera();
+
+            	try {
+            		esquema.poner(madera, fila, columna);
+            	}catch(ContenedorOcupadoException ex) {
+            		Material materialAnterior = esquema.sacar(fila, columna);
+            		jugador.guardar(materialAnterior);
+            		
+            		esquema.poner(madera, fila, columna);
+            	}
+                
                 btnSlot.setBackground(new Background(backgroundImageMadera()));
                 sectorConstruccionMateriales.actualizar();
             }
@@ -143,10 +153,18 @@ public class SectorConstructor extends VBox {
             		AlertBox.mostrar("Para que apretas aca si sabes que no tenes piedra, me queres decir?");
             		return;
             	}
-                //TODO: Fijarse si hay un material en este slot, si no hay poner piedra, sino sacar lo que habia y poner piedra.
 
+            	Piedra piedra = jugador.sacarUnaPiedra();
+
+            	try {
+            		esquema.poner(piedra, fila, columna);
+            	}catch(ContenedorOcupadoException ex) {
+            		Material materialAnterior = esquema.sacar(fila, columna);
+            		jugador.guardar(materialAnterior);
+            		
+            		esquema.poner(piedra, fila, columna);
+            	}
             	
-                esquema.poner(new Piedra(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImagePiedra()));
                 sectorConstruccionMateriales.actualizar();
             }
@@ -161,10 +179,18 @@ public class SectorConstructor extends VBox {
             		AlertBox.mostrar("Para que apretas aca si sabes que no tenes metal, me queres decir?");
             		return;
             	}
-                //TODO: Fijarse si hay un material en este slot, si no hay poner metal, sino sacar lo que habia y poner metal.
 
-            	
-                esquema.poner(new Metal(), fila + 1, columna + 1);
+            	Metal metal = jugador.sacarUnMetal();
+
+            	try {
+            		esquema.poner(metal, fila, columna);
+            	}catch(ContenedorOcupadoException ex) {
+            		Material materialAnterior = esquema.sacar(fila, columna);
+            		jugador.guardar(materialAnterior);
+            		
+            		esquema.poner(metal, fila, columna);
+            	}
+
                 btnSlot.setBackground(new Background(backgroundImageMetal()));
                 sectorConstruccionMateriales.actualizar();
             }
@@ -179,10 +205,18 @@ public class SectorConstructor extends VBox {
             		AlertBox.mostrar("Para que apretas aca si sabes que no tenes diamante, me queres decir?");
             		return;
             	}
-                //TODO: Fijarse si hay un material en este slot, si no hay poner metal, sino sacar lo que habia y poner metal.
 
+            	Diamante diamante = jugador.sacarUnDiamante();
+
+            	try {
+            		esquema.poner(diamante, fila, columna);
+            	}catch(ContenedorOcupadoException ex) {
+            		Material materialAnterior = esquema.sacar(fila, columna);
+            		jugador.guardar(materialAnterior);
+            		
+            		esquema.poner(diamante, fila, columna);
+            	}
             	
-                esquema.poner(new Diamante(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageDiamante()));
                 sectorConstruccionMateriales.actualizar();
             }
