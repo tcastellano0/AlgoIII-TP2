@@ -6,7 +6,6 @@ import Juego.Jugador.Jugador;
 import Juego.Mapa.ContenedorOcupadoException;
 import Juego.Mapa.ContenedorVacioException;
 import Materiales.*;
-import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -65,13 +64,7 @@ public class SectorConstructor extends VBox {
                 ObservableList<Node> botones = slots.getChildren();
                 for ( Node n: botones){
                     if (n instanceof Button){
-                        Platform.runLater(new Runnable() {
-                            @Override
-                            public void run() {
-                                getChildren().remove(getChildren().indexOf(slots));
-                                agregarSlots();
-                            }
-                        });
+                        ((Button)n).setBackground(new Background(backgroundImageVacio()));
                     }
                 }
                 sectorConstruccionMateriales.actualizar();
@@ -99,11 +92,6 @@ public class SectorConstructor extends VBox {
     }
 
     private void agregarBotones() {
-/*        Button limpiar = new Button("Limpiar");
-        Button crear = new Button("Crear");*/
-
-
-
         HBox botonesLimpiarYCrearContenedor = new HBox();
         botonesLimpiarYCrearContenedor.setSpacing(10);
         botonesLimpiarYCrearContenedor.getChildren().addAll(crearBotonLimpiar(), crearBotonCrear());
@@ -287,7 +275,7 @@ public class SectorConstructor extends VBox {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
     }
     private BackgroundImage backgroundImageVacio() {
-        return imageViewPorString("Vista/images/Materiales/map_vacio.png");
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_vacio.png");
     }
 
     private BackgroundImage imageViewPorString(String str) {
