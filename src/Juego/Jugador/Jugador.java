@@ -119,4 +119,8 @@ public class Jugador implements Ubicable {
 		this.inventarioDeDiamante.agregar(material);
 	}
 
+/*	public void perderMaderas(){
+		this.inventarioDeMadera.vaciar();
+	}*///este metodo obvio no va es para probar
+
 }

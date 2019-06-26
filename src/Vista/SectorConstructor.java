@@ -50,13 +50,14 @@ public class SectorConstructor extends VBox {
         crear.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-            	
+
             	try {
-            		jugador.agregarHerramienta(esquema.construir());	
+            		jugador.agregarHerramienta(esquema.construir());
+                    sectorConstruccionMateriales.actualizar();
             	}
             	catch(NoExisteEsquemaException a) {
             		AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
-            	}      
+            	}
             }
         });
         HBox botonesLimpiarYCrearContenedor = new HBox();
@@ -125,6 +126,7 @@ public class SectorConstructor extends VBox {
 
                 esquema.poner(new Madera(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageMadera()));
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
@@ -137,6 +139,7 @@ public class SectorConstructor extends VBox {
 
                 esquema.poner(new Piedra(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImagePiedra()));
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
@@ -147,6 +150,7 @@ public class SectorConstructor extends VBox {
             public void handle(ActionEvent event) {
                 esquema.poner(new Metal(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageMetal()));
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
@@ -157,6 +161,8 @@ public class SectorConstructor extends VBox {
             public void handle(ActionEvent event) {
                 esquema.poner(new Diamante(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageDiamante()));
+
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
