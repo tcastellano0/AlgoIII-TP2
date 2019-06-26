@@ -1,6 +1,7 @@
 package Herramientas.Construccion;
 
 import Herramientas.Herramienta;
+import Juego.Mapa.ContenedorVacioException;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.TableroMateriales;
 import Materiales.Material;
@@ -50,6 +51,18 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
 
     public boolean esIgual(EsquemaHerramienta esquemaHerramienta){
         return esquemaHerramienta.miTableroEsIgual(this.tablero);
+    }
+
+    public void limpiar(){
+        for(int i=1; i<=3; i++)
+            for (int j = 1; j <= 3; j++) {
+                try {
+                    sacar(i, j);
+                }
+                catch (ContenedorVacioException e){
+                    continue;
+                }
+            }
     }
 
 

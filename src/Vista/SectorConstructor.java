@@ -9,8 +9,10 @@ import Materiales.Madera;
 import Materiales.Material;
 import Materiales.Metal;
 import Materiales.Piedra;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.MenuItem;
@@ -25,6 +27,7 @@ public class SectorConstructor extends VBox {
     private Jugador jugador;
     private SectorConstructorMateriales sectorConstruccionMateriales;
     private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();
+    private GridPane slots = new GridPane();
 
     public SectorConstructor(Jugador jugador) {
         this.jugador = jugador;
@@ -53,14 +56,29 @@ public class SectorConstructor extends VBox {
             @Override
             public void handle(ActionEvent e) {
 
-            	try {
-            		jugador.agregarHerramienta(esquema.construir());
+                try {
+                    jugador.agregarHerramienta(esquema.construir());
                     sectorConstruccionMateriales.actualizar();
-            	}
-            	catch(NoExisteEsquemaException a) {
-            		AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
-            	}
+                } catch (NoExisteEsquemaException a) {
+                    AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
+                }
             }
+
+        });
+
+        limpiar.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent e) {
+                esquema.limpiar();
+                ObservableList<Node> botones = slots.getChildren();
+                for ( Node n: botones){
+                    if (n instanceof Button){
+                        ((Button)n).setBackground(new Background(backgroundImageVacio()));
+                    }
+                }
+                sectorConstruccionMateriales.actualizar();
+            }
+
         });
         HBox botonesLimpiarYCrearContenedor = new HBox();
         botonesLimpiarYCrearContenedor.setSpacing(10);
@@ -70,7 +88,6 @@ public class SectorConstructor extends VBox {
 
     private void agregarSlots() {
         Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
-        GridPane slots = new GridPane();
 
         Button slotMaterial00 = new Button("", new ImageView(imgVacio));
         Button slotMaterial01 = new Button("", new ImageView(imgVacio));
@@ -244,6 +261,9 @@ public class SectorConstructor extends VBox {
 
     private BackgroundImage backgroundImageDiamante() {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
+    }
+    private BackgroundImage backgroundImageVacio() {
+        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_vacio.png");
     }
 
     private BackgroundImage imageViewPorString(String str) {
