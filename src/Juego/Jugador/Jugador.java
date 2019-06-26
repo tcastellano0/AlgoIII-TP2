@@ -58,16 +58,28 @@ public class Jugador implements Ubicable {
 		return this.inventarioDeMadera.sacarUltimo();
 	}
 	
+	public int cantidadDePiedras() {
+		return (this.inventarioDePiedra.cantidad());
+	}
+	
+	public Piedra sacarUnaPiedra() {
+		return this.inventarioDePiedra.sacarUltimo();
+	}
+	
 	public int cantidadDeMetales() {
 		return (this.inventarioDeMetal.cantidad());
+	}
+	
+	public Metal sacarUnMetal() {
+		return this.inventarioDeMetal.sacarUltimo();
 	}
 	
 	public int cantidadDeDiamantes() {
 		return (this.inventarioDeDiamante.cantidad());
 	}
 	
-	public int cantidadDePiedras() {
-		return (this.inventarioDePiedra.cantidad());
+	public Diamante sacarUnDiamante() {
+		return this.inventarioDeDiamante.sacarUltimo();
 	}
 	
 	public void agregarHerramienta(Herramienta herramienta) {
