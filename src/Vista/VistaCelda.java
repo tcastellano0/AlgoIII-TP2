@@ -33,6 +33,7 @@ public class VistaCelda extends StackPane {
             String ruta = this.rutaVistas.getRutaImagen(u);
             img = new Image(ruta, 35, 35, false, false);
         }
+
         this.setBackground(new Background(new BackgroundImage(img,
                 BackgroundRepeat.NO_REPEAT,
                 BackgroundRepeat.NO_REPEAT,

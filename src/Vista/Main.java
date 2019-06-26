@@ -54,18 +54,22 @@ public class Main extends Application {
 	            KeyCode keyCode = key.getCode();
 	            
 	            if(keyCode.equals(KeyCode.W)) {
-	            	algoCraft.moverJugadorArriba();
+                    EligeVistas.getInstance().jugadorMiraArriba();
+                    algoCraft.moverJugadorArriba();
 	        	}
 	    		
 	            if(keyCode.equals(KeyCode.S)) {
+                    EligeVistas.getInstance().jugadorMiraAbajo();
 	    			algoCraft.moverJugadorAbajo();
 	        	}
 				
 	    		if(keyCode.equals(KeyCode.A)) {
+                    EligeVistas.getInstance().jugadorMiraIzquierda();
 					algoCraft.moverJugadorIzquierda();
 	        	}
 				
 				if(keyCode.equals(KeyCode.D)) {
+                    EligeVistas.getInstance().jugadorMiraDerecha();
 					algoCraft.moverJugadorDerecha();
 	        	}
 				
