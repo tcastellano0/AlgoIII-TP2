@@ -121,8 +121,12 @@ public class SectorConstructor extends VBox {
         ponerMadera.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-
-                //Jugador SACAR MADERA
+            	if(jugador.cantidadDeMaderas() == 0) {
+            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes madera, me queres decir?");
+            		return;
+            	}
+            	//TODO: Fijarse si hay un material en este slot, si no hay poner madera, sino sacar lo que habia y poner madera.
+            	
 
                 esquema.poner(new Madera(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageMadera()));
@@ -135,8 +139,13 @@ public class SectorConstructor extends VBox {
 
             @Override
             public void handle(ActionEvent event) {
-                //Jugador SACAR PIEDRA
+            	if(jugador.cantidadDePiedras() == 0) {
+            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes piedra, me queres decir?");
+            		return;
+            	}
+                //TODO: Fijarse si hay un material en este slot, si no hay poner piedra, sino sacar lo que habia y poner piedra.
 
+            	
                 esquema.poner(new Piedra(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImagePiedra()));
                 sectorConstruccionMateriales.actualizar();
@@ -148,6 +157,13 @@ public class SectorConstructor extends VBox {
 
             @Override
             public void handle(ActionEvent event) {
+            	if(jugador.cantidadDeMetales() == 0) {
+            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes metal, me queres decir?");
+            		return;
+            	}
+                //TODO: Fijarse si hay un material en este slot, si no hay poner metal, sino sacar lo que habia y poner metal.
+
+            	
                 esquema.poner(new Metal(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageMetal()));
                 sectorConstruccionMateriales.actualizar();
@@ -159,9 +175,15 @@ public class SectorConstructor extends VBox {
 
             @Override
             public void handle(ActionEvent event) {
+            	if(jugador.cantidadDeDiamantes() == 0) {
+            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes diamante, me queres decir?");
+            		return;
+            	}
+                //TODO: Fijarse si hay un material en este slot, si no hay poner metal, sino sacar lo que habia y poner metal.
+
+            	
                 esquema.poner(new Diamante(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageDiamante()));
-
                 sectorConstruccionMateriales.actualizar();
             }
         });
