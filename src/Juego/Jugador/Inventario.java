@@ -15,12 +15,15 @@ public class Inventario<T> {
 	}
 	
 	public int cantidad() {
-
 		return this.listaDeItems.size();
 	}
 	
 	public T ultimoItemAgregado() {
 		return this.listaDeItems.getLast();
+	}
+	
+	public T sacarUltimo() {
+		return this.listaDeItems.removeLast();
 	}
 
 	public void vaciar(){

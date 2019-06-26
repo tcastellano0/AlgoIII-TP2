@@ -54,6 +54,10 @@ public class Jugador implements Ubicable {
 		return (this.inventarioDeMadera.cantidad());
 	}
 	
+	public Madera sacarUnaMadera() {
+		return this.inventarioDeMadera.sacarUltimo();
+	}
+	
 	public int cantidadDeMetales() {
 		return (this.inventarioDeMetal.cantidad());
 	}

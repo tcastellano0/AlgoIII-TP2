@@ -1,4 +1,5 @@
 import Herramientas.Herramienta;
+import Materiales.*;
 import Juego.Jugador.Inventario;
 
 import org.junit.Test;
@@ -50,6 +51,34 @@ public class InventarioTest {
         inventario.agregar(hacha);
 
         assertSame(inventario.ultimoItemAgregado(), hacha);
+    }
+    
+    @Test
+    public void test05InventarioAgregoDosMaterialYAlSacarMeDaElUltimoAgregado() {
+        Inventario<Material> inventario = new Inventario<Material>();
+        Madera madera = new Madera();
+        Diamante diamante = new Diamante();
+        
+        inventario.agregar(madera);
+        inventario.agregar(diamante);
+
+        assertSame(inventario.sacarUltimo(), diamante);
+    }
+
+    
+    @Test
+    public void test05InventarioAgregoDosMaterialYAlSacarDecreceLaCantidadDeMateriales() {
+        Inventario<Material> inventario = new Inventario<Material>();
+        Madera madera = new Madera();
+        Diamante diamante = new Diamante();
+        
+        inventario.agregar(madera);
+        inventario.agregar(diamante);
+        
+        int cantidadMateriales = inventario.cantidad();
+        inventario.sacarUltimo();
+
+        assertEquals(inventario.cantidad(), cantidadMateriales - 1);
     }
 
 }
