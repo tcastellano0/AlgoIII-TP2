@@ -3,6 +3,7 @@ package Herramientas;
 import java.util.Objects;
 
 import Durabilidad.*;
+import Juego.Mapa.Posicion;
 import Materiales.Material;
 
 public class Herramienta {
@@ -65,5 +66,14 @@ public class Herramienta {
     public int hashCode() { 
     	return Objects.hash(this.golpeador.getClass()); 
 	}
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Herramienta herramienta = (Herramienta) o;
+        
+        return this.golpeador.getClass() == herramienta.golpeador.getClass();
+    }
 
 }
