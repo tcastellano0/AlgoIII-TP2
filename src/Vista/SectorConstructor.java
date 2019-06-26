@@ -2,7 +2,6 @@ package Vista;
 
 import Herramientas.Construccion.EsquemaHerramientaDelJugador;
 import Herramientas.Construccion.NoExisteEsquemaException;
-import Herramientas.Construccion.NoExisteEsquemaException;
 import Juego.Jugador.Jugador;
 import Materiales.Diamante;
 import Materiales.Madera;
