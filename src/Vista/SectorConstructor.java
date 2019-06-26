@@ -4,11 +4,7 @@ import Herramientas.Construccion.EsquemaHerramientaDelJugador;
 import Herramientas.Construccion.NoExisteEsquemaException;
 import Juego.Jugador.Jugador;
 import Juego.Mapa.ContenedorOcupadoException;
-import Materiales.Diamante;
-import Materiales.Madera;
-import Materiales.Material;
-import Materiales.Metal;
-import Materiales.Piedra;
+import Materiales.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -28,6 +24,7 @@ public class SectorConstructor extends VBox {
     private SectorConstructorMateriales sectorConstruccionMateriales;
     private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();
     private GridPane slots = new GridPane();
+    private Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
 
     public SectorConstructor(Jugador jugador) {
         this.jugador = jugador;
@@ -73,6 +70,10 @@ public class SectorConstructor extends VBox {
                 ObservableList<Node> botones = slots.getChildren();
                 for ( Node n: botones){
                     if (n instanceof Button){
+
+                       // ((Button)n).setBackground(new Background(backgroundImageVacio()));
+
+
                         ((Button)n).setBackground(new Background(backgroundImageVacio()));
                     }
                 }
@@ -87,7 +88,7 @@ public class SectorConstructor extends VBox {
     }
 
     private void agregarSlots() {
-        Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
+
 
         Button slotMaterial00 = new Button("", new ImageView(imgVacio));
         Button slotMaterial01 = new Button("", new ImageView(imgVacio));
@@ -263,7 +264,7 @@ public class SectorConstructor extends VBox {
         return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_diamante.png");
     }
     private BackgroundImage backgroundImageVacio() {
-        return imageViewPorString("Vista/images/MaterialesPanelConstruccion/cons_vacio.png");
+        return imageViewPorString("Vista/images/Materiales/map_vacio.png");
     }
 
     private BackgroundImage imageViewPorString(String str) {
