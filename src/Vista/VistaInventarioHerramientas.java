@@ -37,7 +37,7 @@ public class VistaInventarioHerramientas extends HBox {
     }
 
     private void agregarBotonesHerramientas(Jugador j){
-        Text cantidadHachaMadera = new Text("x N");
+        Text cantidadHachaMadera = new Text("x "+j.cantidadDeHerramientas());
         cantidadHachaMadera.setStyle("-fx-font: 12 arial;");
         
         Text cantidadHachaPiedra = new Text("x N");

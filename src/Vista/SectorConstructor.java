@@ -140,7 +140,6 @@ public class SectorConstructor extends VBox {
         slotMaterial21.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial21));
         slotMaterial22.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial22));
 
-
     }
 
 
@@ -161,7 +160,7 @@ public class SectorConstructor extends VBox {
             @Override
             public void handle(ActionEvent event) {
             	if(jugador.cantidadDeMaderas() == 0) {
-            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes madera, me queres decir?");
+            		AlertBox.mostrar("¿Para que apretas aca si sabes que no tenes madera, me queres decir?");
             		return;
             	}
 
@@ -187,7 +186,7 @@ public class SectorConstructor extends VBox {
             @Override
             public void handle(ActionEvent event) {
             	if(jugador.cantidadDePiedras() == 0) {
-            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes piedra, me queres decir?");
+            		AlertBox.mostrar("¿Para que apretas aca si sabes que no tenes piedra, me queres decir?");
             		return;
             	}
 
@@ -213,7 +212,7 @@ public class SectorConstructor extends VBox {
             @Override
             public void handle(ActionEvent event) {
             	if(jugador.cantidadDeMetales() == 0) {
-            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes metal, me queres decir?");
+            		AlertBox.mostrar("¿Para que apretas aca si sabes que no tenes metal, me queres decir?");
             		return;
             	}
 
@@ -239,7 +238,7 @@ public class SectorConstructor extends VBox {
             @Override
             public void handle(ActionEvent event) {
             	if(jugador.cantidadDeDiamantes() == 0) {
-            		AlertBox.mostrar("Para que apretas aca si sabes que no tenes diamante, me queres decir?");
+            		AlertBox.mostrar("¿Para que apretas aca si sabes que no tenes diamante, me queres decir?");
             		return;
             	}
 

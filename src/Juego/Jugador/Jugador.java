@@ -22,7 +22,6 @@ public class Jugador implements Ubicable {
 		this.herramientaEquipada = Herramienta.hachaDeMadera();
 		this.inventarioDeHerramientas = new Inventario<Herramienta>();
 		this.agregarHerramienta(this.herramientaEquipada);
-		
 		this.inventarioDeMadera = new Inventario<Madera>();
 		this.inventarioDeMetal = new Inventario<Metal>();
 		this.inventarioDePiedra = new Inventario<Piedra>();
@@ -135,8 +134,7 @@ public class Jugador implements Ubicable {
 		this.inventarioDeDiamante.agregar(material);
 	}
 
-/*	public void perderMaderas(){
-		this.inventarioDeMadera.vaciar();
-	}*///este metodo obvio no va es para probar
+
+	public int cantidadHerramientas(){return this.inventarioDeHerramientas.cantidad();}
 
 }
