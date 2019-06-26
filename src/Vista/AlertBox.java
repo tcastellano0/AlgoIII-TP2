@@ -13,7 +13,7 @@ public class AlertBox {
 	public static void mostrar(String mensaje) {
 		
 		Stage window = new Stage();
-		window.setTitle("Informacion");
+		window.setTitle("Atencion!");
 		window.setMinWidth(250);
 		
 		Label label = new Label();
