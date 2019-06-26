@@ -42,7 +42,7 @@ public class Main extends Application {
         SectorConstructor sectorConstructor = new SectorConstructor(algoCraft.getJugador());
     	menuDerecha.getChildren().add(sectorConstructor);
 
-        VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas();
+        VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas(algoCraft.getJugador());
     	BorderPane borderpane = new BorderPane();
     	borderpane.setRight(menuDerecha);
     	borderpane.setBottom(herramientas);

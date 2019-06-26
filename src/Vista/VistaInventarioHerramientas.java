@@ -7,19 +7,18 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 public class VistaInventarioHerramientas extends HBox {
-    public VistaInventarioHerramientas() {
+    public VistaInventarioHerramientas(Jugador j) {
         setPadding(new Insets(10, 10, 10, 10));
         setAlignment(Pos.CENTER_LEFT);
         setSpacing(10);
         setTitutloEquipada();
-        agregarSectorHerramientaEquipada();
+        agregarSectorHerramientaEquipada(j);
         setTitutloInventario();
-        agregarBotonesHerramientas();
+        agregarBotonesHerramientas(j);
 
     }
 
@@ -32,12 +31,12 @@ public class VistaInventarioHerramientas extends HBox {
     }
 
 
-    private void agregarSectorHerramientaEquipada (){
-        SectorHerramientaEquipada herramientaEquipada = new SectorHerramientaEquipada(new Jugador());
+    private void agregarSectorHerramientaEquipada (Jugador j){
+        SectorHerramientaEquipada herramientaEquipada = new SectorHerramientaEquipada(j);
         getChildren().add(herramientaEquipada);
     }
 
-    private void agregarBotonesHerramientas(){
+    private void agregarBotonesHerramientas(Jugador j){
         Text cantidadHachaMadera = new Text("x N");
         cantidadHachaMadera.setStyle("-fx-font: 12 arial;");
         
@@ -85,10 +84,6 @@ public class VistaInventarioHerramientas extends HBox {
         		slotHachaMetal, cantidadHachaMetal, slotPicoMadera, cantidadPicoMadera, slotPicoPiedra, cantidadPicoPiedra,
         		slotPicoMetal, cantidadPicoMetal, slotPicoFino, cantidadPicoFino);
 
-        //getChildren().addAll(herramientaEquipada, slotHerramienta1, cantHerramienta1, slotHerramienta2,
-        //        slotHerramienta3,  slotHerramienta4,
-        //        slotHerramienta5, slotHerramienta6,
-        //        slotHerramienta7);
     }
 
     private void setTitutloInventario(){
