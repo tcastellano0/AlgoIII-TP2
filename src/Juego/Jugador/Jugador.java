@@ -44,10 +44,6 @@ public class Jugador implements Ubicable {
 	public void moverIzquierda(){
 		this.movimiento.moverIzquierda(this);
 	}
-
-	public int cantidadDeHerramientas() {
-		return (this.inventarioDeHerramientas.cantidad());
-	}
 	
 	public int cantidadDeMaderas() {
 		return (this.inventarioDeMadera.cantidad());
