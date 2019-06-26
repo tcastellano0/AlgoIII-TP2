@@ -30,6 +30,7 @@ public class SectorConstructor extends VBox {
     public SectorConstructor(Jugador jugador) {
         this.jugador = jugador;
 
+        slots.setVgap(10);
         setSpacing(10);
         setTitulo();
         agregarSlots();
@@ -99,17 +100,24 @@ public class SectorConstructor extends VBox {
     }
 
     private void agregarSlots() {
-
-
         Button slotMaterial00 = new Button("", new ImageView(imgVacio));
+        slotMaterial00.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial01 = new Button("", new ImageView(imgVacio));
+        slotMaterial01.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial02 = new Button("", new ImageView(imgVacio));
+        slotMaterial02.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial10 = new Button("", new ImageView(imgVacio));
+        slotMaterial10.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial11 = new Button("", new ImageView(imgVacio));
+        slotMaterial11.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial12 = new Button("", new ImageView(imgVacio));
+        slotMaterial12.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial20 = new Button("", new ImageView(imgVacio));
+        slotMaterial20.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial21 = new Button("", new ImageView(imgVacio));
+        slotMaterial21.setBackground(new Background(backgroundImageVacio()));
         Button slotMaterial22 = new Button("", new ImageView(imgVacio));
+        slotMaterial22.setBackground(new Background(backgroundImageVacio()));
 
         getChildren().add(1,slots);
         slots.add(slotMaterial00, 0, 0);
