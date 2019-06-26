@@ -100,6 +100,7 @@ public class SectorConstructor extends VBox {
 
                 try {
                     jugador.agregarHerramienta(esquema.construir());
+                    dibujarGrillaConstructor();
                     sectorConstruccionMateriales.actualizar();
                     //System.out.println(jugador.cantidadDeHerramientas());
                 } catch (NoExisteEsquemaException a) {

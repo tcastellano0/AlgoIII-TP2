@@ -42,6 +42,7 @@ public class EsquemaHerramientaDelJugador extends EsquemaHerramienta {
     public Herramienta construir() {
         for (EsquemaHerramienta esquemaHerramienta : this.esquemaHerramientas) {
             if (esquemaHerramienta.esIgual(this)) {
+                this. tablero = new TableroMateriales(3,3);
                 return esquemaHerramienta.construir();
             }
         }
