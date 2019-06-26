@@ -21,39 +21,58 @@ public class VistaInventarioHerramientas extends HBox {
 
     private void agregarBotonesHerramientas(){
         VistaHerramientaEquipada herramientaEquipada = new VistaHerramientaEquipada(new Jugador());
+        
+        Text cantidadHachaMadera = new Text("x N");
+        cantidadHachaMadera.setStyle("-fx-font: 12 arial;");
+        
+        Text cantidadHachaPiedra = new Text("x N");
+        cantidadHachaPiedra.setStyle("-fx-font: 12 arial;");
+        
+        Text cantidadHachaMetal = new Text("x N");
+        cantidadHachaMetal.setStyle("-fx-font: 12 arial;");
+        
+        Text cantidadPicoMadera = new Text("x N");
+        cantidadPicoMadera.setStyle("-fx-font: 12 arial;");
+        
+        Text cantidadPicoPiedra = new Text("x N");
+        cantidadPicoPiedra.setStyle("-fx-font: 12 arial;");
+        
+        Text cantidadPicoMetal = new Text("x N");
+        cantidadPicoMetal.setStyle("-fx-font: 12 arial;");
+        
+        Text cantidadPicoFino = new Text("x N");
+        cantidadPicoFino.setStyle("-fx-font: 12 arial;");
 
         ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",35,35, false, false));
-        Button slotHerramienta1 = new Button("", imgHerr1);
-        Text cantHerramienta1 = new Text("x N");
-        cantHerramienta1.setStyle("-fx-font: 12 arial;");
+        Button slotHachaMadera = new Button("", imgHerr1);
 
         ImageView imgHerr2 = new ImageView(new Image("Vista/images/herramientas/hachaPiedra.png",35,35, false, false));
-        Button slotHerramienta2 = new Button("", imgHerr2);
+        Button slotHachaPiedra = new Button("", imgHerr2);
 
         ImageView imgHerr3 = new ImageView(new Image("Vista/images/herramientas/hachaMetal.png",35,35, false, false));
-        Button slotHerramienta3 = new Button("", imgHerr3);
+        Button slotHachaMetal = new Button("", imgHerr3);
 
         ImageView imgHerr4 = new ImageView(new Image("Vista/images/herramientas/picoMadera.png",35,35, false, false));
-        Button slotHerramienta4 = new Button("", imgHerr4);
+        Button slotPicoMadera = new Button("", imgHerr4);
 
         ImageView imgHerr5 = new ImageView(new Image("Vista/images/herramientas/picoPiedra.png",35,35, false, false));
-        Button slotHerramienta5 = new Button("", imgHerr5);
+        Button slotPicoPiedra = new Button("", imgHerr5);
 
         ImageView imgHerr6 = new ImageView(new Image("Vista/images/herramientas/picoMetal.png",35,35, false, false));
-        Button slotHerramienta6 = new Button("", imgHerr6);
+        Button slotPicoMetal = new Button("", imgHerr6);
 
         ImageView imgHerr7 = new ImageView(new Image("Vista/images/herramientas/picoFino.png",35,35, false, false));
-        Button slotHerramienta7 = new Button("", imgHerr7);
+        Button slotPicoFino = new Button("", imgHerr7);
 
 
-        //getChildren().addAll(slotHerramienta1, cantHerramienta1, slotHerramienta2, cantidadHachaPiedra,
-        //        slotHerramienta3, cantidadHachaMetal, slotHerramienta4, cantidadPicoMadera,
-        //        slotHerramienta5,cantidadPicoPiedra, slotHerramienta6, cantidadPicoMetal,
-        //        slotHerramienta7, cantidadPicoFino);
-        getChildren().addAll(herramientaEquipada, slotHerramienta1, cantHerramienta1, slotHerramienta2,
-                slotHerramienta3,  slotHerramienta4,
-                slotHerramienta5, slotHerramienta6,
-                slotHerramienta7);
+        getChildren().addAll(slotHachaMadera, cantidadHachaMadera, slotHachaPiedra, cantidadHachaPiedra,
+        		slotHachaMetal, cantidadHachaMetal, slotPicoMadera, cantidadPicoMadera, slotPicoPiedra, cantidadPicoPiedra,
+        		slotPicoMetal, cantidadPicoMetal, slotPicoFino, cantidadPicoFino);
+        
+        //getChildren().addAll(herramientaEquipada, slotHerramienta1, cantHerramienta1, slotHerramienta2,
+        //        slotHerramienta3,  slotHerramienta4,
+        //        slotHerramienta5, slotHerramienta6,
+        //        slotHerramienta7);
     }
 
     private void setTitutlo(){
