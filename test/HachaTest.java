@@ -3,6 +3,7 @@ import Materiales.Madera;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class HachaTest {
     @Test
@@ -112,4 +113,29 @@ public class HachaTest {
 
         assertEquals(hacha.getDurabilidad(), durabilidad - hacha.getFuerza()/2, 0);
     }
+    
+    @Test
+    public void test12HachaDeMaderaTieneElMismoHashCodeQueOtraHachaDeMadera(){
+        Herramienta hacha1 = Herramienta.hachaDeMadera();
+        Herramienta hacha2 = Herramienta.hachaDeMadera();
+
+        assertEquals(hacha1.hashCode(), hacha2.hashCode());
+    }
+    
+    @Test
+    public void test13HachaDeMaderaNoTieneElMismoHashCodeQueUnHachaDePiedra(){
+    	Herramienta hacha1 = Herramienta.hachaDeMadera();
+        Herramienta hacha2 = Herramienta.hachaDePiedra();
+
+        assertNotEquals(hacha1.hashCode(), hacha2.hashCode());
+    }
+    
+    @Test
+    public void test14HachaDeMaderaNoTieneElMismoHashCodeQueUnHachaDeMetal(){
+    	Herramienta hacha1 = Herramienta.hachaDeMadera();
+        Herramienta hacha2 = Herramienta.hachaDeMetal();
+
+        assertNotEquals(hacha1.hashCode(), hacha2.hashCode());
+    }
+    
 }

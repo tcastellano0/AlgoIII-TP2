@@ -1,5 +1,7 @@
 package Herramientas;
 
+import java.util.Objects;
+
 import Durabilidad.*;
 import Materiales.Material;
 
@@ -58,5 +60,10 @@ public class Herramienta {
     public static Herramienta picoFino() {
         return new Herramienta(new DurabilidadConFactor(10, 1000), new GolpeadorPicoFino());
     }
+    
+    @Override 
+    public int hashCode() { 
+    	return Objects.hash(this.golpeador.getClass()); 
+	}
 
 }
