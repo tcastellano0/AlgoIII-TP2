@@ -1,6 +1,8 @@
 package Vista;
 
 import Herramientas.Construccion.EsquemaHerramientaDelJugador;
+import Herramientas.Construccion.NoExisteEsquemaException;
+import Herramientas.Construccion.NoExisteEsquemaException;
 import Juego.Jugador.Jugador;
 import Materiales.Diamante;
 import Materiales.Madera;
@@ -49,9 +51,14 @@ public class SectorConstructor extends VBox {
         crear.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                jugador.agregarHerramienta(esquema.construir());
-              //  jugador.perderMaderas(); era para probar si anda (anda)
-                sectorConstruccionMateriales.actualizar();
+
+            	try {
+            		jugador.agregarHerramienta(esquema.construir());
+                    sectorConstruccionMateriales.actualizar();
+            	}
+            	catch(NoExisteEsquemaException a) {
+            		AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");
+            	}
             }
         });
         HBox botonesLimpiarYCrearContenedor = new HBox();
@@ -94,6 +101,8 @@ public class SectorConstructor extends VBox {
         slotMaterial20.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial20));
         slotMaterial21.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial21));
         slotMaterial22.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial22));
+
+
     }
 
 
