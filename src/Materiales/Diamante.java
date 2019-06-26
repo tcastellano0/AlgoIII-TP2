@@ -36,9 +36,7 @@ public class Diamante extends Material {
 	public void golpeadoPor(GolpeadorPicoDePiedra golpeador) { }
 
 	@Override
-	public void golpeadoPor(GolpeadorPicoDeMetal golpeador) {
-		this.desgastar(golpeador.getFuerza());
-	}
+	public void golpeadoPor(GolpeadorPicoDeMetal golpeador) {}
 
 	@Override
 	public void golpeadoPor(GolpeadorPicoFino golpeador) {

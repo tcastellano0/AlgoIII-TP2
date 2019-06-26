@@ -72,14 +72,14 @@ public class DiamanteTest {
     }
     
     @Test
-    public void test06DiamanteEsGolpeadoCincoVecesPorPicoDeMetalYSeReduceSuDurabilidadIgualALaFuerzaDelPico(){
+    public void test06DiamanteEsGolpeadoCincoVecesPorPicoDeMetalYNoSeReduceSuDurabilidad(){
         Diamante diamante = new Diamante();
         GolpeadorPicoDeMetal picoDeMetal = new GolpeadorPicoDeMetal();
         double durabilidad = diamante.getDurabilidad();
 
         this.golpearCincoVecesElMaterialCon(diamante, picoDeMetal);
 
-        assertEquals(diamante.getDurabilidad(), durabilidad - (picoDeMetal.getFuerza() * 5), 0);
+        assertEquals(diamante.getDurabilidad(), durabilidad, 0);
     }
 
     @Test
