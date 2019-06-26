@@ -4,7 +4,9 @@ import Herramientas.Construccion.EsquemaHerramientaDelJugador;
 import Herramientas.Construccion.NoExisteEsquemaException;
 import Juego.Jugador.Jugador;
 import Juego.Mapa.ContenedorOcupadoException;
+import Juego.Mapa.ContenedorVacioException;
 import Materiales.*;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -66,20 +68,29 @@ public class SectorConstructor extends VBox {
         limpiar.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent e) {
-                esquema.limpiar();
+                    for(int i=1; i<=3; i++)
+                        for (int j = 1; j <= 3; j++) {
+                            try {
+                                jugador.guardar(esquema.sacar(i, j));
+                            }
+                            catch (ContenedorVacioException c){
+                                continue;
+                            }
+                        }
                 ObservableList<Node> botones = slots.getChildren();
                 for ( Node n: botones){
                     if (n instanceof Button){
-
-                       // ((Button)n).setBackground(new Background(backgroundImageVacio()));
-
-
-                        ((Button)n).setBackground(new Background(backgroundImageVacio()));
+                        Platform.runLater(new Runnable() {
+                            @Override
+                            public void run() {
+                                getChildren().remove(getChildren().indexOf(slots));
+                                agregarSlots();
+                            }
+                        });
                     }
                 }
                 sectorConstruccionMateriales.actualizar();
             }
-
         });
         HBox botonesLimpiarYCrearContenedor = new HBox();
         botonesLimpiarYCrearContenedor.setSpacing(10);
@@ -100,7 +111,7 @@ public class SectorConstructor extends VBox {
         Button slotMaterial21 = new Button("", new ImageView(imgVacio));
         Button slotMaterial22 = new Button("", new ImageView(imgVacio));
 
-        getChildren().add(slots);
+        getChildren().add(1,slots);
         slots.add(slotMaterial00, 0, 0);
         slots.add(slotMaterial01, 0, 1);
         slots.add(slotMaterial02, 0, 2);
