@@ -21,7 +21,7 @@ public class Jugador implements Ubicable {
 	public Jugador() {
 		this.herramientaEquipada = Herramienta.hachaDeMadera();
 		this.inventarioDeHerramientas = new Inventario<Herramienta>();
-		this.inventarioDeHerramientas.agregar(this.herramientaEquipada);
+		this.agregarHerramienta(this.herramientaEquipada);
 		
 		this.inventarioDeMadera = new Inventario<Madera>();
 		this.inventarioDeMetal = new Inventario<Metal>();
