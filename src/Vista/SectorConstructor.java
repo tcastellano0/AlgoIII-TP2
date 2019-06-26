@@ -20,7 +20,7 @@ import javafx.scene.text.Text;
 
 public class SectorConstructor extends VBox {
 
-    private EligeVistas rutaVistas = EligeVistas.getInstance();
+    private EligeRutaImagenes rutaVistas = EligeRutaImagenes.getInstance();
     private Jugador jugador;
     private SectorConstructorMateriales sectorConstruccionMateriales;
     private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();

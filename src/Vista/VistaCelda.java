@@ -12,7 +12,7 @@ import javafx.scene.image.ImageView;
 public class VistaCelda extends StackPane {
 
     Celda celda;
-    EligeVistas rutaVistas = EligeVistas.getInstance();
+    EligeRutaImagenes rutaVistas = EligeRutaImagenes.getInstance();
     Image imgVacio = new Image(rutaVistas.vacio(), 35, 35, false, false);
 
 
