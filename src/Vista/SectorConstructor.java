@@ -50,6 +50,8 @@ public class SectorConstructor extends VBox {
             @Override
             public void handle(ActionEvent e) {
                 jugador.agregarHerramienta(esquema.construir());
+              //  jugador.perderMaderas(); era para probar si anda (anda)
+                sectorConstruccionMateriales.actualizar();
             }
         });
         HBox botonesLimpiarYCrearContenedor = new HBox();
@@ -92,8 +94,6 @@ public class SectorConstructor extends VBox {
         slotMaterial20.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial20));
         slotMaterial21.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial21));
         slotMaterial22.setContextMenu(getContextMenuConstruccionParaSlot(slotMaterial22));
-
-
     }
 
 
@@ -118,6 +118,7 @@ public class SectorConstructor extends VBox {
 
                 esquema.poner(new Madera(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageMadera()));
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
@@ -130,6 +131,7 @@ public class SectorConstructor extends VBox {
 
                 esquema.poner(new Piedra(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImagePiedra()));
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
@@ -140,6 +142,7 @@ public class SectorConstructor extends VBox {
             public void handle(ActionEvent event) {
                 esquema.poner(new Metal(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageMetal()));
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
@@ -150,6 +153,8 @@ public class SectorConstructor extends VBox {
             public void handle(ActionEvent event) {
                 esquema.poner(new Diamante(), fila + 1, columna + 1);
                 btnSlot.setBackground(new Background(backgroundImageDiamante()));
+
+                sectorConstruccionMateriales.actualizar();
             }
         });
 
