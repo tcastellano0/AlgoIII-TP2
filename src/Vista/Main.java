@@ -104,7 +104,7 @@ public class Main extends Application {
         layout.setCenter(vertical);
         Scene scene = new Scene(layout, 300, 250);
 
-        Image titleBackground = new Image("Vista/images/menu/title.png", 1200, 800, false, true);
+        Image titleBackground = new Image("Vista/images/menu/title.png", 950, 800, false, true);
         BackgroundImage imagenTitulo = new BackgroundImage(titleBackground,
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
