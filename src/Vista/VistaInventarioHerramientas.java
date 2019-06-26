@@ -21,24 +21,29 @@ public class VistaInventarioHerramientas extends HBox {
 
     private void agregarBotonesHerramientas(){
         VistaHerramientaEquipada herramientaEquipada = new VistaHerramientaEquipada(new Jugador());
-
-        Image imgVacio = new Image(EligeVistas.getInstance().vacio(), 35, 35, false, false);
-
-        Button slotHerramienta1 = new Button("", new ImageView(imgVacio));
-        Text cantHerramienta1 = new Text("x 0");
+        
+        ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",35,35, false, false));
+        Button slotHerramienta1 = new Button("", imgHerr1);
+        Text cantHerramienta1 = new Text("x N");
         cantHerramienta1.setStyle("-fx-font: 12 arial;");
 
-        Button slotHerramienta2 = new Button("", new ImageView(imgVacio));
+        ImageView imgHerr2 = new ImageView(new Image("Vista/images/herramientas/hachaPiedra.png",35,35, false, false));
+        Button slotHerramienta2 = new Button("", imgHerr2);
 
-        Button slotHerramienta3 = new Button("", new ImageView(imgVacio));
+        ImageView imgHerr3 = new ImageView(new Image("Vista/images/herramientas/hachaMetal.png",35,35, false, false));
+        Button slotHerramienta3 = new Button("", imgHerr3);
 
-        Button slotHerramienta4 = new Button("", new ImageView(imgVacio));
+        ImageView imgHerr4 = new ImageView(new Image("Vista/images/herramientas/picoMadera.png",35,35, false, false));
+        Button slotHerramienta4 = new Button("", imgHerr4);
 
-        Button slotHerramienta5 = new Button("", new ImageView(imgVacio));
+        ImageView imgHerr5 = new ImageView(new Image("Vista/images/herramientas/picoPiedra.png",35,35, false, false));
+        Button slotHerramienta5 = new Button("", imgHerr5);
 
-        Button slotHerramienta6 = new Button("", new ImageView(imgVacio));
+        ImageView imgHerr6 = new ImageView(new Image("Vista/images/herramientas/picoMetal.png",35,35, false, false));
+        Button slotHerramienta6 = new Button("", imgHerr6);
 
-        Button slotHerramienta7 = new Button("", new ImageView(imgVacio));
+        ImageView imgHerr7 = new ImageView(new Image("Vista/images/herramientas/picoFino.png",35,35, false, false));
+        Button slotHerramienta7 = new Button("", imgHerr7);
 
 
         //getChildren().addAll(slotHerramienta1, cantHerramienta1, slotHerramienta2, cantidadHachaPiedra,
