@@ -87,7 +87,7 @@ public class Main extends Application {
 				
 				if(keyCode.equals(KeyCode.G)) {
 					algoCraft.golpearMaterialSiguiente();
-					
+					ponerSonidoPegar();
 					sectorConstructor.actualizar();
 	        	}
 				
@@ -152,5 +152,20 @@ public class Main extends Application {
     	MediaPlayer mediaPlayerParaPisar = new MediaPlayer(sound);
     	mediaPlayerParaPisar.play();
     }
+    
+    public void ponerSonidoPegar() {
+    	String musicFile1 = "src/Sonidos/grunt1.mp3";  
+    	String musicFile2 = "src/Sonidos/grunt2.mp3";
+    	String musicFile3 = "src/Sonidos/grunt3.mp3";
+    	String[] sonidos = {musicFile1, musicFile2, musicFile3};
+    	
+    	Random rand = new Random();
+    	int n = rand.nextInt(3);
+
+    	Media sound = new Media(new File(sonidos[n]).toURI().toString());
+    	MediaPlayer mediaPlayerParaPisar = new MediaPlayer(sound);
+    	mediaPlayerParaPisar.play();
+    }
+    
 
 }
