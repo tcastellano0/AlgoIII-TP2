@@ -144,4 +144,95 @@ public class JugadorTest {
 		assertEquals(jugador.cantidadDeMaderas(), cantidadDeMaderas + 1);
 	}
 	
+	@Test
+	public void testJugadorAgregaHachaDeMaderaYAumentaLaCantidadDeHachasDeMadera() {
+		Jugador jugador = new Jugador();
+		int cantidadDeHachasDeMadera = jugador.cantidadDeHachasDeMadera();
+		
+		jugador.agregarHerramienta(Herramienta.hachaDeMadera());
+
+		assertEquals(jugador.cantidadDeHachasDeMadera(), cantidadDeHachasDeMadera + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaHachaDePiedraYAumentaLaCantidadDeHachasDePiedra() {
+		Jugador jugador = new Jugador();
+		int cantidadDeHachasDePiedra = jugador.cantidadDeHachasDePiedra();
+		
+		jugador.agregarHerramienta(Herramienta.hachaDePiedra());
+
+		assertEquals(jugador.cantidadDeHachasDePiedra(), cantidadDeHachasDePiedra + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaHachaDeMetalYAumentaLaCantidadDeHachasDeMetal() {
+		Jugador jugador = new Jugador();
+		int cantidadDeHachasDeMetal = jugador.cantidadDeHachasDeMetal();
+		
+		jugador.agregarHerramienta(Herramienta.hachaDeMetal());
+
+		assertEquals(jugador.cantidadDeHachasDeMetal(), cantidadDeHachasDeMetal + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaPicoDeMaderaYAumentaLaCantidadDePicosDeMadera() {
+		Jugador jugador = new Jugador();
+		int cantidadDePicosDeMadera = jugador.cantidadDePicosDeMadera();
+		
+		jugador.agregarHerramienta(Herramienta.picoDeMadera());
+
+		assertEquals(jugador.cantidadDePicosDeMadera(), cantidadDePicosDeMadera + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaPicoDePiedraYAumentaLaCantidadDePicossDePiedra() {
+		Jugador jugador = new Jugador();
+		int cantidadDePicosDePiedra = jugador.cantidadDePicosDePiedra();
+		
+		jugador.agregarHerramienta(Herramienta.picoDePiedra());
+
+		assertEquals(jugador.cantidadDePicosDePiedra(), cantidadDePicosDePiedra + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaPicoDeMetalYAumentaLaCantidadDePicosDeMetal() {
+		Jugador jugador = new Jugador();
+		int cantidadDePicosDeMetal = jugador.cantidadDePicosDeMetal();
+		
+		jugador.agregarHerramienta(Herramienta.picoDeMetal());
+
+		assertEquals(jugador.cantidadDePicosDeMetal(), cantidadDePicosDeMetal + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaPicoFinoYAumentaLaCantidadDePicosFinos() {
+		Jugador jugador = new Jugador();
+		int cantidadDePicosFinos = jugador.cantidadDePicosFinos();
+		
+		jugador.agregarHerramienta(Herramienta.picoFino());
+
+		assertEquals(jugador.cantidadDePicosFinos(), cantidadDePicosFinos + 1);
+	}
+	
+	@Test
+	public void testJugadorAgregaHachaDeMaderaYNoAumentaLaCantidadDeHachasDeMetal() {
+		Jugador jugador = new Jugador();
+		int cantidadDeHachasDeMetal = jugador.cantidadDeHachasDeMetal();
+		
+		jugador.agregarHerramienta(Herramienta.hachaDeMadera());
+
+		assertEquals(jugador.cantidadDeHachasDeMetal(), cantidadDeHachasDeMetal);
+	}
+	
+	@Test
+	public void testJugadorAgregaHachaDeMaderaYNoAumentaLaCantidadDePicosDeMadera() {
+		Jugador jugador = new Jugador();
+		int cantidadDePicosDeMadera = jugador.cantidadDePicosDeMadera();
+		
+		jugador.agregarHerramienta(Herramienta.hachaDeMadera());
+
+		assertEquals(jugador.cantidadDePicosDeMadera(), cantidadDePicosDeMadera);
+	}
+	
+	
 }
