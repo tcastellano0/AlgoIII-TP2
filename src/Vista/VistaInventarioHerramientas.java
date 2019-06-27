@@ -12,6 +12,7 @@ import javafx.scene.text.TextAlignment;
 
 public class VistaInventarioHerramientas extends HBox {
 
+    private SectorHerramientaEquipada sectorHerramientaEquipada;
     private Text cantidadHachaMadera;
     private Text cantidadHachaPiedra;
     private Text cantidadHachaMetal;
@@ -20,7 +21,6 @@ public class VistaInventarioHerramientas extends HBox {
     private Text cantidadPicoMetal;
     private Text cantidadPicoFino;
     private Jugador j;
-
 
     public VistaInventarioHerramientas(Jugador j) {
         this.j = j;
@@ -44,8 +44,8 @@ public class VistaInventarioHerramientas extends HBox {
 
 
     private void agregarSectorHerramientaEquipada (){
-        SectorHerramientaEquipada herramientaEquipada = new SectorHerramientaEquipada(j);
-        getChildren().add(herramientaEquipada);
+        sectorHerramientaEquipada = new SectorHerramientaEquipada(j);
+        getChildren().add(sectorHerramientaEquipada);
     }
 
     private void agregarBotonesHerramientas(Jugador j){
@@ -72,6 +72,9 @@ public class VistaInventarioHerramientas extends HBox {
 
         ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",25,25, false, false));
         Button slotHachaMadera = new Button("", imgHerr1);
+        slotHachaMadera.setOnAction(
+                e -> j.equiparHachaDeMadera()
+        );
 
         ImageView imgHerr2 = new ImageView(new Image("Vista/images/herramientas/hachaPiedra.png",25,25, false, false));
         Button slotHachaPiedra = new Button("", imgHerr2);
@@ -87,6 +90,10 @@ public class VistaInventarioHerramientas extends HBox {
 
         ImageView imgHerr6 = new ImageView(new Image("Vista/images/herramientas/picoMetal.png",25,25, false, false));
         Button slotPicoMetal = new Button("", imgHerr6);
+        slotPicoMetal.setOnAction(
+                e -> {j.equiparPicoDeMetal();
+                sectorHerramientaEquipada.actualizar();}
+        );
 
         ImageView imgHerr7 = new ImageView(new Image("Vista/images/herramientas/picoFino.png",25,25, false, false));
         Button slotPicoFino = new Button("", imgHerr7);

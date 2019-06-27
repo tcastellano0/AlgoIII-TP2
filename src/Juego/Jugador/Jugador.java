@@ -12,7 +12,6 @@ import Materiales.*;
 public class Jugador implements Ubicable {
 	
 	private Herramienta herramientaEquipada;
-	//private Inventario<Herramienta> inventarioDeHerramientas;
 	private Map<Herramienta, LinkedList<Herramienta>> inventarioDeHerramientas;
 	
 	private Inventario<Madera> inventarioDeMadera;
@@ -184,6 +183,30 @@ public class Jugador implements Ubicable {
 	public int cantidadDePicosFinos() {
 		Herramienta herramienta = Herramienta.picoFino();
 		return this.inventarioDeHerramientas.get(herramienta).size();
+	}
+
+	public void equiparHachaDeMadera(){
+		Herramienta herramienta = Herramienta.hachaDeMadera();
+		LinkedList<Herramienta> listaHerramientas = this.inventarioDeHerramientas.get(herramienta);
+		if (listaHerramientas.size() == 0){
+			return;
+		}
+		for (Herramienta h: listaHerramientas){
+			herramientaEquipada = h;
+			return;
+		}
+	}
+
+	public void equiparPicoDeMetal(){
+		Herramienta herramienta = Herramienta.picoDeMetal();
+		LinkedList<Herramienta> listaHerramientas = this.inventarioDeHerramientas.get(herramienta);
+		if (listaHerramientas.size() == 0){
+			return;
+		}
+		for (Herramienta h: listaHerramientas){
+			herramientaEquipada = h;
+			return;
+		}
 	}
 
 }
