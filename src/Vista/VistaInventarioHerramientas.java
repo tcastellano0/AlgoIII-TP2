@@ -40,22 +40,22 @@ public class VistaInventarioHerramientas extends HBox {
         Text cantidadHachaMadera = new Text("x "+ j.cantidadDeHachasDeMadera());
         cantidadHachaMadera.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadHachaPiedra = new Text("x N");
+        Text cantidadHachaPiedra = new Text("x "+ j.cantidadDeHachasDePiedra());
         cantidadHachaPiedra.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadHachaMetal = new Text("x N");
+        Text cantidadHachaMetal = new Text("x "+ j.cantidadDeHachasDeMetal());
         cantidadHachaMetal.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoMadera = new Text("x N");
+        Text cantidadPicoMadera = new Text("x "+ j.cantidadDePicosDeMadera());
         cantidadPicoMadera.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoPiedra = new Text("x N");
+        Text cantidadPicoPiedra = new Text("x "+ j.cantidadDePicosDePiedra());
         cantidadPicoPiedra.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoMetal = new Text("x N");
+        Text cantidadPicoMetal = new Text("x "+ j.cantidadDePicosDeMetal());
         cantidadPicoMetal.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoFino = new Text("x N");
+        Text cantidadPicoFino = new Text("x "+ j.cantidadDePicosFinos());
         cantidadPicoFino.setStyle("-fx-font: 12 arial;");
 
         ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",25,25, false, false));
