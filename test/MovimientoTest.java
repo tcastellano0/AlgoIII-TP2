@@ -21,17 +21,16 @@ public class MovimientoTest {
 
 
     @Test
-    public void testMoverUnJugadorModificaSuPosicion(){
+    public void testMoverArribaUnJugadorModificaSuPosicion(){
     	Tablero<Ubicable> tablero = new Tablero<Ubicable>(20,20);
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
-        movimiento.invertir();
 
-        Posicion posicion = new Posicion(1,1);
+        Posicion posicion = new Posicion(2,2);
 
         tablero.poner(jugador, posicion);
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverArriba(jugador);
 
         assertNotEquals(jugador.getPosicion(), posicion);
     }
@@ -55,16 +54,16 @@ public class MovimientoTest {
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
-        int numeroPasos = 15;
+        int numeroPasos = 5;
 
-        Posicion posicionInicial = new Posicion(1, numeroPasos);
-        Posicion posicionFinal = new Posicion(1, 1);
+        Posicion posicionInicial = new Posicion(2, numeroPasos);
+        Posicion posicionFinal = new Posicion(2, 1);
 
         tablero.poner(jugador, posicionInicial);
         jugador.setPosicion(posicionInicial);
 
         for(int i = 1; i <= numeroPasos; i++) {
-            movimiento.avanzar(jugador);
+            movimiento.moverArriba(jugador);
         }
 
         assertEquals(jugador.getPosicion(), posicionFinal);
@@ -82,7 +81,7 @@ public class MovimientoTest {
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.abajo());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverArriba(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -99,7 +98,7 @@ public class MovimientoTest {
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.abajo());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverArriba(jugador);
 
         assertEquals(movimiento.getDireccion(), DireccionNorte.getInstancia());
     }
@@ -111,13 +110,12 @@ public class MovimientoTest {
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
-        Posicion posicion = new Posicion(1,2);
-        movimiento.invertir();
+        Posicion posicion = new Posicion(2,2);
 
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.abajo());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverAbajo(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -129,13 +127,12 @@ public class MovimientoTest {
         Jugador jugador = new Jugador();
         Movimiento movimiento = new Movimiento(tablero);
 
-        Posicion posicion = new Posicion(1,2);
-        movimiento.invertir();
+        Posicion posicion = new Posicion(2,2);
 
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.abajo());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverAbajo(jugador);
 
         assertEquals(movimiento.getDireccion(), DireccionSur.getInstancia());
     }
@@ -148,12 +145,11 @@ public class MovimientoTest {
         Movimiento movimiento = new Movimiento(tablero);
 
         Posicion posicion = new Posicion(1,2);
-        movimiento.rotar();
 
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.derecha());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverDerecha(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -166,12 +162,11 @@ public class MovimientoTest {
         Movimiento movimiento = new Movimiento(tablero);
 
         Posicion posicion = new Posicion(1,2);
-        movimiento.rotar();
 
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.derecha());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverDerecha(jugador);
 
         assertEquals(movimiento.getDireccion(), DireccionEste.getInstancia());
     }
@@ -184,13 +179,11 @@ public class MovimientoTest {
         Movimiento movimiento = new Movimiento(tablero);
 
         Posicion posicion = new Posicion(2,2);
-        movimiento.invertir();
-        movimiento.rotar();
 
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.izquierda());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverIzquierda(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -203,13 +196,11 @@ public class MovimientoTest {
         Movimiento movimiento = new Movimiento(tablero);
 
         Posicion posicion = new Posicion(2,2);
-        movimiento.invertir();
-        movimiento.rotar();
 
         tablero.poner(jugador, posicion);
         tablero.poner(madera, posicion.izquierda());
         jugador.setPosicion(posicion);
-        movimiento.avanzar(jugador);
+        movimiento.moverIzquierda(jugador);
 
         assertEquals(movimiento.getDireccion(), DireccionOeste.getInstancia());
     }
@@ -226,7 +217,7 @@ public class MovimientoTest {
         jugador.setPosicion(posicion);
         tablero.poner(jugador, posicion);
 
-        movimiento.avanzar(jugador);
+        movimiento.moverArriba(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -241,10 +232,7 @@ public class MovimientoTest {
 
         tablero.poner(jugador, posicion);
         jugador.setPosicion(posicion);
-
-        movimiento.invertir();
-
-        movimiento.avanzar(jugador);
+        movimiento.moverAbajo(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -260,8 +248,7 @@ public class MovimientoTest {
         tablero.poner(jugador, posicion);
         jugador.setPosicion(posicion);
 
-        movimiento.rotar();
-        movimiento.avanzar(jugador);
+        movimiento.moverDerecha(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -277,9 +264,7 @@ public class MovimientoTest {
         tablero.poner(jugador, posicion);
         jugador.setPosicion(posicion);
 
-        movimiento.invertir();
-        movimiento.rotar();
-        movimiento.avanzar(jugador);
+        movimiento.moverIzquierda(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
@@ -297,8 +282,7 @@ public class MovimientoTest {
         tablero.poner(madera, posicion.abajo());
         jugador.setPosicion(posicion);
 
-        movimiento.rotar();
-        movimiento.avanzar(jugador);
+        movimiento.moverDerecha(jugador);
 
         assertNotEquals(jugador.getPosicion(), posicion);
     }
@@ -314,8 +298,8 @@ public class MovimientoTest {
         tablero.poner(jugador, posicion);
         jugador.setPosicion(posicion);
 
-        movimiento.avanzar(jugador);
-        movimiento.avanzar(jugador);
+        movimiento.moverArriba(jugador);
+        movimiento.moverArriba(jugador);
 
         assertEquals(posicion, jugador.getPosicion());
     }
