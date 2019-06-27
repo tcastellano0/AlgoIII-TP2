@@ -11,15 +11,27 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
 public class VistaInventarioHerramientas extends HBox {
+
+    private Text cantidadHachaMadera;
+    private Text cantidadHachaPiedra;
+    private Text cantidadHachaMetal;
+    private Text cantidadPicoMadera;
+    private Text cantidadPicoPiedra;
+    private Text cantidadPicoMetal;
+    private Text cantidadPicoFino;
+    private Jugador j;
+
+
     public VistaInventarioHerramientas(Jugador j) {
+        this.j = j;
         setPadding(new Insets(10, 10, 10, 10));
         setAlignment(Pos.CENTER_LEFT);
         setSpacing(10);
         setTitutloEquipada();
-        agregarSectorHerramientaEquipada(j);
+        agregarSectorHerramientaEquipada();
         setTitutloInventario();
         agregarBotonesHerramientas(j);
-
+        actualizar();
     }
 
     private void setTitutloEquipada(){
@@ -31,31 +43,31 @@ public class VistaInventarioHerramientas extends HBox {
     }
 
 
-    private void agregarSectorHerramientaEquipada (Jugador j){
+    private void agregarSectorHerramientaEquipada (){
         SectorHerramientaEquipada herramientaEquipada = new SectorHerramientaEquipada(j);
         getChildren().add(herramientaEquipada);
     }
 
     private void agregarBotonesHerramientas(Jugador j){
-        Text cantidadHachaMadera = new Text("x "+ j.cantidadDeHachasDeMadera());
+        cantidadHachaMadera = new Text();
         cantidadHachaMadera.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadHachaPiedra = new Text("x N");
+        cantidadHachaPiedra = new Text();
         cantidadHachaPiedra.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadHachaMetal = new Text("x N");
+        cantidadHachaMetal = new Text();
         cantidadHachaMetal.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoMadera = new Text("x N");
+        cantidadPicoMadera = new Text();
         cantidadPicoMadera.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoPiedra = new Text("x N");
+        cantidadPicoPiedra = new Text();
         cantidadPicoPiedra.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoMetal = new Text("x N");
+        cantidadPicoMetal = new Text();
         cantidadPicoMetal.setStyle("-fx-font: 12 arial;");
         
-        Text cantidadPicoFino = new Text("x N");
+        cantidadPicoFino = new Text();
         cantidadPicoFino.setStyle("-fx-font: 12 arial;");
 
         ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",25,25, false, false));
@@ -90,5 +102,16 @@ public class VistaInventarioHerramientas extends HBox {
         Text herramientasTexto = new Text("Herramientas:");
         herramientasTexto.setStyle("-fx-font: 18 arial;");
         getChildren().add(herramientasTexto);
+    }
+
+    public void actualizar(){
+        cantidadHachaMadera.setText("x " + j.cantidadDeHachasDeMadera());
+        cantidadHachaPiedra.setText("x " + j.cantidadDeHachasDePiedra());
+        cantidadHachaMetal.setText("x " + j.cantidadDeHachasDeMetal());
+        cantidadPicoMadera.setText("x " + j.cantidadDePicosDeMadera());
+        cantidadPicoPiedra.setText("x " + j.cantidadDePicosDePiedra());
+        cantidadPicoMetal.setText("x " + j.cantidadDePicosDeMetal());
+        cantidadPicoFino.setText("x " + j.cantidadDePicosFinos());
+
     }
 }
