@@ -1,13 +1,11 @@
 package Vista;
 
 import Juego.AlgoCraft;
-import Juego.Jugador.Jugador;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
 import Juego.Mapa.Ubicable;
 import javafx.collections.ObservableList;
 
-import Materiales.Diamante;
 
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
