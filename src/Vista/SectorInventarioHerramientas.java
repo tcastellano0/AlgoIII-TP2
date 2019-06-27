@@ -147,6 +147,6 @@ public class SectorInventarioHerramientas extends HBox {
         cantidadPicoPiedra.setText("x " + j.cantidadDePicosDePiedra());
         cantidadPicoMetal.setText("x " + j.cantidadDePicosDeMetal());
         cantidadPicoFino.setText("x " + j.cantidadDePicosFinos());
-
+        sectorHerramientaEquipada.actualizar();
     }
 }
