@@ -29,8 +29,8 @@ public class Herramienta {
     }
 
     public void golpear(Material material) {
-        this.desgastar(this.getFuerza());
         material.golpeadoPor(this.golpeador);
+        this.desgastar(this.getFuerza());
     }
 
     public boolean estaRota(){
