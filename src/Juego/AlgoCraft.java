@@ -37,7 +37,7 @@ public class AlgoCraft {
 		
 		this.jugador = new Jugador();
 		this.jugador.setPosicion(posicionInicial);
-		this.cheat(); //esto es para que inicialice con materiales para probar
+		//this.cheat(); //esto es para que inicialice con materiales para probar
 		
 		this.mapa = new Tablero<Ubicable>(20,20);
 		this.inicializarMapa(); //Siempre debe dejar libre posicionInicial
