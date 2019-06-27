@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import java.io.File;
+import java.util.Random;
 
 
 public class Main extends Application {
@@ -138,9 +139,15 @@ public class Main extends Application {
     }
     
     public void ponerSonidoPisar() {
-    	String musicFile = "src/Sonidos/pisa.mp3";     
+    	String musicFile1 = "src/Sonidos/pisa1.mp3";  
+    	String musicFile2 = "src/Sonidos/pisa2.mp3";
+    	String musicFile3 = "src/Sonidos/pisa3.mp3";
+    	String[] sonidos = {musicFile1, musicFile2, musicFile3};
+    	
+    	Random rand = new Random();
+    	int n = rand.nextInt(3);
 
-    	Media sound = new Media(new File(musicFile).toURI().toString());
+    	Media sound = new Media(new File(sonidos[n]).toURI().toString());
     	MediaPlayer mediaPlayerParaPisar = new MediaPlayer(sound);
     	mediaPlayerParaPisar.play();
     }
