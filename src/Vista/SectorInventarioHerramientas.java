@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
@@ -126,10 +127,35 @@ public class SectorInventarioHerramientas extends HBox {
                 }
         );
 
-
-        getChildren().addAll(slotHachaMadera, cantidadHachaMadera, slotHachaPiedra, cantidadHachaPiedra,
-        		slotHachaMetal, cantidadHachaMetal, slotPicoMadera, cantidadPicoMadera, slotPicoPiedra, cantidadPicoPiedra,
-        		slotPicoMetal, cantidadPicoMetal, slotPicoFino, cantidadPicoFino);
+        VBox vbox1 = new VBox();
+        vbox1.setAlignment(Pos.CENTER);
+        vbox1.getChildren().addAll(slotHachaMadera, cantidadHachaMadera);
+        
+        VBox vbox2 = new VBox();
+        vbox2.setAlignment(Pos.CENTER);
+        vbox2.getChildren().addAll(slotHachaPiedra, cantidadHachaPiedra);
+        
+        VBox vbox3 = new VBox();
+        vbox3.setAlignment(Pos.CENTER);
+        vbox3.getChildren().addAll(slotHachaMetal, cantidadHachaMetal);
+        
+        VBox vbox4 = new VBox();
+        vbox4.setAlignment(Pos.CENTER);
+        vbox4.getChildren().addAll(slotPicoMadera, cantidadPicoMadera);
+        
+        VBox vbox5 = new VBox();
+        vbox5.setAlignment(Pos.CENTER);
+        vbox5.getChildren().addAll(slotPicoPiedra, cantidadPicoPiedra);
+        
+        VBox vbox6 = new VBox();
+        vbox6.setAlignment(Pos.CENTER);
+        vbox6.getChildren().addAll(slotPicoMetal, cantidadPicoMetal);
+        
+        VBox vbox7 = new VBox();
+        vbox7.setAlignment(Pos.CENTER);
+        vbox7.getChildren().addAll(slotPicoFino, cantidadPicoFino);
+        
+        getChildren().addAll(vbox1 ,vbox2 ,vbox3 ,vbox4 ,vbox5 ,vbox6 ,vbox7);
 
     }
 
