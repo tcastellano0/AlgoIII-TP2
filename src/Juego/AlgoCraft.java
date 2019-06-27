@@ -2,6 +2,7 @@ package Juego;
 
 import Juego.Jugador.Jugador;
 import Juego.Jugador.Movimiento;
+import Juego.Jugador.SinHerramientaEquipadaException;
 import Juego.Mapa.ContenedorVacioException;
 import Juego.Mapa.Posicion;
 import Juego.Mapa.Tablero;
@@ -163,7 +164,7 @@ public class AlgoCraft {
 		return this.mapa.ver(pos);
 	}
     
-    public void golpearMaterialSiguiente() {
+    public void golpearMaterialSiguiente() throws SinHerramientaEquipadaException {
     	Posicion posicionSiguiente = this.posicionSiguenteDelJugador();
     	try {
     		Material materialSiguiente = (Material)this.verEnPosicion(posicionSiguiente);

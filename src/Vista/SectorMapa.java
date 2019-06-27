@@ -18,15 +18,15 @@ import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.CornerRadii;
 
 
-public class VistaMapa extends GridPane {
+public class SectorMapa extends GridPane {
     Tablero<Ubicable> mapa = AlgoCraft.getInstancia().getMapa();
 
-    private static VistaMapa instancia = new VistaMapa();
-    public static VistaMapa getInstancia() {
+    private static SectorMapa instancia = new SectorMapa();
+    public static SectorMapa getInstancia() {
         return instancia;
     }
     
-    private VistaMapa() {
+    private SectorMapa() {
     	this.setBackground(new Background(new BackgroundFill(Color.LIGHTGREEN, CornerRadii.EMPTY, Insets.EMPTY)));
     	
     	int filas = mapa.getFilas();

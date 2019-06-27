@@ -1,6 +1,7 @@
 package Vista;
 
 import Juego.AlgoCraft;
+import Juego.Jugador.SinHerramientaEquipadaException;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -40,21 +41,21 @@ public class Main extends Application {
     }
 
     public void prepararEscenaJuego() {
-    	VistaMapa vistaMapa = VistaMapa.getInstancia();
+    	SectorMapa sectorMapa = SectorMapa.getInstancia();
 
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-        VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas(algoCraft.getJugador());
-        SectorConstructor sectorConstructor = new SectorConstructor(algoCraft.getJugador(), herramientas);
+        SectorInventarioHerramientas sectorInventarioHerramientas = new SectorInventarioHerramientas(algoCraft.getJugador());
+        SectorConstructor sectorConstructor = new SectorConstructor(algoCraft.getJugador(), sectorInventarioHerramientas);
     	menuDerecha.getChildren().add(sectorConstructor);
 
 
     	BorderPane borderpane = new BorderPane();
     	borderpane.setRight(menuDerecha);
-    	borderpane.setBottom(herramientas);
-    	borderpane.setCenter(vistaMapa);
+    	borderpane.setBottom(sectorInventarioHerramientas);
+    	borderpane.setCenter(sectorMapa);
     	
         escenaJuego = new Scene(borderpane);
         
@@ -86,13 +87,20 @@ public class Main extends Application {
 	        	}
 				
 				if(keyCode.equals(KeyCode.G)) {
-					algoCraft.golpearMaterialSiguiente();
-					ponerSonidoPegar();
-					sectorConstructor.actualizar();
+					try{
+					    algoCraft.golpearMaterialSiguiente();
+					    ponerSonidoPegar();
+                        sectorConstructor.actualizar();
+                        sectorInventarioHerramientas.actualizar();
+                    }
+					catch (SinHerramientaEquipadaException e){
+					    AlertBox.mostrar(e.getMessage());
+                        sectorConstructor.actualizar();
+                        sectorInventarioHerramientas.actualizar();
+                    }
 	        	}
-				
-				
-				vistaMapa.actualizar();
+
+				sectorMapa.actualizar();
 			}
 		);
     }

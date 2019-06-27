@@ -26,6 +26,8 @@ public class SectorHerramientaEquipada extends HBox {
         rutaHerramienta.put(Herramienta.picoDePiedra(), "Vista/images/herramientas/picoPiedra.png");
         rutaHerramienta.put(Herramienta.picoDeMetal(), "Vista/images/herramientas/picoMetal.png");
         rutaHerramienta.put(Herramienta.picoFino(), "Vista/images/herramientas/picoFino.png");
+        rutaHerramienta.put(null, "Vista/images/materiales/map_vacio.png");
+
 
         panelHerramienta = new StackPane();
 

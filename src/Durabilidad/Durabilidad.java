@@ -8,6 +8,8 @@ public abstract class Durabilidad {
     
     public double getDurabilidad() {
     	return this.durabilidad;
-    } 
+    }
+
+    public boolean esCeroOMenor(){return this.durabilidad<=0;}
 
 }

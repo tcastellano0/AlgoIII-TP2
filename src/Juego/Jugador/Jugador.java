@@ -125,8 +125,14 @@ public class Jugador implements Ubicable {
 		this.posicion = nuevaPosicion;
 	}
 	
-	public void golpear(Material material) {
-		this.herramientaEquipada.golpear(material);	
+	public void golpear(Material material) throws SinHerramientaEquipadaException {
+		probarTieneHerramientaEquipada();
+		this.herramientaEquipada.golpear(material);
+		if(this.herramientaEquipada.estaRota()){
+			tirar(this.herramientaEquipada);
+			herramientaEquipada = null;
+		}
+
 		this.guardar(material.recolectar());
 	}
 	
@@ -186,27 +192,47 @@ public class Jugador implements Ubicable {
 	}
 
 	public void equiparHachaDeMadera(){
-		Herramienta herramienta = Herramienta.hachaDeMadera();
-		LinkedList<Herramienta> listaHerramientas = this.inventarioDeHerramientas.get(herramienta);
-		if (listaHerramientas.size() == 0){
-			return;
-		}
-		for (Herramienta h: listaHerramientas){
-			herramientaEquipada = h;
-			return;
-		}
+		equipar(Herramienta.hachaDeMadera());
+	}
+
+	public void equiparHachaDePiedra(){
+		equipar(Herramienta.hachaDePiedra());
+	}
+
+	public void equiparHachaDeMetal(){
+		equipar(Herramienta.hachaDeMetal());
+	}
+
+	public void equiparPicoDeMadera(){
+		equipar(Herramienta.picoDeMadera());
+	}
+
+	public void equiparPicoDePiedra(){
+		equipar(Herramienta.picoDePiedra());
 	}
 
 	public void equiparPicoDeMetal(){
-		Herramienta herramienta = Herramienta.picoDeMetal();
-		LinkedList<Herramienta> listaHerramientas = this.inventarioDeHerramientas.get(herramienta);
-		if (listaHerramientas.size() == 0){
-			return;
-		}
-		for (Herramienta h: listaHerramientas){
-			herramientaEquipada = h;
-			return;
-		}
+		equipar(Herramienta.picoDeMetal());
 	}
 
+	public void equiparPicoFino(){
+		equipar(Herramienta.picoFino());
+	}
+
+	private void equipar(Herramienta h){
+		LinkedList<Herramienta> listaHerramientas = this.inventarioDeHerramientas.get(h);
+		Herramienta aEquipar = listaHerramientas.peek();
+		if(aEquipar != null) { herramientaEquipada = aEquipar;}
+	}
+
+	private void tirar(Herramienta h){
+		LinkedList<Herramienta> listaHerramientas = this.inventarioDeHerramientas.get(h);
+		listaHerramientas.remove();
+	}
+
+	private void probarTieneHerramientaEquipada() throws SinHerramientaEquipadaException {
+		if (herramientaEquipada == null){
+			throw new SinHerramientaEquipadaException();
+		}
+	}
 }

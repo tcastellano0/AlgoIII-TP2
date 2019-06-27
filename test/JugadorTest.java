@@ -1,3 +1,4 @@
+import Juego.Jugador.SinHerramientaEquipadaException;
 import Materiales.*;
 import Herramientas.Herramienta;
 import Juego.Jugador.Jugador;
@@ -134,13 +135,13 @@ public class JugadorTest {
 		Jugador jugador = new Jugador();
 		Madera madera = new Madera();
 		int cantidadDeMaderas = jugador.cantidadDeMaderas();
-		
-		jugador.golpear(madera);
-		jugador.golpear(madera);
-		jugador.golpear(madera);
-		jugador.golpear(madera);
-		jugador.golpear(madera);
-
+		try {
+			jugador.golpear(madera);
+			jugador.golpear(madera);
+			jugador.golpear(madera);
+			jugador.golpear(madera);
+			jugador.golpear(madera);
+		}catch (SinHerramientaEquipadaException e){}
 		assertEquals(jugador.cantidadDeMaderas(), cantidadDeMaderas + 1);
 	}
 	

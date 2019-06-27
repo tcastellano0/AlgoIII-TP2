@@ -10,7 +10,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
 
-public class VistaInventarioHerramientas extends HBox {
+public class SectorInventarioHerramientas extends HBox {
 
     private SectorHerramientaEquipada sectorHerramientaEquipada;
     private Text cantidadHachaMadera;
@@ -22,7 +22,7 @@ public class VistaInventarioHerramientas extends HBox {
     private Text cantidadPicoFino;
     private Jugador j;
 
-    public VistaInventarioHerramientas(Jugador j) {
+    public SectorInventarioHerramientas(Jugador j) {
         this.j = j;
         setPadding(new Insets(10, 10, 10, 10));
         setAlignment(Pos.CENTER_LEFT);
@@ -73,20 +73,42 @@ public class VistaInventarioHerramientas extends HBox {
         ImageView imgHerr1 = new ImageView(new Image("Vista/images/herramientas/hachaMadera.png",25,25, false, false));
         Button slotHachaMadera = new Button("", imgHerr1);
         slotHachaMadera.setOnAction(
-                e -> j.equiparHachaDeMadera()
+                e -> {j.equiparHachaDeMadera();
+                sectorHerramientaEquipada.actualizar();
+                }
         );
 
         ImageView imgHerr2 = new ImageView(new Image("Vista/images/herramientas/hachaPiedra.png",25,25, false, false));
         Button slotHachaPiedra = new Button("", imgHerr2);
+        slotHachaPiedra.setOnAction(
+                e -> {j.equiparHachaDePiedra();
+                    sectorHerramientaEquipada.actualizar();
+                }
+        );
 
         ImageView imgHerr3 = new ImageView(new Image("Vista/images/herramientas/hachaMetal.png",25,25, false, false));
         Button slotHachaMetal = new Button("", imgHerr3);
+        slotHachaMetal.setOnAction(
+                e -> {j.equiparHachaDeMetal();
+                    sectorHerramientaEquipada.actualizar();
+                }
+        );
 
         ImageView imgHerr4 = new ImageView(new Image("Vista/images/herramientas/picoMadera.png",25,25, false, false));
         Button slotPicoMadera = new Button("", imgHerr4);
+        slotPicoMadera.setOnAction(
+                e -> {j.equiparPicoDeMadera();
+                    sectorHerramientaEquipada.actualizar();
+                }
+        );
 
         ImageView imgHerr5 = new ImageView(new Image("Vista/images/herramientas/picoPiedra.png",25,25, false, false));
         Button slotPicoPiedra = new Button("", imgHerr5);
+        slotPicoPiedra.setOnAction(
+                e -> {j.equiparPicoDePiedra();
+                    sectorHerramientaEquipada.actualizar();
+                }
+        );
 
         ImageView imgHerr6 = new ImageView(new Image("Vista/images/herramientas/picoMetal.png",25,25, false, false));
         Button slotPicoMetal = new Button("", imgHerr6);
@@ -95,8 +117,14 @@ public class VistaInventarioHerramientas extends HBox {
                 sectorHerramientaEquipada.actualizar();}
         );
 
+
         ImageView imgHerr7 = new ImageView(new Image("Vista/images/herramientas/picoFino.png",25,25, false, false));
         Button slotPicoFino = new Button("", imgHerr7);
+        slotPicoFino.setOnAction(
+                e -> {j.equiparPicoFino();
+                    sectorHerramientaEquipada.actualizar();
+                }
+        );
 
 
         getChildren().addAll(slotHachaMadera, cantidadHachaMadera, slotHachaPiedra, cantidadHachaPiedra,

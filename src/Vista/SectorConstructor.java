@@ -30,9 +30,9 @@ public class SectorConstructor extends VBox {
     private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();
     private GridPane slots = new GridPane();
     private Image imgVacio = new Image(rutaImagenes.vacio(), 35, 35, false, false);
-    private VistaInventarioHerramientas sectorHerramientas;
+    private SectorInventarioHerramientas sectorHerramientas;
 
-    public SectorConstructor(Jugador jugador, VistaInventarioHerramientas sectorHerramientas) {
+    public SectorConstructor(Jugador jugador, SectorInventarioHerramientas sectorHerramientas) {
         this.jugador = jugador;
         this.sectorHerramientas = sectorHerramientas;
         slots.setVgap(10);

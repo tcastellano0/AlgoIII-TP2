@@ -3,7 +3,7 @@ package Herramientas;
 import java.util.Objects;
 
 import Durabilidad.*;
-import Juego.Mapa.Posicion;
+
 import Materiales.Material;
 
 public class Herramienta {
@@ -31,6 +31,10 @@ public class Herramienta {
     public void golpear(Material material) {
         this.desgastar(this.getFuerza());
         material.golpeadoPor(this.golpeador);
+    }
+
+    public boolean estaRota(){
+        return this.durabilidad.esCeroOMenor();
     }
 
     //metodos de clase para instanciar cada tipo de herramienta
@@ -75,5 +79,7 @@ public class Herramienta {
         
         return this.golpeador.getClass() == herramienta.golpeador.getClass();
     }
+
+
 
 }
