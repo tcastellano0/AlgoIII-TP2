@@ -154,7 +154,7 @@ public class Main extends Application {
     }
     
     public void ponerSonidoPegar() {
-    	String musicFile1 = "src/Sonidos/grunt1.mp3";  
+    	String musicFile1 = "src/Sonidos/grunt1.mp3";
     	String musicFile2 = "src/Sonidos/grunt2.mp3";
     	String musicFile3 = "src/Sonidos/grunt3.mp3";
     	String[] sonidos = {musicFile1, musicFile2, musicFile3};

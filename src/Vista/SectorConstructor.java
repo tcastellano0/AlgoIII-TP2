@@ -16,7 +16,11 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.text.Text;
+
+import java.io.File;
 
 public class SectorConstructor extends VBox {
 
@@ -101,6 +105,7 @@ public class SectorConstructor extends VBox {
 
                 try {
                     jugador.agregarHerramienta(esquema.construir());
+                    ponerSonidoConstruccion();
                     dibujarGrillaConstructor();
                     sectorConstruccionMateriales.actualizar();
                     sectorHerramientas.actualizar();
@@ -327,5 +332,12 @@ public class SectorConstructor extends VBox {
                 bSize);
     }
 
+    private void ponerSonidoConstruccion() {
+        String ruidoConstruir = "src/Sonidos/craft2.mp3";
+
+        Media sound = new Media(new File(ruidoConstruir).toURI().toString());
+        MediaPlayer mediaPlayer = new MediaPlayer(sound);
+        mediaPlayer.play();
+    }
 
 }
