@@ -20,6 +20,8 @@ public class Main extends Application {
     Stage window;
     Scene escenaJuego;
     AlgoCraft algoCraft = AlgoCraft.getInstancia();
+    MediaPlayer mediaPlayer;
+    
 
     public static void main(String[] args) {
         launch(args);
@@ -59,21 +61,25 @@ public class Main extends Application {
 	            
 	            if(keyCode.equals(KeyCode.W)) {
                     EligeRutaImagenes.getInstance().jugadorMiraArriba();
+                    ponerSonidoPisar();
                     algoCraft.moverJugadorArriba();
 	        	}
 	    		
 	            if(keyCode.equals(KeyCode.S)) {
                     EligeRutaImagenes.getInstance().jugadorMiraAbajo();
+                    ponerSonidoPisar();
 	    			algoCraft.moverJugadorAbajo();
 	        	}
 				
 	    		if(keyCode.equals(KeyCode.A)) {
                     EligeRutaImagenes.getInstance().jugadorMiraIzquierda();
+                    ponerSonidoPisar();
 					algoCraft.moverJugadorIzquierda();
 	        	}
 				
 				if(keyCode.equals(KeyCode.D)) {
                     EligeRutaImagenes.getInstance().jugadorMiraDerecha();
+                    ponerSonidoPisar();
 					algoCraft.moverJugadorDerecha();
 	        	}
 				
@@ -126,9 +132,17 @@ public class Main extends Application {
     	String musicFile = "src/Sonidos/Minecraft Background Music.mp3";     
 
     	Media sound = new Media(new File(musicFile).toURI().toString());
-    	MediaPlayer mediaPlayer = new MediaPlayer(sound);
-    	mediaPlayer.play();
+    	this.mediaPlayer = new MediaPlayer(sound);
+    	this.mediaPlayer.play();
     	
+    }
+    
+    public void ponerSonidoPisar() {
+    	String musicFile = "src/Sonidos/pisa.mp3";     
+
+    	Media sound = new Media(new File(musicFile).toURI().toString());
+    	MediaPlayer mediaPlayerParaPisar = new MediaPlayer(sound);
+    	mediaPlayerParaPisar.play();
     }
 
 }
