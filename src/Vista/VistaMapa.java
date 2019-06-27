@@ -52,21 +52,5 @@ public class VistaMapa extends GridPane {
         }
     }
 
-    /*
-    public void actualizarCelda(Posicion posicion) {
-        Node resultado = null;
-        int fila = posicion.getCoordenadaX() ;
-        int columna = posicion.getCoordenadaY() ;
-        ObservableList<Node> celdas = getChildren();
-
-        for (Node celda : celdas) {
-            if (getRowIndex(celda) == fila
-                    && getColumnIndex(celda) == columna) {
-                resultado = celda;
-                ((VistaCelda) resultado).actualizar();
-            }
-        }
-    }
-    */
 }
 

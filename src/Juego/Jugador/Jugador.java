@@ -185,11 +185,5 @@ public class Jugador implements Ubicable {
 		Herramienta herramienta = Herramienta.picoFino();
 		return this.inventarioDeHerramientas.get(herramienta).size();
 	}
-	
-	/*
-	public int cantidadDeHerramientas() {
-		return (this.inventarioDeHerramientas.cantidad());
-	}
-	*/
 
 }

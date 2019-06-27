@@ -22,9 +22,7 @@ public class Celda<T> {
     }
 
     public T ver() {
-      //  if (!this.ocupacion.estaVacia())
         return this.contenido;
-       // return null;
     }
 
     public void poner(T contenido) {
