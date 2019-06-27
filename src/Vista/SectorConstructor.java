@@ -26,10 +26,11 @@ public class SectorConstructor extends VBox {
     private EsquemaHerramientaDelJugador esquema = EsquemaHerramientaDelJugador.getInstance();
     private GridPane slots = new GridPane();
     private Image imgVacio = new Image(rutaImagenes.vacio(), 35, 35, false, false);
+    private VistaInventarioHerramientas sectorHerramientas;
 
-    public SectorConstructor(Jugador jugador) {
+    public SectorConstructor(Jugador jugador, VistaInventarioHerramientas sectorHerramientas) {
         this.jugador = jugador;
-
+        this.sectorHerramientas = sectorHerramientas;
         slots.setVgap(10);
         setSpacing(10);
         setTitulo();
@@ -102,6 +103,7 @@ public class SectorConstructor extends VBox {
                     jugador.agregarHerramienta(esquema.construir());
                     dibujarGrillaConstructor();
                     sectorConstruccionMateriales.actualizar();
+                    sectorHerramientas.actualizar();
                     //System.out.println(jugador.cantidadDeHerramientas());
                 } catch (NoExisteEsquemaException a) {
                     AlertBox.mostrar("No se pudo crear la herramienta, no existe esa combinacion de materiales ");

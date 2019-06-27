@@ -34,22 +34,23 @@ public class Main extends Application {
         
         this.ponerMusicaDeFondo();
         this.prepararMenuInicio();
-        this.prepararMapa();
+        this.prepararEscenaJuego();
 
         window.show();
     }
 
-    public void prepararMapa() {
+    public void prepararEscenaJuego() {
     	VistaMapa vistaMapa = VistaMapa.getInstancia();
 
     	VBox menuDerecha = new VBox();
     	menuDerecha.setSpacing(25);
     	menuDerecha.setPadding(new Insets(10, 50, 50, 50));
 
-        SectorConstructor sectorConstructor = new SectorConstructor(algoCraft.getJugador());
+        VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas(algoCraft.getJugador());
+        SectorConstructor sectorConstructor = new SectorConstructor(algoCraft.getJugador(), herramientas);
     	menuDerecha.getChildren().add(sectorConstructor);
 
-        VistaInventarioHerramientas herramientas = new VistaInventarioHerramientas(algoCraft.getJugador());
+
     	BorderPane borderpane = new BorderPane();
     	borderpane.setRight(menuDerecha);
     	borderpane.setBottom(herramientas);
