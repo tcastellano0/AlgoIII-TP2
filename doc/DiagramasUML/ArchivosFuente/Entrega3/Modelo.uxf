@@ -147,8 +147,8 @@ style=wordwrap</panel_attributes>
     <coordinates>
       <x>568</x>
       <y>408</y>
-      <w>192</w>
-      <h>184</h>
+      <w>224</w>
+      <h>200</h>
     </coordinates>
     <panel_attributes>/Material/
 --
@@ -160,11 +160,12 @@ style=wordwrap</panel_attributes>
 + getDurabilidad(): double
 + desgastar(): int
 + esGuardadoEn(jugador: Jugador)
-/+ esIgual(material:Material): bool/
-/+ esIgual(material:Madera: bool/
-/+ esIgual(material:Piedra): bool/
-/+ esIgual(material:Metal): bool/
-/+ esIgual(material:Diamante): bool/
+/+ esIgual(material:Material): boolean/
+/+ esIgual(material:Madera: boolean/
+/+ esIgual(material:Piedra): boolean/
+/+ esIgual(material:Metal): boolean/
+/+ esIgual(material:Diamante): boolean/
+/+ esIgual(material:MaterialNulo): boolean/
 </panel_attributes>
     <additional_attributes/>
   </element>
