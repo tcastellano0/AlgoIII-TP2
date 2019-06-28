@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>370</y>
+      <w>210</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>DurabilidadConUsos
+--
+- usosMax (Int)
+- usosActual (Int)
+--
++ desgastar(fuerza: Int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>190</y>
+      <w>180</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>/Durabilidad/
+--
+- durabilidad (Double)
+--
+/+ desgastar(fuerza: Int)/
++ getDurabilidad(): Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>370</y>
+      <w>210</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>DurabilidadConFactor
+--
+- factor (Double)
+--
++ desgastar(fuerza: Int)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>270</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;110.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>270</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>110.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Text</id>
+    <coordinates>
+      <x>430</x>
+      <y>110</y>
+      <w>400</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>Diagrama de Clases: Durabilidad
+fontsize=25
+style=wordwrap</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
