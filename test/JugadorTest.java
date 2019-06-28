@@ -235,5 +235,60 @@ public class JugadorTest {
 		assertEquals(jugador.cantidadDePicosDeMadera(), cantidadDePicosDeMadera);
 	}
 	
+	@Test
+	public void testJugadorSacaUnaMaderaDelInventarioYEsteReduceSuCantidad() {
+		Jugador jugador = new Jugador();
+		Madera madera = new Madera();
+		jugador.guardar(madera);
+		
+		int cantidadMaderas = jugador.cantidadDeMaderas();
+		
+		jugador.sacarUnaMadera();
+		
+		
+		assertEquals(jugador.cantidadDeMaderas(), cantidadMaderas - 1);
+	}
+	
+	@Test
+	public void testJugadorSacaUnaPierdraDelInventarioYEsteReduceSuCantidad() {
+		Jugador jugador = new Jugador();
+		Piedra piedra = new Piedra();
+		jugador.guardar(piedra);
+		
+		int cantidadPiedras = jugador.cantidadDePiedras();
+		
+		jugador.sacarUnaPiedra();
+		
+		
+		assertEquals(jugador.cantidadDeMaderas(), cantidadPiedras - 1);
+	}
+	
+	@Test
+	public void testJugadorSacaUnMetalDelInventarioYEsteReduceSuCantidad() {
+		Jugador jugador = new Jugador();
+		Metal metal = new Metal();
+		jugador.guardar(metal);
+		
+		int cantidadMetales = jugador.cantidadDeMetales();
+		
+		jugador.sacarUnMetal();
+		
+		
+		assertEquals(jugador.cantidadDeMetales(), cantidadMetales - 1);
+	}
+	
+	@Test
+	public void testJugadorSacaUnDiamanteDelInventarioYEsteReduceSuCantidad() {
+		Jugador jugador = new Jugador();
+		Diamante diamante = new Diamante();
+		jugador.guardar(diamante);
+		
+		int cantidadDiamantes = jugador.cantidadDeDiamantes();
+		
+		jugador.sacarUnDiamante();
+		
+		
+		assertEquals(jugador.cantidadDeMetales(), cantidadDiamantes - 1);
+	}
 	
 }
